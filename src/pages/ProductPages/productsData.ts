@@ -2225,5 +2225,103 @@ export const products = [
         }
       },
     ]
+  },
+  {
+    id: 'boulder-ideas',
+    name: 'BoulderIdeas',
+    tagline: 'A structured reflection installation that keeps the insights stacking up',
+    category: 'Boulder',
+    categoryHighlight: 'Ideas',
+    categoryColor: '#E26D4F',
+    heroVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/v1776350538/BoulderIdease_Compress_ayuits.mp4',
+    bgVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/v1776350538/BoulderIdease_Compress_ayuits.mp4',
+    tags: [
+      'Reflect & synthesize',
+      'Peer learning',
+      'Networking',
+    ],
+    thumbnail: 'https://res.cloudinary.com/dazzkestf/image/upload/v1776350761/DSC07165_rbkt0o.webp',
+    shortDescription: 'A structured reflection installation that keeps the insights stacking up',
+
+    filters: {
+      "type": [
+        "Interactive installation"
+      ],
+      "objectives": [
+        "Promote reflection and synthesis",
+        "Facilitate peer learning and dialogue",
+        "Foster connection and networking",
+      ],
+      "seating": [
+      ]
+    },
+
+    sections: [
+      { type: 'hero' },
+      {
+        type: 'details',
+        content: {
+          heading: "Great ideas and insights in the rush of a great event have a way of just floating off if we don't ground them and give them form. BoulderIdeas does just that with an intentional, endlessly adaptable structure designed for collecting, sharing, and showcasing attendee perspectives on key event content and themes.<br /><br />Attendees become active participants in extending high-value conversations beyond the main stage room and plenary sessions, and they see the promise of collected knowledge literalized as their ideas and insights stack up on the color-coded \"boulder\" installations in the informal space.",
+          features: [
+            'Interactive installation',
+            'Highly customizable',
+            'Adaptable to any floor plan',
+            'Available as a standalone rental',
+            'Looks great in event photos',
+          ]
+        }
+      },
+      {
+        type: 'grid',
+        content: {
+          items: [
+            { text: 'Activates an informal space' },
+            { text: 'Engages attendees in an ongoing exchange of perspectives on event themes and content' },
+            { text: 'Generates rich post-event output' },
+          ]
+        }
+      },
+      {
+        type: 'image',
+        content: {
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1776350761/DSC07253_chqzyy.webp'
+        }
+      },
+      {
+        type: 'how-it-works',
+        content: {
+          title: 'How it Works',
+          description: "Event organizers or session owners work with the Projectory team to define a set of themed prompts or focus areas for the activation. After specific sessions or at the end of a program day, attendees are invited to address prompts/focus areas to capture key ideas, insights, takeaways that have already surfaced during the event – and might be lost in the rush of further conversations if not given form and attention. This can be done individually or in small groups and can easily incorporate some shareout and pattern-identification if time/scale permits.<br /><br />Each idea or insight is captured on a color-coded block, and the blocks are assembled into \"boulder\" installations amassing collective knowledge for perusal and review in an informal space in the venue.",
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1776350761/DSC06092_lvuobm.webp'
+        }
+      },
+      {
+        type: 'objectives',
+        content: {
+          title: 'Objectives',
+          titleColor: '#BCCE2D, #148771',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1776350761/DSC07153_aqekop.webp',
+          objectives: [
+            'Promote reflection and synthesis',
+            'Facilitate peer learning and dialogue',
+            'Foster connection and networking',
+          ]
+        }
+      },
+      {
+        type: 'dataFeature',
+        content: {
+          title: 'Data Gathering',
+          description: 'BoulderIdeas functions during the event as a physical site of inspiration and exchange. The installation also functions as a knowledge/idea bank of information that can easily be woven back into later plenary sessions. When the event concludes, all of the amassed inputs can be digitized and analyzed for a follow-on synthesis report.',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521155/Projectory_FuturesMap_AI_SupportCompliance_zfd9hy_eqsyfx.png'
+        },
+      },
+      {
+        type: 'image',
+        content: {
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632828/1723554227767_mhebln.webp'
+        }
+      },
+    ]
   }
 ];
