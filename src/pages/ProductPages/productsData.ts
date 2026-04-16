@@ -2315,13 +2315,7 @@ export const products = [
           description: 'BoulderIdeas functions during the event as a physical site of inspiration and exchange. The installation also functions as a knowledge/idea bank of information that can easily be woven back into later plenary sessions. When the event concludes, all of the amassed inputs can be digitized and analyzed for a follow-on synthesis report.',
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521155/Projectory_FuturesMap_AI_SupportCompliance_zfd9hy_eqsyfx.png'
         },
-      },
-      {
-        type: 'image',
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632828/1723554227767_mhebln.webp'
-        }
-      },
+      }
     ]
   }
 ];
