@@ -214,6 +214,10 @@
   text-align: center;
 }
 
+.finalResponse > p {
+  margin: 0 0 1.5rem;
+}
+
 .finalResponse::after {
   content: "";
   position: absolute;
@@ -272,11 +276,19 @@
 }
 
 .msfLinkedInWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   padding: 2rem 1rem;
   border-radius: 12px;
   width: 100%;
   background-color: #272727;
   margin: 0 auto;
+}
+
+.msfLinkedInWrapper p {
+  margin: 0;
 }
 
 .msfFollowLink{
