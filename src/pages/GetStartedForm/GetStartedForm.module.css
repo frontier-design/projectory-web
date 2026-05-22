@@ -1,7 +1,7 @@
 /* src/pages/GetStartedForm/GetStartedForm.module.css */
 .container {
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,11 +97,11 @@
 
 .recommendedSection {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: var(--black);
     padding: 10vw;
-    max-width: 100vw;
+    max-width: 100%;
     overflow: hidden;
 }
 

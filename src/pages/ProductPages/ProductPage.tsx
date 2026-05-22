@@ -1,4 +1,6 @@
+import { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+import useEmblaCarousel from 'embla-carousel-react';
 import { products } from './productsData';
 
 import ProductHero from './components/ProductHero/ProductHero';
@@ -13,7 +15,7 @@ import FinalCTA from './components/FinalCTA/FinalCTA';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import DataFeature from './components/DataFeature/DataFeature';
 
-import { useLikedProducts } from '../../context/LikedProductsContext'; // <-- 1) import context
+import { useLikedProducts } from '../../context/LikedProductsContext';
 import HeartIconSVG from '../../assets/images/heartIcon.svg';
 import HeartIconSVG_Outline from '../../assets/images/heartIcon_outline.svg';
 
@@ -25,11 +27,36 @@ const ProductPage = () => {
 
   const { likedProducts, toggleLike } = useLikedProducts();
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'center',
+    containScroll: false,
+  });
+
+  const goPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const goNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const handleCarouselClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      if (clickX < rect.width / 2) {
+        goPrev();
+      } else {
+        goNext();
+      }
+    },
+    [goPrev, goNext],
+  );
+
   if (!product) {
     return <h2>Product Not Found</h2>;
   }
 
   const isLiked = likedProducts.includes(product.id);
+  const firstImageSectionIndex = product.sections.findIndex(
+    (section) => section.type === 'image'
+  );
 
   return (
     <div className={styles.productPage}>
@@ -39,7 +66,6 @@ const ProductPage = () => {
             return <ProductHero key={index} product={product} />;
           case 'details': {
             if (!section.content) return null;
-            // Ensure description exists - use heading as description if description is missing
             const detailsContent = {
               heading: ('heading' in section.content) ? (section.content.heading as string) : '',
               description: ('description' in section.content && section.content.description)
@@ -61,15 +87,51 @@ const ProductPage = () => {
           }
           case 'image': {
             if (!section.content || !section.content.imageUrl) return null;
+            const isPrimaryImage = index === firstImageSectionIndex;
+
+            if (isPrimaryImage) {
+              const baseImages: string[] =
+                (section.content.imageUrls as string[] | undefined) ||
+                [section.content.imageUrl as string];
+              const minSlides = Math.ceil(4 / baseImages.length);
+              const images: string[] = [];
+              for (let r = 0; r < minSlides; r++) {
+                images.push(...baseImages);
+              }
+
+              return (
+                <div key={index} className={styles.carousel} onClick={handleCarouselClick}>
+                  <div className={styles.carouselCursorLeft} />
+                  <div className={styles.carouselCursorRight} />
+
+                  <div className={styles.carouselViewport} ref={emblaRef}>
+                    <div className={styles.carouselTrack}>
+                      {images.map((imgUrl, i) => (
+                        <div key={i} className={styles.carouselSlide}>
+                          <img
+                            src={imgUrl}
+                            alt=""
+                            className={styles.carouselImage}
+                            draggable={false}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             const url = section.content.imageUrl;
             return (
-              <img
-                key={index}
-                src={url}
-                alt=""
-                className={styles.fullPageImage}
-                loading="lazy"
-              />
+              <div key={index}>
+                <img
+                  src={url}
+                  alt=""
+                  className={styles.fullPageImage}
+                  loading="lazy"
+                />
+              </div>
             );
           }
           case 'grid':

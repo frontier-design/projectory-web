@@ -51,7 +51,16 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648958/FM8A5082-Enhanced-NR_obbr37.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648958/FM8A5082-Enhanced-NR_obbr37.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648958/FM8A5082-Enhanced-NR_obbr37.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648961/455326506_1037605838366049_220134298242251458_n_bnwkuo.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471319/LME09185_mwwhwr.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471318/455326506_1037605838366049_220134298242251458_n_jjdjhj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471316/455278554_1037606311699335_4372730795563401026_n_umqrek.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471315/455094406_1037605398366093_156739667913828633_n_olqhv2.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471313/454997083_1037606878365945_1689770071917176007_n_ggjqrf.webp',
+          ]
         }
       },
       { 
@@ -180,7 +189,17 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649307/JLAR1846_mffgxr.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649307/JLAR1846_mffgxr.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649307/JLAR1846_mffgxr.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649350/WMG1252_comue2.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471171/WMG1250_zmdpke.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471169/Screenshot_2026-05-20_at_11.14.13_g4j1zr.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471168/P1013793-Enhanced-NR_af57c7.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471166/IMG_0502_dcfl0p.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471135/Flag_Finder_IMG_7293_qwj0td.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471134/DSC07451_amhm2q.webp',
+          ]
         }
       },
       { 
@@ -309,7 +328,18 @@ export const products = [
       {
         type: 'image',
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-0898_xjdz3z.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470001/Carousel_AlignByLine7_zcgoya.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470000/Carousel_AlignByLine6_uqp0jm.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470000/Carousel_AlignByLine5_g4spig.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779469999/Carousel_AlignByLine4_nfhfpo.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779469999/Carousel_AlignByLine3_js3v3b.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779469999/Carousel_AlignByLine2_u2odez.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779469998/Carousel_AlignByLine1_hasvpd.webp',
+          ]
         }
       },
       { 
@@ -435,10 +465,18 @@ export const products = [
           ]
         }
       },
-      {
-        type: 'image',
+      { 
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649923/IMG_7571_whdfmw.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649923/IMG_7571_whdfmw.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649923/IMG_7571_whdfmw.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649932/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_ybgiyf.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470595/15fd6b1c-07e8-4d24-aa0e-7fc510b095fe_bvur48.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470605/41879825-CDCE-442D-A54E-EDA2A9C073D9_sluccu.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470606/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_g1scvu.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470609/IMG_7371_nho0dw.webp',
+          ]
         }
       },
       { 
@@ -559,10 +597,17 @@ export const products = [
           ]
         }
       },
-      {
-        type: 'image',
+      { 
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648537/cma_conference4942_copy_efeqlj.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648537/cma_conference4942_copy_efeqlj.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648537/cma_conference4942_copy_efeqlj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648522/DZ9_9385_kgsqlo.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471406/FM8A5394_ebudjy.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471401/A1005087-199A-439B-80B9-8CC34A766397_rgdp2c.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471399/4-0J8A0355_posiu1.webp',
+          ]
         }
       },
       { 
@@ -695,10 +740,18 @@ export const products = [
           ]
         }
       },
-      {
-        type: 'image',
+      { 
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648102/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-09342_yujk0f.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648102/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-09342_yujk0f.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648102/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-09342_yujk0f.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648104/JGF_7547r_rvg8wj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471566/Screenshot_2026-05-20_at_11.13.55_xipfls.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471563/IMG_7345_gsk7el.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471561/FM8A5496_s1mqcw.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471559/DSC06717_jyhqew.webp',
+          ]
         }
       },
       { 
@@ -830,10 +883,17 @@ export const products = [
           ]
         }
       },
-      {
-        type: 'image',
+      { 
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647935/JGF_7470r_sjesc0.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647935/JGF_7470r_sjesc0.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647935/JGF_7470r_sjesc0.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647929/1732132446269_jevdgh.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471834/DSC07623_szxqwf.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471845/JGF_7446r_wqqydw.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471843/IMG_2464_hixbj2.webp',
+          ]
         }
       },
       { 
@@ -966,7 +1026,17 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647278/DZ9_7612_uqsjdg.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647278/DZ9_7612_uqsjdg.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647278/DZ9_7612_uqsjdg.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647298/32BB04E7-F947-4790-8384-6A81602305E0_qobqd6.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472028/72B3F185-B18F-4D02-B722-07CEB4C7790A_tagvlx.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472041/430096945_823462889811133_8172177926623091658_n_ywf9zz.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472044/Copy_of_Deloitte-June19th2024-0066_websize_ufuwxz.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472062/IMG_3993_icpp4g.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472066/IMG_5274_xf3aee.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472071/Screenshot_2026-05-20_at_11.13.49_bkmves.webp',
+          ]
         }
       },
       { 
@@ -1099,7 +1169,15 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746633354/Deloitte-June19th2024-0262_websize_pfipae.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746633354/Deloitte-June19th2024-0262_websize_pfipae.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746633354/Deloitte-June19th2024-0262_websize_pfipae.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746633352/Deloitte-June19th2024-0261_websize_xiiy7k.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473375/DB200209-2_wrpsj0.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473378/DB200265_tfjora.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473403/Deloitte_June_19_2024_kktqqo.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473406/Deloitte-June19th2024-0262_websize_x1avcm.webp',
+          ]
         }
       },
       { 
@@ -1231,7 +1309,16 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632826/Lifemark_b_691_hpg3p6.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632826/Lifemark_b_691_hpg3p6.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632826/Lifemark_b_691_hpg3p6.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632828/1723554227767_mhebln.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473590/Lifemark_b_686_hmmqis.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473585/IMG_8528_zjvqud.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473582/IMG_8137_eflhhd.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473579/IMG_6026_bx86qy.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473576/IMG_4906_xl64jx.webp',
+          ]
         }
       },
       { 
@@ -1366,9 +1453,16 @@ export const products = [
         }
       },
       { 
-        type: 'image',
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632158/exported_7823F1B9-022A-4F37-9732-CAC3D7ED090F_goygfn.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632158/exported_7823F1B9-022A-4F37-9732-CAC3D7ED090F_goygfn.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632159/FM8A5679_ty8vik.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779474719/exported_7823F1B9-022A-4F37-9732-CAC3D7ED090F_ao4t9n.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779474727/FM8A5569_yso9vu.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779474732/Gemini_Generated_Image_f7ow8ff7ow8ff7ow_psadjt.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779474743/Projectory_Image_5_fl6vak.webp',
+          ]
         }
       },
       { 
@@ -1500,7 +1594,16 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631572/FM8A5173-Enhanced-NR_1_h64pkz.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631570/IMG_8949_x83mc2.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631569/FM8A4715-Enhanced-NR_jue4l6.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631568/FM8A4480_zba8sl.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631567/IMG_9006_tgrnff.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631566/FM8A4417-Enhanced-NR_jqxd4i.webp',
+          ]
         }
       },
       { 
@@ -1620,9 +1723,16 @@ export const products = [
         }
       },
       { 
-        type: 'image',
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty2_xugnrk.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty2_xugnrk.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty2_xugnrk.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty1_zgw2nj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470361/Pic-938_vtabq3.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475445/BlockParty3_xlbixw.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty4_oxrvms.webp',
+          ]
         }
       },
       { 
@@ -1746,9 +1856,14 @@ export const products = [
         }
       },
       { 
-        type: 'image',
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749517942/PointingtheWay2_dilnez.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749517942/PointingtheWay2_dilnez.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749517942/PointingtheWay2_dilnez.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749517942/PointingtheWay3_hlzjgg.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779472377/Screenshot_2026-05-20_at_11.14.07_e2fffg.webp',
+          ]
         }
       },
       { 
@@ -1875,13 +1990,21 @@ export const products = [
           ]
         }
       },
-      { 
+      {
         type: 'image',
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749476247/54a1d7e1-5ca5-4eec-af66-7d3b26449d9e_taootl.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749476247/54a1d7e1-5ca5-4eec-af66-7d3b26449d9e_taootl.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749476247/54a1d7e1-5ca5-4eec-af66-7d3b26449d9e_taootl.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749476248/IMG_8971_jni2q8.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470989/c1172d47-149f-4e08-a47e-f697753f3d08_wzpnqi.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470991/IMG_7571_vhqk0f.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471032/IMG_8955_dr7obl.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471034/OPERATIONSWELCOME-5_hkxtjd.webp',
+          ]
         }
       },
-      { 
+      {
         type: 'how-it-works',
         content: {
           title: 'How it Works',
@@ -2013,9 +2136,14 @@ export const products = [
         }
       },
       { 
-        type: 'image',
+        type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1753886312/Roll_Play_Socials_IP_V3.01_00_00_16.Still001_mbzjsy.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1753886312/Roll_Play_Socials_IP_V3.01_00_00_16.Still001_mbzjsy.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1753886312/Roll_Play_Socials_IP_V3.01_00_00_16.Still001_mbzjsy.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1753886313/Roll_Play_Socials_IP_V3.01_00_26_22.Still009_wvwjwt.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779474664/D7406657_x6stdp.webp',
+          ]
         }
       },
       { 
@@ -2096,7 +2224,13 @@ export const products = [
       {
         type: 'image',
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740486/LaserFocus_5_rlr9ue.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740486/LaserFocus_5_rlr9ue.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740486/LaserFocus_5_rlr9ue.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740486/LaserFocus_3_acmfmt.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471748/LaserFocus_1_msss2w.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471757/LaserFocus_3_ji8vwr.webp',
+          ]
         }
       },
       {
@@ -2186,7 +2320,17 @@ export const products = [
       {
         type: 'image',
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740637/RampUP_5_rk5iv5.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740637/RampUP_5_rk5iv5.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740637/RampUP_5_rk5iv5.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740636/RampUP_3_yobb1z.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473480/CLOSINGREMARKS15_czkmgg.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473483/IMG_4199_uaiore.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473486/IMG_4775_xzenah.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473489/Projectory_RampUP_5_vjxb2y.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473491/RampUP_2_yulgwb.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779473494/RampUP_4_from_Projectory_mvihd3.webp',
+          ]
         }
       },
       {
@@ -2284,7 +2428,13 @@ export const products = [
       {
         type: 'image',
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1776350761/DSC07253_chqzyy.webp'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1776350761/DSC07253_chqzyy.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470511/Projectory_DSC07253_brisc0.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470509/DSC07173_ipicmf.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470508/DSC07165_qluo2l.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779470507/DSC06088_tlxxci.webp',
+          ]
         }
       },
       {

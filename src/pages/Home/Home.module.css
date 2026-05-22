@@ -36,7 +36,7 @@ iframe {
 }
 
 .homeSection {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: sticky;
     top: 0;
@@ -58,7 +58,7 @@ iframe {
 
 .videoSlides {
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
@@ -220,7 +220,7 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     padding: 0 50px;
 }
@@ -240,7 +240,7 @@ iframe {
     justify-content: center;
     flex-direction: column;
     background-color: var(--background-dark-gray);
-    width: calc(100vw - 100px);
+    width: calc(100% - 100px);
     border-radius: 25px;
     margin: auto;
     ;
@@ -314,7 +314,7 @@ iframe {
     }
 
     .homeSection {
-        width: 100vw;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -322,7 +322,7 @@ iframe {
     }
 
     .videoSlides {
-        width: 100vw;
+        width: 100%;
         height: 100vh;
     }
 
@@ -419,7 +419,7 @@ iframe {
     }
 
     .secondarySizzleWrapper {
-        width: calc(100vw - 40px);
+        width: calc(100% - 40px);
     }
 
     .secondarySizzleTitle {
@@ -454,7 +454,7 @@ iframe {
     }
 
     .secondarySizzleWrapper {
-        width: calc(100vw - 200px);
+        width: calc(100% - 200px);
     }
 
     .secondarySizzle h2 {

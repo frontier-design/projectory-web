@@ -1,0 +1,27 @@
+---
+description: Product page carousel imageUrls update pattern in productsData.ts
+globs: src/pages/ProductPages/productsData.ts
+alwaysApply: false
+---
+
+# Product carousel images
+
+When updating a product's carousel in `productsData.ts` (first `type: 'image'` section with `imageUrls`):
+
+1. **Keep existing carousel images first** — preserve every URL already in `imageUrls` (or the lone `imageUrl` if `imageUrls` was absent) in their original order.
+2. **Append new images after** — add newly provided Cloudinary URLs at the end of the array.
+3. **Set `imageUrl` to the first original image** — the carousel's opening slide stays the pre-update primary image, not a new upload.
+4. **Use `f_auto,q_auto`** on all URLs for consistency.
+5. **Do not replace** the carousel list with only new images unless the user explicitly asks to remove old ones.
+
+Example:
+
+```ts
+imageUrl: '<first-original>',
+imageUrls: [
+  '<original-1>',
+  '<original-2>',
+  '<new-1>',
+  '<new-2>',
+],
+```

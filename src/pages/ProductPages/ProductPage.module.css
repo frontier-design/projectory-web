@@ -10,15 +10,93 @@
     z-index: 999999;
 }
 
-.fullPageImage {
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
+/* ── Carousel (featured first image section) ── */
+
+.carousel {
+    --slide-width: 60vw;
+    --slide-gap: 20px;
+    --side-peek: calc((100% - var(--slide-width)) / 2);
+    width: 100%;
+    position: relative;
+    margin-bottom: 130px;
+}
+
+.carousel::before,
+.carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--side-peek);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #0A0A0A, transparent);
+}
+
+.carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #0A0A0A, transparent);
+}
+
+.carouselViewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carouselTrack {
+    display: flex;
+}
+
+.carouselSlide {
+    flex: 0 0 var(--slide-width);
+    min-width: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: calc(var(--slide-gap) / 2);
+    margin-right: calc(var(--slide-gap) / 2);
+}
+
+.carouselImage {
+    width: 100%;
+    height: 75vh;
     object-fit: cover;
     display: block;
-    margin-bottom: 130px;
+}
+
+.carouselCursorLeft,
+.carouselCursorRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.carouselCursorLeft {
+    left: 0;
+    cursor: w-resize;
+}
+
+.carouselCursorRight {
+    right: 0;
+    cursor: e-resize;
+}
+
+/* ── Non-carousel images ── */
+
+.fullPageImage {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+    display: block;
     border-radius: 20px;
-  }
+    margin-bottom: 130px;
+}
 
 .floatingLikeButton {
     position: fixed;
@@ -64,8 +142,21 @@
 }
 
 @media screen and (max-width: 768px) {
+    .carousel {
+        --slide-width: 91%;
+        --slide-gap: 32px;
+        margin-bottom: 60px;
+    }
+
+    .carouselImage {
+        height: auto;
+        max-height: none;
+    }
+
     .fullPageImage {
         width: 91%;
+        height: auto;
+        max-height: none;
         margin-top: 50px;
     }
 }

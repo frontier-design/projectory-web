@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useLikedProducts } from '../../context/LikedProductsContext';
 import { products } from '../../pages/ProductPages/productsData';
 import { Link, useNavigate } from 'react-router-dom';
@@ -11,6 +11,10 @@ interface SlideInMenuProps {
 }
 
 const SlideInMenu: React.FC<SlideInMenuProps> = ({ onClose, isOpen }) => {
+  if (!isOpen) {
+    return null;
+  }
+
   const { likedProducts, toggleLike } = useLikedProducts();
   const likedItems = products.filter((p) => likedProducts.includes(p.id));
   const productsCount = likedItems.length;
@@ -23,32 +27,10 @@ const SlideInMenu: React.FC<SlideInMenuProps> = ({ onClose, isOpen }) => {
     headingText = `You have ${productsCount} product${productsCount !== 1 ? 's' : ''} selected. Continue to get an estimate for your selected products.`;
   }
 
-  const [menuTransform, setMenuTransform] = useState(
-    isOpen ? 'translateX(0)' : 'translateX(100%)'
-  );
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isOpen) {
-      setMenuTransform('translateX(0)');
-    } else {
-      setMenuTransform('translateX(100%)');
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
-    console.log('[SlideInMenu] menuTransform changed to:', menuTransform);
-  }, [menuTransform]);
-
   return (
-    <div
-      className={`${styles.slideInMenu} ${isOpen ? styles.open : ''}`}
-      style={{
-        transform: menuTransform,
-        transition: 'transform 0.3s ease',
-      }}
-    >
+    <div className={styles.slideInMenu}>
       <button onClick={onClose} className={styles.closeButton}>
         <FiX />
       </button>
@@ -88,7 +70,6 @@ const SlideInMenu: React.FC<SlideInMenuProps> = ({ onClose, isOpen }) => {
               <button
                 className={styles.removeButton}
                 onClick={() => {
-                  console.log(`Removing product: ${prod.id}`);
                   toggleLike(prod.id);
                 }}
               >
