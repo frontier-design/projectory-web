@@ -19,6 +19,7 @@
     width: 100%;
     position: relative;
     margin-bottom: 130px;
+    cursor: none;
 }
 
 .carousel::before,
@@ -67,23 +68,38 @@
     display: block;
 }
 
-.carouselCursorLeft,
-.carouselCursorRight {
+.carouselCursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    will-change: transform, opacity;
+    transition: opacity 0.2s ease-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cursorArrow {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
 }
 
-.carouselCursorLeft {
-    left: 0;
-    cursor: w-resize;
+.cursorArrowRight {
+    transform: translate(-60%, -50%) rotate(45deg);
 }
 
-.carouselCursorRight {
-    right: 0;
-    cursor: e-resize;
+.cursorArrowLeft {
+    transform: translate(-40%, -50%) rotate(-135deg);
 }
 
 /* ── Non-carousel images ── */
@@ -146,6 +162,7 @@
         --slide-width: 91%;
         --slide-gap: 32px;
         margin-bottom: 60px;
+        cursor: auto;
     }
 
     .carouselImage {

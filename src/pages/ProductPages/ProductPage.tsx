@@ -1,5 +1,6 @@
-import { useCallback } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ReactDOM from 'react-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import { products } from './productsData';
 
@@ -48,6 +49,54 @@ const ProductPage = () => {
     },
     [goPrev, goNext],
   );
+
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  const [cursorActive, setCursorActive] = useState(false);
+  const [cursorVisible, setCursorVisible] = useState(false);
+  const [cursorSide, setCursorSide] = useState<'left' | 'right'>('right');
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el || isMobile) return;
+
+    const onMove = (e: PointerEvent) => {
+      const rect = el.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+
+      if (inside) {
+        setCursorPos({ x: e.clientX, y: e.clientY });
+        setCursorSide(e.clientX - rect.left < rect.width / 2 ? 'left' : 'right');
+        if (!cursorActive) {
+          setCursorActive(true);
+          setCursorVisible(true);
+        }
+      } else if (cursorActive) {
+        setCursorVisible(false);
+        setTimeout(() => setCursorActive(false), 200);
+      }
+    };
+
+    const onLeave = () => {
+      setCursorVisible(false);
+      setTimeout(() => setCursorActive(false), 200);
+    };
+
+    window.addEventListener('pointermove', onMove, { passive: true });
+    el.addEventListener('pointerleave', onLeave);
+    document.addEventListener('mouseleave', onLeave);
+
+    return () => {
+      window.removeEventListener('pointermove', onMove);
+      el.removeEventListener('pointerleave', onLeave);
+      document.removeEventListener('mouseleave', onLeave);
+    };
+  }, [isMobile, cursorActive]);
 
   if (!product) {
     return <h2>Product Not Found</h2>;
@@ -100,10 +149,7 @@ const ProductPage = () => {
               }
 
               return (
-                <div key={index} className={styles.carousel} onClick={handleCarouselClick}>
-                  <div className={styles.carouselCursorLeft} />
-                  <div className={styles.carouselCursorRight} />
-
+                <div key={index} className={styles.carousel} onClick={handleCarouselClick} ref={carouselRef}>
                   <div className={styles.carouselViewport} ref={emblaRef}>
                     <div className={styles.carouselTrack}>
                       {images.map((imgUrl, i) => (
@@ -267,6 +313,21 @@ const ProductPage = () => {
         Click the heart to save it for later!
       </div>
       </div>
+
+      {cursorActive && !isMobile && ReactDOM.createPortal(
+        <div
+          className={styles.carouselCursor}
+          style={{
+            left: `${cursorPos.x}px`,
+            top: `${cursorPos.y}px`,
+            opacity: cursorVisible ? 1 : 0,
+            transform: `translate(-50%, -50%) scale(${cursorVisible ? 1 : 0.8})`,
+          }}
+        >
+          <div className={`${styles.cursorArrow} ${cursorSide === 'left' ? styles.cursorArrowLeft : styles.cursorArrowRight}`} />
+        </div>,
+        document.body
+      )}
     </div>
   );
 };
