@@ -159,8 +159,8 @@
 
 @media screen and (max-width: 768px) {
     .carousel {
-        --slide-width: 91%;
-        --slide-gap: 32px;
+        --slide-width: 84%;
+        --slide-gap: 14px;
         margin-bottom: 60px;
         cursor: auto;
     }
