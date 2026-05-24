@@ -56,7 +56,6 @@ export const products = [
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648958/FM8A5082-Enhanced-NR_obbr37.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648961/455326506_1037605838366049_220134298242251458_n_bnwkuo.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471319/LME09185_mwwhwr.webp',
-            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471318/455326506_1037605838366049_220134298242251458_n_jjdjhj.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471316/455278554_1037606311699335_4372730795563401026_n_umqrek.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471315/455094406_1037605398366093_156739667913828633_n_olqhv2.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1779471313/454997083_1037606878365945_1689770071917176007_n_ggjqrf.webp',
