@@ -165,9 +165,13 @@
         cursor: auto;
     }
 
+    .carouselSlide {
+        aspect-ratio: 4 / 5;
+    }
+
     .carouselImage {
-        height: auto;
-        max-height: none;
+        height: 100%;
+        object-fit: cover;
     }
 
     .fullPageImage {

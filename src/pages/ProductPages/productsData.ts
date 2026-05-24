@@ -84,12 +84,6 @@ export const products = [
         }
       },
       { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648961/455326506_1037605838366049_220134298242251458_n_bnwkuo.webp'
-        }
-      },
-      { 
         type: 'pricing',
         content: {
           plans: [
@@ -220,12 +214,6 @@ export const products = [
             'Facilitate peer learning and dialogue',
             'Visualize collective insights',
           ]
-        }
-      },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649350/WMG1252_comue2.webp'
         }
       },
       { 
@@ -362,13 +350,7 @@ export const products = [
           ]
         }
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-0898_xjdz3z.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -498,13 +480,7 @@ export const products = [
           ]
         }
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649932/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_ybgiyf.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -638,13 +614,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dduchyyhf/image/upload/v1747771328/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648522/DZ9_9385_kgsqlo.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -782,13 +752,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521155/Projectory_FuturesMap_AI_SupportCompliance_zfd9hy_eqsyfx.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648104/JGF_7547r_rvg8wj.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -924,13 +888,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521158/Projectory_FuturesMap_AI_DigitalAssistants_diavvo_eyrxf0.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647929/1732132446269_jevdgh.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1068,12 +1026,6 @@ export const products = [
         }, 
       },
       { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746647298/32BB04E7-F947-4790-8384-6A81602305E0_qobqd6.webp'
-        }
-      },
-      { 
         type: 'pricing',
         content: {
           plans: [
@@ -1208,13 +1160,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dduchyyhf/image/upload/v1747771328/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746633352/Deloitte-June19th2024-0261_websize_xiiy7k.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1349,13 +1295,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521155/Projectory_FuturesMap_AI_SupportCompliance_zfd9hy_eqsyfx.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632828/1723554227767_mhebln.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1493,13 +1433,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521158/Projectory_FuturesMap_AI_DigitalAssistants_diavvo_eyrxf0.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746632159/FM8A5679_ty8vik.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1633,13 +1567,7 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521156/Projectory_FuturesMap_AI_ChatbotsCustomerService_V2_uhijpi_qpydpr.png'
         }, 
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631572/FM8A5173-Enhanced-NR_1_h64pkz.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1754,13 +1682,7 @@ export const products = [
           ]
         }
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749475446/BlockParty1_zgw2nj.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
@@ -1886,13 +1808,7 @@ export const products = [
           ]
         }
       },
-      { 
-        type: 'image', 
-        content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749517942/PointingtheWay3_hlzjgg.webp'
-        }
-      },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
