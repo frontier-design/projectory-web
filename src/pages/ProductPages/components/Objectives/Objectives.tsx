@@ -1,4 +1,5 @@
 import styles from './Objectives.module.css';
+import CloudinaryImage from '../../../../components/CloudinaryImage/CloudinaryImage';
 
 interface ObjectivesProps {
   title: string;
@@ -11,7 +12,7 @@ const Objectives = ({ title, titleColor, imageUrl, objectives }: ObjectivesProps
   return (
     <section className={styles.objectivesWrapper}>
       <div className={styles.imageContainer}>
-        <img src={imageUrl} alt="Event" className={styles.objectivesImage} />
+        <CloudinaryImage src={imageUrl} alt="Event" className={styles.objectivesImage} />
       </div>
 
       <div className={styles.textContent}>

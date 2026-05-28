@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styles from './ProductHero.module.css';
+import CloudinaryImage from '../../../../components/CloudinaryImage/CloudinaryImage';
 
 interface Product {
   id: string;
@@ -53,7 +54,7 @@ const ProductHero = ({ product }: { product: Product | null }) => {
         <div className={styles.productHeroContentRight}>
           <div className={styles.logoContainer}>
             {product.clientLogo && (
-              <img src={product.clientLogo} alt="Client Logo" className={styles.clientLogo} />
+              <CloudinaryImage src={product.clientLogo} alt="Client Logo" className={styles.clientLogo} />
             )}
           </div>
         </div>

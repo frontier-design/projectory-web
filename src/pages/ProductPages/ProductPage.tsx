@@ -19,6 +19,7 @@ import DataFeature from './components/DataFeature/DataFeature';
 import { useLikedProducts } from '../../context/LikedProductsContext';
 import HeartIconSVG from '../../assets/images/heartIcon.svg';
 import HeartIconSVG_Outline from '../../assets/images/heartIcon_outline.svg';
+import CloudinaryImage from '../../components/CloudinaryImage/CloudinaryImage';
 
 import styles from './ProductPage.module.css';
 
@@ -154,7 +155,7 @@ const ProductPage = () => {
                     <div className={styles.carouselTrack}>
                       {images.map((imgUrl, i) => (
                         <div key={i} className={styles.carouselSlide}>
-                          <img
+                          <CloudinaryImage
                             src={imgUrl}
                             alt=""
                             className={styles.carouselImage}
@@ -171,7 +172,7 @@ const ProductPage = () => {
             const url = section.content.imageUrl;
             return (
               <div key={index}>
-                <img
+                <CloudinaryImage
                   src={url}
                   alt=""
                   className={styles.fullPageImage}

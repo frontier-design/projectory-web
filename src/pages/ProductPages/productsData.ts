@@ -611,7 +611,7 @@ export const products = [
         content: {
           title: 'Data Gathering',
           description: 'FuturesWeb functions as a thematically aligned, anonymized five-question survey of attendee opinions and priorities. All responses can be digitized, analyzed, and shared in post-event reports.',
-          imageUrl: 'https://res.cloudinary.com/dduchyyhf/image/upload/v1747771328/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda.png'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521161/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda_jqjfqz.png'
         }, 
       },
       {
@@ -1157,7 +1157,7 @@ export const products = [
         content: {
           title: 'Data Gathering',
           description: 'PriorityPathways functions as a thematically aligned, anonymized survey of attendee opinions and priorities. All responses can be digitized, analyzed, and shared in post-event reports.',
-          imageUrl: 'https://res.cloudinary.com/dduchyyhf/image/upload/v1747771328/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda.png'
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521161/Projectory_FuturesMap_RoboAdvisors_WealthManagement_fuehda_jqjfqz.png'
         }, 
       },
       {
@@ -1489,7 +1489,7 @@ export const products = [
     heroVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/q_auto/v1746457032/Vision_Forest_Website_IP_V5_Final_Colour_Pass_qm3teo.mp4',
     bgVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/q_auto/v1746457032/Vision_Forest_Website_IP_V5_Final_Colour_Pass_qm3teo.mp4',
     tags: ['Reflect & synthesize', 'Visualize insights'],
-    thumbnail: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp',
+    thumbnail: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631570/IMG_8949_x83mc2.webp',
     shortDescription: 'An installation that lets you wander (and wonder) through future visions',
   
     filters: {
@@ -1527,10 +1527,8 @@ export const products = [
       { 
         type: 'image', 
         content: {
-          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631570/IMG_8949_x83mc2.webp',
           imageUrls: [
-            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631571/FM8A4743-Enhanced-NR_1_swnkt5.webp',
-            'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631572/FM8A5173-Enhanced-NR_1_h64pkz.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631570/IMG_8949_x83mc2.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631569/FM8A4715-Enhanced-NR_jue4l6.webp',
             'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746631568/FM8A4480_zba8sl.webp',

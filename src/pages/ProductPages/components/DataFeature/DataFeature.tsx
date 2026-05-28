@@ -1,4 +1,5 @@
 import styles from './DataFeature.module.css';
+import CloudinaryImage from '../../../../components/CloudinaryImage/CloudinaryImage';
 
 interface DataFeatureProps {
   title: string;
@@ -16,7 +17,7 @@ const DataFeature = ({ title, description, imageUrl }: DataFeatureProps) => {
       </div>
 
       <div className={styles.imageContainer}>
-        <img src={imageUrl} alt="Data Representation" />
+        <CloudinaryImage src={imageUrl} alt="Data Representation" />
       </div>
     </section>
   );

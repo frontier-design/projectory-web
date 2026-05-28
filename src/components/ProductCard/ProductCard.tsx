@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 import { useLikedProducts } from '../../context/LikedProductsContext';
 import { optimizeCloudinaryUrl } from '../../utils/cloudinaryHelpers';
+import CloudinaryImage from '../CloudinaryImage/CloudinaryImage';
 import HeartIconSVG from '../../assets/images/heartIcon.svg';
 import HeartIconSVG_Outline from '../../assets/images/heartIcon_outline.svg';
 
@@ -87,7 +88,7 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
       style={{ zIndex: isHovered ? 2 : 1 }}
     >
       <div className={styles.bgLayer}>
-        <img
+        <CloudinaryImage
           className={styles.bgImage}
           src={optimizedThumbnail}
           alt={product.name}

@@ -1,4 +1,5 @@
 import styles from './CaseStudyHighlight.module.css';
+import CloudinaryImage from '../../../../components/CloudinaryImage/CloudinaryImage';
 
 interface CaseStudyHighlightProps {
   title: string;
@@ -32,7 +33,7 @@ const CaseStudyHighlight = ({
 
       {/* 🔹 Right Section (Image & Overlay Text) */}
       <div className={styles.caseStudyImageWrapper}>
-        <img src={caseStudyImage} alt="Case Study" className={styles.caseStudyImage} />
+        <CloudinaryImage src={caseStudyImage} alt="Case Study" className={styles.caseStudyImage} />
         <div className={styles.imageOverlay}></div> 
         <div className={styles.overlayText}>
           <h3>{caseStudyTitle}</h3>
