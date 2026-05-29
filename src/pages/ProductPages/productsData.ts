@@ -2380,5 +2380,121 @@ export const products = [
         },
       }
     ]
+  },
+  {
+    id: 'fortune-builder',
+    name: 'FortuneBuilder',
+    tagline: 'A visionary installation that puts the future in your hands',
+    category: 'Fortune',
+    categoryHighlight: 'Builder',
+    categoryColor: '#E26D4F',
+    heroVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/v1779993505/fortuneBuilder_yqoucp.mp4',
+    bgVideo: 'https://res.cloudinary.com/dazzkestf/video/upload/v1779993505/fortuneBuilder_yqoucp.mp4',
+    tags: ['Inspire creativity', 'Networking', 'Peer learning'],
+    thumbnail: 'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_5_llzlm1.webp',
+    shortDescription: 'A visionary installation that puts the future in your hands',
+
+    filters: {
+      "type": [
+        "Interactive installation"
+      ],
+      "objectives": [
+        "Inspire forward thinking and creativity",
+        "Foster connection and networking",
+        "Facilitate peer learning and dialogue",
+      ],
+      "seating": [
+      ]
+    },
+
+    sections: [
+      { type: 'hero' },
+      {
+        type: 'details',
+        content: {
+          heading: 'The FortuneBuilder bridges worlds. It connects the present with the possible. Fears with hopes. Key challenges with creative capacities. And it gets attendees talking!<br /><br />FortuneBuilder uses simple attendee input to generate a custom set of "misfortunes" - unfavorable fates that your organization could reach if attendees do not engage as active participants in collaboratively scripting and shaping a better future today. Think Zoltar from Big meets a strategic pre-mortem, and you will be in the right zone.',
+          features: [
+            'Interactive installation',
+            'Highly customizable',
+            'Adaptable to any floor plan',
+            'Available as a standalone rental',
+            'Looks great in event photos',
+          ]
+        }
+      },
+      {
+        type: 'grid',
+        content: {
+          items: [
+            { text: 'Activates an informal space' },
+            { text: 'Sparks unexpected conversations on event themes and content' },
+            { text: 'Generates rich post-event output' },
+          ]
+        }
+      },
+      {
+        type: 'image',
+        content: {
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_5_llzlm1.webp',
+          imageUrls: [
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_5_llzlm1.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_4_an82qj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993309/FortuneBuilder_6_xgn6wj.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_3_hk0tdq.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_2_a7kxxe.webp',
+            'https://res.cloudinary.com/dazzkestf/image/upload/v1779993307/FortuneBuilder_1_glhnzw.webp',
+          ]
+        }
+      },
+      {
+        type: 'how-it-works',
+        content: {
+          title: 'How it Works',
+          description: 'Leading up to or early in the program, attendees access a quick, anonymous survey that asks them about challenges facing their organization or industry. That input, along with information provided by the event organizer, is used to generate a custom set of "misfortunes" that will be distributed to participants via a mysterious, eye-catching machine installed outside the plenary room.<br /><br />Each participant who interacts with the machine receives a possible "misfortune" that they become responsible for averting. The misfortune card asks them to identify one critical thing that could be done today to steer the organization or industry away from misfortune and toward its best possible future.<br /><br />An additional layer can be added to the interaction inviting participants to place their cards on a visual map indicating the plausibility/likelihood of the misfortune, the feasibility of the proposed action step, or similar. As the cards collect, patterns emerge to suggest insights about future threats, potential solutions, and no-regrets moves to be taken in the near term.',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_4_an82qj.webp'
+        }
+      },
+      {
+        type: 'objectives',
+        content: {
+          title: 'Objectives',
+          titleColor: '#BCCE2D, #148771',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/c_fill,ar_16:9,g_auto/v1779993308/FortuneBuilder_3_hk0tdq.webp',
+          objectives: [
+            'Inspire forward thinking and creativity',
+            'Foster connection and networking',
+            'Facilitate peer learning and dialogue',
+          ]
+        }
+      },
+      {
+        type: 'dataFeature',
+        content: {
+          title: 'Data Gathering',
+          description: 'The FortuneBuilder interaction collects a rich, layered dataset. First, the input on org/industry challenges as perceived by attendees. Second, the digitized responses on all completed misfortune cards are digitized, which capture attendee input on possible solutions, actions to be taken, and - looking across the whole set - potential "no-regrets" moves.<br /><br />If the installation includes the mapping option, the post-event dataset also includes the attendees\' assessment of the plausibility/likelihood of the various misfortunes, the feasibility of the proposed action steps, or similar.',
+          imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/v1779993308/FortuneBuilder_4_an82qj.webp'
+        },
+      },
+      {
+        type: 'pricing',
+        content: {
+          plans: [
+            {
+              title: 'Bring us in',
+              price: '14,000',
+              description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
+              features: [
+                'End-to-end production and delivery',
+                'Onsite facilitator and support',
+                'Live collaboration with your team',
+                'White-glove logistics management',
+                'Theming and content integration',
+                '24/7 dedicated account manager'
+              ]
+            }
+          ]
+        }
+      }
+    ]
   }
 ];

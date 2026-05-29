@@ -8,12 +8,14 @@ interface DataFeatureProps {
 }
 
 const DataFeature = ({ title, description, imageUrl }: DataFeatureProps) => {
+  const normalizedDescription = description.replace(/<br\s*\/?>/gi, '\n');
+
   return (
     <section className={styles.dataFeatureWrapper}>
       {/* 🔹 Text Content */}
       <div className={styles.textContent}>
         <h2 className={styles.gradientText}>{title}</h2>
-        <p>{description}</p>
+        <p>{normalizedDescription}</p>
       </div>
 
       <div className={styles.imageContainer}>
