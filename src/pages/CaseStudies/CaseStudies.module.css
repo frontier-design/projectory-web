@@ -98,7 +98,7 @@
   width: 100%;
   height: 600px;
   overflow: hidden;
-  background: #000;
+  background: var(--black);
 }
 
 .image {
@@ -147,7 +147,7 @@
 }
 
 .caseStudyButton:hover {
-  background-color: black;
+  background-color: var(--black);
   color: #fff;
   border: 1px solid white;
 }

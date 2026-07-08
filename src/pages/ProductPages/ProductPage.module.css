@@ -35,12 +35,12 @@
 
 .carousel::before {
     left: 0;
-    background: linear-gradient(to right, #0A0A0A, transparent);
+    background: linear-gradient(to right, var(--black), transparent);
 }
 
 .carousel::after {
     right: 0;
-    background: linear-gradient(to left, #0A0A0A, transparent);
+    background: linear-gradient(to left, var(--black), transparent);
 }
 
 .carouselViewport {

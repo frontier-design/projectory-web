@@ -7,7 +7,7 @@ import logo from '../../assets/images/logo.svg';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';
-import HeartIconSVG from '../../assets/images/heartIcon.svg';
+import HeartIconNavSVG from '../../assets/images/heartIconNav.svg';
 
 // Slide-in menu
 import SlideInMenu from '../SlideInMenu/SlideInMenu';
@@ -36,73 +36,66 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      <div className={styles.navShell}>
       <div className={styles.navContent}>
         {/* Logo */}
         <Link to="/" className={styles.logo}>
           <img src={logo} alt="Projectory Logo" className={styles.logoImage} />
         </Link>
 
-        {/* Desktop Menu */}
-        <ul className={styles.desktopNav}>
-          <li><Link to="/who-we-are">Who We Are</Link></li>
-          <li><Link to="/products">Products</Link></li>
-          <li><Link to="/case-studies">Case Studies</Link></li>
-          <li>
+        <div className={styles.navRight}>
+          <ul className={styles.desktopNav}>
+            <li><Link to="/who-we-are">Who We Are</Link></li>
+            <li><Link to="/products">Products</Link></li>
+            <li><Link to="/case-studies">Case Studies</Link></li>
+          </ul>
+
+          <div className={styles.navActions}>
             <Link to="/get-started" className={styles.ctaButton}>
-              Get Started
+              <span className={styles.ctaButtonLabel}>Get Started</span>
             </Link>
-          </li>
-          <li>
-            <button
-              className={styles.slideInToggleBtn}
-              onClick={() => setIsSlideInOpen(true)}
-              style={{ display: hasLikedProducts ? 'block' : 'none' }}
-            >
-              <div className={styles.heartIconWrapper}>
+            {hasLikedProducts && (
+              <button
+                className={`${styles.slideInToggleBtn} ${styles.likeButtonReveal}`}
+                onClick={() => setIsSlideInOpen(true)}
+                aria-label="Liked products"
+              >
                 <img
                   className={styles.heartIcon}
-                  src={HeartIconSVG}
-                  alt="Liked Products"
+                  src={HeartIconNavSVG}
+                  alt=""
                 />
-                {hasLikedProducts && (
-                  <span className={styles.heartBadge}>
-                    {likedProducts.length}
-                  </span>
-                )}
-              </div>
-            </button>
-          </li>
-        </ul>
+              </button>
+            )}
+          </div>
+        </div>
 
         {/* Mobile toggles */}
         <div className={styles.mobileMenuWrapper}>
-          <button
-            className={styles.slideInToggleBtnMobile}
-            onClick={() => {
-              setMenuOpen(false);
-              setIsSlideInOpen(true);
-            }}
-            style={{ display: hasLikedProducts ? 'block' : 'none' }}
-          >
-            <div className={styles.heartIconWrapper}>
+          {hasLikedProducts && (
+            <button
+              className={`${styles.slideInToggleBtnMobile} ${styles.likeButtonReveal}`}
+              onClick={() => {
+                setMenuOpen(false);
+                setIsSlideInOpen(true);
+              }}
+              aria-label="Liked products"
+            >
               <img
                 className={styles.heartIcon}
-                src={HeartIconSVG}
-                alt="Liked Products"
+                src={HeartIconNavSVG}
+                alt=""
               />
-              {hasLikedProducts && (
-                <span className={styles.heartBadge}>
-                  {likedProducts.length}
-                </span>
-              )}
-            </div>
-          </button>
+            </button>
+          )}
 
           <button className={styles.menuToggle} onClick={toggleMenu}>
             {menuOpen ? <FiX className={styles.menuIcon} /> : <FiMenu className={styles.menuIcon} />}
           </button>
         </div>
+      </div>
       </div>
 
       {/* Mobile Menu */}
@@ -129,7 +122,7 @@ const Navbar = () => {
               className={styles.mobileCtaButton}
               onClick={() => setMenuOpen(false)}
             >
-              Get Started
+              <span className={styles.ctaButtonLabel}>Get Started</span>
             </Link>
           </li>
         </ul>
@@ -160,12 +153,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Slide-In Menu */}
-      <SlideInMenu
-        isOpen={isSlideInOpen}
-        onClose={() => setIsSlideInOpen(false)}
-      />
     </nav>
+
+    <SlideInMenu
+      isOpen={isSlideInOpen}
+      onClose={() => setIsSlideInOpen(false)}
+    />
+    </>
 );
 }
 
