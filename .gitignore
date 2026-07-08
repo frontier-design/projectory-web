@@ -24,3 +24,16 @@ dist-ssr
 *.sw?
 docs/
 docs/
+
+.claude
+.cursor
+CLAUDE.md
+
+# Secrets & local config — never commit
+.env
+.env.*
+!.env.example
+.vercel
+
+# Contains participant PII (emails) — keep local only
+backupData.json

@@ -2,9 +2,9 @@
 const CONFIG = (function () {
   const properties = PropertiesService.getScriptProperties();
   return {
-    API_KEY:
-      (properties.getProperty('API_KEY') || '').trim() ||
-      '11952ad938bbbd1e806c4c0d82379628d54fc9880489815b9ac21a1efdeab110',
+    // API_KEY must be set in Script Properties (Project Settings → Script
+    // Properties). Never hardcode it here — this file is in a public repo.
+    API_KEY: (properties.getProperty('API_KEY') || '').trim(),
     SPREADSHEET_ID:
       (properties.getProperty('SPREADSHEET_ID') || '').trim() ||
       '1KIqnUsqvbZJbSLSSfPkY7p8ILKLu-B2k6cy1zTlCSbo4',

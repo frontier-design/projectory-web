@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './VentingMachine.module.css';
 
 const PROXY_PATH = '/api/venting-machine-form';
-const API_KEY = '11952ad938bbbd1e806c4c0d82379628d54fc9880489815b9ac21a1efdeab110';
+// API key is injected server-side by the proxy (api/venting-machine-form.cjs);
+// the client never sends or sees it.
 
 
 
@@ -42,11 +43,11 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 2, baseDelayMs = 400
 
 // Get a single question
 async function fetchQuestion(): Promise<string> {
-  console.log('Fetching question from:', `${PROXY_PATH}?action=question&key=${API_KEY}`);
-  
+  console.log('Fetching question from:', `${PROXY_PATH}?action=question`);
+
   try {
     const response = await fetchWithTimeout(
-      `${PROXY_PATH}?action=question&key=${API_KEY}&t=${Date.now()}`,
+      `${PROXY_PATH}?action=question&t=${Date.now()}`,
       10000
     );    
     console.log('Response status:', response.status);
@@ -82,7 +83,7 @@ async function fetchQuestion(): Promise<string> {
 
 // Submit response
 async function submitResponse(question: string, answer: string): Promise<void> {
-  const url = `${PROXY_PATH}?key=${API_KEY}&t=${Date.now()}`;
+  const url = `${PROXY_PATH}?t=${Date.now()}`;
   const response = await fetchWithTimeout(
     url,
     8000,
