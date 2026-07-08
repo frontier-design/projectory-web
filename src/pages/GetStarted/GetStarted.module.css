@@ -1,7 +1,7 @@
 .getStartedWrapper {
     width: 100%;
     min-height: 100vh;
-    background: #0A0A0A;
+    background: var(--black);
     color: white;
 }
 
@@ -68,7 +68,7 @@
 
 .gitBlock a,
 .gitBlock button{
-    background-color: black;
+    background-color: var(--black);
     color: white;
     padding: 15px 30px;
     border-radius: 100px;

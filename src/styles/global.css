@@ -51,7 +51,7 @@ html {
 }
 
 :root{
-    --black: #0A0A0A;
+    --black: #131313;
     --gray: #ADADAD;
     --dark-gray: #35343F;
     --background-dark-gray: #1c1c1c;
@@ -66,14 +66,11 @@ a{
     cursor: pointer;
 }
 
-/* Ensure navbar always has normal cursor */
-nav,
-nav * {
-    cursor: auto !important;
-}
-
+/* Navbar links and controls use pointer; children inherit (e.g. logo image) */
 nav a,
-nav button {
+nav button,
+nav a *,
+nav button * {
     cursor: pointer !important;
 }
 

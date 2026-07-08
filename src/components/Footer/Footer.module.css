@@ -1,7 +1,7 @@
 /* Footer – black background, light text */
 
 .footer {
-    background-color: var(--black, #0A0A0A);
+    background-color: var(--black, #131313);
     color: #fff;
     padding: 48px 80px 0;
     z-index: 10;
@@ -132,7 +132,7 @@
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--black, #0A0A0A);
+    color: var(--black, #131313);
     background: #fff;
     border: 1.5px solid #fff;
     border-radius: 0;

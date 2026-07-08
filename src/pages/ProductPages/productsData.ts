@@ -83,33 +83,31 @@ export const products = [
           ]
         }
       },
-      { 
+      {
         type: 'pricing',
         content: {
           plans: [
             {
               title: 'Do it yourself',
-              price: '9,000',
+              price: '13,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '13,000',
+              price: '17,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -118,6 +116,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -216,33 +215,31 @@ export const products = [
           ]
         }
       },
-      { 
+      {
         type: 'pricing',
         content: {
           plans: [
             {
               title: 'Do it yourself',
-              price: '7,000',
+              price: '9,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '10,000',
+              price: '14,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -251,6 +248,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -356,27 +354,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '8,000',
+              price: '11,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '12,000',
+              price: '17,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -385,6 +381,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -486,14 +483,13 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '4,000',
+              price: '6,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
@@ -506,7 +502,6 @@ export const products = [
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -515,6 +510,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -620,27 +616,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '8,000',
+              price: '11,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '13,000',
+              price: '13,500',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -649,6 +643,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -758,27 +753,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '4,500',
+              price: '8,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '8,000',
+              price: '13,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -787,6 +780,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -894,27 +888,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '4,500',
+              price: '6,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '8,000',
+              price: '10,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -923,6 +915,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1025,33 +1018,31 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521156/Projectory_FuturesMap_AI_ChatbotsCustomerService_V2_uhijpi_qpydpr.png'
         }, 
       },
-      { 
+      {
         type: 'pricing',
         content: {
           plans: [
             {
               title: 'Do it yourself',
-              price: '7,000',
+              price: '10,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '10,000',
+              price: '13,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1060,6 +1051,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1166,27 +1158,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '7,000',
+              price: '10,500',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '9,000',
+              price: '13,500',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1195,6 +1185,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1301,27 +1292,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '9,000',
+              price: '13,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '13,000',
+              price: '15,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1330,6 +1319,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1439,27 +1429,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '4,000',
+              price: '6,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '8,000',
+              price: '10,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1468,6 +1456,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1578,7 +1567,6 @@ export const products = [
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1587,6 +1575,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1686,27 +1675,25 @@ export const products = [
           plans: [
             {
               title: 'Do it yourself',
-              price: '7,000',
+              price: '9,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '10,000',
+              price: '12,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1715,6 +1702,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1819,7 +1807,6 @@ export const products = [
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
@@ -1832,7 +1819,6 @@ export const products = [
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1841,6 +1827,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -1952,33 +1939,31 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521156/Projectory_FuturesMap_AI_ChatbotsCustomerService_V2_uhijpi_qpydpr.png' 
         },
       },
-       { 
+      {
         type: 'pricing',
         content: {
           plans: [
             {
               title: 'Do it yourself',
-              price: '8,000',
+              price: '13,000',
               description: 'For teams that want to run it themselves, but still feel supported.',
               features: [
                   'Rent-and-run toolkit',
                   'Explainer videos & setup guide',
                   'Remote support',
                   'Slides and facilitation guide',
-                  'Theming and content integration',
                   'Shipment coordination'
                 ] 
             },
             {
               title: 'Bring us in',
-              price: '12,000',
+              price: '16,000',
               description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
               features: [
                 'End-to-end production and delivery',
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
               ]               
             },
@@ -1987,6 +1972,7 @@ export const products = [
               price: 'Add-ons',
               description: 'More ways to personalize your high-impact Projectory experience',
               features: [
+                'Theming and content integration',
                 'Run-of-show engagement design',
                 'Custom content and branding',
                 'Interactive post-event report',
@@ -2084,6 +2070,49 @@ export const products = [
         content: {
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1753886313/Roll_Play_Socials_IP_V3.01_00_26_22.Still009_wvwjwt.webp'
         }
+      },
+      {
+        type: 'pricing',
+        content: {
+          plans: [
+            {
+              title: 'Do it yourself',
+              price: '2,500',
+              description: 'For teams that want to run it themselves, but still feel supported.',
+              features: [
+                  'Rent-and-run toolkit',
+                  'Explainer videos & setup guide',
+                  'Remote support',
+                  'Slides and facilitation guide',
+                  'Shipment coordination'
+                ] 
+            },
+            {
+              title: 'Bring us in',
+              price: '6,000',
+              description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
+              features: [
+                'End-to-end production and delivery',
+                'Onsite facilitator and support',
+                'Live collaboration with your team',
+                'White-glove logistics management',
+                '24/7 dedicated account manager'
+              ]               
+            },
+            {
+              title: 'Ask us about',
+              price: 'Add-ons',
+              description: 'More ways to personalize your high-impact Projectory experience',
+              features: [
+                'Theming and content integration',
+                'Run-of-show engagement design',
+                'Custom content and branding',
+                'Interactive post-event report',
+                'Projectory as your event host'
+              ]                    
+            }
+          ]
+        }
       }
     ]
   },
@@ -2179,6 +2208,37 @@ export const products = [
         type: 'image',
         content: {
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740486/LaserFocus_3_acmfmt.webp'
+        }
+      },
+      {
+        type: 'pricing',
+        content: {
+          plans: [
+            {
+              title: 'Bring us in',
+              price: '12,000',
+              description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
+              features: [
+                'End-to-end production and delivery',
+                'Onsite facilitator and support',
+                'Live collaboration with your team',
+                'White-glove logistics management',
+                '24/7 dedicated account manager'
+              ]               
+            },
+            {
+              title: 'Ask us about',
+              price: 'Add-ons',
+              description: 'More ways to personalize your high-impact Projectory experience',
+              features: [
+                'Theming and content integration',
+                'Run-of-show engagement design',
+                'Custom content and branding',
+                'Interactive post-event report',
+                'Projectory as your event host'
+              ]                    
+            }
+          ]
         }
       }
     ]
@@ -2281,6 +2341,37 @@ export const products = [
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1770740636/RampUP_3_yobb1z.webp'
         }
       },
+      {
+        type: 'pricing',
+        content: {
+          plans: [
+            {
+              title: 'Bring us in',
+              price: '12,000',
+              description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
+              features: [
+                'End-to-end production and delivery',
+                'Onsite facilitator and support',
+                'Live collaboration with your team',
+                'White-glove logistics management',
+                '24/7 dedicated account manager'
+              ]               
+            },
+            {
+              title: 'Ask us about',
+              price: 'Add-ons',
+              description: 'More ways to personalize your high-impact Projectory experience',
+              features: [
+                'Theming and content integration',
+                'Run-of-show engagement design',
+                'Custom content and branding',
+                'Interactive post-event report',
+                'Projectory as your event host'
+              ]                    
+            }
+          ]
+        }
+      }
     ]
   },
   {
@@ -2378,6 +2469,49 @@ export const products = [
           description: 'BoulderIdeas functions during the event as a physical site of inspiration and exchange. The installation also functions as a knowledge/idea bank of information that can easily be woven back into later plenary sessions. When the event concludes, all of the amassed inputs can be digitized and analyzed for a follow-on synthesis report.',
           imageUrl: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749521155/Projectory_FuturesMap_AI_SupportCompliance_zfd9hy_eqsyfx.png'
         },
+      },
+      {
+        type: 'pricing',
+        content: {
+          plans: [
+            {
+              title: 'Do it yourself',
+              price: '11,000',
+              description: 'For teams that want to run it themselves, but still feel supported.',
+              features: [
+                  'Rent-and-run toolkit',
+                  'Explainer videos & setup guide',
+                  'Remote support',
+                  'Slides and facilitation guide',
+                  'Shipment coordination'
+                ] 
+            },
+            {
+              title: 'Bring us in',
+              price: '13,000',
+              description: 'For teams who want a turnkey experience, delivered seamlessly by our team.',
+              features: [
+                'End-to-end production and delivery',
+                'Onsite facilitator and support',
+                'Live collaboration with your team',
+                'White-glove logistics management',
+                '24/7 dedicated account manager'
+              ]               
+            },
+            {
+              title: 'Ask us about',
+              price: 'Add-ons',
+              description: 'More ways to personalize your high-impact Projectory experience',
+              features: [
+                'Theming and content integration',
+                'Run-of-show engagement design',
+                'Custom content and branding',
+                'Interactive post-event report',
+                'Projectory as your event host'
+              ]                    
+            }
+          ]
+        }
       }
     ]
   },
@@ -2488,9 +2622,20 @@ export const products = [
                 'Onsite facilitator and support',
                 'Live collaboration with your team',
                 'White-glove logistics management',
-                'Theming and content integration',
                 '24/7 dedicated account manager'
-              ]
+              ]               
+            },
+            {
+              title: 'Ask us about',
+              price: 'Add-ons',
+              description: 'More ways to personalize your high-impact Projectory experience',
+              features: [
+                'Theming and content integration',
+                'Run-of-show engagement design',
+                'Custom content and branding',
+                'Interactive post-event report',
+                'Projectory as your event host'
+              ]                    
             }
           ]
         }

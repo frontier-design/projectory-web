@@ -22,7 +22,7 @@ function criticalCssAndFonts(): Plugin {
         (k) => k.endsWith('.css') && k.includes('index')
       );
 
-      let criticalCss = `*{margin:0;padding:0;box-sizing:border-box}:root{--black:#0A0A0A;--gray:#ADADAD;--dark-gray:#35343F;--background-dark-gray:#1c1c1c;--linear-gradient:linear-gradient(90deg,#A72C4B 0%,#F37655 100%);--second-gradient:linear-gradient(90deg,#B34747,#D87A5A);--lime:#BCCE2D}body{background-color:#0A0A0A;color:#fff}`;
+      let criticalCss = `*{margin:0;padding:0;box-sizing:border-box}:root{--black:#131313;--gray:#ADADAD;--dark-gray:#35343F;--background-dark-gray:#1c1c1c;--linear-gradient:linear-gradient(90deg,#A72C4B 0%,#F37655 100%);--second-gradient:linear-gradient(90deg,#B34747,#D87A5A);--lime:#BCCE2D}body{background-color:#131313;color:#fff}`;
 
       if (cssEntry) {
         const chunk = ctx.bundle[cssEntry];
