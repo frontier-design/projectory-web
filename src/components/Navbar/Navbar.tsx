@@ -50,6 +50,7 @@ const Navbar = () => {
             <li><Link to="/who-we-are">Who We Are</Link></li>
             <li><Link to="/products">Products</Link></li>
             <li><Link to="/case-studies">Case Studies</Link></li>
+            <li><Link to="/pricing">Pricing</Link></li>
           </ul>
 
           <div className={styles.navActions}>
@@ -114,6 +115,11 @@ const Navbar = () => {
           <li>
             <Link to="/case-studies" onClick={() => setMenuOpen(false)}>
               Case Studies
+            </Link>
+          </li>
+          <li>
+            <Link to="/pricing" onClick={() => setMenuOpen(false)}>
+            Pricing
             </Link>
           </li>
           <li>
