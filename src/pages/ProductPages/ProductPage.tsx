@@ -10,7 +10,6 @@ import QuickFacts from './components/QuickFacts/QuickFacts';
 import Objectives from './components/Objectives/Objectives';
 import VideoFeature from './components/VideoFeature/VideoFeature';
 import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
-import PricingInformation from './components/PricingInformation/PricingInformation';
 import CaseStudyHighlight from './components/CaseStudyHighlight/CaseStudyHighlight';
 import FinalCTA from './components/FinalCTA/FinalCTA';
 import HowItWorks from './components/HowItWorks/HowItWorks';
@@ -221,26 +220,7 @@ const ProductPage = () => {
             };
             return <TestimonialSizzle key={index} {...testimonialContent} />;
           }
-          case 'pricing': {
-            if (!section.content || !('plans' in section.content) || !section.content.plans) return null;
-            // Ensure each plan has buttonText (required by PricingCard interface)
-            const plansWithButtonText = (section.content.plans as Array<{
-              title: string;
-              price: string;
-              description: string;
-              features: string[];
-              buttonText?: string;
-            }>).map(plan => ({
-              ...plan,
-              buttonText: plan.buttonText || 'Learn More',
-            }));
-            return (
-              <PricingInformation
-                key={index}
-                pricing={plansWithButtonText}
-              />
-            );
-          }
+          // Deleted pricing section
           case 'case-study': {
             if (!section.content) return null;
             // Ensure all required props exist for CaseStudyHighlight
