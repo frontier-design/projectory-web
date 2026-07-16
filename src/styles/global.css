@@ -50,6 +50,7 @@ html {
     cursor: auto;
 }
 
+
 :root{
     --black: #131313;
     --gray: #ADADAD;
@@ -58,6 +59,9 @@ html {
     --linear-gradient: linear-gradient(90deg, #A72C4B 0%, #F37655 100%);
     --second-gradient:  linear-gradient(90deg, #B34747, #D87A5A);
     --lime: #BCCE2D;
+    /* Added 2 tokens; white color + border-style in figma */
+    --white: #FFFFFF;
+    --border-subtle: 0.5px solid rgba(123, 123, 123, 0.50);
 }
 
 a{
