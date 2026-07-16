@@ -8,6 +8,9 @@
   justify-content: center;
   text-align: center;
   width: 100%;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .headerInner {
@@ -20,18 +23,20 @@
 .eyebrow {
   margin: 12px 0 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 1.4vw, 20px);
   font-weight: 400;
   line-height: 1.3;
 }
 
 .title {
   margin: 0;
+  max-width: 500px;
   font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: 53px;
+  font-size: 44px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 44px;
   color: var(--white);
+  text-align: center;
   white-space: pre-line;
 }
 
@@ -48,23 +53,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: clamp(12px, 2vh, 24px);
   overflow: hidden;
+  box-sizing: border-box;
+  padding: clamp(12px, 2vh, 24px) 0;
 }
 
 .deck {
+  --deck-peek: 56px;
+  --deck-stage: 450px;
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: 450px;
-  margin: 50px 0 0px;
+  box-sizing: border-box;
+  padding-top: var(--deck-peek);
+  height: calc(var(--deck-stage) + var(--deck-peek));
+  margin: 0;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .card {
   position: absolute;
-  inset: 0;
+  top: var(--deck-peek);
+  right: 0;
+  bottom: 0;
+  left: 0;
   transform-origin: center top;
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
 .cardInner {
@@ -102,8 +118,9 @@
 .metaRow {
   width: 100%;
   max-width: 100%;
-  padding-top: 16px;
-  margin-top: -16px;
+  padding-top: clamp(8px, 1.5vh, 16px);
+  margin-top: clamp(-8px, -1vh, 0px);
+  flex-shrink: 0;
 }
 
 .metaInner {
@@ -111,44 +128,48 @@
   align-items: flex-start;
   text-align: left;
   width: 100%;
+  gap: clamp(12px, 2vw, 24px);
 }
 
 .metaIndex {
   flex-shrink: 0;
   padding-top: 14px;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   line-height: 1;
   color: #7B7B7B;
 }
 
 .metaName {
-  flex-shrink: 0;
-  margin-left: 50px;
-  margin-right: 116px;
+  flex-shrink: 1;
+  min-width: 0;
+  margin-left: clamp(16px, 3.5vw, 50px);
+  margin-right: clamp(24px, 8vw, 116px);
   white-space: pre-line;
   overflow-wrap: normal;
   word-break: keep-all;
   font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: 45px;
+  font-size: clamp(28px, 3.2vw, 45px);
   font-weight: 500;
-  line-height: 45px;
+  line-height: 1;
 }
 
 .metaDesc {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 380px;
+  flex: 1 1 auto;
+  max-width: min(380px, 100%);
+  min-width: 0;
   padding-top: 14px;
 }
 
 .metaParagraph {
   margin: 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 18px;
+  font-size: clamp(15px, 1.3vw, 18px);
   font-weight: 400;
-  line-height: 28px;
+  line-height: 1.55;
   color: var(--white);
 }
 
@@ -157,6 +178,7 @@
   flex-direction: column;
   gap: 12px;
   margin-left: auto;
+  flex-shrink: 0;
   align-items: flex-end;
   padding-top: 14px;
   text-align: right;
@@ -171,7 +193,7 @@
 .metaTag {
   align-self: stretch;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 16px;
+  font-size: clamp(13px, 1.2vw, 16px);
   font-weight: 400;
   font-feature-settings: 'liga' off, 'clig' off;
   line-height: 1.2;
@@ -183,7 +205,7 @@
   align-items: baseline;
   gap: 3px;
   font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: 33px;
+  font-size: clamp(24px, 2.4vw, 33px);
   font-weight: 500;
   line-height: normal;
   color: var(--white);
@@ -195,6 +217,38 @@
   font-weight: 400;
   line-height: 25px;
   color: #7B7B7B;
+}
+
+@media (max-width: 1200px) {
+  .metaName {
+    margin-right: clamp(16px, 4vw, 48px);
+  }
+
+  .metaDesc {
+    max-width: min(320px, 100%);
+  }
+}
+
+@media (max-height: 900px) {
+  .sticky {
+    gap: clamp(8px, 1.5vh, 16px);
+    padding: clamp(8px, 1.5vh, 16px) 0;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .metaInner {
+    gap: 12px;
+  }
+
+  .metaName {
+    margin-left: 12px;
+    margin-right: 16px;
+  }
+
+  .metaDesc {
+    max-width: min(280px, 34%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -219,7 +273,8 @@
 
   .title {
     font-size: 32px;
-    min-height: 3em;
+    line-height: 1.1;
+    min-height: 2.2em;
   }
 
   .deck {
@@ -295,5 +350,6 @@
 @media (prefers-reduced-motion: reduce) {
   .card {
     transition: none !important;
+    opacity: 1 !important;
   }
 }
