@@ -1,0 +1,181 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 396px;
+  height: 650px;
+  padding: 60px 55px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  /* border hack to keep it grey like in figma file 
+  and not "gradient" for each card */
+  border: none;
+  outline: var(--border-subtle);
+  outline-offset: -0.5px;
+  /* end of border hack */
+  box-sizing: border-box;
+  background-clip: padding-box;
+  overflow: visible;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+  flex: 1 0 0;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.subtitle {
+  margin: 0;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--white);
+  font-feature-settings: 'liga' off, 'clig' off;
+}
+
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background: var(--white);
+}
+
+.featureList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featureItem {
+  display: flex;
+  max-width: 286px;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin-top: 6px;
+}
+
+.featureText {
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--white);
+  text-align: left;
+}
+
+.note {
+  margin: 0;
+  max-width: 242px;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  color: rgba(123, 123, 123, 0.50);
+  text-align: center;
+}
+
+.badgeAmber,
+.badgeTeal {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.badgeAmber {
+  top: -60px;
+  left: -62px;
+  rotate: 16.73deg;
+  animation: floatP 5s ease-in-out infinite alternate;
+}
+
+.badgeTeal {
+  bottom: -60px;
+  right: -80px;
+  rotate: -12.32deg;
+  animation: floatP 3.8s ease-in-out 1.2s infinite alternate;
+}
+
+@keyframes floatP {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 396px;
+    height: auto;
+    min-height: 0;
+    padding: 40px 28px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+}
