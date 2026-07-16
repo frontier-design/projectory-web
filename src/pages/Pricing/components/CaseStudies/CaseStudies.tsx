@@ -91,8 +91,9 @@ const StackCard = ({
   const tin: number[] = [];
   const yk: number[] = [];
   const sk: number[] = [];
-  const dk: number[] = [];
   const sh: number[] = [];
+  const ok: number[] = [];
+  const ik: number[] = [];
   const zin: number[] = [];
   const zk: number[] = [];
 
@@ -102,27 +103,31 @@ const StackCard = ({
     tin.push(t);
     yk.push(DECK[slot].y);
     sk.push(DECK[slot].scale);
-    dk.push(DECK[slot].dim);
     sh.push(DECK[slot].shade);
+    ok.push(1);
+    // Image only on front; rear slots stay grey.
+    ik.push(slot === 0 ? 1 : 0);
     zin.push(t);
     zk.push(zFor(slot));
 
     if (k < steps && slot === 0 && slotAt(index, k + 1) === total - 1) {
       const tMid = (k + 0.5) / steps;
-      // Lift with image + front width. Grey only once tucked behind.
+      // Lift + fade image out with translateY (same scrub as enter fade-in).
       tin.push(tMid);
       yk.push(EJECT_Y);
       sk.push(DECK[0].scale);
-      dk.push(0);
       sh.push(0);
+      ok.push(0);
+      ik.push(0);
       zin.push(tMid);
       zk.push(zFor(0));
-      // Now behind → grey + rear width.
+      // Behind at apex — stay faded; card opacity returns as it settles.
       tin.push(tMid + 1e-4);
       yk.push(EJECT_Y);
       sk.push(DECK[total - 1].scale);
-      dk.push(1);
       sh.push(DECK[total - 1].shade);
+      ok.push(0);
+      ik.push(0);
       zin.push(tMid + 1e-4);
       zk.push(zFor(total - 1));
     }
@@ -130,15 +135,14 @@ const StackCard = ({
 
   const y = useTransform(progress, tin, yk);
   const scale = useTransform(progress, tin, sk);
+  const opacity = useTransform(progress, tin, ok);
   const zIndex = useTransform(progress, zin, zk);
-  const dim = useTransform(progress, tin, dk);
   const shade = useTransform(progress, tin, sh);
-  // Image while front / lifting / moving into front. Grey only when settled behind (dim ≈ 1).
-  const imageOpacity = useTransform(dim, (v) => (v < 0.9 ? 1 : 0) as number);
+  const imageOpacity = useTransform(progress, tin, ik);
   const grey = useTransform(shade, [0, 0.5, 1], GREYS);
 
   return (
-    <motion.div className={styles.card} style={{ y, scale, zIndex }}>
+    <motion.div className={styles.card} style={{ y, scale, opacity, zIndex }}>
       <MediaCard study={study} imageOpacity={imageOpacity} grey={grey} />
     </motion.div>
   );

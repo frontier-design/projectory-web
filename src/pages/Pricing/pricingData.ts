@@ -52,7 +52,7 @@ export const whitelabelCta = {
 
 export const caseStudies = [
   {
-    eyebrow: 'Real Projects (1)',
+    eyebrow: 'Real Projects',
     image: caseImg1,
     name: 'Sales\nKickoff',
     heading: 'Internal team, fully supported on-site',
@@ -63,10 +63,10 @@ export const caseStudies = [
     currency: 'USD',
   },
   {
-    eyebrow: 'Real Projects (2)',
+    eyebrow: 'Real Projects',
     image: caseImg2,
     name: 'Leadership\nSummit',
-    heading: 'Full-service, run by our team',
+    heading: 'Full-service,\nrun by our team',
     description:
       'A senior leadership summit where our facilitators designed and delivered the full program end to end, integrating client content and branding throughout.',
     tags: ['Multi-Day Event', '400 participants', 'Bring Us In'],
@@ -74,10 +74,10 @@ export const caseStudies = [
     currency: 'USD',
   },
   {
-    eyebrow: 'Real Projects (3)',
+    eyebrow: 'Real Projects',
     image: caseImg3,
     name: 'Industry\nConference',
-    heading: 'Interactive installations at scale',
+    heading: 'Interactive installations\nat scale',
     description:
       'A multi-day industry conference featuring two interactive installations with event extensions, coordinated and shipped for the client team to run.',
     tags: ['Multi-Day Event', '300 participants', 'DIY delivery'],
