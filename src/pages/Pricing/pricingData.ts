@@ -77,7 +77,7 @@ export const caseStudies = [
     eyebrow: 'Real Projects',
     image: caseImg3,
     name: 'Industry\nConference',
-    heading: 'Interactive installations\nat scale',
+    heading: 'Interactive\ninstallations at scale',
     description:
       'A multi-day industry conference featuring two interactive installations with event extensions, coordinated and shipped for the client team to run.',
     tags: ['Multi-Day Event', '300 participants', 'DIY delivery'],
