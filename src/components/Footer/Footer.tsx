@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaLinkedin, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';
 import logo from '../../assets/images/logo.svg';
-import termsConditionsPdf from '../../assets/documents/terms-conditions.pdf';
+import termsConditionsPdf from '../../assets/documents/terms-conditions-Dw-Y0UD9.pdf';
 import privacyPolicyPdf from '../../assets/documents/privacy-policy.pdf';
 import cookieNoticePdf from '../../assets/documents/cookie-notice.pdf';
 
