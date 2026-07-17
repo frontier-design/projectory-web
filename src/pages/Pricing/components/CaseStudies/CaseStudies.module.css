@@ -11,7 +11,6 @@
   z-index: 2;
 }
 
-/* Desktop: overlay inside sticky (previous working layout) */
 .headerPin {
   position: absolute;
   top: -60px;
@@ -20,7 +19,6 @@
   pointer-events: none;
 }
 
-/* Mobile-only flow title; hidden on desktop */
 .headerFlow {
   display: none;
 }
@@ -56,6 +54,7 @@
 .track {
   position: relative;
   width: 100%;
+  height: calc(var(--case-steps, 3) * 100vh);
 }
 
 .sticky {
@@ -269,7 +268,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 0;
+    padding-top: 56px;
   }
 
   .headerPin {
@@ -279,16 +279,24 @@
   .headerFlow {
     display: flex;
     position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .track {
+    height: calc(var(--case-steps, 3) * (100dvh - 24px));
   }
 
   .sticky {
-    gap: 20px;
-    top: 0;
-    height: 100dvh;
-    padding: 40px 0;
+    gap: 16px;
+    top: 24px;
+    height: calc(100dvh - 24px);
+    min-height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+    padding: 12px 0 24px;
     box-sizing: border-box;
     overflow: hidden;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .eyebrow {
@@ -296,9 +304,10 @@
   }
 
   .title {
-    max-width: 280px;
+    max-width: min(100%, 560px);
     font-size: 32px;
     line-height: 1.1;
+    margin-bottom: 28px;
   }
 
   .deck {

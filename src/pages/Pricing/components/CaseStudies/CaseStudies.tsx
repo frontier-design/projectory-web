@@ -228,14 +228,14 @@ const CaseStudies = () => {
       <div className={`${styles.header} ${styles.headerFlow}`}>
         <div className={styles.headerInner}>
           <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
-          <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
+          <h2 className={styles.title}>{caseStudiesHeader.headingMobile}</h2>
         </div>
       </div>
 
       <div
         className={styles.track}
         ref={trackRef}
-        style={{ height: `${total * 100}vh` }}
+        style={{ ['--case-steps' as string]: total }}
       >
         <div className={styles.sticky}>
           <div className={`${styles.header} ${styles.headerPin}`}>
