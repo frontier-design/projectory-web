@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { deliveryOptions } from '../../pricingData';
 import amberBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-amber.png';
@@ -40,19 +41,42 @@ const DeliveryOptions = () => {
         <div key={index} className={styles.column}>
           <div className={styles.card} style={{ background: card.background }}>
             <div className={styles.content}>
-              <div className={styles.header}>
-                <h2 className={styles.title}>{card.title}</h2>
-                <p className={styles.subtitle}>{card.subtitle}</p>
+              <div className={styles.body}>
+                <div className={styles.header}>
+                  <p className={styles.eyebrow}>{card.eyebrow}</p>
+                  <h2 className={styles.title}>{card.title}</h2>
+                  <p className={styles.subtitle}>{card.subtitle}</p>
+                </div>
+                <div className={styles.divider} />
+                <ul className={styles.featureList}>
+                  {card.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className={styles.featureItem}>
+                      <CheckIcon />
+                      <span className={styles.featureText}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className={styles.divider} />
-              <ul className={styles.featureList}>
-                {card.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className={styles.featureItem}>
-                    <CheckIcon />
-                    <span className={styles.featureText}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {'cta' in card && card.cta ? (
+                <div className={styles.footer}>
+                  <div className={styles.ctaCopy}>
+                    <div className={styles.ctaTitleRow}>
+                      <span className={styles.ctaTitle}>{card.cta.title}</span>
+                      {'currency' in card.cta && card.cta.currency ? (
+                        <span className={styles.ctaCurrency}>
+                          {card.cta.currency}
+                        </span>
+                      ) : null}
+                    </div>
+                    {'caption' in card.cta && card.cta.caption ? (
+                      <p className={styles.ctaCaption}>{card.cta.caption}</p>
+                    ) : null}
+                  </div>
+                  <Link to={card.cta.button.to} className={styles.button}>
+                    {card.cta.button.label}
+                  </Link>
+                </div>
+              ) : null}
             </div>
             {index === 0 && (
               <img
@@ -71,7 +95,6 @@ const DeliveryOptions = () => {
               />
             )}
           </div>
-          <p className={styles.note}>{card.note}</p>
         </div>
       ))}
     </motion.section>
