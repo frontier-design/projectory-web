@@ -73,11 +73,11 @@
 }
 
 .column:nth-child(1) .subtitle {
-  max-width: 220px;
+  max-width: 280px;
 }
 
 .column:nth-child(2) .subtitle {
-  max-width: 280px;
+  max-width: 220px;
 }
 
 .divider {
@@ -118,6 +118,15 @@
 }
 .column:nth-child(1) .featureItem:nth-child(5) {
   max-width: 260px;
+}
+
+.column:nth-child(1) .featureItem:last-child {
+  max-width: 260px;
+  align-items: center;
+}
+/* this is a hack to center the single-line list item inthe list down here */
+.column:nth-child(1) .featureItem:last-child .checkIcon {
+  margin-top: 0;
 }
 
 /* Do It Yourself — one max-width per list row */

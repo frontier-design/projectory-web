@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
   useTransform,
 } from 'framer-motion';
-import { caseStudies } from '../../pricingData';
+import { caseStudies, caseStudiesHeader } from '../../pricingData';
 import styles from './CaseStudies.module.css';
 
 const total = caseStudies.length;
@@ -31,19 +31,12 @@ const GREYS = ['#2a2a2a', '#3a3a3a', '#1a1a1a'];
 const slotAt = (i: number, k: number) => (((i - k) % total) + total) % total;
 const zFor = (slot: number) => total - slot; // slot 0 = highest
 
-const fadeVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
-};
-
 const metaFadeVariants = {
   initial: { opacity: 0, y: -16 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0 },
 };
 
-const fadeTransition = { duration: 0.3, ease: 'easeInOut' };
 const metaFadeTransition = { duration: 0.45, ease: 'easeOut' };
 
 const ACCENTS = ['#2BDCB7', '#F37655', '#C5DA20'] as const;
@@ -232,18 +225,23 @@ const CaseStudies = () => {
 
   return (
     <section className={styles.section}>
+      <div className={`${styles.header} ${styles.headerFlow}`}>
+        <div className={styles.headerInner}>
+          <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
+          <h2 className={styles.title}>{caseStudiesHeader.headingMobile}</h2>
+        </div>
+      </div>
+
       <div
         className={styles.track}
         ref={trackRef}
-        style={{ height: `${total * 100}vh` }}
+        style={{ ['--case-steps' as string]: total }}
       >
         <div className={styles.sticky}>
-          <div className={styles.header}>
+          <div className={`${styles.header} ${styles.headerPin}`}>
             <div className={styles.headerInner}>
-              <p className={styles.eyebrow} style={{ color: accent }}>
-                {activeStudy.eyebrow}
-              </p>
-              <h2 className={styles.title}>{activeStudy.heading}</h2>
+              <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
+              <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
             </div>
           </div>
 

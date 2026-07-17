@@ -20,8 +20,8 @@
 .badgeAmber {
   position: absolute;
   bottom: -80px;
-  right: 15%;
-  width: clamp(140px, 24.3vw, 350px);
+  right: 5%;
+  width: clamp(110px, 18vw, 260px);
   height: auto;
   object-fit: contain;
   pointer-events: none;
@@ -77,7 +77,7 @@
 .button {
   display: inline-flex;
   height: 44px;
-  padding: 12px 26px;
+  padding: 10px 20px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -85,15 +85,15 @@
   color: #A72C4B;
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: 16px;
-  text-decoration: none;
   box-sizing: border-box;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
 }
 
 .button:hover {
-  background: var(--black);
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
   border-color: var(--white);
 }
 
@@ -101,7 +101,9 @@
   background: var(--white);
   color: var(--black);
   border-color: var(--white);
-  transition: all 0.08s ease-out;
+  transform: scale(0.97);
+  transition: background 0.08s ease-out, color 0.08s ease-out, border-color 0.08s ease-out,
+    transform 0.08s ease-out;
 }
 
 @media (max-width: 768px) {

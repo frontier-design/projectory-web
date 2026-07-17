@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { pricingHero } from '../../pricingData';
+import shapeLeft from '../../../../assets/images/shapes/abstract/Projectory_AbstractSymbol_2.svg';
+import shapeTopRight from '../../../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.svg';
 import styles from './PricingHero.module.css';
 
 const fade = {
@@ -13,14 +15,25 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const PricingHero = () => {
   return (
     <section className={styles.hero}>
+      <img
+        src={shapeLeft}
+        alt=""
+        aria-hidden
+        className={styles.shapeLeft}
+      />
+      <img
+        src={shapeTopRight}
+        alt=""
+        aria-hidden
+        className={styles.shapeTopRight}
+      />
       <motion.h1
         className={styles.price}
         initial={fade.initial}
         animate={fade.animate}
         transition={{ duration: 0.7, ease }}
       >
-        {pricingHero.price}
-        <span className={styles.currency}>{pricingHero.currency}</span>
+        {pricingHero.title}
       </motion.h1>
       <motion.div
         className={styles.rest}
