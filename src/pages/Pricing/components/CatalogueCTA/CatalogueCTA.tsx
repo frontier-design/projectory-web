@@ -7,7 +7,13 @@ const CatalogueCTA = () => {
   return (
     <section className={styles.banner}>
       <div className={styles.content}>
-        <h2 className={styles.title}>{catalogueCta.title}</h2>
+        <h2 className={styles.title}>
+          Every product in our
+          {'\n'}
+          catalogue started as
+          <br className={styles.breakDesktop} />{' '}
+          a client brief.
+        </h2>
         <p className={styles.body}>{catalogueCta.body}</p>
         <Link to={catalogueCta.button.to} className={styles.button}>
           {catalogueCta.button.label}

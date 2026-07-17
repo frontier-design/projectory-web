@@ -18,15 +18,11 @@ const WhitelabelCTA = () => {
         </div>
       </div>
       <div className={styles.mediaColumn}>
-        {whitelabelCta.image ? (
-          <img
-            src={whitelabelCta.image}
-            alt=""
-            className={styles.image}
-          />
-        ) : (
-          <div className={styles.imagePlaceholder} aria-hidden />
-        )}
+        <img
+          src={whitelabelCta.image}
+          alt=""
+          className={styles.image}
+        />
       </div>
     </section>
   );

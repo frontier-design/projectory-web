@@ -70,7 +70,6 @@ a{
     cursor: pointer;
 }
 
-/* Navbar links and controls use pointer; children inherit (e.g. logo image) */
 nav a,
 nav button,
 nav a *,
