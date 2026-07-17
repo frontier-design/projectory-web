@@ -6,12 +6,11 @@ import whitelabelImg from './assets/projectory-CIBC-img.webp';
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
   subtitle: "You decide how it's delivered.\nWe'll make it work either way.",
-  primaryButton: { label: 'Product Finder', to: '/get-started-form' },
-  secondaryButton: { label: 'Explore Products', to: '/products' },
 };
 
 export const deliveryOptions = [
   {
+    eyebrow: 'Rental',
     title: 'Do It Yourself',
     subtitle: 'The product ships to you. Everything you need to run it arrives with it',
     features: [
@@ -19,24 +18,34 @@ export const deliveryOptions = [
       'Your content and branding integrated before it leaves us',
       'Step-by-step facilitation guide \u2014 written for non-facilitators',
       'Explainer video walkthrough for your team',
-      'Remote support available on event day',
-      'Shipment coordination both ways',
+      'A dedicated contact from booking through debrief',
+      'End-to-end logistics coordinated by our team',
     ],
-    note: 'Shipping is not included and varies by product \u2014 some products don\'t require it. Printing costs may apply. Both confirmed at the quote stage.',
+    cta: {
+      title: '$10,000',
+      currency: 'USD',
+      caption: 'per product \u00b7 per rental',
+      button: { label: 'Explore Products', to: '/products' },
+    },
     background:
       'linear-gradient(145deg, rgba(255, 74, 120, 0.00) 33.85%, rgba(243, 118, 85, 0.43) 80.43%), #1C1C1C',
   },
   {
+    eyebrow: 'Optional add-ons',
     title: 'Bring Us In',
     subtitle: 'Your event, run by our team — start to finish.',
     features: [
-      'Certified Projectory facilitator from our network, assigned to your event',
-      'Onsite crew for setup, operation, teardown',
+      'Certified Projectory facilitator assigned to your event',
+      'Onsite crew for setup, operation, and teardown',
       'Your content and theming integrated before we arrive',
-      'End-to-end logistics coordinated by our team',
-      'A dedicated contact from booking through debrief',
+      'Projectory as your event emcee',
+      'White-label branding across all materials',
+      'Interactive post-event report delivered to leadership',
     ],
-    note: 'Pricing does not include travel and accommodation for onsite team members.',
+    cta: {
+      title: 'Rental fee\n+ services',
+      button: { label: 'Get an Estimate', to: '/get-estimate' },
+    },
     background:
       'linear-gradient(145deg, rgba(43, 220, 183, 0.00) 33.85%, rgba(43, 220, 183, 0.35) 80.43%), #1C1C1C',
   },
@@ -48,11 +57,6 @@ export const whitelabelCta = {
   body: 'Ask us about white-labeling \u2014 custom colours, brand identity, and fully branded facilitation materials across everything we deliver.',
   button: { label: 'Contact Us', to: '/get-started' },
   image: whitelabelImg,
-};
-
-export const caseStudiesHeader = {
-  eyebrow: 'Real Projects',
-  heading: 'Internal team, fully\nsupported on-site',
 };
 
 export const caseStudies = [

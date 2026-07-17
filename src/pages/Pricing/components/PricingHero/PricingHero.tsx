@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { pricingHero } from '../../pricingData';
 import styles from './PricingHero.module.css';
@@ -21,22 +20,14 @@ const PricingHero = () => {
       >
         {pricingHero.title}
       </motion.h1>
-      <motion.div
-        className={styles.rest}
+      <motion.p
+        className={styles.subtitle}
         initial={fade.initial}
         animate={fade.animate}
         transition={{ duration: 0.7, ease, delay: 0.35 }}
       >
-        <p className={styles.subtitle}>{pricingHero.subtitle}</p>
-        <div className={styles.actions}>
-          <Link to={pricingHero.primaryButton.to} className={styles.primaryBtn}>
-            {pricingHero.primaryButton.label}
-          </Link>
-          <Link to={pricingHero.secondaryButton.to} className={styles.secondaryBtn}>
-            {pricingHero.secondaryButton.label}
-          </Link>
-        </div>
-      </motion.div>
+        {pricingHero.subtitle}
+      </motion.p>
     </section>
   );
 };
