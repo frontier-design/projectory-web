@@ -34,9 +34,9 @@
 .title {
   margin: 0;
   font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: 53px;
+  font-size: 44px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 44px;
   color: var(--white);
   white-space: pre-line; /* allow hard-breaks in title */
 }
