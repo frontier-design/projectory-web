@@ -7,7 +7,7 @@ import {
   useMotionValueEvent,
   useTransform,
 } from 'framer-motion';
-import { caseStudies } from '../../pricingData';
+import { caseStudies, caseStudiesHeader } from '../../pricingData';
 import styles from './CaseStudies.module.css';
 
 const total = caseStudies.length;
@@ -245,6 +245,13 @@ const CaseStudies = () => {
 
   return (
     <section className={styles.section} ref={sectionRef}>
+      <div className={styles.header}>
+        <div className={styles.headerInner}>
+          <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
+          <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
+        </div>
+      </div>
+
       <div
         className={styles.track}
         ref={trackRef}

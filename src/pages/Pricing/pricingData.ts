@@ -44,7 +44,7 @@ export const deliveryOptions = [
     ],
     cta: {
       title: 'Rental fee\n+ services',
-      button: { label: 'Get an Estimate', to: '/get-estimate' },
+      button: { label: 'Get an Estimate', to: '/get-started' },
     },
     background:
       'linear-gradient(145deg, rgba(43, 220, 183, 0.00) 33.85%, rgba(43, 220, 183, 0.35) 80.43%), #1C1C1C',
@@ -57,6 +57,11 @@ export const whitelabelCta = {
   body: 'Ask us about white-labeling \u2014 custom colours, brand identity, and fully branded facilitation materials across everything we deliver.',
   button: { label: 'Contact Us', to: '/get-started' },
   image: whitelabelImg,
+};
+
+export const caseStudiesHeader = {
+  eyebrow: 'Real Projects',
+  heading: 'Internal team, fully\nsupported on-site',
 };
 
 export const caseStudies = [

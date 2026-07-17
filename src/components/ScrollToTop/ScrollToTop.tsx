@@ -5,8 +5,11 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     window.scrollTo(0, 0);
-  }, [pathname]); // Runs every time the path changes
+  }, [pathname]);
 
   return null;
 };
