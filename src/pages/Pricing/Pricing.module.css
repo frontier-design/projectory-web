@@ -20,7 +20,7 @@
 
 @media (max-width: 768px) {
     .container {
-        gap: 80px;
+        gap: 120px;
         padding: 120px 30px 80px;
     }
 }

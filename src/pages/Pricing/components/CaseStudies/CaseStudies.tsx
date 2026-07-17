@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { MotionValue } from 'framer-motion';
 import {
   motion,
@@ -11,6 +11,8 @@ import { caseStudies, caseStudiesHeader } from '../../pricingData';
 import styles from './CaseStudies.module.css';
 
 const total = caseStudies.length;
+const NAVBAR_HEIGHT = 64;
+const DESKTOP_MIN = 769;
 
 // Number of scroll "steps" between cases (front card recedes once per step).
 const steps = Math.max(total - 1, 1);
@@ -141,38 +143,6 @@ const StackCard = ({
   );
 };
 
-// Mobile: all images mounted; y scrubbed by scroll so the next card
-// slides up into the frame in real time (no remount / AnimatePresence).
-const MobileSlide = ({
-  study,
-  index,
-  progress,
-}: {
-  study: CaseStudy;
-  index: number;
-  progress: MotionValue<number>;
-}) => {
-  const y = useTransform(
-    progress,
-    [0, 1],
-    [`${index * 100}%`, `${(index - steps) * 100}%`],
-  );
-
-  return (
-    <motion.div
-      className={styles.mobileSlide}
-      style={{ y, zIndex: index }}
-    >
-      <img
-        src={study.image}
-        alt=""
-        className={styles.mobileImage}
-        draggable={false}
-      />
-    </motion.div>
-  );
-};
-
 const MetaContent = ({
   study,
   index,
@@ -187,7 +157,12 @@ const MetaContent = ({
     <div className={styles.metaName} style={{ color: accent }}>
       {study.name}
     </div>
-    <div className={styles.metaDesc}>
+    <div
+      className={`${styles.metaDesc}${
+        index === 0 ? ` ${styles.metaDescCard1}` : ''
+      }${index === 1 ? ` ${styles.metaDescWide}` : ''}`}
+    >
+      <h3 className={styles.metaHeading}>{study.heading}</h3>
       <p className={styles.metaParagraph}>{study.description}</p>
     </div>
     <div className={styles.metaPrice}>
@@ -207,7 +182,9 @@ const MetaContent = ({
 );
 
 const CaseStudies = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -220,15 +197,58 @@ const CaseStudies = () => {
     setActiveIndex(next);
   });
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.body.classList.toggle('hide-whatsapp', entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+    observer.observe(section);
+    return () => {
+      observer.disconnect();
+      document.body.classList.remove('hide-whatsapp');
+    };
+  }, []);
+
+  useEffect(() => {
+    const sticky = stickyRef.current;
+    if (!sticky) return;
+
+    const updateStickyTop = () => {
+      if (window.innerWidth < DESKTOP_MIN) {
+        sticky.style.removeProperty('--sticky-top');
+        return;
+      }
+      const contentHeight = sticky.offsetHeight;
+      const available = window.innerHeight - NAVBAR_HEIGHT;
+      const offset =
+        NAVBAR_HEIGHT + Math.max(0, (available - contentHeight) / 2);
+      sticky.style.setProperty('--sticky-top', `${offset}px`);
+    };
+
+    updateStickyTop();
+    const observer = new ResizeObserver(updateStickyTop);
+    observer.observe(sticky);
+    window.addEventListener('resize', updateStickyTop);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateStickyTop);
+    };
+  }, []);
+
   const activeStudy = caseStudies[activeIndex];
   const accent = ACCENTS[activeIndex % ACCENTS.length];
 
   return (
-    <section className={styles.section}>
-      <div className={`${styles.header} ${styles.headerFlow}`}>
+    <section className={styles.section} ref={sectionRef}>
+      <div className={styles.header}>
         <div className={styles.headerInner}>
           <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
-          <h2 className={styles.title}>{caseStudiesHeader.headingMobile}</h2>
+          <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
         </div>
       </div>
 
@@ -237,27 +257,10 @@ const CaseStudies = () => {
         ref={trackRef}
         style={{ ['--case-steps' as string]: total }}
       >
-        <div className={styles.sticky}>
-          <div className={`${styles.header} ${styles.headerPin}`}>
-            <div className={styles.headerInner}>
-              <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
-              <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
-            </div>
-          </div>
-
+        <div className={styles.sticky} ref={stickyRef}>
           <div className={styles.deck}>
             {caseStudies.map((study, index) => (
               <StackCard
-                key={index}
-                study={study}
-                index={index}
-                progress={scrollYProgress}
-              />
-            ))}
-          </div>
-          <div className={styles.mobileDeck} aria-hidden>
-            {caseStudies.map((study, index) => (
-              <MobileSlide
                 key={index}
                 study={study}
                 index={index}

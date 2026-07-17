@@ -1,11 +1,11 @@
-import caseImg1 from './assets/case-sales-kickoff.webp';
-import caseImg2 from './assets/case-leadership-summit.webp';
-import caseImg3 from './assets/case-industry-conference.webp';
-import whitelabelImg from './assets/whitelabel.webp';
+import caseImg1 from './assets/leadership-summit.webp';
+import caseImg2 from './assets/PCMA-2024-CEMA-Summit.png';
+import caseImg3 from './assets/Deloitte-Connect-2024.png';
+import whitelabelImg from './assets/projectory-CIBC-img.webp';
 
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
-  subtitle: 'You choose how it is delivered.',
+  subtitle: "You decide how it's delivered.\nWe'll make it work either way.",
   primaryButton: { label: 'Product Finder', to: '/get-started-form' },
   secondaryButton: { label: 'Explore Products', to: '/products' },
 };
@@ -52,14 +52,14 @@ export const whitelabelCta = {
 
 export const caseStudiesHeader = {
   eyebrow: 'Real Projects',
-  heading: 'Internal team, fully supported on-site',
-  headingMobile: 'Internal team, fully\nsupported on-site',
+  heading: 'Internal team, fully\nsupported on-site',
 };
 
 export const caseStudies = [
   {
     image: caseImg1,
     name: 'Sales\nKickoff',
+    heading: 'Internal team, fully\nsupported on-site',
     description:
       'A Fortune 500 financial company rented two products for their annual SKO. Their internal leaders ran both sessions using our facilitation guides and remote support.',
     tags: ['One Day Event', '300 participants', 'DIY delivery'],
@@ -69,6 +69,7 @@ export const caseStudies = [
   {
     image: caseImg2,
     name: 'Leadership\nSummit',
+    heading: 'Full-service,\nrun by our team',
     description:
       'A senior leadership summit where our facilitators designed and delivered the full program end to end, integrating client content and branding throughout.',
     tags: ['Multi-Day Event', '400 participants', 'Bring Us In'],
@@ -78,6 +79,7 @@ export const caseStudies = [
   {
     image: caseImg3,
     name: 'Industry\nConference',
+    heading: 'Interactive\ninstallations at scale',
     description:
       'A multi-day industry conference featuring two interactive installations with event extensions, coordinated and shipped for the client team to run.',
     tags: ['Multi-Day Event', '300 participants', 'DIY delivery'],
@@ -87,7 +89,6 @@ export const caseStudies = [
 ];
 
 export const catalogueCta = {
-  title: 'Every product in our catalogue started as a client brief.',
   body: 'Tell Us what you are trying to solve and we\u2019ll get to work',
   button: { label: 'Contact Us', to: '/get-started' },
 };
