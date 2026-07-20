@@ -23,6 +23,8 @@ const DECK = [
   { y: -28, scale: 0.94, dim: 1, shade: 0.5 }, // mid - lighter grey, narrower
   { y: -52, scale: 0.88, dim: 1, shade: 1 }, // back - darker grey, narrowest
 ];
+// Tighter stack offsets on mobile only.
+const DECK_Y_MOBILE = [0, -16, -30] as const;
 
 // Apex of the eject arc — keep front width while lifting (no enlarge).
 const EJECT_Y = -100;
@@ -78,10 +80,12 @@ const StackCard = ({
   study,
   index,
   progress,
+  compact,
 }: {
   study: CaseStudy;
   index: number;
   progress: MotionValue<number>;
+  compact: boolean;
 }) => {
   const tin: number[] = [];
   const yk: number[] = [];
@@ -91,12 +95,13 @@ const StackCard = ({
   const ik: number[] = [];
   const zin: number[] = [];
   const zk: number[] = [];
+  const yAt = (slot: number) => (compact ? DECK_Y_MOBILE[slot] : DECK[slot].y);
 
   for (let k = 0; k <= steps; k++) {
     const t = k / steps;
     const slot = slotAt(index, k);
     tin.push(t);
-    yk.push(DECK[slot].y);
+    yk.push(yAt(slot));
     sk.push(DECK[slot].scale);
     sh.push(DECK[slot].shade);
     ok.push(1);
@@ -186,6 +191,7 @@ const CaseStudies = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [compact, setCompact] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: trackRef,
@@ -196,6 +202,14 @@ const CaseStudies = () => {
     const next = Math.min(total - 1, Math.max(0, Math.round(value * steps)));
     setActiveIndex(next);
   });
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${DESKTOP_MIN - 1}px)`);
+    const sync = () => setCompact(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -248,7 +262,7 @@ const CaseStudies = () => {
       <div className={styles.header}>
         <div className={styles.headerInner}>
           <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
-          <h2 className={styles.title}>{activeStudy.heading}</h2>
+          <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
         </div>
       </div>
 
@@ -261,10 +275,11 @@ const CaseStudies = () => {
           <div className={styles.deck}>
             {caseStudies.map((study, index) => (
               <StackCard
-                key={index}
+                key={`${index}-${compact}`}
                 study={study}
                 index={index}
                 progress={scrollYProgress}
+                compact={compact}
               />
             ))}
           </div>

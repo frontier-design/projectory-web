@@ -64,14 +64,14 @@
 }
 
 .deck {
-  --deck-peek: 95px;
-  --deck-stage: 444px;
+  --deck-peek: 80px;
+  /* Dynamic media card height; floor 430, ceiling 500 */
+  --deck-stage: clamp(430px, min(48dvh, calc(100dvh - 64px - var(--deck-peek) - 240px)), 500px);
   position: relative;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   height: calc(var(--deck-stage) + var(--deck-peek));
-  max-height: calc(100vh - 200px); /* navbar + meta room */
   margin: 0;
   flex-shrink: 0;
   overflow: hidden;
@@ -180,17 +180,19 @@
   font-family: 'FounderGrotesk_Medium', sans-serif;
   font-size: 30px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.19;
   color: var(--white);
   white-space: pre-line;
 }
 
 .metaParagraph {
   margin: 0;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
+  padding-top: 8px;
+  font-family: 'FounderGrotesk_Light', 'FounderGrotesk_Regular', sans-serif;
   font-size: clamp(15px, 1.3vw, 18px);
-  font-weight: 400;
-  line-height: 1.55;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
   color: var(--white);
 }
 
@@ -309,9 +311,8 @@
 
   .deck {
     container-type: inline-size;
-    --deck-peek: 95px;
-    --deck-stage: min(65cqw, max(42cqw, calc(100dvh - 64px - 95px - 8px - 280px)));
-    /* case study media cards dynamically adjusts to all viewport heights */
+    --deck-peek: 40px;
+    --deck-stage: min(72cqw, max(48cqw, calc(100dvh - 64px - 40px - 8px - 260px))); /* case study media cards dynamically adjusts to all viewport heights */
     max-height: none;
     width: 100%;
   }
@@ -364,8 +365,8 @@
 
 @media (max-width: 768px) and (max-height: 871px) {
   .deck {
-    --deck-peek: 48px;
-    --deck-stage: min(48cqw, calc(100dvh - 64px - 48px - 8px - 280px));
+    --deck-peek: 32px;
+    --deck-stage: min(54cqw, calc(100dvh - 64px - 32px - 8px - 260px));
   }
 }
 
