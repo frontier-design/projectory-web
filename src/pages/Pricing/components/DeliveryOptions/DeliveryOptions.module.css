@@ -8,6 +8,7 @@
 }
 
 .column {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +17,7 @@
 
 .card {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 420px;
@@ -295,13 +297,21 @@
 
 .button:hover {
   background: var(--white);
-  color: #A72C4B;
   border-color: var(--white);
+}
+
+.column:nth-child(1) .button:hover,
+.column:nth-child(1) .button:active {
+  color: #F37655;
+}
+
+.column:nth-child(2) .button:hover,
+.column:nth-child(2) .button:active {
+  color: #00795f;
 }
 
 .button:active {
   background: var(--white);
-  color: #A72C4B;
   border-color: var(--white);
   transform: scale(0.97);
   transition: background 0.08s ease-out, color 0.08s ease-out, border-color 0.08s ease-out,
@@ -378,7 +388,23 @@
 
   .badgeAmber,
   .badgeTeal {
-    display: none;
+    width: clamp(120px, 28vw, 160px);
+    height: clamp(120px, 28vw, 160px);
+  }
+
+  .badgeAmber {
+    left: auto;
+    right: -28px;
+    top: -60px;
+    rotate: -20deg;
+  }
+
+  .badgeTeal {
+    right: auto;
+    bottom: -70px;
+    left: -30px;
+    rotate: 20deg;
+    z-index: 0;
   }
 }
 

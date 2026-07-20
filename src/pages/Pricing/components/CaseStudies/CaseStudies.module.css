@@ -144,10 +144,10 @@
 }
 
 .metaName {
-  flex: 0 0 auto;
-  margin-left: clamp(16px, 3.5vw, 50px);
-  /* Name→Desc total gap = 116px (flex gap + this margin) */
-  margin-right: calc(116px - var(--meta-gap));
+  width: 200px;
+  flex-shrink: 0;
+  margin-left: 50px;
+  margin-right: clamp(16px, 5vw, 85px);
   white-space: pre-line;
   overflow-wrap: normal;
   word-break: keep-all;
@@ -162,17 +162,9 @@
   flex-direction: column;
   gap: 8px;
   flex: 1 1 auto;
-  max-width: min(380px, 100%);
+  max-width: 410px;
   min-width: 0;
   padding-top: 0;
-}
-
-.metaDescCard1 {
-  max-width: min(430px, 100%);
-}
-
-.metaDescWide {
-  max-width: min(410px, 100%);
 }
 
 .metaHeading {
@@ -244,15 +236,7 @@
 
 @media (max-width: 1200px) {
   .metaDesc {
-    max-width: min(320px, 100%);
-  }
-
-  .metaDescCard1 {
-    max-width: min(360px, 100%);
-  }
-
-  .metaDescWide {
-    max-width: min(360px, 100%);
+    max-width: 320px;
   }
 }
 
@@ -262,19 +246,12 @@
   }
 
   .metaName {
+    width: 160px;
     margin-left: 12px;
   }
 
   .metaDesc {
-    max-width: min(280px, 34%);
-  }
-
-  .metaDescCard1 {
-    max-width: min(310px, 38%);
-  }
-
-  .metaDescWide {
-    max-width: min(300px, 38%);
+    max-width: 280px;
   }
 }
 
@@ -335,7 +312,7 @@
     line-height: 1;
   }
 
-  .metaDescCard1 {
+  .metaDesc {
     max-width: 100%;
   }
 
