@@ -55,12 +55,13 @@ export const whitelabelCta = {
   eyebrow: 'Make it Look and Feel Like Your Brand',
   title: "We\u2019ll add your logo\nat no extra cost",
   body: 'Ask us about white-labeling \u2014 custom colours, brand identity, and fully branded facilitation materials across everything we deliver.',
-  button: { label: 'Contact Us', to: '/get-started' },
+  button: { label: 'Contact Us', to: '/get-started#contact-form' },
   image: whitelabelImg,
 };
 
 export const caseStudiesHeader = {
   eyebrow: 'Real Projects',
+  heading: 'A few examples of\nwhat we\u2019ve delivered',
 };
 
 export const caseStudies = [
@@ -98,7 +99,7 @@ export const caseStudies = [
 
 export const catalogueCta = {
   body: 'Tell Us what you are trying to solve and we\u2019ll get to work',
-  button: { label: 'Contact Us', to: '/get-started' },
+  button: { label: 'Contact Us', to: '/get-started#contact-form' },
 };
 
 export const faqSection = {

@@ -291,23 +291,12 @@
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.column:nth-child(1) .button {
-  color: #ff5627;
-}
-
-.column:nth-child(2) .button {
-  color: #00a984;
 }
 
 .button:hover {
   background: var(--white);
   color: #A72C4B;
   border-color: var(--white);
-  scale: 1.02;
-  transition: scale 0.3s ease;
 }
 
 .button:active {
@@ -326,12 +315,34 @@
     gap: 40px;
   }
 
+  .column {
+    width: 100%;
+    max-width: 500px;
+  }
+
   .card {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     height: auto;
     min-height: 0;
     padding: 28px 28px 32px;
+  }
+
+  .column:nth-child(1) .subtitle,
+  .column:nth-child(2) .subtitle {
+    max-width: none;
+  }
+
+  /* Beat desktop per-row max-widths (same specificity, later cascade) */
+  .column:nth-child(1) .featureItem:nth-child(n),
+  .column:nth-child(2) .featureItem:nth-child(n) {
+    width: 100%;
+    max-width: none;
+  }
+
+  .featureText {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .content {
@@ -363,6 +374,11 @@
 
   .subtitle {
     font-size: 18px;
+  }
+
+  .badgeAmber,
+  .badgeTeal {
+    display: none;
   }
 }
 
