@@ -61,7 +61,6 @@ export const whitelabelCta = {
 
 export const caseStudiesHeader = {
   eyebrow: 'Real Projects',
-  heading: 'Internal team, fully\nsupported on-site',
 };
 
 export const caseStudies = [

@@ -291,12 +291,23 @@
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.column:nth-child(1) .button {
+  color: #ff5627;
+}
+
+.column:nth-child(2) .button {
+  color: #00a984;
 }
 
 .button:hover {
   background: var(--white);
   color: #A72C4B;
   border-color: var(--white);
+  scale: 1.02;
+  transition: scale 0.3s ease;
 }
 
 .button:active {

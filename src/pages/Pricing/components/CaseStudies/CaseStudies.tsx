@@ -248,7 +248,7 @@ const CaseStudies = () => {
       <div className={styles.header}>
         <div className={styles.headerInner}>
           <p className={styles.eyebrow}>{caseStudiesHeader.eyebrow}</p>
-          <h2 className={styles.title}>{caseStudiesHeader.heading}</h2>
+          <h2 className={styles.title}>{activeStudy.heading}</h2>
         </div>
       </div>
 
