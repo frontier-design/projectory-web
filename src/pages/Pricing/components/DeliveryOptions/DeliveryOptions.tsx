@@ -39,6 +39,14 @@ const DeliveryOptions = () => {
     >
       {deliveryOptions.map((card, index) => (
         <div key={index} className={styles.column}>
+          {index === 1 && (
+            <img
+              src={tealBadge}
+              alt=""
+              className={styles.badgeTeal}
+              aria-hidden
+            />
+          )}
           <div className={styles.card} style={{ background: card.background }}>
             <div className={styles.content}>
               <div className={styles.body}>
@@ -78,23 +86,15 @@ const DeliveryOptions = () => {
                 </div>
               ) : null}
             </div>
-            {index === 0 && (
-              <img
-                src={amberBadge}
-                alt=""
-                className={styles.badgeAmber}
-                aria-hidden
-              />
-            )}
-            {index === 1 && (
-              <img
-                src={tealBadge}
-                alt=""
-                className={styles.badgeTeal}
-                aria-hidden
-              />
-            )}
           </div>
+          {index === 0 && (
+            <img
+              src={amberBadge}
+              alt=""
+              className={styles.badgeAmber}
+              aria-hidden
+            />
+          )}
         </div>
       ))}
     </motion.section>

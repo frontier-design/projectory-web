@@ -162,11 +162,7 @@ const MetaContent = ({
     <div className={styles.metaName} style={{ color: accent }}>
       {study.name}
     </div>
-    <div
-      className={`${styles.metaDesc}${
-        index === 0 ? ` ${styles.metaDescCard1}` : ''
-      }${index === 1 ? ` ${styles.metaDescWide}` : ''}`}
-    >
+    <div className={styles.metaDesc}>
       <h3 className={styles.metaHeading}>{study.heading}</h3>
       <p className={styles.metaParagraph}>{study.description}</p>
     </div>
