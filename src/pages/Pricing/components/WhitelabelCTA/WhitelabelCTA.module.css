@@ -3,7 +3,7 @@
   align-items: flex-start;
   gap: clamp(32px, 5.5vw, 75px);
   width: 100%;
-  max-width: 100%;
+  max-width: min(900px, 100%);
   margin: 0 auto;
   text-align: left;
   box-sizing: border-box;
@@ -99,10 +99,10 @@
 }
 
 .mediaColumn {
-  flex: 0 1 420px;
-  width: min(420px, 42%);
+  flex: 0 1 min(380px, 42%);
+  width: min(380px, 42%);
   min-width: 0;
-  max-width: 420px;
+  max-width: 380px;
 }
 
 .image {
@@ -122,6 +122,7 @@
     align-items: stretch;
     gap: 40px;
     width: 100%;
+    max-width: 100%;
   }
 
   .textColumn {
@@ -132,7 +133,7 @@
 
   .mediaColumn {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     flex: none;
   }
 
