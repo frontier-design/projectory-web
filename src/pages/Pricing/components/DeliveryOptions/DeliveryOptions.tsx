@@ -1,9 +1,12 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { deliveryOptions } from '../../pricingData';
 import amberBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-amber.png';
 import tealBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-teal.png';
 import styles from './DeliveryOptions.module.css';
+
+const DESKTOP_MIN = 769;
 
 const CheckIcon = () => (
   <svg
@@ -29,9 +32,35 @@ const CheckIcon = () => (
   </svg>
 );
 
+const CircleIcon = () => (
+  <span className={styles.circleIcon} aria-hidden />
+);
+
 const DeliveryOptions = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [desktop, setDesktop] = useState(false);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const amberX = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const amberY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const amberRotate = useTransform(scrollYProgress, [0, 1], [0, -110]);
+  const tealYDesktop = useTransform(scrollYProgress, [0, 1], [0, 42]);
+  const tealRotateDesktop = useTransform(scrollYProgress, [0, 1], [0, 70]);
+  const tealRotateMobile = useTransform(scrollYProgress, [0, 1], [0, -55]);
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${DESKTOP_MIN}px)`);
+    const sync = () => setDesktop(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
+
   return (
     <motion.section
+      ref={sectionRef}
       className={styles.section}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,14 +69,18 @@ const DeliveryOptions = () => {
       {deliveryOptions.map((card, index) => (
         <div key={index} className={styles.column}>
           {index === 1 && (
-            <img
+            <motion.img
               src={tealBadge}
               alt=""
               className={styles.badgeTeal}
+              style={{
+                y: desktop ? tealYDesktop : 0,
+                rotate: desktop ? tealRotateDesktop : tealRotateMobile,
+              }}
               aria-hidden
             />
           )}
-          <div className={styles.card} style={{ background: card.background }}>
+          <div className={styles.card}>
             <div className={styles.content}>
               <div className={styles.body}>
                 <div className={styles.header}>
@@ -56,42 +89,71 @@ const DeliveryOptions = () => {
                   <p className={styles.subtitle}>{card.subtitle}</p>
                 </div>
                 <div className={styles.divider} />
-                <ul className={styles.featureList}>
-                  {card.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className={styles.featureItem}>
-                      <CheckIcon />
-                      <span className={styles.featureText}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {'featureGroups' in card && card.featureGroups ? (
+                  <div className={styles.featureGroups}>
+                    {card.featureGroups.map((group) => (
+                      <div key={group.title} className={styles.featureGroup}>
+                        <p className={styles.featureGroupTitle}>{group.title}</p>
+                        <ul className={styles.featureList}>
+                          {group.items.map((item) => (
+                            <li key={item} className={styles.featureItem}>
+                              <CircleIcon />
+                              <span className={styles.featureText}>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className={styles.featureList}>
+                    {'features' in card &&
+                      card.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className={styles.featureItem}>
+                          <CheckIcon />
+                          <span className={styles.featureText}>{feature}</span>
+                        </li>
+                      ))}
+                  </ul>
+                )}
               </div>
               {'cta' in card && card.cta ? (
                 <div className={styles.footer}>
-                  <div className={styles.ctaCopy}>
-                    <div className={styles.ctaTitleRow}>
-                      <span className={styles.ctaTitle}>{card.cta.title}</span>
-                      {'currency' in card.cta && card.cta.currency ? (
-                        <span className={styles.ctaCurrency}>
-                          {card.cta.currency}
-                        </span>
+                  <div className={styles.footerRow}>
+                    <div className={styles.ctaCopy}>
+                      <div className={styles.ctaTitleRow}>
+                        <span className={styles.ctaTitle}>{card.cta.title}</span>
+                        {'currency' in card.cta && card.cta.currency ? (
+                          <span className={styles.ctaCurrency}>
+                            {card.cta.currency}
+                          </span>
+                        ) : null}
+                      </div>
+                      {'caption' in card.cta && card.cta.caption ? (
+                        <p className={styles.ctaCaption}>{card.cta.caption}</p>
                       ) : null}
                     </div>
-                    {'caption' in card.cta && card.cta.caption ? (
-                      <p className={styles.ctaCaption}>{card.cta.caption}</p>
-                    ) : null}
+                    <Link to={card.cta.button.to} className={styles.button}>
+                      {card.cta.button.label}
+                    </Link>
                   </div>
-                  <Link to={card.cta.button.to} className={styles.button}>
-                    {card.cta.button.label}
-                  </Link>
+                  {'note' in card.cta && card.cta.note ? (
+                    <p className={styles.ctaNote}>{card.cta.note}</p>
+                  ) : null}
                 </div>
               ) : null}
             </div>
           </div>
           {index === 0 && (
-            <img
+            <motion.img
               src={amberBadge}
               alt=""
               className={styles.badgeAmber}
+              style={{
+                x: desktop ? amberX : 0,
+                y: desktop ? amberY : 0,
+                rotate: amberRotate,
+              }}
               aria-hidden
             />
           )}

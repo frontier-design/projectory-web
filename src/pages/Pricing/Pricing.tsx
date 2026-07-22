@@ -12,9 +12,9 @@ const Pricing = () => {
       <div className={styles.container}>
         <PricingHero />
         <DeliveryOptions />
-        <WhitelabelCTA />
-        <CaseStudies />
         <CatalogueCTA />
+        <CaseStudies />
+        <WhitelabelCTA />
         <FAQ />
       </div>
     </div>
