@@ -170,20 +170,6 @@
   gap: 4px;
 }
 
-.priceTagsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 16px;
-  align-items: start;
-  width: 100%;
-}
-
-.priceTagCol {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
 .priceTag {
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: clamp(13px, 1.2vw, 16px);

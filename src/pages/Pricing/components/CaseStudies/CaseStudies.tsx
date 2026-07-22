@@ -60,36 +60,13 @@ const CaseStudies = () => {
               </h3>
               <p className={styles.description}>{selected.description}</p>
               <div className={styles.priceBlock}>
-                {selected.tags.length > 3 ? (
-                  <div className={`${styles.priceTags} ${styles.priceTagsGrid}`}>
-                    <div className={styles.priceTagCol}>
-                      {selected.tags
-                        .slice(0, Math.ceil(selected.tags.length / 2))
-                        .map((tag) => (
-                          <span key={tag} className={styles.priceTag}>
-                            {tag}
-                          </span>
-                        ))}
-                    </div>
-                    <div className={styles.priceTagCol}>
-                      {selected.tags
-                        .slice(Math.ceil(selected.tags.length / 2))
-                        .map((tag) => (
-                          <span key={tag} className={styles.priceTag}>
-                            {tag}
-                          </span>
-                        ))}
-                    </div>
-                  </div>
-                ) : (
-                  <div className={styles.priceTags}>
-                    {selected.tags.map((tag) => (
-                      <span key={tag} className={styles.priceTag}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className={styles.priceTags}>
+                  {selected.tags.map((tag) => (
+                    <span key={tag} className={styles.priceTag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <div className={styles.priceValue}>
                   {selected.price}
                   <span className={styles.priceCurrency}>{selected.currency}</span>
