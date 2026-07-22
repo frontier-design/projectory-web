@@ -1,10 +1,20 @@
 .section {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  margin-top: 0;
+  overflow: visible;
+}
+
+.cards {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
   width: 100%;
-  margin-top: 0;
   overflow: visible;
 }
 
@@ -329,7 +339,7 @@
 }
 
 .column:nth-child(1) .footer {
-  bottom: 40px;
+  bottom: 52px;
   gap: 8px;
   padding-bottom: 0;
   margin-bottom: 0;
@@ -340,8 +350,12 @@
 }
 
 @media (min-width: 769px) {
+  .column:nth-child(1) .footer {
+    gap: 0;
+  }
+
   .column:nth-child(2) .footer {
-    bottom: 52px;
+    bottom: 38px;
   }
 
   .column:nth-child(2) .footerRow {
@@ -351,6 +365,17 @@
   .column:nth-child(2) .ctaTitle {
     position: relative;
     top: -7px;
+  }
+
+  .ctaNote {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 16px);
+    margin: 0;
+    width: auto;
+    max-width: none;
+    pointer-events: none;
   }
 }
 
@@ -412,26 +437,42 @@
   padding: 0;
   width: 100%;
   max-width: 100%;
-  align-self: stretch;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 14.2px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.3;
-  color: var(--white);
-  text-align: left;
-  white-space: nowrap;
+  color: #B0B0B0;
+  text-align: center;
+  white-space: normal;
+  box-sizing: border-box;
+  transition: color 0.3s ease;
+}
+
+.mutedNote {
+  margin: 0;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 24px;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #7B7B7B;
+  text-align: center;
   box-sizing: border-box;
 }
 
 /* Hover effect for micro caption under left card's USD price */
 .column:nth-child(1) .card:hover .ctaCurrency,
-.column:nth-child(1) .card:hover .ctaCaption {
+.column:nth-child(1) .card:hover .ctaCaption,
+.column:nth-child(1) .card:hover .ctaNote {
   color: var(--white);
 }
 
 .button {
   display: inline-flex;
   flex-shrink: 0;
+  width: 160px;
   height: 44px;
   padding: 11px 21px;
   justify-content: center;
@@ -476,7 +517,18 @@
   .section {
     flex-direction: column;
     align-items: center;
+    gap: 28px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
     gap: 40px;
+  }
+
+  .mutedNote {
+    max-width: 500px;
+    font-size: 13px;
   }
 
   .column {
@@ -505,6 +557,14 @@
     bottom: auto;
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+
+  .ctaNote {
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    text-align: left;
+    font-size: 90%;
   }
 
   .column:nth-child(1) .subtitle,
@@ -569,8 +629,8 @@
 
   .badgeTeal {
     right: auto;
-    bottom: -95px;
-    left: -30px;
+    bottom: -45px;
+    left: -58px;
     z-index: 0;
   }
 }
@@ -580,9 +640,5 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  }
-
-  .ctaNote {
-    white-space: normal;
   }
 }

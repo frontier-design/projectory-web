@@ -60,6 +60,9 @@ export const deliveryOptions = [
   },
 ];
 
+export const deliveryOptionsNote =
+  'Pricing does not include shipping or travel and accommodation costs for any onsite team members. Some products require onsite crew.';
+
 export const whitelabelCta = {
   eyebrow: 'Custom Branding?',
   title: "We\u2019ll Make it Look\nand Feel Like Your Brand",
