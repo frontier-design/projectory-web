@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { caseStudies, caseStudiesHeader } from '../../pricingData';
 import styles from './CaseStudies.module.css';
 
-const ACCENTS = ['#2BDCB7', '#F37655', '#C5DA20', '#B292C4'] as const;
+const ACCENTS = ['#2BDCB7', '#F37655', '#C5DA20', '#B292C4', '#F3DA00'] as const;
 
 const CaseStudies = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -55,8 +55,20 @@ const CaseStudies = () => {
               className={styles.image}
             />
             <div className={styles.copy}>
-              <h3 className={styles.heading} style={{ color: accent }}>
-                {selected.heading}
+              <h3
+                className={`${styles.heading}${selected.name === 'Trade Show' ? ` ${styles.headingTradeShow}` : ''}`}
+                style={{ color: accent }}
+              >
+                {selected.name === 'Trade Show' ? (
+                  <>
+                    Branded installation for booth
+                    <br className={styles.breakMobile} />
+                    {' '}
+                    traffic that actually converts
+                  </>
+                ) : (
+                  selected.heading
+                )}
               </h3>
               <p className={styles.description}>{selected.description}</p>
               <div className={styles.priceBlock}>
