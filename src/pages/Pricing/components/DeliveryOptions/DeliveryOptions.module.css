@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   width: 420px;
-  height: 830px;
+  height: 815px;
   padding: 50px 55px 40px;
   justify-content: flex-start;
   align-items: stretch;
@@ -107,6 +107,13 @@
   transform: translateY(-8px);
 }
 
+@media (min-width: 769px) {
+  .column:nth-child(1):hover .badgeAmber {
+    top: -78px;
+    left: -80px;
+  }
+}
+
 .card:hover::after {
   opacity: 1;
 }
@@ -132,7 +139,7 @@
   gap: 12px;
   flex-shrink: 0;
   width: 100%;
-  height: 240px;
+  height: auto;
   box-sizing: border-box;
   text-align: left;
 }
@@ -149,7 +156,7 @@
 }
 
 .title {
-  margin: 0;
+  margin: 0 0 8px;
   font-family: 'FounderGrotesk_Medium', sans-serif;
   font-size: 52px;
   font-weight: 500;
@@ -170,25 +177,26 @@
 .subtitle {
   margin: 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 24px;
   color: var(--white);
   font-feature-settings: 'liga' off, 'clig' off;
 }
 
 .column:nth-child(1) .subtitle {
-  max-width: 280px;
+  max-width: 320px;
 }
 
 .column:nth-child(2) .subtitle {
-  max-width: 220px;
+  max-width: 260px;
 }
 
 .divider {
   width: 100%;
-  height: 0.2px;
-  margin-top: auto;
+  height: 0.5px;
+  flex-shrink: 0;
+  margin-top: 18px;
   background: var(--white);
 }
 
@@ -324,8 +332,9 @@
 }
 
 .badgeAmber {
-  top: -44px;
-  left: -46px;
+  top: -60px;
+  left: -68px;
+  transition: top 0.3s ease, left 0.3s ease;
 }
 
 .badgeTeal {
@@ -402,22 +411,22 @@
   width: calc(100% + 20px);
   box-sizing: border-box;
   border-radius: 1000px;
-  border: 1px solid #ff9054;
-  background: rgba(103, 52, 25, 0.50);
+  border: 1px solid #F37655;
+  background-color: rgba(66, 20, 8, 0);
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.2;
-  color: #ff9054;
+  color: #F37655;
   text-align: center;
   white-space: nowrap;
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card:hover .ctaNote {
-  background: rgba(103, 52, 25, 0.245);
-  color: rgb(255, 183, 135);
-  border-color: rgb(255, 183, 135);
+  background-color: rgba(90, 28, 12, 0.82);
+  color: #FFB787;
+  border-color: #FFB787;
 }
 
 .mutedNote {
@@ -525,7 +534,7 @@
   }
 
   .divider {
-    margin-top: 12px;
+    margin-top: 18px;
   }
 
   .column:nth-child(1) .subtitle,
@@ -554,7 +563,7 @@
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .badgeAmber,

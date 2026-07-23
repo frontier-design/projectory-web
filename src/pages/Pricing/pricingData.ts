@@ -144,7 +144,7 @@ export const caseStudies = [
 
 export const catalogueCta = {
   title: 'Every product in our catalogue started as a client brief.',
-  body: 'Tell us what you are trying to solve and we\u2019ll get to work',
+  body: 'Tell us what you are trying to\nsolve and we\u2019ll get to work',
   button: { label: 'Contact Us', to: '/get-started#contact-form' },
 };
 
