@@ -20,7 +20,7 @@ const FinalCTA = ({ experienceText, experienceLink }: FinalCTAProps) => {
       <div className={styles.ctaBoxLight}>
         <h3>Get Started </h3>
         <p>Break free from boring by integrating this Projectory product at your next event</p>
-        <Link to="/get-started" className={styles.ctaButtonBottom}>Let’s Go!</Link>
+        <Link to="/pricing" className={styles.ctaButtonBottom}>Let’s Go!</Link>
       </div>
     </section>
   );
