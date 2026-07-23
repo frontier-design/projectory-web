@@ -140,6 +140,21 @@ export const caseStudies = [
     price: '$45,000',
     currency: 'USD',
   },
+  {
+    image:
+      'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749520804/PingPoll_1_d8rjc7_nsiwgv.webp',
+    name: 'Trade Show',
+    heading: 'Branded installation for booth traffic that actually converts',
+    description:
+      'A healthcare company exhibiting at a major industry trade show wanted something more memorable than typical booth giveaways. We provided a single branded installation that was fully customized to match the booth visual identity.',
+    tags: [
+      'Rent-and-run delivery',
+      'One product',
+      'Full white-label branding',
+    ],
+    price: '$12,000',
+    currency: 'USD',
+  },
 ];
 
 export const catalogueCta = {
