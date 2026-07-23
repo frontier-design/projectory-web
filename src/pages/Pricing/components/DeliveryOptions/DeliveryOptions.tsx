@@ -83,13 +83,14 @@ const DeliveryOptions = () => {
             )}
             <div className={styles.card}>
               <div className={styles.content}>
-                <div className={styles.body}>
-                  <div className={styles.header}>
-                    <p className={styles.eyebrow}>{card.eyebrow}</p>
-                    <h2 className={styles.title}>{card.title}</h2>
-                    <p className={styles.subtitle}>{card.subtitle}</p>
-                  </div>
+                <div className={styles.hero}>
+                  <p className={styles.eyebrow}>{card.eyebrow}</p>
+                  <h2 className={styles.title}>{card.title}</h2>
+                  <p className={styles.subtitle}>{card.subtitle}</p>
                   <div className={styles.divider} />
+                </div>
+
+                <div className={styles.body}>
                   {'featureGroups' in card && card.featureGroups ? (
                     <div className={styles.featureGroups}>
                       {card.featureGroups.map((group) => (
@@ -118,29 +119,32 @@ const DeliveryOptions = () => {
                     </ul>
                   )}
                 </div>
+
                 {'cta' in card && card.cta ? (
                   <div className={styles.footer}>
+                    {'note' in card.cta && card.cta.note ? (
+                      <p className={styles.ctaNote}>{card.cta.note}</p>
+                    ) : null}
                     <div className={styles.footerRow}>
-                      <div className={styles.ctaCopy}>
-                        <div className={styles.ctaTitleRow}>
-                          <span className={styles.ctaTitle}>{card.cta.title}</span>
-                          {'currency' in card.cta && card.cta.currency ? (
-                            <span className={styles.ctaCurrency}>
-                              {card.cta.currency}
-                            </span>
+                      {'title' in card.cta && card.cta.title ? (
+                        <div className={styles.ctaCopy}>
+                          <div className={styles.ctaTitleRow}>
+                            <span className={styles.ctaTitle}>{card.cta.title}</span>
+                            {'currency' in card.cta && card.cta.currency ? (
+                              <span className={styles.ctaCurrency}>
+                                {card.cta.currency}
+                              </span>
+                            ) : null}
+                          </div>
+                          {'caption' in card.cta && card.cta.caption ? (
+                            <p className={styles.ctaCaption}>{card.cta.caption}</p>
                           ) : null}
                         </div>
-                        {'caption' in card.cta && card.cta.caption ? (
-                          <p className={styles.ctaCaption}>{card.cta.caption}</p>
-                        ) : null}
-                      </div>
+                      ) : null}
                       <Link to={card.cta.button.to} className={styles.button}>
                         {card.cta.button.label}
                       </Link>
                     </div>
-                    {'note' in card.cta && card.cta.note ? (
-                      <p className={styles.ctaNote}>{card.cta.note}</p>
-                    ) : null}
                   </div>
                 ) : null}
               </div>

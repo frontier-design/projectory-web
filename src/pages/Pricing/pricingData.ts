@@ -10,8 +10,8 @@ export const pricingHero = {
 
 export const deliveryOptions = [
   {
-    eyebrow: 'Run it yourself',
-    title: 'Base Rental',
+    eyebrow: 'Run It Yourself',
+    title: 'Base\nRental',
     subtitle:
       'The product ships to you with everything your team needs to confidently install and facilitate',
     features: [
@@ -31,15 +31,15 @@ export const deliveryOptions = [
     },
   },
   {
-    eyebrow: 'Ask us about',
-    title: 'Optional Add-Ons',
+    eyebrow: 'Ask Us About',
+    title: 'Optional\nAdd-Ons',
     subtitle:
       "Pick what you need from us, and we'll show up and make it happen",
     featureGroups: [
       {
         title: 'Bring us in',
         items: [
-          'Expert Projectory Facilitator\nassigned to your event',
+          'Expert Projectory facilitator\nassigned to your event',
           'Onsite crew for setup, operations,\nand teardown',
           'Projectory as your event emcee',
         ],
@@ -48,13 +48,12 @@ export const deliveryOptions = [
         title: 'Personalize it',
         items: [
           'Custom new product design for your\nspecific challenge',
-          'Custom Branding and design\nservices',
+          'Custom branding and design\nservices',
           "Interactive post-event report with\nparticipants' outputs",
         ],
       },
     ],
     cta: {
-      title: 'Rental fee\n+ services',
       button: { label: 'Get an Estimate', to: '/get-started-form' },
     },
   },
@@ -72,7 +71,7 @@ export const whitelabelCta = {
 };
 
 export const caseStudiesHeader = {
-  eyebrow: 'Real Projects, Real numbers',
+  eyebrow: 'Real Projects, Real Numbers',
   heading: 'What engagements\nlooked like in practice',
 };
 
@@ -84,7 +83,7 @@ export const caseStudies = [
     description:
       'A Fortune 500 financial company rented two products for their annual SKO. Their internal leaders ran both sessions using our facilitation guides and remote support.',
     tags: [
-      'One Day Event',
+      'One day event',
       '300 participants',
       'Rent-and-run delivery',
       'Two products',
@@ -94,15 +93,15 @@ export const caseStudies = [
   },
   {
     image: caseImg3,
-    name: 'Industry event',
+    name: 'Industry Event',
     heading: 'Interactive\ninstallations at scale',
     description:
       'A multi-day industry conference featuring two installations with post event reports, coordinated and shipped for the client team to run on their own.',
     tags: [
-      'Multi-Day Event',
+      'Multi-day event',
       '300 participants',
       'Rent-and-run delivery',
-      'Two Products',
+      'Two products',
       'Post event report',
     ],
     price: '$35,000',
@@ -115,7 +114,7 @@ export const caseStudies = [
     description:
       'A senior leadership summit where our facilitators designed and delivered the full program end to end, integrating client content and branding throughout.',
     tags: [
-      'Multi-Day Event',
+      'Multi-day event',
       'Six products',
       'Post event report',
       '500 participants',
@@ -133,10 +132,10 @@ export const caseStudies = [
     description:
       "A national association's annual gathering featured two interactive installations on the show floor and two facilitated breakout sessions \u2014 with an onsite crew handling setup, operation, and teardown throughout.",
     tags: [
-      'Multi-Day Event',
+      'Multi-day event',
       '1200 participants',
       'Onsite crew and facilitators',
-      'Four Products',
+      'Four products',
     ],
     price: '$45,000',
     currency: 'USD',
@@ -144,7 +143,8 @@ export const caseStudies = [
 ];
 
 export const catalogueCta = {
-  body: 'Tell Us what you are trying to solve and we\u2019ll get to work',
+  title: 'Every product in our catalogue started as a client brief.',
+  body: 'Tell us what you are trying to solve and we\u2019ll get to work',
   button: { label: 'Contact Us', to: '/get-started#contact-form' },
 };
 
@@ -152,7 +152,7 @@ export const faqSection = {
   title: 'Questions\nwe get a lot',
   items: [
     {
-      question: 'Is $10,000 the total cost, or just the starting point?',
+      question: 'Is $9,000 the total cost, or just the starting point?',
       answer:
         "It's the full rental fee for one product. If you run it yourself, you're mostly done, aside from shipping and any printing. If you bring our team in, facilitator and crew day rates are added on top. We'll always give you the full number before you commit.",
     },
