@@ -135,6 +135,7 @@
 @media (max-width: 768px) {
   .banner {
     min-height: 400px;
+    margin-block: 32px;
     padding: 64px 24px;
   }
 

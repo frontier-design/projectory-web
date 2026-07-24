@@ -22,6 +22,11 @@
   padding-bottom: clamp(64px, 8vw, 100px);
 }
 
+.teamBlock {
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+
 .faqBlock {
   padding-bottom: clamp(80px, 10vw, 120px);
 }
@@ -30,5 +35,10 @@
   .whoWeArePage {
     --page-pad-x: 24px;
     --carousel-section-gap: 64px;
+  }
+
+  .teamBlock {
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 }
