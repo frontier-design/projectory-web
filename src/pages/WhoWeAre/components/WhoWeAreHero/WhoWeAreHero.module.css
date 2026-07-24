@@ -6,6 +6,7 @@
   display: flex;
   align-items: flex-end;
   padding: var(--page-pad-y, 50px) var(--page-pad-x, 150px);
+  padding-bottom: 72px;
   text-align: left;
   color: white;
   overflow: hidden;
@@ -50,16 +51,20 @@
 .title {
   margin: 0;
   color: #fff;
-  font-size: 80px;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: 60px;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
   font-style: normal;
-  font-weight: 500;
-  line-height: 75px;
+  font-weight: normal;
+  line-height: 0.94;
   width: 100%;
   white-space: pre-line;
 }
 
 @media screen and (max-width: 700px) {
+  .heroWrapper {
+    padding-bottom: var(--page-pad-y, 50px);
+  }
+
   .title {
     font-size: clamp(40px, 11vw, 56px);
     line-height: 0.94;
@@ -73,6 +78,10 @@
 @media (min-width: 2000px) {
   .heroContent {
     max-width: 1250px;
+  }
+
+  .title {
+    font-size: 88px;
   }
 
   .eyebrow {

@@ -1,8 +1,10 @@
 .carouselSection {
+  --slide-width: 60vw;
+  --slide-gap: 20px;
   position: relative;
   width: 100%;
-  margin-top: var(--carousel-section-gap, clamp(120px, 14vw, 180px));
-  margin-bottom: var(--carousel-section-gap, clamp(120px, 14vw, 180px));
+  margin-top: var(--carousel-section-gap, clamp(56px, 7vw, 96px));
+  margin-bottom: var(--carousel-section-gap, clamp(56px, 7vw, 96px));
   cursor: default;
 }
 
@@ -57,16 +59,16 @@
 }
 
 .marqueeIconBottom {
-  bottom: -24%;
+  bottom: -12%;
   left: 15%;
-  width: clamp(110px, 12vw, 190px);
+  width: clamp(130px, 14vw, 220px);
   animation: marqueeIconFloatBottom 6.5s ease-in-out infinite;
 }
 
 .marqueeIconTop {
-  top: -20%;
+  top: -10%;
   right: 20%;
-  width: clamp(75px, 8vw, 130px);
+  width: clamp(90px, 10vw, 150px);
   animation: marqueeIconFloatTop 4.5s ease-in-out infinite;
   animation-delay: 0.6s;
 }
@@ -88,36 +90,37 @@
 
 .marqueeSlide {
   flex-shrink: 0;
-  width: 582px;
-  margin-right: 48px;
-  border-radius: 12px;
+  width: var(--slide-width);
+  margin-right: var(--slide-gap);
+  border-radius: 20px;
   overflow: hidden;
 }
 
 .marqueeImage {
-  width: 582px;
-  height: 410px;
-  aspect-ratio: 291 / 205;
+  width: 100%;
+  height: 75vh;
   object-fit: cover;
   display: block;
 }
 
 @media (max-width: 768px) {
+  .carouselSection {
+    --slide-width: 84vw;
+    --slide-gap: 14px;
+  }
+
   .marqueeIconBottom,
   .marqueeIconTop {
     display: none;
   }
 
   .marqueeSlide {
-    width: 72vw;
-    margin-right: 28px;
-    aspect-ratio: 291 / 205;
+    aspect-ratio: 4 / 5;
   }
 
   .marqueeImage {
     width: 100%;
     height: 100%;
-    aspect-ratio: 291 / 205;
     min-height: 0;
     max-height: none;
     object-fit: cover;
