@@ -8,7 +8,6 @@ import {
   useMotionValue,
 } from 'framer-motion';
 import styles from './CaseStudies.module.css';
-import faqStyles from '../../components/FAQ/FAQ.module.css';  
 import ClientLogos from '../../components/ClientLogos/ClientLogos';
 import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
@@ -22,41 +21,7 @@ import CemaLogo from '../../assets/images/logos/cema.png';
 
 import { caseStudiesData } from '../CaseStudyPages/caseStudiesData'; 
 
-const extraElement = (
-  <div className={faqStyles.extraContent}>
-    <div className={faqStyles.extraContentGrid}>
-      <div className={faqStyles.extraCard}>
-        <h4 className={faqStyles.cardTitle}>Learning and Development Program</h4>
-        <p className={faqStyles.cardText}>
-          A single-day event for 150 participants <br /><br />
-          Our team designed and delivered two Facilitated Sessions and one Event Extension for ~$20K USD.
-        </p>
-      </div>
-      <div className={faqStyles.extraCard}>
-        <h4 className={faqStyles.cardTitle}>Global Industry Event</h4>
-        <p className={faqStyles.cardText}>
-          A multi-day program and exhibit for 300 participants <br /><br />
-          Our team created two Interactive Installations with Event Extensions for ~$35K USD.
-        </p>
-      </div>
-      <div className={faqStyles.extraCard}>
-        <h4 className={faqStyles.cardTitle}>Senior Leadership Summit</h4>
-        <p className={faqStyles.cardText}>
-          A multi-day event for the 400 top leaders of a large financial institution. <br /><br />
-          Our team designed and delivered five Facilitated Sessions, two Interactive Installations, 
-          and a full Post-Program Handbook for ~$120K USD.
-        </p>
-      </div>
-    </div>
-  </div>
-);
-
 const caseStudiesFAQ = [
-  {
-    question: "What will this cost?",
-    answer: "Well, we can’t give an exact quote without knowing a bit more about what you’re working on, but we can confidently say we can add immediate experiential value at a wide range of budgets. That’s kind of our thing. Ultimately, starting a conversation is the best way to know how we can work together. But if it’s helpful, here are a few examples of big and small projects we've recently delivered.",
-    extraContent: extraElement, 
-  },
   {
     question: "What if I want to mix different experiences?",
     answer: "Combining in-room Facilitated Sessions with interactive installations outside the room enables Projectory to create a unique and integrated experience for your audience. Multiple experiences generate more output, leading to more meaningful post-event activation. During our discovery process, we’ll be able to curate together the best set of experiences for your event within your budget.",

@@ -1,124 +1,200 @@
-import caseImg1 from './assets/case-sales-kickoff.webp';
-import caseImg2 from './assets/case-leadership-summit.webp';
-import caseImg3 from './assets/case-industry-conference.webp';
-import whitelabelImg from './assets/whitelabel.webp';
+import caseImg1 from './assets/leadership-summit.webp';
+import caseImg2 from './assets/PCMA-2024-CEMA-Summit.png';
+import caseImg3 from './assets/Deloitte-Connect-2024.png';
+import whitelabelImg from './assets/projectory-CIBC-img.webp';
 
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
-  subtitle: 'You choose how it is delivered.',
-  primaryButton: { label: 'Product Finder', to: '/get-started-form' },
-  secondaryButton: { label: 'Explore Products', to: '/products' },
+  subtitle: "Rent it or bring us in. We'll deliver a\nfantastic experience either way.",
 };
 
 export const deliveryOptions = [
   {
-    title: 'Do It Yourself',
-    subtitle: 'The product ships to you. Everything you need to run it arrives with it',
+    eyebrow: 'Run It Yourself',
+    title: 'Base\nRental',
+    subtitle:
+      'The product ships to you with everything your team needs to confidently install and facilitate',
     features: [
       'Complete product kit, pre-configured and ready to run',
-      'Your content and branding integrated before it leaves us',
-      'Step-by-step facilitation guide \u2014 written for non-facilitators',
+      'Seamless integration with your theme, content, and audience',
+      'Step-by-step facilitation guide and supporting slides',
       'Explainer video walkthrough for your team',
-      'Remote support available on event day',
-      'Shipment coordination both ways',
+      'A dedicated contact from booking through debrief',
+      'End-to-end logistics coordinated by our team',
     ],
-    note: 'Shipping is not included and varies by product \u2014 some products don\'t require it. Printing costs may apply. Both confirmed at the quote stage.',
-    background:
-      'linear-gradient(145deg, rgba(255, 74, 120, 0.00) 33.85%, rgba(243, 118, 85, 0.43) 80.43%), #1C1C1C',
+    cta: {
+      title: '$9,000',
+      currency: 'USD',
+      caption: 'per product \u00b7 per rental',
+      note: 'Bundling multiple products lowers the cost per product',
+      button: { label: 'Rent Products', to: '/get-started-form' },
+    },
   },
   {
-    title: 'Bring Us In',
-    subtitle: 'Your event, run by our team — start to finish.',
-    features: [
-      'Certified Projectory facilitator from our network, assigned to your event',
-      'Onsite crew for setup, operation, teardown',
-      'Your content and theming integrated before we arrive',
-      'End-to-end logistics coordinated by our team',
-      'A dedicated contact from booking through debrief',
+    eyebrow: 'Ask Us About',
+    title: 'Optional\nAdd-Ons',
+    subtitle:
+      "Pick what you need from us, and we'll show up and make it happen",
+    featureGroups: [
+      {
+        title: 'Bring us in',
+        items: [
+          'Expert Projectory facilitator\nassigned to your event',
+          'Onsite crew for setup, operations,\nand teardown',
+          'Projectory as your event emcee',
+        ],
+      },
+      {
+        title: 'Personalize it',
+        items: [
+          'Custom new product design for your\nspecific challenge',
+          'Custom branding and design\nservices',
+          "Interactive post-event report with\nparticipants' outputs",
+        ],
+      },
     ],
-    note: 'Pricing does not include travel and accommodation for onsite team members.',
-    background:
-      'linear-gradient(145deg, rgba(43, 220, 183, 0.00) 33.85%, rgba(43, 220, 183, 0.35) 80.43%), #1C1C1C',
+    cta: {
+      button: { label: 'Get an Estimate', to: '/get-started-form' },
+    },
   },
 ];
 
+export const deliveryOptionsNote =
+  'Pricing does not include shipping or travel and accommodation costs for any onsite team members. Some products require onsite crew.';
+
 export const whitelabelCta = {
-  eyebrow: 'Make it Look and Feel Like Your Brand',
-  title: "We\u2019ll add your logo\nat no extra cost",
+  eyebrow: 'Custom Branding?',
+  title: "We\u2019ll Make it Look\nand Feel Like Your Brand",
   body: 'Ask us about white-labeling \u2014 custom colours, brand identity, and fully branded facilitation materials across everything we deliver.',
-  button: { label: 'Contact Us', to: '/get-started' },
+  button: { label: 'Contact Us', to: '/get-started#contact-form' },
   image: whitelabelImg,
 };
 
 export const caseStudiesHeader = {
-  eyebrow: 'Real Projects',
-  heading: 'Internal team, fully supported on-site',
-  headingMobile: 'Internal team, fully\nsupported on-site',
+  eyebrow: 'Real Projects, Real Numbers',
+  heading: 'What engagements\nlooked like in practice',
 };
 
 export const caseStudies = [
   {
     image: caseImg1,
-    name: 'Sales\nKickoff',
+    name: 'Sales Kickoff',
+    heading: 'Internal team, fully\nsupported on-site',
     description:
       'A Fortune 500 financial company rented two products for their annual SKO. Their internal leaders ran both sessions using our facilitation guides and remote support.',
-    tags: ['One Day Event', '300 participants', 'DIY delivery'],
+    tags: [
+      'One day event',
+      '300 participants',
+      'Rent-and-run delivery',
+      'Two products',
+    ],
     price: '$22,000',
     currency: 'USD',
   },
   {
+    image: caseImg3,
+    name: 'Industry Event',
+    heading: 'Interactive\ninstallations at scale',
+    description:
+      'A multi-day industry conference featuring two installations with post event reports, coordinated and shipped for the client team to run on their own.',
+    tags: [
+      'Multi-day event',
+      '300 participants',
+      'Rent-and-run delivery',
+      'Two products',
+      'Post event report',
+    ],
+    price: '$35,000',
+    currency: 'USD',
+  },
+  {
     image: caseImg2,
-    name: 'Leadership\nSummit',
+    name: 'Leadership Summit',
+    heading: 'Full-service,\nrun by our team',
     description:
       'A senior leadership summit where our facilitators designed and delivered the full program end to end, integrating client content and branding throughout.',
-    tags: ['Multi-Day Event', '400 participants', 'Bring Us In'],
+    tags: [
+      'Multi-day event',
+      'Six products',
+      'Post event report',
+      '500 participants',
+      'Onsite crew and facilitators',
+      'Custom branding',
+    ],
     price: '$120,000',
     currency: 'USD',
   },
   {
-    image: caseImg3,
-    name: 'Industry\nConference',
+    image:
+      'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749519214/Program_Feature1_o2kgpw_r7wxiw.webp',
+    name: 'Association Conference',
+    heading: 'Installations on the floor,\nsessions in the breakouts',
     description:
-      'A multi-day industry conference featuring two interactive installations with event extensions, coordinated and shipped for the client team to run.',
-    tags: ['Multi-Day Event', '300 participants', 'DIY delivery'],
-    price: '$35,000',
+      "A national association's annual gathering featured two interactive installations on the show floor and two facilitated breakout sessions \u2014 with an onsite crew handling setup, operation, and teardown throughout.",
+    tags: [
+      'Multi-day event',
+      '1200 participants',
+      'Onsite crew and facilitators',
+      'Four products',
+    ],
+    price: '$45,000',
+    currency: 'USD',
+  },
+  {
+    image:
+      'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749520804/PingPoll_1_d8rjc7_nsiwgv.webp',
+    name: 'Trade Show',
+    heading: 'Branded installation for booth traffic that actually converts',
+    description:
+      'A healthcare company exhibiting at a major industry trade show wanted something more memorable than typical booth giveaways. We provided a single branded installation that was fully customized to match the booth visual identity.',
+    tags: [
+      'Rent-and-run delivery',
+      'One product',
+      'Full white-label branding',
+    ],
+    price: '$12,000',
     currency: 'USD',
   },
 ];
 
 export const catalogueCta = {
   title: 'Every product in our catalogue started as a client brief.',
-  body: 'Tell Us what you are trying to solve and we\u2019ll get to work',
-  button: { label: 'Contact Us', to: '/get-started' },
+  body: 'Tell us what you are trying to\nsolve and we\u2019ll get to work',
+  button: { label: 'Contact Us', to: '/get-started#contact-form' },
 };
 
 export const faqSection = {
-  title: 'Frequently asked\nquestions',
+  title: 'Questions\nwe get a lot',
   items: [
     {
-      question: 'What is included in the $10,000 price?',
+      question: 'Is $9,000 the total cost, or just the starting point?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
+        "It's the full rental fee for one product. If you run it yourself, you're mostly done, aside from shipping and any printing. If you bring our team in, facilitator and crew day rates are added on top. We'll always give you the full number before you commit.",
     },
     {
-      question: 'Does pricing include travel and accommodation?',
+      question: 'What discounts can you provide?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud.',
+        "A few, actually. First-time clients get a discount to make trying us out easier, and returning clients get one too, because loyalty should pay off. We can't give an exact quote without knowing more about your event, but we're confident we can add immediate experiential value across a wide range of budgets. That's kind of our thing.",
     },
     {
-      question: 'Can we white-label the experience?',
+      question: 'How do you create an estimate?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit.',
+        "Good question! Once we learn about your project, we'll be able to come back with a few initial ideas. After we get you excited about what we have in mind, we can either send you a budget breakdown or work backwards from whatever budget you can invest in this work.",
     },
     {
-      question: 'How far in advance should we book?',
+      question: 'Does the price change for longer events?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident.',
+        'No. The rental fee is flat whether your event is one day or four. The only thing that scales with time is our team, since the facilitator and crew are billed by the day.',
     },
     {
-      question: 'What delivery options are available?',
+      question: 'Can I book more than one product?',
       answer:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sunt in culpa qui officia deserunt mollit.',
+        "Yes, and most of our best events do. Bundling two or more products lowers the cost per product and creates a richer experience. We'll help you find the right combination.",
+    },
+    {
+      question: 'How far in advance should I book?',
+      answer:
+        "The earlier the better, especially during conference season. Most clients book 10 to 16 weeks out, but if your event is around the corner, reach out anyway. We've pulled off impressive things on short timelines.",
     },
   ],
 };

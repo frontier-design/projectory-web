@@ -48,12 +48,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 28px;
+}
+
+.title,
+.body,
+.button {
+  margin: 0;
 }
 
 .title {
   width: 100%;
-  margin: 0;  
+  margin-bottom: -10px;
   font-family: 'FounderGrotesk_Medium', sans-serif;
   font-size: 55px;
   font-weight: 500;
@@ -63,7 +69,6 @@
 }
 
 .body {
-  margin: 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: 20px;
   max-width: 300px;
@@ -71,13 +76,14 @@
   line-height: 25px;
   color: var(--white);
   text-align: center;
+  white-space: pre-line;
   font-feature-settings: 'liga' off, 'clig' off;
 }
 
 .button {
   display: inline-flex;
   height: 44px;
-  padding: 10px 20px;
+  padding: 11px 21px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;

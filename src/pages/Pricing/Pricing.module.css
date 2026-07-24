@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 180px;
+    gap: 190px;
     text-align: center;
     width: 100%;
     max-width: 1200px;
@@ -20,7 +20,7 @@
 
 @media (max-width: 768px) {
     .container {
-        gap: 80px;
+        gap: 130px;
         padding: 120px 30px 80px;
     }
 }

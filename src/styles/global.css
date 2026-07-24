@@ -6,6 +6,12 @@
 }
 
 @font-face {
+    font-family: 'FounderGrotesk_Light';
+    src: url('../assets/fonts/FoundersGrotesk-Light.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'FounderGrotesk_Medium';
     src: url('../assets/fonts/FoundersGrotesk-Medium.woff2') format('woff2'),
          url('../assets/fonts/FoundersGrotesk-Medium.otf') format('opentype');
@@ -70,7 +76,6 @@ a{
     cursor: pointer;
 }
 
-/* Navbar links and controls use pointer; children inherit (e.g. logo image) */
 nav a,
 nav button,
 nav a *,

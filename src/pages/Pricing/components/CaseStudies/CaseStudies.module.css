@@ -1,6 +1,11 @@
 .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin-top: 0;
+  margin-bottom: 0;
+  gap: 32px;
 }
 
 .header {
@@ -8,19 +13,6 @@
   justify-content: center;
   text-align: center;
   width: 100%;
-  z-index: 2;
-}
-
-.headerPin {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-}
-
-.headerFlow {
-  display: none;
 }
 
 .headerInner {
@@ -41,169 +33,163 @@
 
 .title {
   margin: 0;
-  max-width: 500px;
+  max-width: none;
+  width: 100%;
   font-family: 'FounderGrotesk_Medium', sans-serif;
   font-size: 44px;
   font-weight: 500;
-  line-height: 44px;
+  line-height: 48px;
   color: var(--white);
   text-align: center;
   white-space: pre-line;
 }
 
-.track {
-  position: relative;
-  width: 100%;
-  height: calc(var(--case-steps, 3) * 100vh);
-}
-
-.sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+.pills {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
-  gap: clamp(12px, 2vh, 24px);
-  overflow: visible;
-  box-sizing: border-box;
-  padding: clamp(12px, 2vh, 24px) 0;
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.deck {
-  --deck-peek: 56px;
-  --deck-stage: 480px;
+.pill {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background-color: transparent;
+  padding: 10px 20px;
+  border-radius: 1000px;
+  cursor: pointer;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.pill:hover,
+.pillActive {
+  background-color: var(--accent);
+  color: #35343F;
+}
+
+.panel {
   position: relative;
   width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
-  padding-top: var(--deck-peek);
-  height: calc(var(--deck-stage) + var(--deck-peek));
-  margin: 0;
-  flex-shrink: 0;
-  overflow: hidden;
+  min-height: 0;
+  text-align: left;
 }
 
-.card {
-  position: absolute;
-  top: var(--deck-peek);
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: center top;
-  will-change: transform, opacity;
-}
-
-.cardInner {
-  position: relative;
-  display: block;
+.panelInner {
   width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 24px;
 }
 
-.cardGrey,
-.cardImage {
-  position: absolute;
-  inset: 0;
-  display: block;
+.image {
   width: 100%;
-  height: 100%;
-  border-radius: 12px;
-}
-
-.cardGrey {
-  background-color: #2a2a2a;
-}
-
-.cardImage {
+  max-width: 100%;
+  min-height: 240px;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  border-radius: 23.89px;
+  border: 0.597px solid rgba(123, 123, 123, 0.50);
+  box-sizing: border-box;
 }
 
-/* --- Mobile single-image frame --- */
-.mobileDeck {
+@media (min-width: 769px) {
+  .section {
+    width: min(1100px, calc(100vw - 80px));
+    max-width: none;
+  }
+
+  .panel {
+    min-height: 420px;
+  }
+
+  .panelInner {
+    grid-template-columns: 1.85fr 1.4fr;
+    gap: 40px;
+  }
+
+  .image {
+    min-height: 420px;
+    max-height: 420px;
+    height: 420px;
+    aspect-ratio: auto;
+    object-fit: cover;
+    justify-self: end;
+    width: calc(100% - 28px);
+    max-width: calc(100% - 28px);
+    margin-left: 28px;
+  }
+
+  .copy {
+    max-width: none;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+  overflow: visible;
+}
+
+.heading {
+  margin: 0;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: pre-line;
+}
+
+.headingTradeShow {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.breakMobile {
   display: none;
 }
 
-.metaRow {
-  width: 100%;
-  max-width: 100%;
-  padding-top: clamp(8px, 1.5vh, 16px);
-  margin-top: clamp(-8px, -1vh, 0px);
-  flex-shrink: 0;
-}
-
-.metaInner {
-  display: flex;
-  align-items: flex-start;
-  text-align: left;
-  width: 100%;
-  gap: clamp(12px, 2vw, 24px);
-}
-
-.metaIndex {
-  flex-shrink: 0;
-  padding-top: 14px;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: clamp(12px, 1vw, 14px);
-  line-height: 1;
-  color: #7B7B7B;
-}
-
-.metaName {
-  flex-shrink: 1;
-  min-width: 0;
-  margin-left: clamp(16px, 3.5vw, 50px);
-  margin-right: clamp(24px, 8vw, 116px);
-  white-space: pre-line;
-  overflow-wrap: normal;
-  word-break: keep-all;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: clamp(28px, 3.2vw, 45px);
-  font-weight: 500;
-  line-height: 1;
-}
-
-.metaDesc {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1 1 auto;
-  max-width: min(380px, 100%);
-  min-width: 0;
-  padding-top: 14px;
-}
-
-.metaParagraph {
+.description {
   margin: 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: clamp(15px, 1.3vw, 18px);
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.3;
   color: var(--white);
 }
 
-.metaPrice {
+.priceBlock {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
-  margin-left: auto;
-  flex-shrink: 0;
-  align-items: flex-end;
-  padding-top: 14px;
-  text-align: right;
+  margin-top: 8px;
 }
 
-.metaTags {
+.priceTags {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.metaTag {
-  align-self: stretch;
+.priceTag {
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: clamp(13px, 1.2vw, 16px);
   font-weight: 400;
@@ -212,7 +198,7 @@
   color: #7B7B7B;
 }
 
-.metaValue {
+.priceValue {
   display: flex;
   align-items: baseline;
   gap: 3px;
@@ -223,7 +209,7 @@
   color: var(--white);
 }
 
-.metaCurrency {
+.priceCurrency {
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -231,158 +217,66 @@
   color: #7B7B7B;
 }
 
-@media (max-width: 1200px) {
-  .metaName {
-    margin-right: clamp(16px, 4vw, 48px);
-  }
-
-  .metaDesc {
-    max-width: min(320px, 100%);
-  }
-}
-
-@media (max-height: 900px) {
-  .sticky {
-    gap: clamp(8px, 1.5vh, 16px);
-    padding: clamp(8px, 1.5vh, 16px) 0;
-  }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-  .metaInner {
-    gap: 12px;
-  }
-
-  .metaName {
-    margin-left: 12px;
-    margin-right: 16px;
-  }
-
-  .metaDesc {
-    max-width: min(280px, 34%);
-  }
-}
-
 @media (max-width: 768px) {
   .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding-top: 56px;
-  }
-
-  .headerPin {
-    display: none;
-  }
-
-  .headerFlow {
-    display: flex;
-    position: relative;
-    margin: 0;
-    padding: 0;
-  }
-
-  .track {
-    height: calc(var(--case-steps, 3) * (100dvh - 24px));
-  }
-
-  .sticky {
-    gap: 16px;
-    top: 24px;
-    height: calc(100dvh - 24px);
-    min-height: calc(100dvh - 24px);
-    max-height: calc(100dvh - 24px);
-    padding: 12px 0 24px;
-    box-sizing: border-box;
-    overflow: hidden;
-    justify-content: flex-start;
-  }
-
-  .eyebrow {
-    font-size: 16px;
+    gap: 24px;
   }
 
   .title {
-    max-width: min(100%, 560px);
     font-size: 32px;
-    line-height: 1.1;
-    margin-bottom: 28px;
+    line-height: 36px;
   }
 
-  .deck {
-    display: none;
+  .pills {
+    column-gap: 5px;
+    row-gap: 14px;
+    margin-bottom: 10px;
   }
 
-  .mobileDeck {
-    display: block;
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: min(120vw, 460px);
-    margin: 0 0 12px;
-    border-radius: 12px;
-    overflow: hidden;
+  .pill {
+    padding: 10px 15px;
+    font-size: 16px;
   }
 
-  .mobileSlide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    transform: translateZ(0);
+  .panel {
+    max-width: 100%;
+    min-height: 0;
   }
 
-  .mobileImage {
-    display: block;
-    width: 100%;
-    height: 100%;
+  .panelInner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .image {
+    min-height: 240px;
+    max-height: 300px;
+    height: auto;
+    aspect-ratio: 16 / 10;
     object-fit: cover;
-    border-radius: 12px;
-    object-position: center;
   }
 
-  .metaRow {
-    position: relative;
-    z-index: 2;
+  .copy {
+    gap: 12px;
   }
 
-  .metaInner {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .metaName {
-    margin-right: 0;
-    margin-left: 0;
+  .heading {
     font-size: 28px;
-    line-height: 1;
   }
 
-  .metaValue {
+  .breakMobile {
+    display: inline;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .priceValue {
     font-size: 24px;
-    align-items: flex-end;
   }
 
-  .metaPrice {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-    width: 100%;
-    margin-left: 0;
-    text-align: left;
-  }
-
-  .metaCurrency {
+  .priceCurrency {
     line-height: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card {
-    transition: none !important;
-    opacity: 1 !important;
   }
 }
