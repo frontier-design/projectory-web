@@ -127,7 +127,7 @@
   .title {
     width: 100%;
     max-width: none;
-    white-space: normal;
+    white-space: pre-line;
     text-align: center;
     font-size: 32px;
     line-height: 1.05;

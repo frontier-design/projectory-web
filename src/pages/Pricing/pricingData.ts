@@ -164,7 +164,7 @@ export const catalogueCta = {
 };
 
 export const faqSection = {
-  title: 'Questions\nwe get a lot',
+  title: 'Questions? We\nhave answers.',
   items: [
     {
       question: 'Is $9,000 the total cost, or just the starting point?',
