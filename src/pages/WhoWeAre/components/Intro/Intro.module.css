@@ -33,7 +33,7 @@
 }
 
 .body {
-  max-width: clamp(260px, 48vw, 600px);
+  max-width: clamp(240px, 44vw, 520px);
 }
 
 .paragraph {
@@ -41,7 +41,7 @@
   color: #fff;
   font-feature-settings: 'liga' off, 'clig' off;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   line-height: 1.4;
 }
