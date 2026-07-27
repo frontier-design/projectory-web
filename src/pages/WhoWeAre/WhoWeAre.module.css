@@ -1,7 +1,6 @@
 .whoWeArePage {
   --page-pad-y: 50px;
-  --page-pad-x: 150px;
-  --carousel-section-gap: clamp(56px, 7vw, 96px);
+  --page-pad-x: clamp(24px, 8vw, 150px);
   width: 100%;
   min-height: 100vh;
   background: var(--black);
@@ -18,25 +17,20 @@
 }
 
 .sectionBlock {
-  padding-top: clamp(64px, 8vw, 100px);
-  padding-bottom: clamp(64px, 8vw, 100px);
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .teamBlock {
-  padding-top: clamp(40px, 5vw, 64px);
-  padding-bottom: clamp(40px, 5vw, 64px);
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 .faqBlock {
-  padding-bottom: clamp(80px, 10vw, 120px);
+  padding-bottom: 100px;
 }
 
 @media (max-width: 768px) {
-  .whoWeArePage {
-    --page-pad-x: 24px;
-    --carousel-section-gap: 64px;
-  }
-
   .teamBlock {
     padding-top: 12px;
     padding-bottom: 12px;
