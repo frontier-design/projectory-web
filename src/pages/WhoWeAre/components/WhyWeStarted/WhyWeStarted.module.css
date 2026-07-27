@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 24px;
   width: 100%;
   text-align: left;
   min-width: 0;
@@ -51,7 +51,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  width: 100%;
+  width: 100%;  
+  max-width: 350px;
 }
 
 .paragraph {
@@ -63,6 +64,10 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 31px;
+}
+
+.paragraph:first-child {
+  max-width: 280px;
 }
 
 .lightboxBackdrop {
@@ -132,11 +137,16 @@
 
   .body {
     gap: 1em;
+    max-width: none;
   }
 
   .paragraph {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: clamp(15px, 5.2vw, 20px);
+    line-height: 1.4;
+  }
+
+  .paragraph:first-child {
+    max-width: none;
   }
 
   .lightboxContent {
