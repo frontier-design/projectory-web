@@ -16,9 +16,7 @@ export const heroSection = {
 
 export const introSection = {
   paragraphs: [
-    'Our closets are full of event badges and lanyards. Yes, we know that there are better uses for the space, but some of us are sentimental. We’ve been to some great events.',
-    'We’ve also been to some not-so-great events. Like you, we know the ones that just blast information don’t actually work – and if we’re being honest, they’re a drag to sit through.',
-    'We believe that live events can be and do more. They can (and should!) be participatory experiences that drive conversation, action and learning, even after the event is over.',
+    'We’re a team of facilitators, designers, and producers who joined forces to turn in-person meetings and conferences into engaging, memorable, and momentum-building experiences.',
   ],
 };
 
