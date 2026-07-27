@@ -55,20 +55,8 @@ const CaseStudies = () => {
               className={styles.image}
             />
             <div className={styles.copy}>
-              <h3
-                className={`${styles.heading}${selected.name === 'Trade Show' ? ` ${styles.headingTradeShow}` : ''}`}
-                style={{ color: accent }}
-              >
-                {selected.name === 'Trade Show' ? (
-                  <>
-                    Branded installation for booth
-                    <br className={styles.breakMobile} />
-                    {' '}
-                    traffic that actually converts
-                  </>
-                ) : (
-                  selected.heading
-                )}
+              <h3 className={styles.heading} style={{ color: accent }}>
+                {selected.heading}
               </h3>
               <p className={styles.description}>{selected.description}</p>
               <div className={styles.priceBlock}>

@@ -45,4 +45,8 @@
     line-height: 1.15;
     max-width: 100%;
   }
+
+  .subtitle {
+    white-space: normal;
+  }
 }

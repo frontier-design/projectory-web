@@ -2,10 +2,10 @@ import { heroSection } from '../../whoWeAreData';
 import styles from './WhoWeAreHero.module.css';
 
 const WhoWeAreHero = () => {
-  const { eyebrow, title, videoSrc } = heroSection;
+  const { videoSrc } = heroSection;
 
   return (
-    <section className={styles.heroWrapper}>
+    <section className={styles.heroWrapper} aria-label="Who we are">
       {videoSrc ? (
         <video
           className={styles.heroMedia}
@@ -20,11 +20,6 @@ const WhoWeAreHero = () => {
       ) : (
         <div className={styles.heroMedia} aria-hidden />
       )}
-      <div className={styles.overlay} />
-      <div className={styles.heroContent}>
-        <p className={styles.eyebrow}>{eyebrow}</p>
-        <h1 className={styles.title}>{title}</h1>
-      </div>
     </section>
   );
 };

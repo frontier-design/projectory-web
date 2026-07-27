@@ -153,19 +153,6 @@
   white-space: pre-line;
 }
 
-.headingTradeShow {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  white-space: normal;
-  overflow-wrap: normal;
-  word-break: normal;
-}
-
-.breakMobile {
-  display: none;
-}
-
 .description {
   margin: 0;
   font-family: 'FounderGrotesk_Regular', sans-serif;
@@ -262,10 +249,6 @@
 
   .heading {
     font-size: 28px;
-  }
-
-  .breakMobile {
-    display: inline;
   }
 
   .description {

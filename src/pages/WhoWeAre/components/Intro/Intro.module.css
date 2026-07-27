@@ -1,36 +1,65 @@
 .intro {
   width: 100%;
-  max-width: 520px;
-  align-self: flex-start;
-  margin-top: clamp(64px, 8vw, 120px);
-  margin-bottom: clamp(40px, 5vw, 72px);
+  max-width: 1100px;
+  margin-inline: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
   text-align: left;
 }
 
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--yellow);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: normal;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 24px;
+  row-gap: clamp(16px, 3vw, 28px);
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  flex: 0 1 auto;
+  max-width: clamp(240px, 28vw, 340px);
+  color: #fff;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: clamp(40px, 5vw, 58px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.06;
+}
+
+.copyBlock {
+  flex: 0 1 600px;
+  min-width: min(280px, 100%);
+  max-width: 600px;
+  padding-top: 6px;
+}
+
 .paragraph {
+  margin: 0;
   color: #fff;
   font-feature-settings: 'liga' off, 'clig' off;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: clamp(22px, 2.3vw, 30px);
+  font-size: clamp(18px, 1.8vw, 22px);
   font-style: normal;
   font-weight: 400;
   line-height: 1.4;
-  letter-spacing: -0.01em;
 }
 
 .paragraph + .paragraph {
   margin-top: 1.5em;
 }
 
-@media (max-width: 768px) {
-  .intro {
-    max-width: 100%;
-    margin-top: clamp(40px, 10vw, 64px);
-    margin-bottom: clamp(28px, 6vw, 48px);
-  }
-
-  .paragraph {
-    font-size: clamp(22px, 5.6vw, 28px);
-    line-height: 1.4;
+@media (max-width: 400px) {
+  .copyBlock {
+    max-width: 320px;
   }
 }
