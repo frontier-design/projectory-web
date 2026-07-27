@@ -7,9 +7,9 @@ const Intro = () => {
   return (
     <section className={styles.intro}>
       <p className={styles.eyebrow}>{eyebrow}</p>
-      <div className={styles.content}>
+      <div className={styles.copyGroup}>
         <h1 className={styles.title}>{title}</h1>
-        <div className={styles.copyBlock}>
+        <div className={styles.body}>
           {introSection.paragraphs.map((paragraph) => (
             <p key={paragraph} className={styles.paragraph}>
               {paragraph}

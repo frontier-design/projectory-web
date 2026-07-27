@@ -1,46 +1,39 @@
 .intro {
-  width: 100%;
-  max-width: 1100px;
-  margin-inline: auto;
-  margin-top: 48px;
-  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
   text-align: left;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0;
+  width: 100%;
   color: var(--yellow);
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(16px, 12cqh, 30px);
   font-weight: normal;
 }
 
-.content {
+.copyGroup {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-start;
-  column-gap: 24px;
-  row-gap: clamp(16px, 3vw, 28px);
-  width: 100%;
+  gap: 30px;
 }
 
 .title {
   margin: 0;
-  flex: 0 1 auto;
-  max-width: clamp(240px, 28vw, 340px);
+  max-width: clamp(160px, 32vw, 440px);
   color: #fff;
   font-family: 'FounderGrotesk_Medium', sans-serif;
-  font-size: clamp(40px, 5vw, 58px);
-  font-style: normal;
+  font-size: clamp(28px, 6vw, 58px);
   font-weight: 500;
   line-height: 1.06;
 }
 
-.copyBlock {
-  flex: 0 1 600px;
-  min-width: min(280px, 100%);
-  max-width: 600px;
-  padding-top: 6px;
+.body {
+  max-width: clamp(260px, 48vw, 600px);
 }
 
 .paragraph {
@@ -48,8 +41,7 @@
   color: #fff;
   font-feature-settings: 'liga' off, 'clig' off;
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: clamp(18px, 1.8vw, 22px);
-  font-style: normal;
+  font-size: 22px;
   font-weight: 400;
   line-height: 1.4;
 }
@@ -58,8 +50,31 @@
   margin-top: 1.5em;
 }
 
-@media (max-width: 400px) {
-  .copyBlock {
-    max-width: 320px;
+@media (max-width: 768px) {
+  .intro {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .copyGroup {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-size: clamp(16px, 4.5vw, 22px);
+  }
+
+  .title {
+    font-size: clamp(38px, 10vw, 54px);
+  }
+
+  .paragraph {
+    font-size: clamp(15px, 5.2vw, 20px);
+  }
+
+  .title,
+  .body {
+    max-width: 100%;
   }
 }

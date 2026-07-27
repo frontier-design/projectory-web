@@ -3,8 +3,8 @@
   --slide-gap: 20px;
   position: relative;
   width: 100%;
-  margin-top: var(--carousel-section-gap, clamp(56px, 7vw, 96px));
-  margin-bottom: var(--carousel-section-gap, clamp(56px, 7vw, 96px));
+  margin-top: 180px;
+  margin-bottom: 80px;
   cursor: default;
 }
 
@@ -107,6 +107,8 @@
   .carouselSection {
     --slide-width: 84vw;
     --slide-gap: 14px;
+    margin-top: 96px;
+    margin-bottom: 64px;
   }
 
   .marqueeIconBottom,
