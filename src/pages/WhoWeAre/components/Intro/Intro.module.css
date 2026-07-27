@@ -19,12 +19,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 30px;
+  gap: clamp(12px, 2.8vw, 30px);
 }
 
 .title {
   margin: 0;
-  max-width: clamp(160px, 32vw, 440px);
+  max-width: clamp(160px, 34vw, 520px);
   color: #fff;
   font-family: 'FounderGrotesk_Medium', sans-serif;
   font-size: clamp(28px, 6vw, 58px);
@@ -58,7 +58,7 @@
 
   .copyGroup {
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(16px, 4vw, 20px);
   }
 
   .eyebrow {
