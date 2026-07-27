@@ -29,7 +29,7 @@
   box-sizing: border-box;
   padding-inline: var(--page-pad-x, 150px);
   padding-block: 1.5rem;
-  overflow: auto;
+  overflow: hidden;
   container-type: size;
 }
 
