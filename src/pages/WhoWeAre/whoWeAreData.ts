@@ -72,8 +72,7 @@ export const whyWeStartedSection = {
   title: 'Why We Started\nProjectory',
   videoSrc: '/videos/why-did-we-start-projectory.mp4',
   paragraphs: [
-    'We believe that live events can be and do more.',
-    'They can (and should!) be participatory experiences that drive conversation, action and learning, even after the event is over.',
+    'We believe that live events can be and do more. They can (and should!) be participatory experiences that drive conversation, action and learning, even after the event is over.',
   ],
 };
 
