@@ -33,7 +33,7 @@
   display: flex;
   flex-direction: column;
   width: 420px;
-  height: 815px;
+  height: 844px;
   padding: 50px 55px 40px;
   justify-content: flex-start;
   align-items: stretch;
@@ -186,6 +186,7 @@
 
 .column:nth-child(1) .subtitle {
   max-width: 320px;
+  white-space: pre-line;
 }
 
 .column:nth-child(2) .subtitle {
@@ -406,20 +407,21 @@
 }
 
 .ctaNote {
-  margin: 0 -10px 8px;
-  padding: 10px 6px;
-  width: calc(100% + 20px);
+  margin: 0 0 8px;
+  padding: 8px 20px;
+  width: fit-content;
+  max-width: 100%;
+  align-self: flex-start;
   box-sizing: border-box;
   border-radius: 1000px;
   border: 1px solid #F37655;
   background-color: rgba(66, 20, 8, 0);
   font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #F37655;
   text-align: center;
-  white-space: nowrap;
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -542,6 +544,10 @@
     max-width: none;
   }
 
+  .column:nth-child(1) .subtitle {
+    white-space: normal;
+  }
+
   .column:nth-child(1) .featureItem:nth-child(n),
   .column:nth-child(2) .featureItem:nth-child(n) {
     width: 100%;
@@ -564,12 +570,6 @@
     line-height: 1;
   }
 
-  .ctaNote {
-    white-space: nowrap;
-    font-size: clamp(0.625rem, 2.9vw, 0.875rem);
-    line-height: 1.2;
-    padding: 0.5rem clamp(0.35rem, 1.8vw, 0.75rem);
-  }
 
   .subtitle {
     font-size: 17px;
