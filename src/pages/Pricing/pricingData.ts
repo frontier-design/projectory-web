@@ -5,7 +5,7 @@ import whitelabelImg from './assets/projectory-CIBC-img.webp';
 
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
-  subtitle: "Rent it or bring us in. We'll deliver a\nfantastic experience either way.",
+  subtitle: "Rent and run it with your team or bring us in.",
 };
 
 export const deliveryOptions = [
@@ -16,7 +16,7 @@ export const deliveryOptions = [
       'The product ships to you with everything your team needs to confidently install and facilitate',
     features: [
       'Complete product kit, pre-configured and ready to run',
-      'Seamless integration with your theme, content, and audience',
+      'Seamless integration with your theme, content, and objectives',
       'Step-by-step facilitation guide and supporting slides',
       'Explainer video walkthrough for your team',
       'A dedicated contact from booking through debrief',
@@ -26,7 +26,7 @@ export const deliveryOptions = [
       title: '$9,000',
       currency: 'USD',
       caption: 'per product \u00b7 per rental',
-      note: 'Bundling multiple products lowers the cost per product',
+      note: 'Bundling lowers the cost per product',
       button: { label: 'Rent Products', to: '/get-started-form' },
     },
   },
@@ -34,7 +34,7 @@ export const deliveryOptions = [
     eyebrow: 'Ask Us About',
     title: 'Optional\nAdd-Ons',
     subtitle:
-      "Pick what you need from us, and we'll show up and make it happen",
+      "Select the services you need, and we’ll handle everything from initial design to post-event loadout.",
     featureGroups: [
       {
         title: 'Bring us in',
@@ -49,7 +49,7 @@ export const deliveryOptions = [
         items: [
           'Custom new product design for your\nspecific challenge',
           'Custom branding and design\nservices',
-          "Interactive post-event report with\nparticipants' outputs",
+          "Interactive post-event report with\nparticipant-generated outputs",
         ],
       },
     ],
@@ -83,7 +83,7 @@ export const caseStudies = [
     description:
       'A Fortune 500 financial company rented two products for their annual SKO. Their internal leaders ran both sessions using our facilitation guides and remote support.',
     tags: [
-      'One day event',
+      'One-day event',
       '300 participants',
       'Rent-and-run delivery',
       'Two products',
@@ -100,6 +100,7 @@ export const caseStudies = [
     tags: [
       'Multi-day event',
       '300 participants',
+      'On site crew',
       'Rent-and-run delivery',
       'Two products',
       'Post event report',
@@ -119,6 +120,7 @@ export const caseStudies = [
       'Post event report',
       '500 participants',
       'Onsite crew and facilitators',
+      'Two custom products',
       'Custom branding',
     ],
     price: '$120,000',
@@ -146,7 +148,7 @@ export const caseStudies = [
     name: 'Trade Show',
     heading: 'Branded installation for booth traffic that actually converts',
     description:
-      'A healthcare company exhibiting at a major industry trade show wanted something more memorable than typical booth giveaways. We provided a single branded installation that was fully customized to match the booth visual identity.',
+      'A healthcare company exhibiting at a major industry trade show wanted something more memorable than typical booth giveaways. We provided a single branded installation that was fully customized to match the booth\u2019s visual identity.',
     tags: [
       'Rent-and-run delivery',
       'One product',
@@ -159,7 +161,7 @@ export const caseStudies = [
 
 export const catalogueCta = {
   title: 'Every product in our catalogue started as a client brief.',
-  body: 'Tell us what you are trying to\nsolve and we\u2019ll get to work',
+  body: 'Tell us what you\u2019re trying to solve, and we\u2019ll get to work.',
   button: { label: 'Contact Us', to: '/get-started#contact-form' },
 };
 
