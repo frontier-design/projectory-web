@@ -13,7 +13,7 @@ export const deliveryOptions = [
     eyebrow: 'Run It Yourself',
     title: 'Base\nRental',
     subtitle:
-      'The product ships to you with everything your team needs to confidently install and facilitate',
+      'The product ships to you with everything\nyour team needs to confidently\ninstall and facilitate.',
     features: [
       'Complete product kit, pre-configured and ready to run',
       'Seamless integration with your theme, content, and objectives',
