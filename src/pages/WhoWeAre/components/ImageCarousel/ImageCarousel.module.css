@@ -1,9 +1,9 @@
 .carouselSection {
-  --slide-width: 60vw;
+  --slide-width: 48vw;
   --slide-gap: 20px;
   position: relative;
   width: 100%;
-  margin-top: 180px;
+  margin-top: 110px;
   margin-bottom: 80px;
   cursor: default;
 }
@@ -98,7 +98,7 @@
 
 .marqueeImage {
   width: 100%;
-  height: 75vh;
+  height: 60vh;
   object-fit: cover;
   display: block;
 }
