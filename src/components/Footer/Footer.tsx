@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaLinkedin, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';
 import logo from '../../assets/images/logo.svg';
-import termsConditionsPdf from '../../assets/documents/terms-conditions.pdf';
+import termsConditionsPdf from '../../assets/documents/terms-conditions-Dw-Y0UD9.pdf';
 import privacyPolicyPdf from '../../assets/documents/privacy-policy.pdf';
 import cookieNoticePdf from '../../assets/documents/cookie-notice.pdf';
 
@@ -107,6 +107,7 @@ const Footer = () => {
         <div className={styles.footerColumn}>
           <h4 className={styles.columnHeading}>Get Started</h4>
           <Link to="/get-started-form">Product finder</Link>
+          <Link to="/pricing">Pricing</Link>
           <Link to="/get-started#faq">FAQ</Link>
           <Link to="/get-started#contact-form">Contact us</Link>
           <Link to="/get-started#schedule-demo">Schedule a demo</Link>

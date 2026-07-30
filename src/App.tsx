@@ -19,6 +19,7 @@ const ComboConvoAltForm = lazy(() => import('./pages/activities/ComboConvoAlt/Co
 const LaserFocusForm = lazy(() => import('./pages/activities/LaserFocus/LaserFocusForm'));
 const ScatterPlot = lazy(() => import('./pages/activities/LaserFocus/ScatterPlot/ScatterPlot'));
 const VentingMachine = lazy(() => import('./pages/activities/VentingMachine/VentingMachine'));
+const Pricing = lazy(() => import('./pages/Pricing/Pricing'));
 
 const MIN_LOADING_MS = 1200;
 
@@ -59,6 +60,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/who-we-are" element={<WhoWeAre />} />
               <Route path="/products" element={<Product />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-study/:id" element={<CaseStudyPage />} />
               <Route path="/products/:id" element={<ProductPage />} />

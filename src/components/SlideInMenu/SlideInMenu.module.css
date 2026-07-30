@@ -8,7 +8,8 @@
   color: white;
   padding: 20px;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
+  z-index: 10050;
+  pointer-events: auto;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
@@ -66,13 +67,18 @@
 }
 
 .closeButton {
+  position: relative;
+  z-index: 2;
   align-self: flex-end;
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 1;
   cursor: pointer;
   margin-bottom: 10px;
+  padding: 8px;
+  pointer-events: auto;
 }
 
 /* Title styling */

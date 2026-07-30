@@ -1,0 +1,26 @@
+.pricingPage {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--black);
+    color: white;
+    overflow-x: clip;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 190px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 160px 50px 100px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        gap: 130px;
+        padding: 120px 30px 80px;
+    }
+}

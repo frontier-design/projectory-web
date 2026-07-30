@@ -1,23 +1,40 @@
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    padding: 13px 50px;
-    width: 100%;
-    transition: background 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: auto !important;
+    padding: 0;
+    background: transparent;
+    pointer-events: none;
 }
 
-.navbar * {
-    cursor: auto !important;
+.navShell,
+.mobileMenu {
+    cursor: default;
 }
 
-.navbar a,
-.navbar button {
+.navShell a,
+.navShell button,
+.mobileMenu a,
+.mobileMenu button,
+.navShell a *,
+.navShell button *,
+.mobileMenu a * {
     cursor: pointer !important;
+}
+
+.navShell {
+    pointer-events: auto;
+    display: flex;
+    width: 100%;
+    padding: 14px clamp(20px, 4vw, 48px);
+    align-items: center;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transition: background 0.3s ease;
 }
 
 .navContent {
@@ -25,96 +42,181 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-width: 0;
+    gap: 24px;
 }
 
 .logo {
-    width: 135px;
-    cursor: pointer !important;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    min-width: 0;
+}
+
+.logoImage {
+    display: block;
+    width: auto;
+    height: 25px;
 }
 
 .slideInToggleBtn,
 .slideInToggleBtnMobile {
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-
-.heartIconWrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.heartBadge {
-    position: absolute;
-    top: -9px;
-    right: -9px;
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    pointer-events: none;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    flex-shrink: 0;
 }
 
 .heartIcon {
-    cursor: pointer;
-    transition: all 0.3s ease;
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    object-fit: contain;
+    object-position: center center;
+    transform: translateY(2px);
+    pointer-events: none;
+    transition: transform 0.2s ease;
 }
 
-.heartIcon:hover {
-    transform: scale(1.1);
+.slideInToggleBtn:hover .heartIcon,
+.slideInToggleBtnMobile:hover .heartIcon {
+    transform: translateY(2px) scale(1.05);
 }
 
-/* 🖥 Desktop Menu */
+@keyframes likeButtonReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    65% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.likeButtonReveal {
+    transform-origin: center center;
+    animation: likeButtonReveal 0.45s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .likeButtonReveal {
+        animation: none;
+    }
+}
+
+/* Desktop nav links */
 .desktopNav {
     display: flex;
-    gap: 15px;
-    transition: all 0.3s ease;
     align-items: center;
-    min-height: 50px;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-height: 0;
 }
 
 .desktopNav li {
     list-style: none;
 }
 
-.desktopNav a {
+.desktopNav a:not(.ctaButton) {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
 }
 
-.desktopNav a:hover {
-    color: var(--lime);
+.desktopNav a:not(.ctaButton):hover {
+    background-color: var(--dark-gray);
+    color: #fff;
 }
 
-/* ✨ Get Started Button (Desktop) */
+/* Desktop actions */
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: 16px;
+}
+
+.navActions > * + * {
+    margin-left: 16px;
+}
+
+/* Get Started — same size/radius as nav links, coral fill */
 .ctaButton {
-    padding: 8px 16px;
-    background: white;
-    color: black;
-    border-radius: 100px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    background-color: #f37655;
+    color: #fff;
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    font-weight: normal;
     text-decoration: none;
-    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.ctaButton:hover {
-    background: var(--linear-gradient) !important;
-    color: white !important;
+.ctaButtonLabel {
+    position: relative;
+    z-index: 1;
+    color: #fff;
 }
 
-/* 📱 Mobile Menu Button */
+.ctaButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--linear-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.ctaButton:hover::before,
+.ctaButton:focus-visible::before,
+.ctaButton:active::before {
+    opacity: 1;
+}
+
+/* Mobile Menu Button */
 .menuToggle {
     display: none;
     background: none;
     border: none;
     color: white;
     font-size: 24px;
-    cursor: pointer;
     z-index: 1100;
 }
 
@@ -123,19 +225,20 @@
 }
 
 .mobileMenuWrapper {
-    display: flex;
-    gap: 15px;
     display: none;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
-/* 📱 Mobile Menu with Smooth Transition */
+/* Mobile Menu with Smooth Transition */
 .mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 100vh;
-    background: linear-gradient(180deg, #F37655, #A72C4B, black 130%);
+    background: linear-gradient(180deg, #F37655, #A72C4B, var(--black) 130%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,12 +247,14 @@
     z-index: 1000;
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
+    pointer-events: none;
+    visibility: hidden;
 }
-
-/* --linear-gradient: linear-gradient(90deg, #A72C4B 0%, #F37655 100%); */
 
 .mobileMenu.open {
     transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
 }
 
 .mobileMenu ul {
@@ -169,21 +274,25 @@
     text-decoration: none;
 }
 
-/* ✨ Get Started Button (Mobile) */
+/* Get Started Button (Mobile) */
 .mobileCtaButton {
+    display: inline-flex;
+    align-items: center;
     padding: 12px 20px;
-    background: white;
-    color: black !important;
+    background: #fff;
+    color: #000 !important;
     border-radius: 100px;
-    font-family: "FounderGrotesk_Medium";
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    font-weight: normal;
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-.mobileCtaButton:hover {
+.mobileCtaButton:hover,
+.mobileCtaButton:focus-visible,
+.mobileCtaButton:active {
     background: var(--linear-gradient) !important;
-    color: white !important;
+    color: #fff !important;
 }
 
 .socialLinks {
@@ -203,19 +312,25 @@
     color: var(--lime);
 }
 
-.scrolled {
-    background: var(--black);
-    transition: background 0.3s ease-in-out;
-  }
+.scrolled .navShell {
+    background: #131313;
+}
 
 @media (max-width: 1024px) {
+    .navShell {
+        padding: 14px 20px;
+    }
+
+    .navRight {
+        display: none;
+    }
+
     .desktopNav {
         display: none;
     }
 
-    .navbar {
-        background-color: var(--black);
-        padding: 20px 30px;
+    .navActions {
+        display: none;
     }
 
     .menuToggle {
@@ -240,20 +355,29 @@
 }
 
 @media (min-width: 2000px) {
-    .navbar {
-        padding: 20px 50px;
+    .navShell {
+        padding: 14px 56px;
     }
 
-    .logo {
-        width: 150px;
+    .logoImage {
+        height: 25px;
     }
 
-    .desktopNav a {
-        font-size: 1.2rem;
+    .desktopNav {
+        gap: 0;
     }
 
+    .desktopNav a:not(.ctaButton),
     .ctaButton {
-        padding: 10px 20px;
+        padding: 12px 18px;
         font-size: 1.2rem;
+    }
+
+    .navActions {
+        margin-left: 20px;
+    }
+
+    .navActions > * + * {
+        margin-left: 20px;
     }
 }
