@@ -1,7 +1,10 @@
-import caseImg1 from './assets/leadership-summit.webp';
-import caseImg2 from './assets/PCMA-2024-CEMA-Summit.png';
-import caseImg3 from './assets/Deloitte-Connect-2024.png';
+import salesKickoffImg from './assets/sales-kickoff.jpg';
+import leadershipSummitImg from './assets/leadership-summit.webp';
+import tradeShowImg from './assets/trade-show.jpg';
 import whitelabelImg from './assets/projectory-CIBC-img.webp';
+
+const tradeShowFormerImg =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749520804/PingPoll_1_d8rjc7_nsiwgv.webp';
 
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
@@ -77,7 +80,7 @@ export const caseStudiesHeader = {
 
 export const caseStudies = [
   {
-    image: caseImg1,
+    image: salesKickoffImg,
     name: 'Sales Kickoff',
     heading: 'Internal team, fully\nsupported on-site',
     description:
@@ -92,7 +95,7 @@ export const caseStudies = [
     currency: 'USD',
   },
   {
-    image: caseImg3,
+    image: tradeShowFormerImg,
     name: 'Industry Event',
     heading: 'Interactive\ninstallations at scale',
     description:
@@ -109,7 +112,7 @@ export const caseStudies = [
     currency: 'USD',
   },
   {
-    image: caseImg2,
+    image: leadershipSummitImg,
     name: 'Leadership Summit',
     heading: 'Full-service,\nrun by our team',
     description:
@@ -143,8 +146,7 @@ export const caseStudies = [
     currency: 'USD',
   },
   {
-    image:
-      'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749520804/PingPoll_1_d8rjc7_nsiwgv.webp',
+    image: tradeShowImg,
     name: 'Trade Show',
     heading: 'Branded installation for booth traffic that actually converts',
     description:
