@@ -1,14 +1,3 @@
-/**
- * Seed Combo Convo Google Sheet from backupData.json (exported server logs).
- *
- * Reads backupData.json, extracts every "POST payload: { ... }" log line,
- * parses the payload and POSTs it to the Combo Convo Apps Script so rows
- * are appended to the sheet.
- *
- * Usage: node scripts/seed-combo-convo-backup.cjs [path/to/backupData.json]
- * Default backup path: ./backupData.json (from project root)
- */
-
 const fs = require("fs");
 const path = require("path");
 
@@ -80,7 +69,11 @@ async function postPayload(payload, index, total) {
   }
   const ok = res.ok && body.success !== false && !body.error;
   const status = `${res.status} ${ok ? "OK" : "FAIL"}`;
-  const short = [payload.orangeCard, payload.blueCard, payload.freeText?.slice(0, 30)].join(" | ");
+  const short = [
+    payload.orangeCard,
+    payload.blueCard,
+    payload.freeText?.slice(0, 30),
+  ].join(" | ");
   console.log(`[${index + 1}/${total}] ${status} – ${short}`);
   if (!ok) {
     console.warn("  response:", body.error || body.raw || text.slice(0, 150));
@@ -89,8 +82,10 @@ async function postPayload(payload, index, total) {
 }
 
 async function main() {
-  const backupPath =
-    path.resolve(process.cwd(), process.argv[2] || "backupData.json");
+  const backupPath = path.resolve(
+    process.cwd(),
+    process.argv[2] || "backupData.json",
+  );
   if (!fs.existsSync(backupPath)) {
     console.error("Backup file not found:", backupPath);
     process.exit(1);
