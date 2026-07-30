@@ -1,0 +1,155 @@
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  align-items: center;
+  gap: clamp(32px, 4vw, 56px);
+  width: 100%;
+  max-width: 1068px;
+  margin-inline: auto;
+}
+
+.media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  border: 0.5px solid rgba(123, 123, 123, 0.45);
+  background: #1c1c1c;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  text-align: left;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: #fff;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: clamp(32px, 3.2vw, 40px);
+  font-weight: 500;
+  line-height: 1.05;
+  text-align: left;
+  white-space: pre-line;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  width: 100%;  
+  max-width: 350px;
+}
+
+.paragraph {
+  margin: 0;
+  color: #fff;
+  text-align: left;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+}
+
+.lightboxBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: zoom-out;
+}
+
+.lightboxContent {
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  cursor: default;
+}
+
+.lightboxVideo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightboxCloseButton {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.lightboxCloseButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .body {
+    gap: 1em;
+    max-width: none;
+  }
+
+  .paragraph {
+    font-size: clamp(15px, 5.2vw, 20px);
+    line-height: 1.4;
+  }
+
+  .lightboxContent {
+    width: 95%;
+  }
+
+  .lightboxCloseButton {
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}

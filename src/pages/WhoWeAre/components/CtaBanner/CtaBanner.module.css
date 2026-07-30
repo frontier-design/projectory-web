@@ -1,0 +1,173 @@
+.banner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 420px;
+  margin-block: clamp(56px, 7vw, 100px);
+  padding: 44px 56px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%),
+    #2bdcB7;
+  overflow: visible;
+}
+
+.badgeTeal {
+  position: absolute;
+  bottom: -80px;
+  right: 5%;
+  width: clamp(110px, 18vw, 260px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+  rotate: -16.545deg;
+  animation: floatP 4.2s ease-in-out 0.6s infinite alternate;
+}
+
+@keyframes floatP {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -18px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  max-width: 750px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.title,
+.body {
+  margin: 0;
+}
+
+.title {
+  width: 100%;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: 55px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--white);
+  text-align: center;
+}
+
+.body {
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 20px;
+  max-width: 520px;
+  width: 100%;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--white);
+  text-align: center;
+  white-space: pre-line;
+  font-feature-settings: 'liga' off, 'clig' off;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.buttonPrimary,
+.buttonSecondary {
+  display: inline-flex;
+  height: 44px;
+  padding: 11px 21px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.buttonPrimary {
+  background: var(--white);
+  color: #2bdcB7;
+  border: 0.5px solid var(--white);
+}
+
+.buttonPrimary:hover {
+  background: var(--white);
+  color: #1fb895;
+}
+
+.buttonSecondary {
+  background: transparent;
+  color: var(--white);
+  border: 0.5px solid var(--white);
+}
+
+.buttonSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.buttonPrimary:active,
+.buttonSecondary:active {
+  transform: scale(0.97);
+  transition: background 0.08s ease-out, color 0.08s ease-out, border-color 0.08s ease-out,
+    transform 0.08s ease-out;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    min-height: 400px;
+    margin-block: 32px;
+    padding: 64px 24px;
+  }
+
+  .badgeTeal {
+    display: none;
+  }
+
+  .content {
+    gap: 16px;
+  }
+
+  .title {
+    max-width: 380px;
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .body {
+    max-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .buttonPrimary,
+  .buttonSecondary {
+    width: auto;
+    max-width: 220px;
+    min-width: 160px;
+  }
+}
