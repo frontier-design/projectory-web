@@ -107,6 +107,12 @@
     max-width: none;
   }
 
+  .pill:nth-child(5) { order: 1; } /* Trade Show */
+  .pill:nth-child(1) { order: 2; } /* Sales Kickoff */
+  .pill:nth-child(2) { order: 3; } /* Industry Event */
+  .pill:nth-child(3) { order: 4; } /* Leadership Summit */
+  .pill:nth-child(4) { order: 5; } /* Association Conference */
+
   .panel {
     min-height: 420px;
   }
