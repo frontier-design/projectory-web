@@ -1,6 +1,6 @@
-import salesKickoffImg from './assets/sales-kickoff.jpg';
+import salesKickoffImg from './assets/sales-kickoff.webp';
 import leadershipSummitImg from './assets/leadership-summit.webp';
-import tradeShowImg from './assets/trade-show.jpg';
+import tradeShowImg from './assets/trade-show.webp';
 import whitelabelImg from './assets/projectory-CIBC-img.webp';
 
 const tradeShowFormerImg =
