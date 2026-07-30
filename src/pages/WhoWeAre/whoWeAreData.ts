@@ -42,7 +42,7 @@ export type TeamMember = {
 export const teamSection = {
   title: 'Meet Our Founders',
   intro:
-    'We’re a team of facilitators, designers, and producers who joined forces to turn in-person meetings and conferences into engaging, memorable, and momentum-building experiences.',
+    'An event producer, an educator, and a designer with closets full of events lanyards decided it was time to help event leaders design experiences people actually want to join, not just watch..',
   members: [
     {
       image: personOne,

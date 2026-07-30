@@ -26,10 +26,6 @@
   padding-bottom: 56px;
 }
 
-.faqBlock {
-  padding-bottom: 100px;
-}
-
 @media (max-width: 768px) {
   .teamBlock {
     padding-top: 12px;
