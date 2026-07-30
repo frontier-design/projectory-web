@@ -6,6 +6,12 @@
 }
 
 @font-face {
+    font-family: 'FounderGrotesk_Light';
+    src: url('../assets/fonts/FoundersGrotesk-Light.otf') format('opentype');
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'FounderGrotesk_Medium';
     src: url('../assets/fonts/FoundersGrotesk-Medium.woff2') format('woff2'),
          url('../assets/fonts/FoundersGrotesk-Medium.otf') format('opentype');
@@ -50,6 +56,7 @@ html {
     cursor: auto;
 }
 
+
 :root{
     --black: #131313;
     --gray: #ADADAD;
@@ -58,6 +65,9 @@ html {
     --linear-gradient: linear-gradient(90deg, #A72C4B 0%, #F37655 100%);
     --second-gradient:  linear-gradient(90deg, #B34747, #D87A5A);
     --lime: #BCCE2D;
+    --yellow: #F3DA00;
+    --white: #FFFFFF;
+    --border-subtle: 0.5px solid rgba(123, 123, 123, 0.50);
 }
 
 a{
@@ -66,7 +76,6 @@ a{
     cursor: pointer;
 }
 
-/* Navbar links and controls use pointer; children inherit (e.g. logo image) */
 nav a,
 nav button,
 nav a *,
