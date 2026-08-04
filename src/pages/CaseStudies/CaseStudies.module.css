@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-.landing,
 .faqSection {
   width: 100%;
   margin-top: 150px;
@@ -14,40 +13,15 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.landing h1,
 .faqSection h2 {
-  font-size: 80px;
-  font-family: 'FounderGrotesk_Regular';
-  margin: 0;
-  margin-top: -20px;
-}
-
-.faqSection h2{
   font-size: 40px;
   font-family: 'FounderGrotesk_Medium';
-  margin-top: 0;
+  margin: 0;
 }
 
-.landingContent p,
 .faqSection p {
   font-size: 25px;
   margin-bottom: 30px;
-}
-
-.exploreButton {
-  padding: 14px 24px;
-  border: 1.5px solid white;
-  border-radius: 50px;
-  font-size: 18px;
-  transition: 0.3s;
-  display: inline-block;
-  cursor: pointer;
-  color: white;
-}
-
-.exploreButton:hover {
-  background-color: white;
-  color: black;
 }
 
 .scrollContainer {
@@ -159,16 +133,11 @@
     display: none;
   }
 
-  .container{
-    /* padding: 0 30px; */
-  }
-
   .scrollContainer{
-    margin-top: -80px;
+    margin-top: 0;
     padding: 0 30px;
   }
 
-  .landing,
   .faqSection {
     grid-template-columns: 1fr;
     margin-top: 100px;
@@ -176,17 +145,11 @@
     padding: 0 30px;
   }
 
-  .landing h1,
   .faqSection h2 {
-    font-size: 50px;
+    font-size: 30px;
     margin-bottom: 15px;
   }
 
-  .faqSection h2{
-    font-size: 30px;
-  }
-
-  .landingContent p,
   .faqSection p {
     font-size: 20px;
   }

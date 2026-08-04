@@ -5,6 +5,233 @@
     color: white;
 }
 
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
+.heroCopy {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 0;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.heroCopy h1 {
+    margin: 0;
+    max-width: 900px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-family: 'FounderGrotesk_Medium', sans-serif;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 58px;
+}
+
+.heroCopy p {
+    margin: 0;
+    max-width: 650px;
+    color: #fff;
+    text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.cta {
+    display: flex;
+    height: 39px;
+    margin-top: 8px;
+    padding: 23px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--lime);
+    color: var(--black);
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    letter-spacing: 0.1px;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cta:hover {
+    background: #a8b828;
+    color: var(--black);
+}
+
+.heroMedia {
+    position: relative;
+    flex: 0 0 42%;
+    max-height: 48vh;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    --floater-tl-w: 100px;
+    --floater-mid-w: 120px;
+    --floater-bl-w: 140px;
+    --floater-tr-w: 120px;
+}
+
+.floaters {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floatersFront {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scrollMotion {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+
+@keyframes floaterFloat {
+    from {
+        translate: 0 0;
+    }
+    to {
+        translate: 0 -18px;
+    }
+}
+
+.floater {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    opacity: 1;
+    will-change: transform;
+}
+
+.floaterTopLeft {
+    width: var(--floater-tl-w);
+    transform: translate(-50%, -50%) translateX(-320px) translateY(-160px) rotate(-42.65deg);
+    animation: floaterFloat 4.2s ease-in-out 0.2s infinite alternate;
+}
+
+.floaterMid {
+    width: var(--floater-mid-w);
+    transform: translate(-50%, -50%) translateX(-180px) translateY(-90px) scaleX(-1) rotate(18deg);
+    animation: floaterFloat 4.8s ease-in-out 0.6s infinite alternate;
+}
+
+.floaterBottomLeft {
+    width: var(--floater-bl-w);
+    transform: translate(-50%, -50%) translateX(-460px) translateY(120px) rotate(-28deg);
+    animation: floaterFloat 5s ease-in-out 0.9s infinite alternate;
+}
+
+.floaterTopRight {
+    width: var(--floater-tr-w);
+    transform: translate(-50%, -50%) translateX(400px) translateY(-35px) rotate(21.85deg);
+    animation: floaterFloat 4.2s ease-in-out 0s infinite alternate;
+}
+
+.mediaCards {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.mediaCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 340px;
+    height: 340px;
+    border-radius: 12px;
+    border: 0.597px solid rgba(123, 123, 123, 0.5);
+    background: #1c1c1c;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.mediaCardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* figma file had extra dark gradient overlay for the media cards so added this here*/
+.mediaCard::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(19, 19, 19, 0) 40%, #131313 100%);
+    pointer-events: none;
+}
+
+.mediaCard1 {
+    z-index: 3;
+    transform: translate(-50%, -50%) translateX(-280px) translateY(110px) rotate(-15deg);
+}
+
+.mediaCard2 {
+    z-index: 2;
+    transform: translate(-50%, -50%) translateX(20px) translateY(24px) rotate(13.007deg);
+}
+
+.mediaCard3 {
+    z-index: 1;
+    transform: translate(-50%, -50%) translateX(280px) translateY(140px) rotate(-15.87deg);
+}
+
+.darkGradientOverlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    height: 120%;
+    background: linear-gradient(
+      180deg,
+      rgba(19, 19, 19, 0) 0%,
+      rgba(19, 19, 19, 0.05) 25%,
+      rgba(19, 19, 19, 0.18) 45%,
+      rgba(19, 19, 19, 0.4) 65%,
+      rgba(19, 19, 19, 0.7) 82%,
+      #131313 100%
+    );
+    pointer-events: none;
+    z-index: 4;
+}
+
 .faqSection {
     width: 100%;
     margin-top: 50px;
@@ -100,7 +327,92 @@
     text-align: center;
 }
 
+@media screen and (max-width: 1024px) {
+    .heroMedia {
+        --floater-tl-w: 70px;
+        --floater-mid-w: 84px;
+        --floater-bl-w: 98px;
+        --floater-tr-w: 84px;
+    }
+
+    .floaterTopLeft {
+        transform: translate(-50%, -50%) translateX(-240px) translateY(-120px) rotate(-42.65deg);
+    }
+
+    .floaterMid {
+        transform: translate(-50%, -50%) translateX(-128px) translateY(-68px) scaleX(-1) rotate(-120deg);
+    }
+
+    .floaterBottomLeft {
+        transform: translate(-50%, -50%) translateX(-345px) translateY(90px) rotate(-28deg);
+    }
+
+    .floaterTopRight {
+        transform: translate(-50%, -50%) translateX(300px) translateY(-25px) rotate(21.85deg);
+    }
+}
+
 @media screen and (max-width: 768px) {
+    .heroCopy {
+        padding: 72px 36px 28px;
+        gap: 14px;
+        max-width: 420px;
+        margin-inline: auto;
+        width: 100%;
+    }
+
+    .heroCopy h1 {
+        font-size: 36px;
+        line-height: 1.15;
+        max-width: 20em;
+    }
+
+    .heroCopy p {
+        font-size: 20px;
+        line-height: 26px;
+        max-width: 22em;
+    }
+
+    .heroMedia {
+        --floater-tl-w: clamp(76px, 20vw, 102px);
+        --floater-mid-w: clamp(92px, 24vw, 122px);
+        --floater-bl-w: clamp(108px, 28vw, 142px);
+        --floater-tr-w: clamp(92px, 24vw, 122px);
+    }
+
+    .floaterTopLeft {
+        transform: translate(-50%, -50%) translateX(-150px) translateY(-80px) rotate(-42.65deg);
+    }
+
+    .floaterMid {
+        transform: translate(-50%, -50%) translateX(55px) translateY(-50px) scaleX(-1) rotate(-120deg);
+    }
+
+    .floaterBottomLeft {
+        transform: translate(-50%, -50%) translateX(-170px) translateY(90px) rotate(-28deg);
+    }
+
+    .floaterTopRight {
+        transform: translate(-50%, -50%) translateX(120px) translateY(-20px) rotate(21.85deg);
+    }
+
+    .mediaCard {
+        width: min(340px, 60vw);
+        height: min(340px, 60vw);
+    }
+
+    .mediaCard1 {
+        transform: translate(-50%, -50%) translateX(-140px) translateY(64px) rotate(-15deg);
+    }
+
+    .mediaCard2 {
+        transform: translate(-50%, -50%) translateX(12px) translateY(20px) rotate(13.007deg);
+    }
+
+    .mediaCard3 {
+        transform: translate(-50%, -50%) translateX(140px) translateY(90px) rotate(-15.87deg);
+    }
+
     .getInTouch {
         grid-template-columns: 1fr;
         margin: 100px 0;

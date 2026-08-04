@@ -1,10 +1,39 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import Intro from '../../components/Intro/Intro';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from 'framer-motion';
 import styles from './GetStarted.module.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import FAQ from '../../components/FAQ/FAQ';
 import CalendlyModal from './CalendlyModal/CalendlyModal';
+
+import floaterTopLeft from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.png';
+import floaterMid from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_10.png';
+import floaterBottomLeft from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_2.png';
+import floaterTopRight from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_11.webp';
+
+/** Scroll travel targets — all share the same clock; heaviness = shorter ends. */
+const SCROLL_MOTION = {
+  floaterBottomLeft: { x: -160, y: -640, rotate: -58 },
+  floaterTopLeft: { x: -140, y: -660, rotate: -62 },
+  floaterMid: { x: 55, y: -420, rotate: 34 },
+  floaterTopRight: { x: 160, y: -660, rotate: 62 },
+  card1: { x: -480, y: -380, rotate: -36 },
+  card2: { x: -40, y: -360, rotate: -14 },
+  card3: { x: 480, y: -400, rotate: 40 },
+} as const;
+
+const CARD_IMAGES = [
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp',
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649932/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_ybgiyf.webp',
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648102/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-09342_yujk0f.webp',
+] as const;
 
 const caseStudiesFAQ = [
   {
@@ -29,9 +58,30 @@ const caseStudiesFAQ = [
   },
 ];
 
+function useAxis(shoot: MotionValue<number>, endValue: number) {
+  return useTransform(shoot, [0, 1], [0, endValue]);
+}
+
 const GetStarted = () => {
   const location = useLocation();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 160,
+    damping: 30,
+    mass: 0.28,
+    restDelta: 0.001,
+  });
+
+  // Continuous ease-in — light curve so it reads quicker while still smooth.
+  const shoot = useTransform(smoothProgress, (p) => p ** 1.25);
 
   useEffect(() => {
     if (location.hash === '#contact-form') {
@@ -58,14 +108,122 @@ const GetStarted = () => {
     }
   }, [location]);
 
+  const floaterBottomLeftX = useAxis(shoot, SCROLL_MOTION.floaterBottomLeft.x);
+  const floaterBottomLeftY = useAxis(shoot, SCROLL_MOTION.floaterBottomLeft.y);
+  const floaterBottomLeftRotate = useAxis(shoot, SCROLL_MOTION.floaterBottomLeft.rotate);
+  const floaterTopLeftX = useAxis(shoot, SCROLL_MOTION.floaterTopLeft.x);
+  const floaterTopLeftY = useAxis(shoot, SCROLL_MOTION.floaterTopLeft.y);
+  const floaterTopLeftRotate = useAxis(shoot, SCROLL_MOTION.floaterTopLeft.rotate);
+  const floaterMidX = useAxis(shoot, SCROLL_MOTION.floaterMid.x);
+  const floaterMidY = useAxis(shoot, SCROLL_MOTION.floaterMid.y);
+  const floaterMidRotate = useAxis(shoot, SCROLL_MOTION.floaterMid.rotate);
+  const floaterTopRightX = useAxis(shoot, SCROLL_MOTION.floaterTopRight.x);
+  const floaterTopRightY = useAxis(shoot, SCROLL_MOTION.floaterTopRight.y);
+  const floaterTopRightRotate = useAxis(shoot, SCROLL_MOTION.floaterTopRight.rotate);
+  const card1X = useAxis(shoot, SCROLL_MOTION.card1.x);
+  const card1Y = useAxis(shoot, SCROLL_MOTION.card1.y);
+  const card1Rotate = useAxis(shoot, SCROLL_MOTION.card1.rotate);
+  const card2X = useAxis(shoot, SCROLL_MOTION.card2.x);
+  const card2Y = useAxis(shoot, SCROLL_MOTION.card2.y);
+  const card2Rotate = useAxis(shoot, SCROLL_MOTION.card2.rotate);
+  const card3X = useAxis(shoot, SCROLL_MOTION.card3.x);
+  const card3Y = useAxis(shoot, SCROLL_MOTION.card3.y);
+  const card3Rotate = useAxis(shoot, SCROLL_MOTION.card3.rotate);
+
+  const motionStyle = (
+    x: MotionValue<number>,
+    y: MotionValue<number>,
+    rotate: MotionValue<number>,
+  ) => (reduceMotion ? undefined : { x, y, rotate });
+
   return (
     <div className={styles.getStartedWrapper}>
-      <Intro
-        title="Let’s remind people why it's so valuable to come together!"
-        description="Respond the next few questions and we’ll highlight a few products that you might want to consider adding to your program."
-        buttonText="Product Finder"
-        buttonLink="/get-started-form"
-      />
+      <section ref={sectionRef} className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <h1>Let’s remind people why it's so valuable to come together!</h1>
+          <p>
+            Respond the next few questions and we’ll highlight a few products that
+            you might want to consider adding to your program.
+          </p>
+          <Link to="/get-started-form" className={styles.cta}>
+            Product Finder
+          </Link>
+        </div>
+        <div className={styles.heroMedia}>
+          <div className={styles.floaters} aria-hidden>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(floaterTopLeftX, floaterTopLeftY, floaterTopLeftRotate)}
+            >
+              <img
+                src={floaterTopLeft}
+                alt=""
+                className={`${styles.floater} ${styles.floaterTopLeft}`}
+              />
+            </motion.div>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(floaterMidX, floaterMidY, floaterMidRotate)}
+            >
+              <img
+                src={floaterMid}
+                alt=""
+                className={`${styles.floater} ${styles.floaterMid}`}
+              />
+            </motion.div>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(floaterBottomLeftX, floaterBottomLeftY, floaterBottomLeftRotate)}
+            >
+              <img
+                src={floaterBottomLeft}
+                alt=""
+                className={`${styles.floater} ${styles.floaterBottomLeft}`}
+              />
+            </motion.div>
+          </div>
+          <div className={styles.mediaCards} aria-hidden>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(card1X, card1Y, card1Rotate)}
+            >
+              <div className={`${styles.mediaCard} ${styles.mediaCard1}`}>
+                <img src={CARD_IMAGES[0]} alt="" className={styles.mediaCardImg} />
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(card2X, card2Y, card2Rotate)}
+            >
+              <div className={`${styles.mediaCard} ${styles.mediaCard2}`}>
+                <img src={CARD_IMAGES[1]} alt="" className={styles.mediaCardImg} />
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(card3X, card3Y, card3Rotate)}
+            >
+              <div className={`${styles.mediaCard} ${styles.mediaCard3}`}>
+                <img src={CARD_IMAGES[2]} alt="" className={styles.mediaCardImg} />
+              </div>
+            </motion.div>
+          </div>
+          <div className={styles.floatersFront} aria-hidden>
+            <motion.div
+              className={styles.scrollMotion}
+              style={motionStyle(floaterTopRightX, floaterTopRightY, floaterTopRightRotate)}
+            >
+              <img
+                src={floaterTopRight}
+                alt=""
+                className={`${styles.floater} ${styles.floaterTopRight}`}
+              />
+            </motion.div>
+          </div>
+          <div className={styles.darkGradientOverlay} aria-hidden />
+        </div>
+      </section>
+
       <div id="contact-form">
         <ContactForm />
       </div>
