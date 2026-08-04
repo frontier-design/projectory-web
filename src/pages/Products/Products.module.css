@@ -2,20 +2,6 @@
     background-color: #131313;
 }
 
-.shapesContainer{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.productPage h1 {
-    font-size: 80px !important;
-    font-weight: 100 !important;
-    font-family: 'FounderGrotesk_Regular' !important;
-    line-height: 1 !important;
-}
-
 .productGridWrapper {
     position: relative;
 }
@@ -106,60 +92,6 @@
     white-space: nowrap;
 }
 
-.landingMoment {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.landingContent {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    color: white;
-    width: 45%;
-}
-
-.landingContent p {
-    font-size: 25px;
-    margin-top: 20px;
-}
-
-.shape {
-    position: absolute;
-    width: 120px;
-    opacity: 0.8;
-}
-
-.shape1 {
-    top: 25%;
-    left: 4%;
-    transform: rotate(13deg) scale(0.8) !important;
-}
-
-.shape2 {
-    top: 12%;
-    right: 20%;
-    transform: rotate(20deg) !important;
-}
-
-.shape3 {
-    bottom: 16%;
-    left: 14%;
-    transform: rotate(-18deg) scale(1.2) !important;
-}
-
-.shape4 {
-    bottom: 10%;
-    right: 5%;
-    transform: rotate(32deg) !important;
-}
-
 .imageRow {
     display: flex;
     justify-content: center;
@@ -196,10 +128,6 @@
         margin: auto;
     }
 
-    .productPage h1 {
-        font-size: 50px !important;
-    }
-
     .row {
         grid-template-columns: 1fr !important;
     }
@@ -231,102 +159,20 @@
         justify-content: space-between;
         background-color: #2C2C2D;
     }
-
-    .landingMoment {
-        height: 100vh;
-        width: 100%;
-    }
-
-    .landingContent {
-        width: 80%;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    .ctaButton {
-        font-size: 14px;
-        padding: 12px 18px;
-    }
-
-
-    .shape1 {
-        top: 18%;
-        left: 7%;
-        width: 18vw;
-    }
-
-    .shape2 {
-        top: 13%;
-        right: 8%;
-        width: 20vw;
-    }
-
-    .shape3 {
-        bottom: 5%;
-        left: 18%;
-        width: 20vw;
-    }
-
-    .shape4 {
-        bottom: 15%;
-        right: 8%;
-        width: 20vw;
-    }
-
 }
 
 @media screen and (min-width: 2000px) {
-    .productPage h1 {
-        font-size: 100px !important;
-    }
-
-    .landingContent p{
-        font-size: 35px;
-    }
-
     .tagBarHeading {
-        font-size: 40px;
+        font-size: 80px;
     }
 
     .tagButton {
         font-size: 25px;
     }
     .tagBarSubheading {
-        font-size: 30px;
+        font-size: 40px;
     }
     .activeTag {
         font-size: 25px;
-    }
-
-}
-
-@media screen and (min-width: 2000px) {
-    .shape1 {
-        width: 8vw;
-    }
-
-    .shape2 {
-        width: 8vw;
-    }
-
-    .shape3 {
-        width: 8vw;
-    }
-
-    .shape4 {
-        width: 8vw;
-    }
-
-    .tagBarHeading {
-        font-size: 80px;
-    }
-    .tagBarSubheading {
-        font-size: 40px;
     }
 }

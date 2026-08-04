@@ -12,6 +12,12 @@ import ClientLogos from '../../components/ClientLogos/ClientLogos';
 import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
 import FAQ from '../../components/FAQ/FAQ';
+import LandingHero from '../../components/LandingHero/LandingHero';
+
+import shapeTop from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_9.png';
+import shapeLeft from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.png';
+import shapeRight from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.svg';
+import shapeBottom from '../../assets/images/shapes/abstract/whoWeAre-Abstarct.avif';
 
 import CventImage from '../../assets/images/logos/cvent.png'
 import EventMarketer from '../../assets/images/logos/eventMarketerLogo.png';
@@ -79,7 +85,7 @@ const caseStudies = [
 const CaseStudies: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -182,26 +188,23 @@ const CaseStudies: React.FC = () => {
   const progressBarFill = useTransform(activeProgress, [0, 1], ['0%', '100%']);
   const isSectionInView = useInView(sectionRef, { margin: '-20% 0px -20% 0px' });
 
-  // CHANGED: A handler to smoothly scroll to the scroll container
-  const handleExploreAll = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleExploreAll = () => {
     sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className={styles.container}>
-      {/* Landing Section */}
-      <section className={styles.landing}>
-        <h1>Case Studies</h1>
-        <div className={styles.landingContent}>
-          <p>
-            Explore how our projects redefine interactive experiences and create lasting impacts.
-          </p>
-          <button onClick={handleExploreAll} className={styles.exploreButton}>
-            Explore All Case Studies ↓
-          </button>
-        </div>
-      </section>
+      <LandingHero
+        pill="Case Studies"
+        title={"Turning Ideas\nInto Impact"}
+        description="Explore how our projects redefine interactive experiences and create lasting Impacts."
+        buttonLabel="Explore Case Studies"
+        onButtonClick={handleExploreAll}
+        shapes={{ top: shapeTop, left: shapeLeft, right: shapeRight, bottom: shapeBottom }}
+        rightRotateRange={[170, 105]}
+        largeRight
+        largeBottom
+      />
 
       {/* Scroll Container */}
       <div
