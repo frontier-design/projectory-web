@@ -91,11 +91,12 @@
     min-height: 0;
     width: 100%;
     box-sizing: border-box;
-    transform: translateY(80px);
+    transform: translateY(40px);
     --floater-tl-w: 100px;
     --floater-mid-w: 120px;
     --floater-bl-w: 140px;
     --floater-tr-w: 120px;
+
 }
 
 .floaters {
@@ -119,7 +120,6 @@
     will-change: transform;
 }
 
-/* Stack: left behind → right in front (wrappers own z-index; transforms create contexts) */
 .scrollMotionCard1 {
     z-index: 1;
 }
@@ -152,13 +152,13 @@
 
 .floaterTopLeft {
     width: var(--floater-tl-w);
-    transform: translate(-50%, -50%) translateX(-320px) translateY(-160px) rotate(-42.65deg);
+    transform: translate(-50%, -50%) translateX(-352px) translateY(-160px) rotate(-42.65deg);
     animation: floaterFloat 4.2s ease-in-out 0.2s infinite alternate;
 }
 
 .floaterMid {
     width: var(--floater-mid-w);
-    transform: translate(-50%, -50%) translateX(-180px) translateY(-90px) scaleX(-1) rotate(18deg);
+    transform: translate(-50%, -50%) translateX(-198px) translateY(-90px) scaleX(-1) rotate(18deg);
     animation: floaterFloat 4.8s ease-in-out 0.6s infinite alternate;
 }
 
@@ -170,7 +170,7 @@
 
 .floaterTopRight {
     width: var(--floater-tr-w);
-    transform: translate(-50%, -50%) translateX(400px) translateY(-35px) rotate(21.85deg);
+    transform: translate(-50%, -50%) translateX(440px) translateY(-35px) rotate(21.85deg);
     animation: floaterFloat 4.2s ease-in-out 0s infinite alternate;
 }
 
@@ -188,8 +188,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 390px;
-    height: 390px;
+    width: 330px;
+    height: 330px;
     border-radius: 12px;
     border: 0.597px solid rgba(123, 123, 123, 0.5);
     background: #1c1c1c;
@@ -217,19 +217,19 @@
 }
 
 .mediaCard1 {
-    --card-x: -240px;
+    --card-x: -264px;
     --card-y: 110px;
     --card-r: -15deg;
 }
 
 .mediaCard2 {
-    --card-x: 12px;
+    --card-x: 13px;
     --card-y: 24px;
     --card-r: 13deg;
 }
 
 .mediaCard3 {
-    --card-x: 240px;
+    --card-x: 264px;
     --card-y: 140px;
     --card-r: -16deg;
 }
@@ -238,8 +238,8 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
     top: auto;
+    bottom: 0;
     height: 120%;
     background: linear-gradient(
       180deg,

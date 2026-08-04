@@ -21,13 +21,13 @@ type ShootEnd = { x: number; y: number; rotate: number };
 
 /** Scroll travel targets — shared clock; heaviness = shorter ends. */
 const SCROLL_MOTION = {
-  floaterBottomLeft: { x: -112, y: -250, rotate: -41 },
-  floaterTopLeft: { x: -98, y: -255, rotate: -43 },
-  floaterMid: { x: 39, y: -160, rotate: 24 },
-  floaterTopRight: { x: 112, y: -255, rotate: 43 },
-  card1: { x: -336, y: -145, rotate: -25 },
-  card2: { x: -28, y: -140, rotate: -10 },
-  card3: { x: 336, y: -155, rotate: 28 },
+  floaterBottomLeft: { x: -28, y: -62.5, rotate: -10.25 },
+  floaterTopLeft: { x: -24.5, y: -63.75, rotate: -10.75 },
+  floaterMid: { x: 9.75, y: -40, rotate: 6 },
+  floaterTopRight: { x: 28, y: -63.75, rotate: 10.75 },
+  card1: { x: -84, y: -36.25, rotate: -6.25 },
+  card2: { x: -7, y: -35, rotate: -2.5 },
+  card3: { x: 84, y: -38.75, rotate: 7 },
 } as const satisfies Record<string, ShootEnd>;
 
 const FLOATERS = [

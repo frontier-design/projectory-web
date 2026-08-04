@@ -174,7 +174,7 @@ const Products = () => {
     <div className={styles.productPage}>
       <LandingHero
         pill="Products"
-        title="Make Your Event Unmissable"
+        title={"Make Your Event\nUnmissable"}
         description="Projectory transforms half-listening event attendees into an engaged cohort of active, connected participants."
         buttonLabel="Explore Products"
         onButtonClick={() => tagContentRef.current?.scrollIntoView({ behavior: 'smooth' })}
