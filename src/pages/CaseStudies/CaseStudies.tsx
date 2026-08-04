@@ -16,7 +16,7 @@ import LandingHero from '../../components/LandingHero/LandingHero';
 
 import shapeTop from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_9.png';
 import shapeLeft from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.png';
-import shapeRight from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.svg';
+import shapeRight from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_1.png';
 import shapeBottom from '../../assets/images/shapes/abstract/whoWeAre-Abstarct.avif';
 
 import CventImage from '../../assets/images/logos/cvent.png'
