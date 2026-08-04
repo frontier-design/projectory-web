@@ -288,11 +288,21 @@
     transition: background 0.2s ease, color 0.2s ease;
 }
 
+.mobileCtaButton .ctaButtonLabel {
+    color: #000;
+}
+
 .mobileCtaButton:hover,
 .mobileCtaButton:focus-visible,
 .mobileCtaButton:active {
     background: var(--linear-gradient) !important;
     color: #fff !important;
+}
+
+.mobileCtaButton:hover .ctaButtonLabel,
+.mobileCtaButton:focus-visible .ctaButtonLabel,
+.mobileCtaButton:active .ctaButtonLabel {
+    color: #fff;
 }
 
 .socialLinks {

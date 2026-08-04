@@ -91,11 +91,11 @@
     min-height: 0;
     width: 100%;
     box-sizing: border-box;
-    transform: translateY(40px);
-    --floater-tl-w: 100px;
-    --floater-mid-w: 120px;
-    --floater-bl-w: 140px;
-    --floater-tr-w: 120px;
+    transform: translateY(clamp(24px, 3vw, 72px));
+    --floater-tl-w: clamp(78px, 7vw, 150px);
+    --floater-mid-w: clamp(94px, 8.3vw, 180px);
+    --floater-bl-w: clamp(110px, 9.7vw, 210px);
+    --floater-tr-w: clamp(94px, 8.3vw, 180px);
 
 }
 
@@ -152,25 +152,25 @@
 
 .floaterTopLeft {
     width: var(--floater-tl-w);
-    transform: translate(-50%, -50%) translateX(-352px) translateY(-160px) rotate(-42.65deg);
+    transform: translate(-50%, -50%) translateX(clamp(-470px, -24.4vw, -300px)) translateY(clamp(-215px, -11.1vw, -135px)) rotate(-42.65deg);
     animation: floaterFloat 4.2s ease-in-out 0.2s infinite alternate;
 }
 
 .floaterMid {
     width: var(--floater-mid-w);
-    transform: translate(-50%, -50%) translateX(-198px) translateY(-90px) scaleX(-1) rotate(18deg);
+    transform: translate(-50%, -50%) translateX(clamp(-265px, -13.75vw, -165px)) translateY(clamp(-120px, -6.25vw, -76px)) scaleX(-1) rotate(18deg);
     animation: floaterFloat 4.8s ease-in-out 0.6s infinite alternate;
 }
 
 .floaterBottomLeft {
     width: var(--floater-bl-w);
-    transform: translate(-50%, -50%) translateX(-460px) translateY(120px) rotate(-28deg);
+    transform: translate(-50%, -50%) translateX(clamp(-610px, -31.9vw, -390px)) translateY(clamp(80px, 8.3vw, 175px)) rotate(-28deg);
     animation: floaterFloat 5s ease-in-out 0.9s infinite alternate;
 }
 
 .floaterTopRight {
     width: var(--floater-tr-w);
-    transform: translate(-50%, -50%) translateX(440px) translateY(-35px) rotate(21.85deg);
+    transform: translate(-50%, -50%) translateX(clamp(290px, 30.5vw, 620px)) translateY(clamp(-52px, -2.43vw, -30px)) rotate(21.85deg);
     animation: floaterFloat 4.2s ease-in-out 0s infinite alternate;
 }
 
@@ -188,8 +188,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 330px;
-    height: 330px;
+    width: clamp(168px, 23vw, 470px);
+    height: clamp(168px, 23vw, 470px);
     border-radius: 12px;
     border: 0.597px solid rgba(123, 123, 123, 0.5);
     background: #1c1c1c;
@@ -217,20 +217,20 @@
 }
 
 .mediaCard1 {
-    --card-x: -264px;
-    --card-y: 110px;
+    --card-x: clamp(-380px, -18.5vw, -132px);
+    --card-y: clamp(55px, 7.6vw, 165px);
     --card-r: -15deg;
 }
 
 .mediaCard2 {
-    --card-x: 13px;
-    --card-y: 24px;
+    --card-x: clamp(9px, 0.9vw, 20px);
+    --card-y: clamp(14px, 1.67vw, 36px);
     --card-r: 13deg;
 }
 
 .mediaCard3 {
-    --card-x: 264px;
-    --card-y: 140px;
+    --card-x: clamp(132px, 18.5vw, 380px);
+    --card-y: clamp(70px, 9.72vw, 205px);
     --card-r: -16deg;
 }
 
@@ -351,26 +351,26 @@
 
 @media screen and (max-width: 1024px) {
     .heroMedia {
-        --floater-tl-w: 70px;
-        --floater-mid-w: 84px;
-        --floater-bl-w: 98px;
-        --floater-tr-w: 84px;
+        --floater-tl-w: clamp(56px, 6.8vw, 76px);
+        --floater-mid-w: clamp(68px, 8.2vw, 92px);
+        --floater-bl-w: clamp(80px, 9.6vw, 108px);
+        --floater-tr-w: clamp(68px, 8.2vw, 92px);
     }
 
     .floaterTopLeft {
-        transform: translate(-50%, -50%) translateX(-240px) translateY(-120px) rotate(-42.65deg);
+        transform: translate(-50%, -50%) translateX(clamp(-300px, -23.4vw, -190px)) translateY(clamp(-150px, -11.7vw, -96px)) rotate(-42.65deg);
     }
 
     .floaterMid {
-        transform: translate(-50%, -50%) translateX(-128px) translateY(-68px) scaleX(-1) rotate(-120deg);
+        transform: translate(-50%, -50%) translateX(clamp(-165px, -12.5vw, -100px)) translateY(clamp(-88px, -6.64vw, -54px)) scaleX(-1) rotate(18deg);
     }
 
     .floaterBottomLeft {
-        transform: translate(-50%, -50%) translateX(-345px) translateY(90px) rotate(-28deg);
+        transform: translate(-50%, -50%) translateX(clamp(-430px, -33.7vw, -275px)) translateY(clamp(70px, 8.8vw, 115px)) rotate(-28deg);
     }
 
     .floaterTopRight {
-        transform: translate(-50%, -50%) translateX(300px) translateY(-25px) rotate(21.85deg);
+        transform: translate(-50%, -50%) translateX(clamp(235px, 29.3vw, 385px)) translateY(clamp(-32px, -2.44vw, -19px)) rotate(21.85deg);
     }
 }
 
@@ -396,46 +396,52 @@
     }
 
     .heroMedia {
-        --floater-tl-w: clamp(76px, 20vw, 102px);
-        --floater-mid-w: clamp(92px, 24vw, 122px);
-        --floater-bl-w: clamp(108px, 28vw, 142px);
-        --floater-tr-w: clamp(92px, 24vw, 122px);
+        --floater-tl-w: clamp(58px, 17vw, 92px);
+        --floater-mid-w: clamp(70px, 20vw, 108px);
+        --floater-bl-w: clamp(82px, 23vw, 124px);
+        --floater-tr-w: clamp(70px, 20vw, 108px);
+        transform: translateY(clamp(14px, 5vw, 32px));
     }
 
     .floaterTopLeft {
-        transform: translate(-50%, -50%) translateX(-150px) translateY(-80px) rotate(-42.65deg);
+        transform: translate(-50%, -50%) translateX(clamp(-150px, -27vw, -88px)) translateY(clamp(-110px, -19vw, -66px)) rotate(-42.65deg);
     }
 
     .floaterMid {
-        transform: translate(-50%, -50%) translateX(55px) translateY(-50px) scaleX(-1) rotate(-120deg);
+        transform: translate(-50%, -50%) translateX(clamp(28px, 12vw, 66px)) translateY(clamp(-64px, -11vw, -38px)) scaleX(-1) rotate(-20deg);
     }
 
     .floaterBottomLeft {
-        transform: translate(-50%, -50%) translateX(-170px) translateY(90px) rotate(-28deg);
+        transform: translate(-50%, -50%) translateX(clamp(-178px, -33vw, -108px)) translateY(clamp(52px, 19vw, 105px)) rotate(-28deg);
     }
 
     .floaterTopRight {
-        transform: translate(-50%, -50%) translateX(120px) translateY(-20px) rotate(21.85deg);
+        transform: translate(-50%, -50%) translateX(clamp(100px, 30vw, 150px)) translateY(clamp(-30px, -5vw, -16px)) rotate(21.85deg);
+    }
+
+    /* Mobile: drop the far-right floater to declutter the landing moment */
+    .floatersFront {
+        display: none;
     }
 
     .mediaCard {
-        width: min(370px, 66vw);
-        height: min(370px, 66vw);
+        width: clamp(150px, 44vw, 235px);
+        height: clamp(150px, 44vw, 235px);
     }
 
+    /* Mobile: show two balanced cards instead of three */
     .mediaCard1 {
-        --card-x: -118px;
-        --card-y: 64px;
+        --card-x: clamp(-120px, -15vw, -46px);
+        --card-y: clamp(30px, 10vw, 66px);
     }
 
     .mediaCard2 {
-        --card-x: 8px;
-        --card-y: 20px;
+        --card-x: clamp(46px, 15vw, 120px);
+        --card-y: clamp(30px, 10vw, 66px);
     }
 
     .mediaCard3 {
-        --card-x: 118px;
-        --card-y: 90px;
+        display: none;
     }
 
     .getInTouch {
