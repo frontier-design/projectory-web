@@ -153,7 +153,7 @@
   gap: 10px;
   border: none;
   border-radius: 8px;
-  background: #ff6d4a;
+  background: #f37655;
   color: var(--white);
   font-family: 'FounderGrotesk_Regular', sans-serif;
   letter-spacing: 0.1px;
@@ -175,7 +175,7 @@
 
 @media (max-width: 768px) {
   .title {
-    font-size: 36px;
+    font-size: 45px;
     line-height: 1.1;
   }
 
@@ -184,6 +184,16 @@
     max-width: 320px;
     font-size: 18px;
     line-height: 1.3;
+  }
+
+  .pill {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .cta {
+    font-size: 17px;
+    padding: 22px 19px;
   }
 
   .shapeMidLeft {

@@ -7,8 +7,10 @@
 /*
  * Case Studies only
  */
+ 
 .hero {
   --lh-shape-opacity: 1;
+  --lh-midLeft-left: clamp(-50px, -4vw, -30px);
   --lh-midLeft-w: clamp(180px, 18vw, 340px);
   --lh-midRight-w: clamp(190px, 19vw, 360px);
   --lh-lower-w: clamp(140px, 9vw, 180px);
