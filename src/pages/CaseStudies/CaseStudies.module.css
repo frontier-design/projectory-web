@@ -8,6 +8,7 @@
  * Case Studies only
  */
 .hero {
+  --lh-shape-opacity: 1;
   --lh-midLeft-w: clamp(180px, 18vw, 340px);
   --lh-midRight-w: clamp(190px, 19vw, 360px);
   --lh-lower-w: clamp(140px, 9vw, 180px);
@@ -15,9 +16,24 @@
 
 @media (max-width: 768px) {
   .hero {
+    /* creamCoral on mobile — move right */
+    --lh-midLeft-left: 12.5%;
+    --lh-midLeft-top: 15%;
+    --lh-midLeft-rotate: -45deg;
     --lh-midLeft-w: clamp(80px, 22vw, 130px);
-    --lh-midRight-w: clamp(100px, 30vw, 200px);
-    --lh-lower-w: clamp(84px, 22vw, 180px);
+
+    /* lime — bigger, bleed off right edge */
+    --lh-midRight-right: -15%;
+    --lh-midRight-w: clamp(180px, 36vw, 250px);
+
+    /* coralTeal (upper, under CTA) — bleed off left edge */
+    --lh-upper-left: -12%;
+    --lh-upper-w: clamp(150px, 36vw, 200px);
+    
+    /* redLime — toward center and further down */
+    --lh-lower-right: 15%;
+    --lh-lower-bottom: 12%;
+    --lh-lower-w: clamp(84px, 22vw, 140px);
   }
 }
 
