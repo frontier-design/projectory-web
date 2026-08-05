@@ -8,4 +8,4 @@ export { default as coralTeal } from './abstract/Projectory_AbstractSymbol_9.png
 export { default as creamCoral } from './abstract/Projectory_AbstractSymbol_5.png';
 export { default as limeOlive } from './abstract/Projectory_AbstractSymbol_11.webp';
 export { default as apricot } from './pMonograms/Projectory_GradientSymbol_Apricot_15.png';
-export { default as whoWeAre } from './abstract/whoWeAre-Abstarct.avif';
+export { default as redLime } from './abstract/whoWeAre-Abstarct.avif';

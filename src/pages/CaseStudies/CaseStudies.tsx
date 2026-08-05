@@ -13,7 +13,7 @@ import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizz
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import LandingHero from '../../components/LandingHero/LandingHero';
-import { coralTeal, creamCoral, lime, whoWeAre } from '../../assets/images/shapes/floaters';
+import { coralTeal, creamCoral, lime, redLime } from '../../assets/images/shapes/floaters';
 
 import CventImage from '../../assets/images/logos/cvent.png'
 import EventMarketer from '../../assets/images/logos/eventMarketerLogo.png';
@@ -197,9 +197,10 @@ const CaseStudies: React.FC = () => {
         description="Explore how our projects redefine interactive experiences and create lasting Impacts."
         buttonLabel="Explore Case Studies"
         onButtonClick={handleExploreAll}
-        shapes={{ upper: coralTeal, midLeft: creamCoral, midRight: lime, lower: whoWeAre }}
+        shapes={{ upper: coralTeal, midLeft: creamCoral, midRight: lime, lower: redLime }}
         midRightRotateRange={[170, 105]}
         flipMidRight
+        solidShapes
       />
 
       {/* Scroll Container */}
