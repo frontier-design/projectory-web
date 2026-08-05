@@ -92,10 +92,10 @@
     width: 100%;
     box-sizing: border-box;
     transform: translateY(clamp(24px, 3vw, 72px));
-    --floater-tl-w: clamp(78px, 7vw, 150px);
-    --floater-mid-w: clamp(94px, 8.3vw, 180px);
-    --floater-bl-w: clamp(110px, 9.7vw, 210px);
-    --floater-tr-w: clamp(94px, 8.3vw, 180px);
+    --floater-tl-w: clamp(90px, 7vw, 150px);
+    --floater-mid-w: clamp(108px, 8.3vw, 180px);
+    --floater-bl-w: clamp(126px, 9.7vw, 210px);
+    --floater-tr-w: clamp(108px, 8.3vw, 180px);
 
 }
 
@@ -152,25 +152,25 @@
 
 .floaterTopLeft {
     width: var(--floater-tl-w);
-    transform: translate(-50%, -50%) translateX(clamp(-470px, -24.4vw, -300px)) translateY(clamp(-215px, -11.1vw, -135px)) rotate(-42.65deg);
+    transform: translate(-50%, -50%) translateX(clamp(-470px, -24.4vw, -190px)) translateY(clamp(-215px, -11.1vw, -96px)) rotate(-42.65deg);
     animation: floaterFloat 4.2s ease-in-out 0.2s infinite alternate;
 }
 
 .floaterMid {
     width: var(--floater-mid-w);
-    transform: translate(-50%, -50%) translateX(clamp(-265px, -13.75vw, -165px)) translateY(clamp(-120px, -6.25vw, -76px)) scaleX(-1) rotate(18deg);
+    transform: translate(-50%, -50%) translateX(clamp(-265px, -13.75vw, -100px)) translateY(clamp(-120px, -6.25vw, -54px)) scaleX(-1) rotate(18deg);
     animation: floaterFloat 4.8s ease-in-out 0.6s infinite alternate;
 }
 
 .floaterBottomLeft {
     width: var(--floater-bl-w);
-    transform: translate(-50%, -50%) translateX(clamp(-610px, -31.9vw, -390px)) translateY(clamp(80px, 8.3vw, 175px)) rotate(-28deg);
+    transform: translate(-50%, -50%) translateX(clamp(-610px, -31.9vw, -275px)) translateY(clamp(70px, 8.3vw, 175px)) rotate(-28deg);
     animation: floaterFloat 5s ease-in-out 0.9s infinite alternate;
 }
 
 .floaterTopRight {
     width: var(--floater-tr-w);
-    transform: translate(-50%, -50%) translateX(clamp(290px, 30.5vw, 620px)) translateY(clamp(-52px, -2.43vw, -30px)) rotate(21.85deg);
+    transform: translate(-50%, -50%) translateX(clamp(235px, 30.5vw, 620px)) translateY(clamp(-52px, -2.43vw, -19px)) rotate(21.85deg);
     animation: floaterFloat 4.2s ease-in-out 0s infinite alternate;
 }
 
@@ -188,8 +188,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: clamp(168px, 23vw, 470px);
-    height: clamp(168px, 23vw, 470px);
+    width: clamp(235px, 23vw, 390px);
+    height: clamp(235px, 23vw, 390px);
     border-radius: 12px;
     border: 0.597px solid rgba(123, 123, 123, 0.5);
     background: #1c1c1c;
@@ -254,123 +254,153 @@
     z-index: 4;
 }
 
-.faqSection {
+.faqAccordion {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    margin-top: 50px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 50px 50px;
+    padding: 80px clamp(24px, 12.5vw, 180px) 100px;
+    box-sizing: border-box;
 }
 
-.faqSection h2 {
-    font-size: 80px;
-    font-family: 'FounderGrotesk_Regular';
-    margin-bottom: 15px;
-}
-
-.faqSection h2 {
-    font-size: 40px;
-    font-family: 'FounderGrotesk_Medium';
-    margin-top: 0;
-}
-
-.faqSection p {
-    font-size: 25px;
-    margin-bottom: 30px;
-}
-
-.faqWrapper{
-    margin-bottom: 50px;
+.faqAccordionInner {
+    width: 100%;
+    max-width: 1070px;
 }
 
 .getInTouch {
-    padding: 50px;
+    padding: 50px clamp(24px, 12.5vw, 180px);
     margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column
-}
-
-.getInTouch h2{
-    font-size: 50px;
-    text-align: center;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 .gitWrapper{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 1070px;
 }
 
 .gitBlock{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    padding: 60px 56px;
     flex-direction: column;
-    background-color: white;
-    color: black;
-    padding: 50px;
-    border-radius: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 0.5px solid rgba(123, 123, 123, 0.50);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.10) 55.29%), #FFF;
+    color: #1c1c1c;
     text-align: center;
 }
 
 .gitBlock a,
-.gitBlock button{
-    background-color: var(--black);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 100px;
-    border: 1px solid black;
-    transition: all 0.1s ease; 
-    font-size: 18px;
+.gitBlock button,
+.gitButton{
+    display: flex;
+    height: 44px;
+    padding: 12px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    background-color: #1C1C1C;
+    color: #fff;
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: normal;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
+    transition: background 0.15s ease;
 }
 
 .gitBlock a:hover,
-.gitBlock button:hover{
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+.gitBlock button:hover,
+.gitButton:hover{
+    background-color: #2a2a2a;
 }
 
 .gitBlock h3{
-    font-size: 34px;
-    margin-bottom: 15px;
-    font-family: 'FounderGrotesk_SemiBold';
+    margin: 0 0 20px;
+    max-width: 320px;
+    color: #1c1c1c;
+    text-align: center;
+    font-family: 'FounderGrotesk_Medium', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 45px;
 }
 
 .gitBlock p{
-    font-size: 24px;
-    margin-bottom: 20px;
-    width: 90%;
+    margin: 0 0 28px;
+    max-width: 330px;
+    color: #1c1c1c;
     text-align: center;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: 'FounderGrotesk_Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.gitBlockLeft {
+    background: #1C1C1C;
+    color: #fff;
+}
+
+.gitBlockLeft h3,
+.gitBlockLeft p {
+    color: #fff;
+}
+
+.gitBlockLeft a,
+.gitBlockLeft button,
+.gitBlockLeft .gitButton {
+    background: #fff;
+    color: #1C1C1C;
+}
+
+.gitBlockLeft a:hover,
+.gitBlockLeft button:hover,
+.gitBlockLeft .gitButton:hover {
+    background: #f0f0f0;
 }
 
 @media screen and (max-width: 1024px) {
-    .heroMedia {
-        --floater-tl-w: clamp(56px, 6.8vw, 76px);
-        --floater-mid-w: clamp(68px, 8.2vw, 92px);
-        --floater-bl-w: clamp(80px, 9.6vw, 108px);
-        --floater-tr-w: clamp(68px, 8.2vw, 92px);
+    .gitWrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gitBlock {
+        flex: none;
+        width: 100%;
+        max-width: 485px;
+    }
+}
+
+/* HIDING the 3rd floater shape & moving 2nd to right on small/compact viewport */
+@media screen and (min-width: 769px) and (max-width: 1022px) {
+    .floaterMid {
+        display: none;
     }
 
     .floaterTopLeft {
-        transform: translate(-50%, -50%) translateX(clamp(-300px, -23.4vw, -190px)) translateY(clamp(-150px, -11.7vw, -96px)) rotate(-42.65deg);
-    }
-
-    .floaterMid {
-        transform: translate(-50%, -50%) translateX(clamp(-165px, -12.5vw, -100px)) translateY(clamp(-88px, -6.64vw, -54px)) scaleX(-1) rotate(18deg);
-    }
-
-    .floaterBottomLeft {
-        transform: translate(-50%, -50%) translateX(clamp(-430px, -33.7vw, -275px)) translateY(clamp(70px, 8.8vw, 115px)) rotate(-28deg);
-    }
-
-    .floaterTopRight {
-        transform: translate(-50%, -50%) translateX(clamp(235px, 29.3vw, 385px)) translateY(clamp(-32px, -2.44vw, -19px)) rotate(21.85deg);
+        transform: translate(-50%, -50%) translateX(clamp(-150px, -27vw, -88px)) translateY(clamp(-110px, -19vw, -66px)) rotate(-42.65deg);
     }
 }
 
@@ -445,51 +475,27 @@
     }
 
     .getInTouch {
-        grid-template-columns: 1fr;
-        margin: 100px 0;
-        padding: 0px 30px;
-    }
-
-    .gitWrapper{
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .getInTouch h2{
-        font-size: 35px;
+        margin: 100px 0 48px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .gitBlock{
-        padding: 50px 20px;
+        padding: 50px 28px;
     }
 
     .gitBlock h3{
         font-size: 30px;
-        line-height: 32px;
+        line-height: 34px;
     }
 
     .gitBlock p{
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 24px;
     }
 
-    .faqWrapper{
-        padding: 0;
+    .faqAccordion {
+        padding-top: 28px;
+        padding-bottom: 80px;
     }
-
-    .faqSection {
-        grid-template-columns: 1fr;
-        margin-top: 0px;
-        width: 100%;
-        padding: 40px 30px;
-    }
-
-    .faqSection h2{
-        font-size: 30px;
-      }
-
-   .faqSection p {
-        font-size: 20px;
-    }
-
-   
 }

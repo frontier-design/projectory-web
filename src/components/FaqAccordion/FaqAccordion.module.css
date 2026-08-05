@@ -8,6 +8,18 @@
   text-align: left;
 }
 
+.fill {
+  display: flex;
+  width: 100%;
+  max-width: 1070px;
+}
+
+.fill .list {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+}
+
 .title {
   margin: 0;
   flex-shrink: 0;
@@ -43,7 +55,7 @@
   align-self: stretch;
   border: none;
   border-radius: 12px;
-  background: #1C1C1C;
+  background: #1c1c1c;
   cursor: pointer;
   box-sizing: border-box;
   text-align: left;
@@ -114,7 +126,11 @@
   opacity: 0.75;
 }
 
-@media (max-width: 768px) {
+.card:first-child .answer {
+  max-width: 98%;
+}
+
+@media (max-width: 1024px) {
   .faq {
     display: flex;
     flex-direction: column;

@@ -41,41 +41,42 @@
   }
 }
 
+/*
+ * (Products + Case Studies)
+ * To change a page’s shapes, pass className={styles.hero} and set --lh-* vars
+ */
+
+/* Top-right shape */
 .shapeRight {
-  top: 140px;
-  right: -20px;
-  width: clamp(190px, 18vw, 280px);
+  top: var(--lh-shape-right-top, clamp(80px, 10vw, 140px));
+  right: var(--lh-shape-right-right, -20px);
+  width: var(--lh-shape-right-w, clamp(160px, 15vw, 300px));
   animation: floatShape 4.2s ease-in-out 0s infinite alternate;
 }
 
-.shapeRightLarge {
-  width: clamp(240px, 23vw, 360px);
-}
-
+/* Mid-left shape */
 .shapeLeft {
-  top: 42%;
-  left: -90px;
-  width: clamp(230px, 22vw, 340px);
+  top: var(--lh-shape-left-top, 42%);
+  left: var(--lh-shape-left-left, clamp(-120px, -8vw, -60px));
+  width: var(--lh-shape-left-w, clamp(80px, 18vw, 340px));
   animation: floatShape 4.8s ease-in-out 0.6s infinite alternate;
 }
 
+/* Upper shape (left of center) */
 .shapeTop {
-  top: -20px;
-  left: calc(50% - 340px);
-  width: clamp(115px, 11vw, 170px);
+  top: var(--lh-shape-top-top, clamp(-20px, -1.2vw, 40px));
+  left: var(--lh-shape-top-left, calc(50% - clamp(180px, 24vw, 340px)));
+  width: var(--lh-shape-top-w, clamp(140px, 9vw, 180px));
   animation: floatShape 4.2s ease-in-out 0.2s infinite alternate;
 }
 
+/* Lower shape (right of center) */
 .shapeBottom {
   top: auto;
-  bottom: clamp(80px, 12vh, 130px);
-  left: calc(50% + clamp(120px, 15vw, 220px));
-  width: clamp(110px, 9vw, 140px);
+  bottom: var(--lh-shape-bottom-bottom, clamp(80px, 12vh, 160px));
+  left: var(--lh-shape-bottom-left, calc(50% + clamp(120px, 15vw, 220px)));
+  width: var(--lh-shape-bottom-w, clamp(130px, 8vw, 155px));
   animation: floatShape 5s ease-in-out 0.9s infinite alternate;
-}
-
-.shapeBottomLarge {
-  width: clamp(130px, 11vw, 170px);
 }
 
 .content {
@@ -169,24 +170,6 @@
   background: #e85f3f;
 }
 
-@media (min-width: 2000px) {
-  .shapeRight {
-    width: 12vw;
-  }
-
-  .shapeLeft {
-    width: 14vw;
-  }
-
-  .shapeTop {
-    width: 7vw;
-  }
-
-  .shapeBottom {
-    width: min(140px, 6vw);
-  }
-}
-
 @media (max-width: 1024px) {
   .hero {
     padding: 30px;
@@ -196,94 +179,55 @@
     font-size: 48px;
     line-height: 1;
   }
-
-  .shapeLeft {
-    width: min(300px, 28vw);
-  }
-
-  .shapeRight {
-    width: min(250px, 26vw);
-  }
-
-  .shapeTop {
-    width: min(150px, 16vw);
-  }
-
-  .shapeBottom {
-    width: min(130px, 12vw);
-  }
 }
+
 
 @media (max-width: 768px) {
-  .content {
-    width: 100%;
-  }
-
-  .pill {
-    margin-bottom: 14px;
-  }
-
-  .title {
-    font-size: 48px;
-    line-height: 1.15;
-  }
-
-  .description {
-    font-size: 23px;
-    line-height: 28px;
-    max-width: 100%;
-    font-weight: 400;
-  }
-
-  .cta {
-    font-size: 18px;
-    letter-spacing: 0.2px;
-  }
-
   .shapeLeft {
-    top: 18%;
+    top: var(--lh-shape-left-top, 18%);
     bottom: auto;
-    left: 7%;
+    left: var(--lh-shape-left-left, 7%);
     right: auto;
-    width: 18vw;
+    width: var(--lh-shape-left-w, clamp(80px, 22vw, 130px));
   }
 
   .shapeRight {
-    top: 13%;
+    top: var(--lh-shape-right-top, 13%);
     bottom: auto;
-    right: 8%;
+    right: var(--lh-shape-right-right, 8%);
     left: auto;
-    width: 28vw;
+    width: var(--lh-shape-right-w, clamp(90px, 28vw, 200px));
   }
 
   .shapeTop {
     top: auto;
-    bottom: 5%;
-    left: 18%;
+    bottom: var(--lh-shape-top-bottom, 5%);
+    left: var(--lh-shape-top-left, 10%);
     right: auto;
-    width: 28vw;
+    width: var(--lh-shape-top-w, clamp(110px, 32vw, 250px));
   }
 
   .shapeBottom {
     top: auto;
-    bottom: 15%;
-    right: 8%;
+    bottom: var(--lh-shape-bottom-bottom, 15%);
+    right: var(--lh-shape-bottom-right, 8%);
     left: auto;
-    width: 20vw;
+    width: var(--lh-shape-bottom-w, clamp(72px, 20vw, 160px));
   }
 }
+
 
 @media (max-width: 768px) and (max-height: 730px) {
   .shapeRight {
-    top: 4%;
+    top: var(--lh-shape-right-top, 4%);
   }
 
   .shapeTop {
-    bottom: 0%;
-    left: 10%;
+    bottom: var(--lh-shape-top-bottom, 0%);
+    left: var(--lh-shape-top-left, 6%);
   }
 
   .shapeBottom {
-    bottom: 6%;
+    bottom: var(--lh-shape-bottom-bottom, 6%);
   }
 }
