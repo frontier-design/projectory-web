@@ -22,6 +22,7 @@ const MailIcon = () => (
   </svg>
 );
 
+/* PhoneIcon hidden until a real number is available — restore alongside the phone list item below
 const PhoneIcon = () => (
   <svg
     className={styles.contactIcon}
@@ -38,6 +39,7 @@ const PhoneIcon = () => (
     />
   </svg>
 );
+*/
 
 const AddressIcon = () => (
   <svg
@@ -128,16 +130,18 @@ const ContactForm = () => {
             <MailIcon />
             <a href="mailto:contact@projectory.live">contact@projectory.live</a>
           </li>
+          {/* Phone number hidden until a real number is available
           <li className={styles.contactItem}>
             <PhoneIcon />
             <a href="tel:+1123456789">(123) 456 – 789</a>
           </li>
+          */}
           <li className={styles.contactItem}>
             <AddressIcon />
             <span>
-              2208 Dundas St W,
+              11 Hillsboro Av,
               <br />
-              Toronto, ON M6R 1X1
+              Toronto, ON, M5R1S6
             </span>
           </li>
         </ul>
