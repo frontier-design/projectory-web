@@ -9,7 +9,7 @@ import {
 } from 'framer-motion';
 import styles from './GetStarted.module.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
-import FAQ from '../../components/FAQ/FAQ';
+import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import CalendlyModal from './CalendlyModal/CalendlyModal';
 
 import floaterTopLeft from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.png';
@@ -195,15 +195,7 @@ const GetStarted = () => {
       </div>
 
       <div className={styles.getInTouch}>
-        <h2>Other Ways to Get In Touch</h2>
         <div className={styles.gitWrapper}>
-          <div className={`${styles.gitBlock} ${styles.gitBlockLeft}`}>
-            <h3>Book a Meeting with Us</h3>
-            <p>Tell us about your event, and we'll prepare some initial ideas to discuss.</p>
-            <button onClick={() => setIsCalendlyOpen(true)} className={styles.gitButton}>
-              Book a Meeting
-            </button>
-          </div>
           <div className={`${styles.gitBlock} ${styles.gitBlockRight}`}>
             <h3>Message us on LinkedIn</h3>
             <p>Message and follow us on LinkedIn to receive updates on what we’re up to.</p>
@@ -216,20 +208,23 @@ const GetStarted = () => {
               Find us on LinkedIn
             </a>
           </div>
+          <div className={`${styles.gitBlock} ${styles.gitBlockLeft}`}>
+            <h3>Book a Meeting with Us</h3>
+            <p>Tell us about your event, and we'll prepare some initial ideas to discuss.</p>
+            <button onClick={() => setIsCalendlyOpen(true)} className={styles.gitButton}>
+              Book a Meeting
+            </button>
+          </div>
         </div>
       </div>
 
-      <div id="faq" className={styles.faqSection}>
-        <h2>Frequently Asked Questions</h2>
-        <p>
-          Curious about how Projectory works or what experiences are right for you? Below,
-          we’ve answered some of the most common questions to help you get started and make
-          the most of your event.
-        </p>
-      </div>
-
-      <div className={styles.faqWrapper}>
-        <FAQ faqs={caseStudiesFAQ} />
+      <div className={styles.faqAccordion}>
+        <FaqAccordion
+          id="faq"
+          className={styles.faqAccordionInner}
+          title={"Questions? We\nhave answers."}
+          items={caseStudiesFAQ}
+        />
       </div>
 
       <CalendlyModal

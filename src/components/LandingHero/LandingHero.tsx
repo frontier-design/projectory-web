@@ -21,10 +21,10 @@ interface LandingHeroProps {
   buttonLabel: string;
   onButtonClick: () => void;
   wideDescription?: boolean;
+  className?: string;
   shapes?: typeof defaultShapes;
   rightRotateRange?: [number, number];
-  largeRight?: boolean;
-  largeBottom?: boolean;
+  flipRight?: boolean;
 }
 
 const LandingHero = ({
@@ -34,10 +34,10 @@ const LandingHero = ({
   buttonLabel,
   onButtonClick,
   wideDescription = false,
+  className,
   shapes = defaultShapes,
   rightRotateRange = [-15, -55],
-  largeRight = false,
-  largeBottom = false,
+  flipRight = false,
 }: LandingHeroProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -72,7 +72,7 @@ const LandingHero = ({
   const fadeOpacity = useTransform(scrollYProgress, [0, 1], [0.8, 0.1]);
 
   return (
-    <section ref={sectionRef} className={styles.hero}>
+    <section ref={sectionRef} className={`${styles.hero}${className ? ` ${className}` : ''}`}>
       <div className={styles.shapesContainer}>
         <motion.img
           src={shapes.top}
@@ -98,19 +98,19 @@ const LandingHero = ({
         <motion.img
           src={shapes.right}
           alt=""
-          className={`${styles.shape} ${styles.shapeRight}${largeRight ? ` ${styles.shapeRightLarge}` : ''}`}
+          className={`${styles.shape} ${styles.shapeRight}`}
           style={{
             x: rightX,
             y: rightY,
             rotate: rightRotate,
-            scaleY: largeRight ? -1 : undefined,
+            scaleY: flipRight ? -1 : undefined,
           }}
           aria-hidden
         />
         <motion.img
           src={shapes.bottom}
           alt=""
-          className={`${styles.shape} ${styles.shapeBottom}${largeBottom ? ` ${styles.shapeBottomLarge}` : ''}`}
+          className={`${styles.shape} ${styles.shapeBottom}`}
           style={{ x: bottomX, y: bottomY, rotate: bottomRotate, opacity: fadeOpacity }}
           aria-hidden
         />

@@ -4,24 +4,34 @@
   box-sizing: border-box;
 }
 
-.faqSection {
+/*
+ * Case Studies only
+ */
+.hero {
+  --lh-shape-left-w: clamp(180px, 18vw, 340px);
+  --lh-shape-right-w: clamp(190px, 19vw, 360px);
+  --lh-shape-bottom-w: clamp(140px, 9vw, 180px);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    --lh-shape-left-w: clamp(80px, 22vw, 130px);
+    --lh-shape-right-w: clamp(100px, 30vw, 200px);
+    --lh-shape-bottom-w: clamp(84px, 22vw, 180px);
+  }
+}
+
+.faqAccordion {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  padding: 0 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  padding: 80px clamp(24px, 12.5vw, 180px) 100px;
+  box-sizing: border-box;
 }
 
-.faqSection h2 {
-  font-size: 40px;
-  font-family: 'FounderGrotesk_Medium';
-  margin: 0;
-}
-
-.faqSection p {
-  font-size: 25px;
-  margin-bottom: 30px;
+.faqAccordionInner {
+  width: 100%;
+  max-width: 1070px;
 }
 
 .scrollContainer {
@@ -138,20 +148,9 @@
     padding: 0 30px;
   }
 
-  .faqSection {
-    grid-template-columns: 1fr;
-    margin-top: 100px;
-    width: 100%;
-    padding: 0 30px;
-  }
-
-  .faqSection h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-  }
-
-  .faqSection p {
-    font-size: 20px;
+  .faqAccordion {
+    padding-top: 60px;
+    padding-bottom: 80px;
   }
 
   .caseStudyContent {

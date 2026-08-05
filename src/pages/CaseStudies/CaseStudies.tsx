@@ -11,7 +11,7 @@ import styles from './CaseStudies.module.css';
 import ClientLogos from '../../components/ClientLogos/ClientLogos';
 import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
-import FAQ from '../../components/FAQ/FAQ';
+import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import LandingHero from '../../components/LandingHero/LandingHero';
 
 import shapeTop from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_9.png';
@@ -195,6 +195,7 @@ const CaseStudies: React.FC = () => {
   return (
     <div className={styles.container}>
       <LandingHero
+        className={styles.hero}
         pill="Case Studies"
         title={"Turning Ideas\nInto Impact"}
         description="Explore how our projects redefine interactive experiences and create lasting Impacts."
@@ -202,8 +203,7 @@ const CaseStudies: React.FC = () => {
         onButtonClick={handleExploreAll}
         shapes={{ top: shapeTop, left: shapeLeft, right: shapeRight, bottom: shapeBottom }}
         rightRotateRange={[170, 105]}
-        largeRight
-        largeBottom
+        flipRight
       />
 
       {/* Scroll Container */}
@@ -305,14 +305,13 @@ const CaseStudies: React.FC = () => {
         ]}
       />
 
-    <div className={styles.faqSection}>
-      <h2>Frequently Asked Questions</h2>
-      <p>Curious about how Projectory works or what experiences
-      are right for you? Below, we’ve answered some of the most common questions to help you get started and make the most of your event.</p>
+    <div className={styles.faqAccordion}>
+      <FaqAccordion
+        className={styles.faqAccordionInner}
+        title={"Questions? We\nhave answers."}
+        items={caseStudiesFAQ}
+      />
     </div>
-
-    <FAQ faqs={caseStudiesFAQ} />
-
 
     </div>
   );
