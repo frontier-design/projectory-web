@@ -92,10 +92,10 @@
     width: 100%;
     box-sizing: border-box;
     transform: translateY(clamp(24px, 3vw, 72px));
-    --floater-tl-w: clamp(90px, 7vw, 150px);
-    --floater-mid-w: clamp(108px, 8.3vw, 180px);
-    --floater-bl-w: clamp(126px, 9.7vw, 210px);
-    --floater-tr-w: clamp(108px, 8.3vw, 180px);
+    --floater-apricot-w: clamp(90px, 7vw, 150px);
+    --floater-yellowCoral-w: clamp(108px, 8.3vw, 180px);
+    --floater-teal-w: clamp(126px, 9.7vw, 210px);
+    --floater-limeOlive-w: clamp(108px, 8.3vw, 180px);
 
 }
 
@@ -150,26 +150,26 @@
     will-change: transform;
 }
 
-.floaterTopLeft {
-    width: var(--floater-tl-w);
+.floaterApricot {
+    width: var(--floater-apricot-w);
     transform: translate(-50%, -50%) translateX(clamp(-470px, -24.4vw, -190px)) translateY(clamp(-215px, -11.1vw, -96px)) rotate(-42.65deg);
     animation: floaterFloat 4.2s ease-in-out 0.2s infinite alternate;
 }
 
-.floaterMid {
-    width: var(--floater-mid-w);
+.floaterYellowCoral {
+    width: var(--floater-yellowCoral-w);
     transform: translate(-50%, -50%) translateX(clamp(-265px, -13.75vw, -100px)) translateY(clamp(-120px, -6.25vw, -54px)) scaleX(-1) rotate(18deg);
     animation: floaterFloat 4.8s ease-in-out 0.6s infinite alternate;
 }
 
-.floaterBottomLeft {
-    width: var(--floater-bl-w);
+.floaterTeal {
+    width: var(--floater-teal-w);
     transform: translate(-50%, -50%) translateX(clamp(-610px, -31.9vw, -275px)) translateY(clamp(70px, 8.3vw, 175px)) rotate(-28deg);
     animation: floaterFloat 5s ease-in-out 0.9s infinite alternate;
 }
 
-.floaterTopRight {
-    width: var(--floater-tr-w);
+.floaterLimeOlive {
+    width: var(--floater-limeOlive-w);
     transform: translate(-50%, -50%) translateX(clamp(235px, 30.5vw, 620px)) translateY(clamp(-52px, -2.43vw, -19px)) rotate(21.85deg);
     animation: floaterFloat 4.2s ease-in-out 0s infinite alternate;
 }
@@ -395,11 +395,11 @@
 
 /* HIDING the 3rd floater shape & moving 2nd to right on small/compact viewport */
 @media screen and (min-width: 769px) and (max-width: 1022px) {
-    .floaterMid {
+    .floaterYellowCoral {
         display: none;
     }
 
-    .floaterTopLeft {
+    .floaterApricot {
         transform: translate(-50%, -50%) translateX(clamp(-150px, -27vw, -88px)) translateY(clamp(-110px, -19vw, -66px)) rotate(-42.65deg);
     }
 }
@@ -426,30 +426,30 @@
     }
 
     .heroMedia {
-        --floater-tl-w: clamp(58px, 17vw, 92px);
-        --floater-mid-w: clamp(70px, 20vw, 108px);
-        --floater-bl-w: clamp(82px, 23vw, 124px);
-        --floater-tr-w: clamp(70px, 20vw, 108px);
+        --floater-apricot-w: clamp(58px, 17vw, 92px);
+        --floater-yellowCoral-w: clamp(70px, 20vw, 108px);
+        --floater-teal-w: clamp(82px, 23vw, 124px);
+        --floater-limeOlive-w: clamp(70px, 20vw, 108px);
         transform: translateY(clamp(14px, 5vw, 32px));
     }
 
-    .floaterTopLeft {
+    .floaterApricot {
         transform: translate(-50%, -50%) translateX(clamp(-150px, -27vw, -88px)) translateY(clamp(-110px, -19vw, -66px)) rotate(-42.65deg);
     }
 
-    .floaterMid {
+    .floaterYellowCoral {
         transform: translate(-50%, -50%) translateX(clamp(28px, 12vw, 66px)) translateY(clamp(-64px, -11vw, -38px)) scaleX(-1) rotate(-20deg);
     }
 
-    .floaterBottomLeft {
+    .floaterTeal {
         transform: translate(-50%, -50%) translateX(clamp(-178px, -33vw, -108px)) translateY(clamp(52px, 19vw, 105px)) rotate(-28deg);
     }
 
-    .floaterTopRight {
+    .floaterLimeOlive {
         transform: translate(-50%, -50%) translateX(clamp(100px, 30vw, 150px)) translateY(clamp(-30px, -5vw, -16px)) rotate(21.85deg);
     }
 
-    /* Mobile: drop the far-right floater to declutter the landing moment */
+    /* Mobile: hides lime floater shape to declutter */
     .floatersFront {
         display: none;
     }

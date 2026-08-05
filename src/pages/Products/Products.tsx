@@ -173,6 +173,7 @@ const Products = () => {
   return (
     <div className={styles.productPage}>
       <LandingHero
+        className={styles.hero}
         pill="Products"
         title={"Make Your Event\nUnmissable"}
         description="Projectory transforms half-listening event attendees into an engaged cohort of active, connected participants."
@@ -180,6 +181,8 @@ const Products = () => {
         onButtonClick={() => tagContentRef.current?.scrollIntoView({ behavior: 'smooth' })}
         // Small hack!!: Products copy wraps awkwardly at the shared hero description max-width.
         wideDescription
+        solidShapes
+        swapSidesOnMobile
       />
 
       <FeaturedCarousel />

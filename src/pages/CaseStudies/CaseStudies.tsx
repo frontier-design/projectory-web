@@ -13,11 +13,7 @@ import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizz
 import TrustedBy from '../../components/TrustedBy/TrustedBy';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import LandingHero from '../../components/LandingHero/LandingHero';
-
-import shapeTop from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_9.png';
-import shapeLeft from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.png';
-import shapeRight from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_1.png';
-import shapeBottom from '../../assets/images/shapes/abstract/whoWeAre-Abstarct.avif';
+import { coralTeal, creamCoral, lime, whoWeAre } from '../../assets/images/shapes/floaters';
 
 import CventImage from '../../assets/images/logos/cvent.png'
 import EventMarketer from '../../assets/images/logos/eventMarketerLogo.png';
@@ -201,9 +197,9 @@ const CaseStudies: React.FC = () => {
         description="Explore how our projects redefine interactive experiences and create lasting Impacts."
         buttonLabel="Explore Case Studies"
         onButtonClick={handleExploreAll}
-        shapes={{ top: shapeTop, left: shapeLeft, right: shapeRight, bottom: shapeBottom }}
-        rightRotateRange={[170, 105]}
-        flipRight
+        shapes={{ upper: coralTeal, midLeft: creamCoral, midRight: lime, lower: whoWeAre }}
+        midRightRotateRange={[170, 105]}
+        flipMidRight
       />
 
       {/* Scroll Container */}
