@@ -12,28 +12,25 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import CalendlyModal from './CalendlyModal/CalendlyModal';
 
-import floaterTopLeft from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.png';
-import floaterMid from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_10.png';
-import floaterBottomLeft from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_2.png';
-import floaterTopRight from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_11.webp';
+import { apricot, yellowCoral, teal, limeOlive } from '../../assets/images/shapes/floaters';
 
 type ShootEnd = { x: number; y: number; rotate: number };
 
 /** Scroll travel targets — shared clock; heaviness = shorter ends. */
 const SCROLL_MOTION = {
-  floaterBottomLeft: { x: -28, y: -62.5, rotate: -10.25 },
-  floaterTopLeft: { x: -24.5, y: -63.75, rotate: -10.75 },
-  floaterMid: { x: 9.75, y: -40, rotate: 6 },
-  floaterTopRight: { x: 28, y: -63.75, rotate: 10.75 },
+  floaterTeal: { x: -28, y: -62.5, rotate: -10.25 },
+  floaterApricot: { x: -24.5, y: -63.75, rotate: -10.75 },
+  floaterYellowCoral: { x: 9.75, y: -40, rotate: 6 },
+  floaterLimeOlive: { x: 28, y: -63.75, rotate: 10.75 },
   card1: { x: -84, y: -36.25, rotate: -6.25 },
   card2: { x: -7, y: -35, rotate: -2.5 },
   card3: { x: 84, y: -38.75, rotate: 7 },
 } as const satisfies Record<string, ShootEnd>;
 
 const FLOATERS = [
-  { src: floaterTopLeft, className: styles.floaterTopLeft, motion: 'floaterTopLeft' },
-  { src: floaterMid, className: styles.floaterMid, motion: 'floaterMid' },
-  { src: floaterBottomLeft, className: styles.floaterBottomLeft, motion: 'floaterBottomLeft' },
+  { src: apricot, className: styles.floaterApricot, motion: 'floaterApricot' },
+  { src: yellowCoral, className: styles.floaterYellowCoral, motion: 'floaterYellowCoral' },
+  { src: teal, className: styles.floaterTeal, motion: 'floaterTeal' },
 ] as const;
 
 const MEDIA_CARDS = [
@@ -120,15 +117,15 @@ const GetStarted = () => {
     }
   }, [location.hash, location]);
 
-  const floaterTopLeftMotion = useShootStyle(shoot, SCROLL_MOTION.floaterTopLeft, motionOn);
-  const floaterMidMotion = useShootStyle(shoot, SCROLL_MOTION.floaterMid, motionOn);
-  const floaterBottomLeftMotion = useShootStyle(shoot, SCROLL_MOTION.floaterBottomLeft, motionOn);
-  const floaterTopRightMotion = useShootStyle(shoot, SCROLL_MOTION.floaterTopRight, motionOn);
+  const floaterApricotMotion = useShootStyle(shoot, SCROLL_MOTION.floaterApricot, motionOn);
+  const floaterYellowCoralMotion = useShootStyle(shoot, SCROLL_MOTION.floaterYellowCoral, motionOn);
+  const floaterTealMotion = useShootStyle(shoot, SCROLL_MOTION.floaterTeal, motionOn);
+  const floaterLimeOliveMotion = useShootStyle(shoot, SCROLL_MOTION.floaterLimeOlive, motionOn);
   const card1Motion = useShootStyle(shoot, SCROLL_MOTION.card1, motionOn);
   const card2Motion = useShootStyle(shoot, SCROLL_MOTION.card2, motionOn);
   const card3Motion = useShootStyle(shoot, SCROLL_MOTION.card3, motionOn);
 
-  const floaterMotions = [floaterTopLeftMotion, floaterMidMotion, floaterBottomLeftMotion];
+  const floaterMotions = [floaterApricotMotion, floaterYellowCoralMotion, floaterTealMotion];
   const cardMotions = [card1Motion, card2Motion, card3Motion];
 
   return (
@@ -177,11 +174,11 @@ const GetStarted = () => {
           </div>
 
           <div className={styles.floatersFront} aria-hidden>
-            <motion.div className={styles.scrollMotion} style={floaterTopRightMotion}>
+            <motion.div className={styles.scrollMotion} style={floaterLimeOliveMotion}>
               <img
-                src={floaterTopRight}
+                src={limeOlive}
                 alt=""
-                className={`${styles.floater} ${styles.floaterTopRight}`}
+                className={`${styles.floater} ${styles.floaterLimeOlive}`}
               />
             </motion.div>
           </div>

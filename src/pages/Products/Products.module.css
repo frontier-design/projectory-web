@@ -2,6 +2,34 @@
     background-color: #131313;
 }
 
+.hero {
+  --lh-shape-opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* teal floater → right edge (bleed), larger */
+    --lh-midLeft-top: 13%;
+    --lh-midLeft-left: auto;
+    --lh-midLeft-right: -12%;
+    --lh-midLeft-w: clamp(160px, 36vw, 250px);
+    --lh-midLeft-rotate: 25deg;
+
+    /* red floater → left side */
+    --lh-midRight-top: 18%;
+    --lh-midRight-right: auto;
+    --lh-midRight-left: 7%;
+    --lh-midRight-w: clamp(80px, 22vw, 130px);
+    --lh-midRight-rotate: -35deg;
+
+    /* yellow floater (under CTA) bleeds left */
+    --lh-upper-left: -12%;
+
+    /* lime floater (lower slot) sits closer to the bottom */
+    --lh-lower-bottom: 11%;
+  }
+}
+
 .productGridWrapper {
     position: relative;
 }

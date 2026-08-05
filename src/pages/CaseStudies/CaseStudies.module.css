@@ -8,16 +8,16 @@
  * Case Studies only
  */
 .hero {
-  --lh-shape-left-w: clamp(180px, 18vw, 340px);
-  --lh-shape-right-w: clamp(190px, 19vw, 360px);
-  --lh-shape-bottom-w: clamp(140px, 9vw, 180px);
+  --lh-midLeft-w: clamp(180px, 18vw, 340px);
+  --lh-midRight-w: clamp(190px, 19vw, 360px);
+  --lh-lower-w: clamp(140px, 9vw, 180px);
 }
 
 @media (max-width: 768px) {
   .hero {
-    --lh-shape-left-w: clamp(80px, 22vw, 130px);
-    --lh-shape-right-w: clamp(100px, 30vw, 200px);
-    --lh-shape-bottom-w: clamp(84px, 22vw, 180px);
+    --lh-midLeft-w: clamp(80px, 22vw, 130px);
+    --lh-midRight-w: clamp(100px, 30vw, 200px);
+    --lh-lower-w: clamp(84px, 22vw, 180px);
   }
 }
 
