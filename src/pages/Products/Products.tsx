@@ -6,19 +6,8 @@ import FeaturedCarousel from '../../components/FeaturedCarousel/FeaturedCarousel
 import TealCTASection from '../../components/CTAs/TealCTA/TealCTA';
 import GridCTA from '../../components/GridCTA/GridCTA';
 import FeaturedCaseStudy from '../../components/FeaturedCaseStudy/FeaturedCaseStudy';
+import LandingHero from '../../components/LandingHero/LandingHero';
 import styles from './Products.module.css';
-import { motion } from 'framer-motion';
-
-// Import shape assets (adjust paths as needed)
-import shape1 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_1.png';
-import shape2 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_2.png';
-import shape3 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_3.png';
-import shape4 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.png';
-import shape5 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_6.png';
-import shape6 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_9.png';
-import shape7 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_10.png';
-
-const shapePool = [shape1, shape2, shape3, shape4, shape5, shape6, shape7];
 
 const TAGS = [
   'All Products',
@@ -181,46 +170,20 @@ const Products = () => {
   const groupedItems =
     items.length === 4 ? [items.slice(0, 2), items.slice(2, 4)] : groupItems(items);
 
-  // Inline Landing Moment: random shapes logic
-  const [selectedShapes, setSelectedShapes] = useState<string[]>([]);
-  useEffect(() => {
-    const shuffledShapes = [...shapePool].sort(() => 0.5 - Math.random()).slice(0, 4);
-    setSelectedShapes(shuffledShapes);
-  }, []);
-
   return (
     <div className={styles.productPage}>
-      
-    <section className={styles.landingMoment}>
-      <div className={styles.landingContent}>
-        <h1>Make Your Event Unmissable</h1>
-        <p>
-          Projectory transforms half-listening event attendees into an engaged cohort of active, connected participants.
-        </p>
-      </div>
-      <motion.div
-        className={styles.shapesContainer}
-        initial={{ scale: 1 }}
-        animate={{ scale: [1, 1.06, 1] }}
-        transition={{
-          scale: {
-            duration: 4,
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'easeInOut',
-          },
-        }}
-      >
-        {selectedShapes.map((shape, index) => (
-          <img
-            key={index}
-            src={shape}
-            alt={`Shape ${index + 1}`}
-            className={`${styles.shape} ${styles[`shape${index + 1}`]}`}
-          />
-        ))}
-      </motion.div>
-    </section>
+      <LandingHero
+        className={styles.hero}
+        pill="Products"
+        title={"Make Your Event\nUnmissable"}
+        description="Projectory transforms half-listening event attendees into an engaged cohort of active, connected participants."
+        buttonLabel="Explore Products"
+        onButtonClick={() => tagContentRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        // Small hack!!: Products copy wraps awkwardly at the shared hero description max-width.
+        wideDescription
+        solidShapes
+        swapSidesOnMobile
+      />
 
       <FeaturedCarousel />
 

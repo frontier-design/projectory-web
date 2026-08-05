@@ -35,6 +35,21 @@ const Navbar = () => {
     setMenuOpen(open => !open);
   };
 
+  // Lock background scroll and enable Escape-to-close while the mobile menu is open.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [menuOpen]);
+
   return (
     <>
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
@@ -92,7 +107,12 @@ const Navbar = () => {
             </button>
           )}
 
-          <button className={styles.menuToggle} onClick={toggleMenu}>
+          <button
+            className={styles.menuToggle}
+            onClick={toggleMenu}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
             {menuOpen ? <FiX className={styles.menuIcon} /> : <FiMenu className={styles.menuIcon} />}
           </button>
         </div>

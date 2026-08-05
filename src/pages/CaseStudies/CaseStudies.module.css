@@ -4,50 +4,52 @@
   box-sizing: border-box;
 }
 
-.landing,
-.faqSection {
+/*
+ * Case Studies only
+ */
+ 
+.hero {
+  --lh-shape-opacity: 1;
+  --lh-midLeft-left: clamp(-50px, -4vw, -30px);
+  --lh-midLeft-w: clamp(180px, 18vw, 340px);
+  --lh-midRight-w: clamp(190px, 19vw, 360px);
+  --lh-lower-w: clamp(140px, 9vw, 180px);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* creamCoral on mobile — move right */
+    --lh-midLeft-left: 12.5%;
+    --lh-midLeft-top: 15%;
+    --lh-midLeft-rotate: -45deg;
+    --lh-midLeft-w: clamp(80px, 22vw, 130px);
+
+    /* lime — bigger, bleed off right edge */
+    --lh-midRight-right: -15%;
+    --lh-midRight-w: clamp(180px, 36vw, 250px);
+
+    /* coralTeal (upper, under CTA) — bleed off left edge */
+    --lh-upper-left: -12%;
+    --lh-upper-w: clamp(150px, 36vw, 200px);
+    
+    /* redLime — toward center and further down */
+    --lh-lower-right: 15%;
+    --lh-lower-bottom: 12%;
+    --lh-lower-w: clamp(84px, 22vw, 140px);
+  }
+}
+
+.faqAccordion {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  padding: 0 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  padding: 80px clamp(24px, 12.5vw, 180px) 100px;
+  box-sizing: border-box;
 }
 
-.landing h1,
-.faqSection h2 {
-  font-size: 80px;
-  font-family: 'FounderGrotesk_Regular';
-  margin: 0;
-  margin-top: -20px;
-}
-
-.faqSection h2{
-  font-size: 40px;
-  font-family: 'FounderGrotesk_Medium';
-  margin-top: 0;
-}
-
-.landingContent p,
-.faqSection p {
-  font-size: 25px;
-  margin-bottom: 30px;
-}
-
-.exploreButton {
-  padding: 14px 24px;
-  border: 1.5px solid white;
-  border-radius: 50px;
-  font-size: 18px;
-  transition: 0.3s;
-  display: inline-block;
-  cursor: pointer;
-  color: white;
-}
-
-.exploreButton:hover {
-  background-color: white;
-  color: black;
+.faqAccordionInner {
+  width: 100%;
+  max-width: 1070px;
 }
 
 .scrollContainer {
@@ -159,36 +161,14 @@
     display: none;
   }
 
-  .container{
-    /* padding: 0 30px; */
-  }
-
   .scrollContainer{
-    margin-top: -80px;
+    margin-top: 0;
     padding: 0 30px;
   }
 
-  .landing,
-  .faqSection {
-    grid-template-columns: 1fr;
-    margin-top: 100px;
-    width: 100%;
-    padding: 0 30px;
-  }
-
-  .landing h1,
-  .faqSection h2 {
-    font-size: 50px;
-    margin-bottom: 15px;
-  }
-
-  .faqSection h2{
-    font-size: 30px;
-  }
-
-  .landingContent p,
-  .faqSection p {
-    font-size: 20px;
+  .faqAccordion {
+    padding-top: 60px;
+    padding-bottom: 80px;
   }
 
   .caseStudyContent {

@@ -1,176 +1,218 @@
 .contactWrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(220deg, #F37655, #A72C4B);
-    padding: 50px 0;
-    color: white;
-    height: 90vh;
-    overflow: hidden;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 120px clamp(24px, 12.5vw, 180px);
+  background: #fff;
+  color: #131313;
 }
 
-.contactWrapper h2,
-.contactWrapper p {
-    z-index: 3; 
+.infoColumn {
+  flex: 0 1 420px;
+  max-width: 420px;
 }
 
-.contactWrapper .shape{
-    position: absolute;
-    z-index: 0;
+.eyebrow {
+  margin: 0 0 8px;
+  color: #f37655;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.contactWrapper .shape1{
-    transform: rotate(-165.235deg);
-    top: 20%;
-    left: -40px;
-    width: 230px;
-    animation: animateShape1 5s infinite;
+.title {
+  margin: 0 0 16px;
+  color: #131313;
+  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.contactWrapper .shape2{
-    bottom: 3%;
-    right: 20vw;
-    transform: rotate(15deg);
-    width: 250px;
-    animation: animateShape2 5s infinite;
+.body {
+  margin: 0 0 40px;
+  max-width: 450px;
+  width: 480px;
+  color: #131313;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
 }
 
-.contactWrapper .shape3{
-    top: 5%;
-    right: -150px;
-    width: 200px;
-    transform: rotate(-20deg);
-    width: 350px;
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: #131313;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
 
-.contactWrapper p{
-    font-size: 25px;
-    max-width: 780px;
-    margin-bottom: 50px;
+.contactItem a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contactItem a:hover {
+  text-decoration: underline;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  margin-top: 4px;
 }
 
 .contactForm {
-    width: 60%;
-    max-width: 800px;
-    z-index: 3;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  max-width: 560px;
 }
 
-
-.inputGroup {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+.fieldRow {
+  display: flex;
+  gap: 16px;
+  width: 100%;
 }
 
-.inputGroup input, textarea {
-    width: 100%;
-    padding: 20px;
-    font-size: 18px;
-    border: 1px solid #ADADAD;
-    border-radius: 10px;
-    border: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
+.field {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
 }
 
-.contactForm input{
-    height: 60px;
+.label {
+  color: #131313;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
 }
 
-.contactForm textarea {
-    height: 150px;
-    resize: none;
+.field input,
+.field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 0.5px solid var(--main-stroke, rgba(123, 123, 123, 0.5));
+  background: #fff;
+  color: #131313;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-.contactForm button {
-    padding: 15px 20px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 50px;
-    border: none;
-    transition: 0.3s;
-    font-size: 18px;
-    font-weight: bold;
-    width: 155px;
-    cursor: pointer;
-    margin-top: 35px;
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #7b7b7b;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  opacity: 1;
 }
 
-.contactForm button:hover {
-    background: var(--black);
-    color: white;
+.field input {
+  height: 48px;
+}
+
+.field textarea {
+  height: 160px;
+  resize: none;
+}
+
+.submit {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background: #f37655;
+  color: #fff;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submit:hover {
+  background: #e06545;
 }
 
 .statusMessage {
-    font-size: 16px;
-    margin-top: 10px;
+  margin: 0;
+  color: #131313;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 16px;
 }
 
+@media screen and (max-width: 1024px) {
+  .contactWrapper {
+    flex-direction: column;
+    gap: 48px;
+    padding: 120px clamp(24px, 12.5vw, 180px);
+  }
 
-@media screen and (min-width: 1500px) {
-    .contactWrapper .shape1{
-        width: 300px;
-    }
+  .infoColumn {
+    flex: none;
+    max-width: none;
+    width: 100%;
+  }
 
-    .contactWrapper .shape2{
-        width: 350px;
-    }
+  .body {
+    width: auto;
+    max-width: none;
+  }
 
-    .contactWrapper .shape3{
-        width: 400px;
-    }   
+  .contactForm {
+    width: 100%;
+  }
 }
-
-
-@media screen and (max-width: 1150px) {
-    .contactWrapper {
-        height: auto;
-        padding: 50px 20px;
-    }
-    .contactForm {
-        width: 100%;
-    }
-
-    .contactWrapper h2{
-        margin-bottom: 15px;
-    }
-    
-    .contactWrapper .shape1{
-        width: 120px;
-        left: -20px;
-    }
-
-    .contactWrapper .shape2{
-        width: 200px;
-    }
-
-    .contactWrapper .shape3{
-        width: 250px;
-        top: -100px;
-        right: -135px;
-    }
-}
-
 
 @media screen and (max-width: 768px) {
-    .contactWrapper {
-        height: auto;
-        padding: 50px 20px;
-    }
+  .contactWrapper {
+    gap: 40px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
 
-    .contactForm {
-        width: 100%;
-    }
+  .title {
+    font-size: 32px;
+  }
 
-    .contactWrapper p{
-        font-size: 20px;
-    }
+  .body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .fieldRow {
+    gap: 12px;
+  }
 }

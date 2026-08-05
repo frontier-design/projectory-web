@@ -238,7 +238,8 @@
     left: 0;
     right: 0;
     height: 100vh;
-    background: linear-gradient(180deg, #F37655, #A72C4B, var(--black) 130%);
+    height: 100dvh;
+    background: var(--black);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -246,7 +247,7 @@
     gap: 30px;
     z-index: 1000;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, visibility 0s linear 0.3s;
     pointer-events: none;
     visibility: hidden;
 }
@@ -255,6 +256,7 @@
     transform: translateY(0);
     pointer-events: auto;
     visibility: visible;
+    transition: transform 0.3s ease-in-out, visibility 0s linear 0s;
 }
 
 .mobileMenu ul {
@@ -279,13 +281,17 @@
     display: inline-flex;
     align-items: center;
     padding: 12px 20px;
-    background: #fff;
-    color: #000 !important;
-    border-radius: 100px;
+    background: #f37655;
+    color: #fff !important;
+    border-radius: 8px;
     font-family: 'FounderGrotesk_Regular', sans-serif;
     font-weight: normal;
     text-decoration: none;
     transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobileCtaButton .ctaButtonLabel {
+    color: #fff;
 }
 
 .mobileCtaButton:hover,
@@ -293,6 +299,12 @@
 .mobileCtaButton:active {
     background: var(--linear-gradient) !important;
     color: #fff !important;
+}
+
+.mobileCtaButton:hover .ctaButtonLabel,
+.mobileCtaButton:focus-visible .ctaButtonLabel,
+.mobileCtaButton:active .ctaButtonLabel {
+    color: #fff;
 }
 
 .socialLinks {
