@@ -1,12 +1,10 @@
 // src/components/Navbar/Navbar.tsx
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../assets/images/logo.svg';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { FaLinkedin, FaYoutube } from 'react-icons/fa';
-import { FiInstagram } from 'react-icons/fi';
 import HeartIconNavSVG from '../../assets/images/heartIconNav.svg';
 
 // Slide-in menu
@@ -19,6 +17,8 @@ const Navbar = () => {
   const [isSlideInOpen, setIsSlideInOpen] = useState(false);
   const { likedProducts } = useLikedProducts();
   const hasLikedProducts = likedProducts.length > 0;
+  const prevLikedCount = useRef(0);
+  const [heartKey, setHeartKey] = useState(0);
 
   // NEW: track scroll position
   const [scrolled, setScrolled] = useState(false);
@@ -30,6 +30,14 @@ const Navbar = () => {
     handleScroll(); // init on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Replay heart bump when another product is liked -> (extra featuer i decided to add here its good UX feedback)
+  useEffect(() => {
+    if (likedProducts.length > prevLikedCount.current) {
+      setHeartKey((k) => k + 1);
+    }
+    prevLikedCount.current = likedProducts.length;
+  }, [likedProducts.length]);
 
   const toggleMenu = () => {
     setMenuOpen(open => !open);
@@ -53,51 +61,106 @@ const Navbar = () => {
   return (
     <>
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.navShell}>
-      <div className={styles.navContent}>
-        {/* Logo */}
-        <Link to="/" className={styles.logo}>
-          <img src={logo} alt="Projectory Logo" className={styles.logoImage} />
-        </Link>
+      <div
+        className={`${styles.menuOverlay} ${menuOpen ? styles.open : ''}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden={!menuOpen}
+      />
+      <div className={`${styles.navCluster} ${menuOpen ? styles.expanded : ''}`}>
+        <div className={styles.navShell}>
+          <div className={styles.navContent}>
+            {/* Logo */}
+            <Link to="/" className={styles.logo}>
+              <img src={logo} alt="Projectory Logo" className={styles.logoImage} />
+            </Link>
 
-        <div className={styles.navRight}>
-          <ul className={styles.desktopNav}>
-            <li><Link to="/who-we-are">Who We Are</Link></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/case-studies">Case Studies</Link></li>
-            <li><Link to="/pricing">Pricing</Link></li>
-          </ul>
+            <div className={styles.navRight}>
+              <ul className={styles.desktopNav}>
+                <li><Link to="/who-we-are">Who We Are</Link></li>
+                <li><Link to="/products">Products</Link></li>
+                <li><Link to="/case-studies">Case Studies</Link></li>
+                <li><Link to="/pricing">Pricing</Link></li>
+              </ul>
 
-          <div className={styles.navActions}>
-            <Link to="/get-started" className={styles.ctaButton}>
+              <div className={styles.navActions}>
+                <Link to="/get-started" className={styles.ctaButton}>
+                  <span className={styles.ctaButtonLabel}>Get Started</span>
+                </Link>
+                {hasLikedProducts && (
+                  <button
+                    key={`desk-heart-${heartKey}`}
+                    className={`${styles.slideInToggleBtn} ${styles.likeButtonReveal}`}
+                    onClick={() => setIsSlideInOpen(true)}
+                    aria-label="Liked products"
+                  >
+                    <img
+                      className={styles.heartIcon}
+                      src={HeartIconNavSVG}
+                      alt=""
+                    />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className={styles.navMobileTrailing}>
+              {menuOpen && (
+                <button
+                  className={`${styles.menuToggle} ${styles.closeToggle}`}
+                  onClick={toggleMenu}
+                  aria-label="Close menu"
+                  aria-expanded={true}
+                >
+                  <FiX className={styles.menuIcon} />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Mobile sheet body — list + CTA */}
+          <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
+            <ul>
+              <li>
+                <Link to="/who-we-are" onClick={() => setMenuOpen(false)}>
+                  Who We Are
+                </Link>
+              </li>
+              <li>
+                <Link to="/products" onClick={() => setMenuOpen(false)}>
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" onClick={() => setMenuOpen(false)}>
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/pricing" onClick={() => setMenuOpen(false)}>
+                  Pricing
+                </Link>
+              </li>
+            </ul>
+
+            <Link
+              to="/get-started"
+              className={`${styles.ctaButton} ${styles.mobileCtaButton}`}
+              onClick={() => setMenuOpen(false)}
+            >
               <span className={styles.ctaButtonLabel}>Get Started</span>
             </Link>
-            {hasLikedProducts && (
-              <button
-                className={`${styles.slideInToggleBtn} ${styles.likeButtonReveal}`}
-                onClick={() => setIsSlideInOpen(true)}
-                aria-label="Liked products"
-              >
-                <img
-                  className={styles.heartIcon}
-                  src={HeartIconNavSVG}
-                  alt=""
-                />
-              </button>
-            )}
           </div>
         </div>
 
-        {/* Mobile toggles */}
-        <div className={styles.mobileMenuWrapper}>
+        <div className={styles.navIslands}>
           {hasLikedProducts && (
             <button
-              className={`${styles.slideInToggleBtnMobile} ${styles.likeButtonReveal}`}
-              onClick={() => {
-                setMenuOpen(false);
-                setIsSlideInOpen(true);
-              }}
+              key={`mob-heart-${heartKey}`}
+              className={`${styles.navIsland} ${styles.likeIsland} ${styles.likeButtonReveal}`}
+              onClick={() => setIsSlideInOpen(true)}
               aria-label="Liked products"
+              tabIndex={menuOpen ? -1 : undefined}
+              aria-hidden={menuOpen}
             >
               <img
                 className={styles.heartIcon}
@@ -108,77 +171,17 @@ const Navbar = () => {
           )}
 
           <button
-            className={styles.menuToggle}
+            className={`${styles.navIsland} ${styles.menuToggle}`}
             onClick={toggleMenu}
-            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-label="Open menu"
             aria-expanded={menuOpen}
+            tabIndex={menuOpen ? -1 : undefined}
+            aria-hidden={menuOpen}
           >
-            {menuOpen ? <FiX className={styles.menuIcon} /> : <FiMenu className={styles.menuIcon} />}
+            <FiMenu className={styles.menuIcon} />
           </button>
         </div>
       </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.open : ''}`}>
-        <ul>
-          <li>
-            <Link to="/who-we-are" onClick={() => setMenuOpen(false)}>
-              Who We Are
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" onClick={() => setMenuOpen(false)}>
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link to="/case-studies" onClick={() => setMenuOpen(false)}>
-              Case Studies
-            </Link>
-          </li>
-          <li>
-            <Link to="/pricing" onClick={() => setMenuOpen(false)}>
-            Pricing
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/get-started"
-              className={styles.mobileCtaButton}
-              onClick={() => setMenuOpen(false)}
-            >
-              <span className={styles.ctaButtonLabel}>Get Started</span>
-            </Link>
-          </li>
-        </ul>
-
-        {/* Social Media Links */}
-        <div className={styles.socialLinks}>
-          <a
-            href="https://ca.linkedin.com/company/theprojectory"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin className={styles.icon} />
-          </a>
-          <a
-            href="https://www.youtube.com/@projectorylive/playlists?app=desktop"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaYoutube className={styles.icon} />
-          </a>
-          <a
-            href="https://www.instagram.com/projectory.live/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FiInstagram className={styles.icon} />
-          </a>
-        </div>
-      </div>
-
     </nav>
 
     <SlideInMenu
