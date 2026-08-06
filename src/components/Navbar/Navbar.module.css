@@ -1,4 +1,11 @@
 .navbar {
+    --nav-gap: clamp(8px, 2vw, 12px);
+    --nav-pad: clamp(16px, 2.8vw, 20px);
+    --nav-radius: 10px;
+    --nav-glass-bg: rgba(19, 19, 19, 0.80);
+    --nav-glass-border: 0.5px solid rgba(123, 123, 123, 0.50);
+    --nav-glass-shadow: 0 12px 36px 0 rgba(19, 19, 19, 0.12);
+
     position: fixed;
     top: 0;
     left: 0;
@@ -9,8 +16,24 @@
     pointer-events: none;
 }
 
+.menuOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.menuOverlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .navShell,
-.mobileMenu {
+.mobileMenu,
+.navIsland {
     cursor: default;
 }
 
@@ -18,32 +41,188 @@
 .navShell button,
 .mobileMenu a,
 .mobileMenu button,
+.navIsland,
 .navShell a *,
 .navShell button *,
-.mobileMenu a * {
+.mobileMenu a *,
+.navIsland * {
     cursor: pointer !important;
 }
 
-.navShell {
+/* Navbar animation values */
+.navCluster {
+    --nav-control: 40px;
+    --nav-island-size: calc(var(--nav-control) + 2 * var(--nav-pad));
+    --nav-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --nav-motion: 0.6s var(--nav-ease);
+    --nav-fade-out: 0.18s var(--nav-ease);
+    --nav-fade-in: 0.16s var(--nav-ease);
+    --nav-fade-in-delay: 0.22s;
+
     pointer-events: auto;
+    position: relative;
+    z-index: 1101;
     display: flex;
-    width: 100%;
-    padding: 14px clamp(20px, 4vw, 48px);
+    align-items: flex-start;
+    gap: var(--nav-gap);
+    width: min(820px, calc(100% - clamp(24px, 6vw, 48px)));
+    margin: clamp(16px, 4vw, 33px) auto 0;
+    transition:
+        gap var(--nav-motion),
+        width var(--nav-motion);
+}
+
+.navCluster.expanded {
+    gap: 0;
+    width: calc(100% - clamp(48px, 8vw, 66px));
+}
+
+/* Primary glass shell */
+.navShell {
+    box-sizing: border-box;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-width: 0;
+    width: auto;
+    height: var(--nav-island-size);
+    min-height: var(--nav-island-size);
+    gap: 0;
+    padding: var(--nav-pad);
+    border-radius: var(--nav-radius);
+    border: var(--nav-glass-border);
+    background: var(--nav-glass-bg);
+    box-shadow: var(--nav-glass-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        width var(--nav-motion),
+        height var(--nav-motion),
+        min-height var(--nav-motion),
+        border-radius var(--nav-motion),
+        padding var(--nav-motion);
+}
+
+.navCluster.expanded .navShell {
+    flex: 0 0 auto;
     align-items: center;
-    border-radius: 0;
+    width: 100%;
+    height: 345px;
+    min-height: 345px;
+    padding: 16px 16px 21px;
+    border-radius: var(--nav-radius);
+}
+/* the extra boxes next to nav like hamburger icon and heart btns DESKTOP only*/
+.navIslands {
+    display: none;
+    flex: 0 0 auto;
+    align-items: flex-start;
+    gap: var(--nav-gap);
+    min-width: 0;
+    transition:
+        flex-basis var(--nav-motion),
+        width var(--nav-motion),
+        min-width var(--nav-motion),
+        gap var(--nav-motion),
+        opacity var(--nav-fade-out);
+}
+
+.navCluster.expanded .navIslands {
+    flex: 0 0 0;
+    width: 0;
+    min-width: 0;
+    max-width: 0;
+    gap: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
     border: none;
-    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+.navIsland {
+    box-sizing: border-box;
+    display: none;
+    flex: 0 0 var(--nav-island-size);
+    align-self: flex-start;
+    width: var(--nav-island-size);
+    min-width: var(--nav-island-size);
+    height: var(--nav-island-size);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    place-items: center;
+    border-radius: var(--nav-radius);
+    border: var(--nav-glass-border);
+    background: var(--nav-glass-bg);
+    box-shadow: var(--nav-glass-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    /* Appear: size first, fade in late so squish is mostly hidden */
+    transition:
+        flex-basis var(--nav-motion),
+        width var(--nav-motion),
+        min-width var(--nav-motion),
+        transform var(--nav-motion),
+        border-color var(--nav-motion),
+        box-shadow var(--nav-motion),
+        opacity var(--nav-fade-in) var(--nav-fade-in-delay);
+}
+
+.navCluster.expanded .navIsland {
+    flex-basis: 0;
+    width: 0;
+    min-width: 0;
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+    pointer-events: none;
+    border-color: transparent;
     box-shadow: none;
-    transition: background 0.3s ease;
+    /* Leave: fade out fast before width squish reads */
+    transition:
+        flex-basis var(--nav-motion),
+        width var(--nav-motion),
+        min-width var(--nav-motion),
+        transform var(--nav-motion),
+        border-color var(--nav-fade-out),
+        box-shadow var(--nav-fade-out),
+        opacity var(--nav-fade-out);
+}
+
+/* Heart chip fades-out while expanded */
+.navCluster.expanded .navIsland.likeIsland {
+    animation: none;
 }
 
 .navContent {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-self: stretch;
     width: 100%;
     min-width: 0;
-    gap: 24px;
+    min-height: var(--nav-control);
+    gap: clamp(12px, 2.5vw, 20px);
+}
+
+.navMobileTrailing {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    min-height: var(--nav-control);
 }
 
 .logo {
@@ -66,8 +245,7 @@
     height: 25px;
 }
 
-.slideInToggleBtn,
-.slideInToggleBtnMobile {
+.slideInToggleBtn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,10 +259,11 @@
     flex-shrink: 0;
 }
 
-.heartIcon {
+.navIsland .heartIcon,
+.slideInToggleBtn .heartIcon {
     display: block;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     margin: 0;
     object-fit: contain;
     object-position: center center;
@@ -93,8 +272,8 @@
     transition: transform 0.2s ease;
 }
 
-.slideInToggleBtn:hover .heartIcon,
-.slideInToggleBtnMobile:hover .heartIcon {
+.navIsland:hover .heartIcon,
+.slideInToggleBtn:hover .heartIcon {
     transform: translateY(2px) scale(1.05);
 }
 
@@ -210,60 +389,83 @@
     opacity: 1;
 }
 
-/* Mobile Menu Button */
+/* Menu toggle — inside shell when open; island when closed */
 .menuToggle {
     display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     background: none;
     border: none;
     color: white;
     font-size: 24px;
-    z-index: 1100;
+}
+
+.closeToggle {
+    margin-left: 0;
+}
+
+/* Island burger — same glass as shell (beats .menuToggle chrome reset) */
+.navIsland.menuToggle {
+    margin-left: 0;
+    border: var(--nav-glass-border);
+    background: var(--nav-glass-bg);
+    box-shadow: var(--nav-glass-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--nav-radius);
+    color: white;
+}
+
+/* Like island — white chip (matches desktop heart) */
+.navIsland.likeIsland {
+    background: #fff;
+    border: none;
+    box-shadow: var(--nav-glass-shadow);
 }
 
 .menuIcon {
-    font-size: 28px;
+    display: block;
+    font-size: clamp(24px, 5.5vw, 30px);
 }
 
-.mobileMenuWrapper {
-    display: none;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-/* Mobile Menu with Smooth Transition */
+/* Mobile Menu — transitions/slides down + up */
 .mobileMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    height: 100dvh;
-    background: var(--black);
+    pointer-events: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    z-index: 1000;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out, visibility 0s linear 0.3s;
-    pointer-events: none;
-    visibility: hidden;
+    align-items: stretch;
+    align-self: stretch;
+    gap: 14px;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin-top: auto; /* pushes to bottom */
+    opacity: 0;
+    transition:
+        max-height var(--nav-motion),
+        opacity 0.35s var(--nav-ease);
 }
 
 .mobileMenu.open {
-    transform: translateY(0);
     pointer-events: auto;
-    visibility: visible;
-    transition: transform 0.3s ease-in-out, visibility 0s linear 0s;
+    flex: 0 0 auto;
+    max-height: 290px;
+    opacity: 1;
 }
 
 .mobileMenu ul {
     display: flex;
     flex-direction: column;
-    gap: 35px;
-    text-align: center;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
 }
 
 .mobileMenu li {
@@ -271,68 +473,42 @@
 }
 
 .mobileMenu a {
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-}
-
-/* Get Started Button (Mobile) */
-.mobileCtaButton {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 20px;
-    background: #f37655;
-    color: #fff !important;
-    border-radius: 8px;
+    color: #fff;
+    text-align: left;
     font-family: 'FounderGrotesk_Regular', sans-serif;
-    font-weight: normal;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    font-feature-settings: 'liga' off, 'clig' off;
 }
 
-.mobileCtaButton .ctaButtonLabel {
-    color: #fff;
+/* Same .ctaButton chrome; full-bleed in the sheet only */
+.mobileCtaButton {
+    display: none;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 100%;
 }
 
-.mobileCtaButton:hover,
-.mobileCtaButton:focus-visible,
-.mobileCtaButton:active {
-    background: var(--linear-gradient) !important;
-    color: #fff !important;
+.mobileMenu .mobileCtaButton {
+    display: inline-flex;
+    height: 45px;
+    margin-top: 6px;
+    margin-bottom: 0;
 }
 
-.mobileCtaButton:hover .ctaButtonLabel,
-.mobileCtaButton:focus-visible .ctaButtonLabel,
-.mobileCtaButton:active .ctaButtonLabel {
-    color: #fff;
+.scrolled .navShell,
+.scrolled .navIsland {
+    background: rgba(19, 19, 19, 0.92);
 }
 
-.socialLinks {
-    position: absolute;
-    bottom: 100px;
-    display: flex;
-    gap: 15px;
-}
-
-.socialLinks a {
-    color: white;
-    font-size: 22px;
-    transition: color 0.3s ease;
-}
-
-.socialLinks a:hover {
-    color: var(--lime);
-}
-
-.scrolled .navShell {
-    background: #131313;
+.scrolled .navIsland.likeIsland {
+    background: #fff;
 }
 
 @media (max-width: 1024px) {
-    .navShell {
-        padding: 14px 20px;
-    }
-
     .navRight {
         display: none;
     }
@@ -345,32 +521,71 @@
         display: none;
     }
 
-    .menuToggle {
-        display: block;
+    .navIslands {
+        display: flex;
     }
 
-    .mobileMenu a {
-        font-size: 2rem;
+    .navIsland {
+        display: grid;
+    }
+
+    .menuToggle {
+        display: inline-flex;
+    }
+
+    .navIsland.menuToggle {
+        display: grid;
+    }
+
+    .navMobileTrailing {
+        display: flex;
     }
 
     .mobileMenu a:hover {
         color: var(--lime);
     }
+}
 
-    .mobileCtaButton {
-        font-size: 1.6rem !important;
+/* FORCES reset back to desktop layout if viewport is widened when mobile navbar is open */
+@media (min-width: 1025px) {
+    .menuOverlay.open,
+    .mobileMenu.open {
+        opacity: 0;
+        pointer-events: none;
     }
 
-    .mobileMenuWrapper {
-        display: flex;
+    .mobileMenu.open {
+        max-height: 0;
+    }
+
+    .navCluster.expanded {
+        gap: var(--nav-gap);
+        width: min(820px, calc(100% - clamp(24px, 6vw, 48px)));
+    }
+
+    .navCluster.expanded .navShell {
+        flex: 1 1 auto;
+        width: auto;
+        height: var(--nav-island-size);
+        min-height: var(--nav-island-size);
+        padding: var(--nav-pad);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navCluster,
+    .navShell,
+    .navIsland,
+    .mobileMenu {
+        transition-duration: 0.01ms;
+    }
+
+    .navCluster.expanded .navIsland {
+        transform: none;
     }
 }
 
 @media (min-width: 2000px) {
-    .navShell {
-        padding: 14px 56px;
-    }
-
     .logoImage {
         height: 25px;
     }
