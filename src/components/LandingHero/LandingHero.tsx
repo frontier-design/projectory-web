@@ -7,6 +7,7 @@ import {
   coralBurgundy,
   lime,
 } from '../../assets/images/shapes/floaters';
+import { usePageEntrance } from '../../hooks/usePageEntrance';
 
 const defaultShapes = {
   upper: yellowCoral,
@@ -30,6 +31,8 @@ interface LandingHeroProps {
   flipMidRight?: boolean;
   solidShapes?: boolean;
   swapSidesOnMobile?: boolean;
+  /** Session-once entrance key (e.g. "products"). Omit to skip entrance. */
+  entranceKey?: string;
 }
 
 const LandingHero = ({
@@ -45,9 +48,12 @@ const LandingHero = ({
   flipMidRight = false,
   solidShapes = false,
   swapSidesOnMobile = false,
+  entranceKey,
 }: LandingHeroProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const entrance = usePageEntrance(entranceKey ?? '');
+  const playEntrance = Boolean(entranceKey) && entrance.play;
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
@@ -88,6 +94,8 @@ const LandingHero = ({
 
   const upperOpacity = solidShapes ? 1 : isMobile ? fadeOpacity : undefined;
   const lowerOpacity = solidShapes ? 1 : fadeOpacity;
+
+  const enterInitial = playEntrance ? entrance.fade.initial : false;
 
   return (
     <section ref={sectionRef} className={`${styles.hero}${className ? ` ${className}` : ''}`}>
@@ -133,20 +141,42 @@ const LandingHero = ({
       </div>
 
       <div className={styles.content}>
-        <span className={styles.pill}>
+        <motion.span
+          className={styles.pill}
+          initial={enterInitial}
+          animate={entrance.fade.animate}
+          transition={entrance.transition(0)}
+        >
           <span className={styles.pillLabel}>{pill}</span>
-        </span>
+        </motion.span>
         <div className={styles.copy}>
-          <h1 className={styles.title}>{title}</h1>
-          <p
+          <motion.h1
+            className={styles.title}
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.12)}
+          >
+            {title}
+          </motion.h1>
+          <motion.p
             className={`${styles.description}${wideDescription ? ` ${styles.descriptionWide}` : ''}`}
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.24)}
           >
             {description}
-          </p>
+          </motion.p>
         </div>
-        <button type="button" className={styles.cta} onClick={onButtonClick}>
+        <motion.button
+          type="button"
+          className={styles.cta}
+          onClick={onButtonClick}
+          initial={enterInitial}
+          animate={entrance.fade.animate}
+          transition={entrance.transition(0.36)}
+        >
           {buttonLabel}
-        </button>
+        </motion.button>
       </div>
     </section>
   );

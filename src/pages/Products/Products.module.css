@@ -71,7 +71,7 @@
 .tagBarWrapper {
     position: sticky;
     top: 0;
-    padding: 112px 0px 70px 0px;
+    padding: 108px 0px 70px 0px;
     background: linear-gradient(to bottom, rgba(19, 19, 19, 1) 50%, rgba(19, 19, 19, 0.85) 75%, rgba(255, 255, 255, 0) 100%);
     z-index: 10;
 }
@@ -173,7 +173,7 @@
         position: sticky;
         top: 0;
         padding: 20px 0px;
-        padding-top: 98px;
+        padding-top: 108px;
         background: linear-gradient(to bottom, rgba(19, 19, 19, 1) 50%, rgba(19, 19, 19, 0.85) 75%, rgba(255, 255, 255, 0) 100%);
     }
 

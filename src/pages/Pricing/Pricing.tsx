@@ -5,13 +5,16 @@ import WhitelabelCTA from './components/WhitelabelCTA/WhitelabelCTA';
 import CaseStudies from './components/CaseStudies/CaseStudies';
 import CatalogueCTA from './components/CatalogueCTA/CatalogueCTA';
 import FAQ from './components/FAQ/FAQ';
+import { usePageEntrance } from '../../hooks/usePageEntrance';
 
 const Pricing = () => {
+  const entrance = usePageEntrance('pricing');
+
   return (
     <div className={styles.pricingPage}>
       <div className={styles.container}>
-        <PricingHero />
-        <DeliveryOptions />
+        <PricingHero entrance={entrance} />
+        <DeliveryOptions entrance={entrance} />
         <CatalogueCTA />
         <CaseStudies />
         <WhitelabelCTA />

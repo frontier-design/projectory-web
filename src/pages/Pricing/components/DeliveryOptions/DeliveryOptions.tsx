@@ -2,11 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { deliveryOptions, deliveryOptionsNote } from '../../pricingData';
+import { usePageEntrance } from '../../../../hooks/usePageEntrance';
 import amberBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-amber.png';
 import tealBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-teal.png';
 import styles from './DeliveryOptions.module.css';
 
 const DESKTOP_MIN = 769;
+
+type Entrance = ReturnType<typeof usePageEntrance>;
+
+interface DeliveryOptionsProps {
+  entrance?: Entrance;
+}
 
 const CheckIcon = () => (
   <svg
@@ -36,7 +43,7 @@ const CircleIcon = () => (
   <span className={styles.circleIcon} aria-hidden />
 );
 
-const DeliveryOptions = () => {
+const DeliveryOptions = ({ entrance }: DeliveryOptionsProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [desktop, setDesktop] = useState(false);
   const { scrollYProgress } = useScroll({
@@ -58,13 +65,16 @@ const DeliveryOptions = () => {
     return () => mq.removeEventListener('change', sync);
   }, []);
 
+  const play = entrance?.play ?? true;
+  const sectionInitial = play ? { opacity: 0, y: 40 } : false;
+
   return (
     <motion.section
       ref={sectionRef}
       className={styles.section}
-      initial={{ opacity: 0, y: 40 }}
+      initial={sectionInitial}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.8, ease: [0.08, 0.82, 0.17, 1], delay: 0.8 }}
+      transition={{ duration: 1.8, ease: [0.08, 0.82, 0.17, 1], delay: play ? 0.8 : 0 }}
     >
       <div className={styles.cards}>
         {deliveryOptions.map((card, index) => (
