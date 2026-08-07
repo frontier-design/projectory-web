@@ -11,6 +11,7 @@ import styles from './GetStarted.module.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import CalendlyModal from './CalendlyModal/CalendlyModal';
+import { usePageEntrance } from '../../hooks/usePageEntrance';
 
 import { apricot, yellowCoral, teal, limeOlive } from '../../assets/images/shapes/floaters';
 
@@ -95,6 +96,8 @@ const GetStarted = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const motionOn = !reduceMotion;
+  const entrance = usePageEntrance('get-started');
+  const enterInitial = entrance.play ? entrance.fade.initial : false;
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -132,14 +135,30 @@ const GetStarted = () => {
     <div className={styles.getStartedWrapper}>
       <section ref={sectionRef} className={styles.hero}>
         <div className={styles.heroCopy}>
-          <h1>Let’s remind people why it's so valuable to come together!</h1>
-          <p>
+          <motion.h1
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0)}
+          >
+            Let’s remind people why it's so valuable to come together!
+          </motion.h1>
+          <motion.p
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.12)}
+          >
             Respond the next few questions and we’ll highlight a few products that you might
             want to consider adding to your program.
-          </p>
-          <Link to="/get-started-form" className={styles.cta}>
-            Product Finder
-          </Link>
+          </motion.p>
+          <motion.div
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.24)}
+          >
+            <Link to="/get-started-form" className={styles.cta}>
+              Product Finder
+            </Link>
+          </motion.div>
         </div>
 
         <div className={styles.heroMedia}>

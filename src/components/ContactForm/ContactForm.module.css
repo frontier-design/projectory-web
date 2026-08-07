@@ -1,7 +1,7 @@
 .contactWrapper {
   display: flex;
   justify-content: center;
-  gap: 90px;
+  gap: clamp(40px, 6vw, 90px); /* so that form inputs adjust dynamically */
   align-items: flex-start;
   box-sizing: border-box;
   width: 100%;
@@ -11,8 +11,8 @@
 }
 
 .infoColumn {
-  flex: 0 1 420px;
-  max-width: 420px;
+  flex: 1 2 auto;
+  width: clamp(260px, 28vw, 420px);
 }
 
 .eyebrow {
@@ -35,8 +35,8 @@
 
 .body {
   margin: 0 0 40px;
-  max-width: 450px;
-  width: 480px;
+  width: auto;
+  max-width: clamp(280px, 100%, 450px);
   color: #131313;
   font-family: 'FounderGrotesk_Regular', sans-serif;
   font-size: 20px;
@@ -81,11 +81,10 @@
 
 .contactForm {
   display: flex;
-  flex: 1 1 0;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 20px;
-  min-width: 0;
-  max-width: 560px;
+  width: clamp(280px, 42vw, 560px);
 }
 
 .fieldRow {
@@ -182,7 +181,6 @@
 
   .infoColumn {
     flex: none;
-    max-width: none;
     width: 100%;
   }
 
@@ -192,7 +190,9 @@
   }
 
   .contactForm {
+    flex: none;
     width: 100%;
+    gap: 16px;
   }
 
   .fieldRow {
@@ -215,9 +215,5 @@
   .body {
     font-size: 18px;
     line-height: 24px;
-  }
-
-  .fieldRow {
-    gap: 12px;
   }
 }

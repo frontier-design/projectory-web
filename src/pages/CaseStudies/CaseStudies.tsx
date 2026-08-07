@@ -201,6 +201,7 @@ const CaseStudies: React.FC = () => {
         midRightRotateRange={[170, 105]}
         flipMidRight
         solidShapes
+        entranceKey="case-studies"
       />
 
       {/* Scroll Container */}

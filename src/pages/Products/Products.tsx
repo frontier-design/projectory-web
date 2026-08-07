@@ -183,6 +183,7 @@ const Products = () => {
         wideDescription
         solidShapes
         swapSidesOnMobile
+        entranceKey="products"
       />
 
       <FeaturedCarousel />
