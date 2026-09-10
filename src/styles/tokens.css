@@ -1,0 +1,124 @@
+:root {
+  /* ═══ Primitives ══════════════════════════════════════════ */
+
+  /* Neutrals */
+  --neutral-0: #ffffff;
+  --neutral-300: #adadad;
+  --neutral-500: #7b7b7b;
+  --neutral-700: #35343f;
+  --neutral-800: #1c1c1c;
+  --neutral-900: #131313;
+  --neutral-1000: #000000;
+
+  /* Brand */
+  --brand-coral: #f37655;
+  --brand-coral-soft: #ffb787;
+  --brand-teal: #2bdcb7;
+  --brand-lime: #bcce2d;
+  --brand-yellow: #f3da00;
+  --brand-violet: #b292c4;
+  --brand-plum: #a72c4b;
+  --brand-pink: #ff4a78;
+
+  /* ═══ Semantics ════════════════════════════════════════════ */
+
+  /* Surfaces */
+  --color-bg: var(--neutral-900);
+  --color-surface: var(--neutral-800);
+  --color-surface-hover: color-mix(in srgb, var(--color-surface) 94%, var(--neutral-0));
+  --color-surface-inverse: var(--neutral-0);
+  --color-surface-inverse-hover: color-mix(in srgb, var(--neutral-0) 85%, var(--color-surface));
+
+  /* Text */
+  --color-text: var(--neutral-0);
+  --color-text-muted: var(--neutral-300);
+  --color-text-dim: var(--neutral-500);
+  --color-text-inverse: var(--neutral-900);
+
+  /* Lines (hairline border used for cards)*/
+  --color-line: rgba(123, 123, 123, 0.5);
+  --border-hairline: 0.5px solid var(--color-line);
+
+  /* Translucency */
+  --alpha-white-12: rgba(255, 255, 255, 0.12);
+  --alpha-white-20: rgba(255, 255, 255, 0.2);
+  --alpha-black-10: rgba(0, 0, 0, 0.1);
+
+  /* Composites */
+  --linear-gradient: linear-gradient(90deg, var(--brand-plum) 0%, var(--brand-coral) 100%);
+
+  /* ═══ Scales ═══════════════════════════════════════════════════════ */
+
+  /* Space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+
+  /* Block */
+  --block-1: 28px;
+  --block-2: 40px;
+  --block-3: 56px;
+  --block-4: 80px;
+  --block-5: 100px;
+
+  /* Type */
+  --font-body: 'FounderGrotesk_Regular', sans-serif;
+  --font-medium: 'FounderGrotesk_Medium', sans-serif;
+
+  --font-size-xs: 13px;
+  --font-size-s: 14px;
+  --font-size-sm: 17px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 32px;
+  --font-size-display: 55px;
+
+  /* Leading */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.2;
+  --leading-normal: 1.25;
+  --leading-relaxed: 1.3;
+  --leading-loose: 1.4;
+  /* "gap" variant for leading scales */
+  --leading-gap: 1.9;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  /* Motion */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+
+  /* Layering */
+  --z-modal: 10000;
+  --z-modal-top: 10001;
+
+  /* ═══════════════════════════════════════════════════════════════════ */
+  /* ═══ Legacy — old pages only; do not use on new work ═══════════════ */
+
+  /* Neutrals */
+  --white: #ffffff;
+  --light-gray: #dddddd;
+  --silver: #cccccc;
+  --gray: #adadad;
+  --charcoal: #333333;
+  --dark-gray: #35343f;
+  --slate: #2c2a35;
+  --graphite: #2c2c2d;
+  --off-black: #212121;
+  --background-dark-gray: #1c1c1c;
+  --black: #131313;
+  --true-black: #000000;
+}

@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { whitelabelCta } from '../../pricingData';
+import Button from '@/components/Button/Button';
 import styles from './WhitelabelCTA.module.css';
 
 const WhitelabelCTA = () => {
@@ -12,17 +12,13 @@ const WhitelabelCTA = () => {
         </div>
         <div className={styles.actionGroup}>
           <p className={styles.body}>{whitelabelCta.body}</p>
-          <Link to={whitelabelCta.button.to} className={styles.button}>
+          <Button variant="coral" to={whitelabelCta.button.to}>
             {whitelabelCta.button.label}
-          </Link>
+          </Button>
         </div>
       </div>
       <div className={styles.mediaColumn}>
-        <img
-          src={whitelabelCta.image}
-          alt=""
-          className={styles.image}
-        />
+        <img src={whitelabelCta.image} alt="" className={styles.image} />
       </div>
     </section>
   );

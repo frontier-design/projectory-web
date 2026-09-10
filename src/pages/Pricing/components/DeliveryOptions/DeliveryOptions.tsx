@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { deliveryOptions, deliveryOptionsNote } from '../../pricingData';
-import amberBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-amber.png';
-import tealBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-teal.png';
+import Button from '@/components/Button/Button';
+import { usePageEntrance } from '@/hooks/usePageEntrance';
+import { above } from '@/config/breakpoints';
 import styles from './DeliveryOptions.module.css';
 
-const DESKTOP_MIN = 769;
+const amberBadge =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649240/projectory-p-amber_q8opqw.png';
+const tealBadge =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649241/projectory-p-teal_twddmb.png';
+
+type Entrance = ReturnType<typeof usePageEntrance>;
+
+interface DeliveryOptionsProps {
+  entrance?: Entrance;
+}
 
 const CheckIcon = () => (
   <svg
@@ -32,11 +41,9 @@ const CheckIcon = () => (
   </svg>
 );
 
-const CircleIcon = () => (
-  <span className={styles.circleIcon} aria-hidden />
-);
+const CircleIcon = () => <span className={styles.circleIcon} aria-hidden />;
 
-const DeliveryOptions = () => {
+const DeliveryOptions = ({ entrance }: DeliveryOptionsProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [desktop, setDesktop] = useState(false);
   const { scrollYProgress } = useScroll({
@@ -51,20 +58,23 @@ const DeliveryOptions = () => {
   const tealRotateMobile = useTransform(scrollYProgress, [0, 1], [0, -28]);
 
   useEffect(() => {
-    const mq = window.matchMedia(`(min-width: ${DESKTOP_MIN}px)`);
+    const mq = window.matchMedia(above('tablet'));
     const sync = () => setDesktop(mq.matches);
     sync();
     mq.addEventListener('change', sync);
     return () => mq.removeEventListener('change', sync);
   }, []);
 
+  const play = entrance?.play ?? true;
+  const sectionInitial = play ? { opacity: 0, y: 40 } : false;
+
   return (
     <motion.section
       ref={sectionRef}
       className={styles.section}
-      initial={{ opacity: 0, y: 40 }}
+      initial={sectionInitial}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.8, ease: [0.08, 0.82, 0.17, 1], delay: 0.8 }}
+      transition={{ duration: 1.8, ease: [0.08, 0.82, 0.17, 1], delay: play ? 0.8 : 0 }}
     >
       <div className={styles.cards}>
         {deliveryOptions.map((card, index) => (
@@ -131,9 +141,7 @@ const DeliveryOptions = () => {
                           <div className={styles.ctaTitleRow}>
                             <span className={styles.ctaTitle}>{card.cta.title}</span>
                             {'currency' in card.cta && card.cta.currency ? (
-                              <span className={styles.ctaCurrency}>
-                                {card.cta.currency}
-                              </span>
+                              <span className={styles.ctaCurrency}>{card.cta.currency}</span>
                             ) : null}
                           </div>
                           {'caption' in card.cta && card.cta.caption ? (
@@ -141,9 +149,9 @@ const DeliveryOptions = () => {
                           ) : null}
                         </div>
                       ) : null}
-                      <Link to={card.cta.button.to} className={styles.button}>
+                      <Button variant="light" to={card.cta.button.to} className={styles.ctaButton}>
                         {card.cta.button.label}
-                      </Link>
+                      </Button>
                     </div>
                   </div>
                 ) : null}

@@ -7,7 +7,7 @@
 /*
  * Case Studies only
  */
- 
+
 .hero {
   --lh-shape-opacity: 1;
   --lh-midLeft-left: clamp(-50px, -4vw, -30px);
@@ -31,7 +31,7 @@
     /* coralTeal (upper, under CTA) — bleed off left edge */
     --lh-upper-left: -12%;
     --lh-upper-w: clamp(150px, 36vw, 200px);
-    
+
     /* redLime — toward center and further down */
     --lh-lower-right: 15%;
     --lh-lower-bottom: 12%;
@@ -117,31 +117,33 @@
   padding: 40px;
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 40%,
-      rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
 }
 
 .overlay h2 {
   font-size: 3rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--white);
   margin: 0 0 8px 0;
   width: 70%;
 }
 
 .overlay p {
   font-size: 1.4rem;
-  color: #ccc;
+  color: var(--silver);
   margin: 0 0 20px 0;
 }
 
 .caseStudyButton {
   display: inline-block;
   padding: 14px 24px;
-  background-color: #fff;
-  color: #000;
+  background-color: var(--white);
+  color: var(--true-black);
   text-decoration: none;
   border-radius: 100px;
   transition: 0.3s ease;
@@ -150,18 +152,16 @@
 
 .caseStudyButton:hover {
   background-color: var(--black);
-  color: #fff;
+  color: var(--white);
   border: 1px solid white;
 }
 
-
-
 @media (max-width: 768px) {
-  .progressBar{
+  .progressBar {
     display: none;
   }
 
-  .scrollContainer{
+  .scrollContainer {
     margin-top: 0;
     padding: 0 30px;
   }
@@ -180,13 +180,14 @@
     border-radius: 24px;
   }
 
-
   .overlay {
     padding: 20px;
-    background: linear-gradient(to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
   }
 
   .overlay h2 {
@@ -208,8 +209,8 @@
   }
 }
 
-@media screen and (min-width: 2000px){
-  .caseStudyContent{
+@media screen and (min-width: 2000px) {
+  .caseStudyContent {
     max-width: 1600px;
     height: 70vh;
   }
@@ -220,9 +221,11 @@
 
   .overlay {
     padding: 40px;
-    background: linear-gradient(to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.4) 40%,
-    rgba(0, 0, 0, 0.7) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
   }
 }

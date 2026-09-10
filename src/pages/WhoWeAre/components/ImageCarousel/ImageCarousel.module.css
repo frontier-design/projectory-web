@@ -1,10 +1,11 @@
 .carouselSection {
+  /* Component tokens: slide geometry, retuned at the tablet breakpoint. */
   --slide-width: 48vw;
-  --slide-gap: 20px;
+  --slide-gap: var(--space-5);
   position: relative;
   width: 100%;
   margin-top: 110px;
-  margin-bottom: 80px;
+  margin-bottom: var(--block-4);
   cursor: default;
 }
 
@@ -13,6 +14,8 @@
   overflow: hidden;
 }
 
+/* Gradient stops keep literal rgba: a stop that fades to zero alpha must
+   match the opaque stop's channels, or the midpoint greys out. */
 .edgeOverlay {
   position: absolute;
   inset: 0;
@@ -20,10 +23,10 @@
   pointer-events: none;
   background: linear-gradient(
     270deg,
-    #131313 0.02%,
+    var(--color-bg) 0.02%,
     rgba(19, 19, 19, 0) 15.02%,
     rgba(19, 19, 19, 0) 84.98%,
-    #131313 99.98%
+    var(--color-bg) 99.98%
   );
 }
 
@@ -92,7 +95,7 @@
   flex-shrink: 0;
   width: var(--slide-width);
   margin-right: var(--slide-gap);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 

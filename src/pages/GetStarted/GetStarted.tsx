@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-} from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion';
 import styles from './GetStarted.module.css';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
-import CalendlyModal from './CalendlyModal/CalendlyModal';
+import ContactForm from './components/ContactForm/ContactForm';
+import FaqAccordion from '@/components/FaqAccordion/FaqAccordion';
+import CloudinaryImage from '@/components/CloudinaryImage/CloudinaryImage';
+import CalendlyModal from './components/CalendlyModal/CalendlyModal';
+import { usePageEntrance } from '@/hooks/usePageEntrance';
+import Button from '@/components/Button/Button';
 
-import { apricot, yellowCoral, teal, limeOlive } from '../../assets/images/shapes/floaters';
+import { apricot, yellowCoral, teal, limeOlive } from '@/assets/images/shapes/floaters';
+import { CALENDLY_URL } from '@/config/site';
+import { caseStudiesFAQ } from '@/data/faq';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { pageMeta } from '@/config/seo';
 
 type ShootEnd = { x: number; y: number; rotate: number };
 
@@ -33,54 +34,46 @@ const FLOATERS = [
   { src: teal, className: styles.floaterTeal, motion: 'floaterTeal' },
 ] as const;
 
+/**
+ * The cards are square and CSS-sized: clamp(235px, 23vw, 390px) on desktop,
+ * clamp(150px, 44vw, 235px) below 768px. Serving the untransformed originals
+ * into that box was ~400 KiB of wasted transfer on the LCP path.
+ */
+const CARD_SRCSET_WIDTHS = [320, 480, 800];
+const CARD_SIZES = '(max-width: 768px) 44vw, 23vw';
+/** Only carries the 1:1 ratio — CSS sizes the box. Prevents a pre-decode reflow. */
+const CARD_INTRINSIC_PX = 390;
+
 const MEDIA_CARDS = [
   {
     src: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp',
     className: styles.mediaCard1,
     motionClass: styles.scrollMotionCard1,
     motion: 'card1',
+    priority: 'high',
   },
   {
     src: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649932/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_ybgiyf.webp',
     className: styles.mediaCard2,
     motionClass: styles.scrollMotionCard2,
     motion: 'card2',
+    priority: 'high',
   },
   {
+    // Hidden below 768px, so it never competes with the LCP candidates on mobile.
     src: 'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746648102/2024_11_13_Event_Marketer_Agency_Forum_at_Dream_Hotel_by_Alex_Markow-09342_yujk0f.webp',
     className: styles.mediaCard3,
     motionClass: styles.scrollMotionCard3,
     motion: 'card3',
+    priority: 'low',
   },
 ] as const;
 
-const caseStudiesFAQ = [
-  {
-    question: 'What if I want to mix different experiences?',
-    answer:
-      'Combining in-room Facilitated Sessions with interactive installations outside the room enables Projectory to create a unique and integrated experience for your audience. Multiple experiences generate more output, leading to more meaningful post-event activation. During our discovery process, we’ll be able to curate together the best set of experiences for your event within your budget.',
-  },
-  {
-    question: 'Can you create custom experiences?',
-    answer:
-      "Absolutely! All our Facilitated Sessions and Interactive Installations started with a specific challenge or objective one of our clients shared with us. Custom designs usually start with a $20K USD investment, but the final price depends on the complexity and materials used. We'll work closely with your team to create something impactful within your budget.",
-  },
-  {
-    question: 'Can I do it myself?',
-    answer:
-      'Some of our products are easy to ship and build, allowing your team and volunteers to manage them without Projectory Staff on-site. We also license some of our frameworks so skilled facilitators can run a Projectory session with our tools and canvases after a brief training. Self-Service pricing (“You Do”) is more economical but requires some involvement from your team.',
-  },
-  {
-    question: 'What discounts can you provide?',
-    answer:
-      'Good question! Once we learn about your project, we’ll be able to come back with a few initial ideas. After we get you excited about what we have in mind, we can either send you a budget estimate or work backwards from whatever budget you can invest in this work.',
-  },
-  {
-    question: 'Would you consider emceeing my event?',
-    answer:
-      'Yes, especially if your agenda already includes a few Projectory Facilitated Sessions. As emcees, we do more than introduce speakers; we connect the dots between sessions and guide the program, taking attendees on a journey from inspiration to action.',
-  },
-];
+/** Entrance order: middle → left → right (card indices 1, 0, 2) */
+const CARD_ENTRANCE_DELAY = [0.14, 0.06, 0.22] as const;
+/** All floaters together, after cards are underway */
+const FLOATER_ENTRANCE_DELAY = 0.4;
+const FLOATER_ENTRANCE_DURATION = 1.05;
 
 function useShootStyle(shoot: MotionValue<number>, end: ShootEnd, enabled: boolean) {
   const x = useTransform(shoot, [0, 1], [0, end.x]);
@@ -90,11 +83,15 @@ function useShootStyle(shoot: MotionValue<number>, end: ShootEnd, enabled: boole
 }
 
 const GetStarted = () => {
+  useDocumentMeta(pageMeta.getStarted);
+
   const location = useLocation();
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
   const motionOn = !reduceMotion;
+  const entrance = usePageEntrance('get-started');
+  const enterInitial = entrance.play ? entrance.fade.initial : false;
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -132,14 +129,30 @@ const GetStarted = () => {
     <div className={styles.getStartedWrapper}>
       <section ref={sectionRef} className={styles.hero}>
         <div className={styles.heroCopy}>
-          <h1>Let’s remind people why it's so valuable to come together!</h1>
-          <p>
-            Respond the next few questions and we’ll highlight a few products that you might
-            want to consider adding to your program.
-          </p>
-          <Link to="/get-started-form" className={styles.cta}>
-            Product Finder
-          </Link>
+          <motion.h1
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0)}
+          >
+            Let’s remind people why it's so valuable to come together!
+          </motion.h1>
+          <motion.p
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.12)}
+          >
+            Respond the next few questions and we’ll highlight a few products that you might want to
+            consider adding to your program.
+          </motion.p>
+          <motion.div
+            initial={enterInitial}
+            animate={entrance.fade.animate}
+            transition={entrance.transition(0.24)}
+          >
+            <Link to="/get-started-form" className={styles.cta}>
+              Product Finder
+            </Link>
+          </motion.div>
         </div>
 
         <div className={styles.heroMedia}>
@@ -150,11 +163,21 @@ const GetStarted = () => {
                 className={styles.scrollMotion}
                 style={floaterMotions[i]}
               >
-                <img
-                  src={floater.src}
-                  alt=""
-                  className={`${styles.floater} ${floater.className}`}
-                />
+                <motion.div
+                  initial={entrance.play ? { opacity: 0, y: 20 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    ...entrance.transition(FLOATER_ENTRANCE_DELAY),
+                    duration: FLOATER_ENTRANCE_DURATION,
+                  }}
+                  style={{ position: 'absolute', inset: 0 }}
+                >
+                  <img
+                    src={floater.src}
+                    alt=""
+                    className={`${styles.floater} ${floater.className}`}
+                  />
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -166,20 +189,47 @@ const GetStarted = () => {
                 className={`${styles.scrollMotion} ${card.motionClass}`}
                 style={cardMotions[i]}
               >
-                <div className={`${styles.mediaCard} ${card.className}`}>
-                  <img src={card.src} alt="" className={styles.mediaCardImg} />
-                </div>
+                <motion.div
+                  className={`${styles.mediaCard} ${card.className}`}
+                  initial={
+                    entrance.play ? { opacity: 0, ['--entrance-y' as string]: '50px' } : false
+                  }
+                  animate={{ opacity: 1, ['--entrance-y' as string]: '0px' }}
+                  transition={entrance.transition(CARD_ENTRANCE_DELAY[i])}
+                >
+                  <CloudinaryImage
+                    src={card.src}
+                    alt=""
+                    className={styles.mediaCardImg}
+                    widths={CARD_SRCSET_WIDTHS}
+                    sizes={CARD_SIZES}
+                    width={CARD_INTRINSIC_PX}
+                    height={CARD_INTRINSIC_PX}
+                    decoding="async"
+                    fetchPriority={card.priority}
+                  />
+                </motion.div>
               </motion.div>
             ))}
           </div>
 
           <div className={styles.floatersFront} aria-hidden>
             <motion.div className={styles.scrollMotion} style={floaterLimeOliveMotion}>
-              <img
-                src={limeOlive}
-                alt=""
-                className={`${styles.floater} ${styles.floaterLimeOlive}`}
-              />
+              <motion.div
+                initial={entrance.play ? { opacity: 0, y: 20 } : false}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  ...entrance.transition(FLOATER_ENTRANCE_DELAY),
+                  duration: FLOATER_ENTRANCE_DURATION,
+                }}
+                style={{ position: 'absolute', inset: 0 }}
+              >
+                <img
+                  src={limeOlive}
+                  alt=""
+                  className={`${styles.floater} ${styles.floaterLimeOlive}`}
+                />
+              </motion.div>
             </motion.div>
           </div>
 
@@ -196,21 +246,16 @@ const GetStarted = () => {
           <div className={`${styles.gitBlock} ${styles.gitBlockRight}`}>
             <h3>Message us on LinkedIn</h3>
             <p>Message and follow us on LinkedIn to receive updates on what we’re up to.</p>
-            <a
-              href="https://ca.linkedin.com/company/theprojectory"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.gitButton}
-            >
+            <Button variant="dark" href="https://ca.linkedin.com/company/theprojectory">
               Find us on LinkedIn
-            </a>
+            </Button>
           </div>
           <div className={`${styles.gitBlock} ${styles.gitBlockLeft}`}>
             <h3>Book a Meeting with Us</h3>
             <p>Tell us about your event, and we'll prepare some initial ideas to discuss.</p>
-            <button onClick={() => setIsCalendlyOpen(true)} className={styles.gitButton}>
+            <Button variant="light" onClick={() => setIsCalendlyOpen(true)}>
               Book a Meeting
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -219,7 +264,7 @@ const GetStarted = () => {
         <FaqAccordion
           id="faq"
           className={styles.faqAccordionInner}
-          title={"Questions? We\nhave answers."}
+          title={'Questions? We\nhave answers.'}
           items={caseStudiesFAQ}
         />
       </div>
@@ -227,7 +272,7 @@ const GetStarted = () => {
       <CalendlyModal
         isOpen={isCalendlyOpen}
         onClose={() => setIsCalendlyOpen(false)}
-        url="https://calendly.com/oren-/projectory?month=2026-01"
+        url={CALENDLY_URL}
       />
     </div>
   );

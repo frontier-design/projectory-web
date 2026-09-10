@@ -3,7 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { caseStudies, caseStudiesHeader } from '../../pricingData';
 import styles from './CaseStudies.module.css';
 
-const ACCENTS = ['#2BDCB7', '#F37655', '#C5DA20', '#B292C4', '#F3DA00'] as const;
+/**
+ * The accent cycled through the case-study pills, one hue per study.
+ *
+ * These were hardcoded hexes, and two of them were the only place their
+ * colour existed: a second lime 13/255 off --brand-lime, and a violet absent
+ * from the palette entirely. Both now come from the tokens — the violet as
+ * itself, the stray lime folded into the one lime.
+ */
+const ACCENTS = [
+  'var(--brand-teal)',
+  'var(--brand-coral)',
+  'var(--brand-lime)',
+  'var(--brand-violet)',
+  'var(--brand-yellow)',
+] as const;
 
 const CaseStudies = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -49,11 +63,7 @@ const CaseStudies = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <img
-              src={selected.image}
-              alt=""
-              className={styles.image}
-            />
+            <img src={selected.image} alt="" className={styles.image} />
             <div className={styles.copy}>
               <h3 className={styles.heading} style={{ color: accent }}>
                 {selected.heading}

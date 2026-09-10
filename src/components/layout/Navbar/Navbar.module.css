@@ -1,0 +1,725 @@
+/* ——— Tokens & shell ——— */
+.navbar {
+  --nav-gap: 12px;
+  --nav-pad: 18px;
+  --nav-row-gap: 32px;
+  --nav-radius: 10px;
+  --nav-glass-bg: rgba(19, 19, 19, 0.8);
+  --nav-glass-border: 0.5px solid rgba(123, 123, 123, 0.5);
+  --nav-glass-shadow: 0 12px 36px 0 rgba(19, 19, 19, 0.12);
+  --nav-ease: cubic-bezier(0.83, 0, 0.17, 1);
+  --nav-motion: 0.45s var(--nav-ease);
+  --nav-open-ease: cubic-bezier(0.83, 0, 0.17, 1);
+  --nav-open-motion: 0.32s var(--nav-open-ease);
+  --nav-close-ease: cubic-bezier(0.83, 0, 0.17, 1);
+  --nav-close-motion: 0.45s var(--nav-close-ease);
+  --nav-fade-out: 0.45s var(--nav-close-ease);
+  --nav-fade-in: 0.32s var(--nav-open-ease);
+  --nav-fade-in-delay: 0s;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--nav-close-motion);
+}
+
+.menuOverlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity var(--nav-open-motion);
+}
+
+.navShell,
+.mobileMenu,
+.navIsland {
+  cursor: default;
+}
+
+.navShell a,
+.navShell button,
+.mobileMenu a,
+.mobileMenu button,
+.navIsland,
+.navShell a *,
+.navShell button *,
+.mobileMenu a *,
+.navIsland * {
+  cursor: pointer !important;
+}
+
+.navCluster {
+  --nav-control: 36px;
+  --nav-island-size: calc(var(--nav-control) + 2 * var(--nav-pad));
+  --nav-mobile-at: 760px;
+
+  pointer-events: auto;
+  position: relative;
+  z-index: 1101;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--nav-gap);
+  width: min(800px, calc(100% - 48px));
+  margin: 18px auto 0;
+  container-type: inline-size;
+  container-name: nav;
+  transition: gap var(--nav-close-motion);
+}
+
+.navCluster.expanded {
+  gap: 0;
+  transition: gap var(--nav-open-motion);
+}
+
+.navShell {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-width: 0;
+  width: auto;
+  height: var(--nav-island-size);
+  min-height: var(--nav-island-size);
+  gap: 0;
+  padding: var(--nav-pad);
+  border-radius: var(--nav-radius);
+  border: var(--nav-glass-border);
+  background: var(--nav-glass-bg);
+  box-shadow: var(--nav-glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    min-height var(--nav-motion),
+    border-radius var(--nav-motion),
+    padding var(--nav-close-motion);
+}
+
+.navCluster.expanded .navShell {
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 75px;
+  width: 100%;
+  height: auto;
+  min-height: var(--nav-island-size);
+  border-radius: var(--nav-radius);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    min-height var(--nav-motion),
+    border-radius var(--nav-motion),
+    padding var(--nav-open-motion),
+    gap var(--nav-open-motion);
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  min-height: var(--nav-control);
+  gap: var(--nav-row-gap);
+}
+
+.navCluster.expanded .navRow {
+  justify-content: space-between;
+}
+
+.navEnd {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-row-gap);
+  flex-shrink: 0;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.navMobileTrailing {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: var(--nav-control);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 25px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  min-height: 0;
+  flex-shrink: 0;
+}
+
+.desktopNav li {
+  list-style: none;
+}
+
+.desktopNav a:not(.ctaButton) {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.desktopNav a:not(.ctaButton):hover {
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.ctaButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  background-color: var(--brand-coral);
+  color: var(--white);
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-weight: normal;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.ctaButtonLabel {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--linear-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.ctaButton:hover::before,
+.ctaButton:focus-visible::before,
+.ctaButton:active::before {
+  opacity: 1;
+}
+
+.slideInToggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: var(--white);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  flex-shrink: 0;
+}
+
+/* ——— Islands (mobile btns / like + burger menu) ——— */
+.navIslands {
+  display: none;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  gap: var(--nav-gap);
+  min-width: 0;
+  /* Keep row in flow — only children animate width (flex collapse snaps) */
+  transition: gap var(--nav-close-motion);
+}
+
+.navCluster.expanded .navIslands {
+  gap: 0;
+  pointer-events: none;
+  transition: gap var(--nav-open-motion);
+}
+
+.navIsland {
+  box-sizing: border-box;
+  display: none;
+  flex: 0 0 var(--nav-island-size);
+  align-self: flex-start;
+  width: var(--nav-island-size);
+  min-width: var(--nav-island-size);
+  height: var(--nav-island-size);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  place-items: center;
+  border-radius: var(--nav-radius);
+  border: var(--nav-glass-border);
+  background: var(--nav-glass-bg);
+  box-shadow: var(--nav-glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    flex-basis var(--nav-close-motion),
+    width var(--nav-close-motion),
+    min-width var(--nav-close-motion),
+    transform var(--nav-close-motion),
+    border-color var(--nav-close-motion),
+    box-shadow var(--nav-close-motion),
+    opacity var(--nav-close-motion);
+}
+
+.navCluster.expanded .navIsland {
+  flex-basis: 0;
+  width: 0;
+  min-width: 0;
+  opacity: 0;
+  transform: scale(0.4);
+  pointer-events: none;
+  border-color: transparent;
+  box-shadow: none;
+  transition:
+    flex-basis var(--nav-open-motion),
+    width var(--nav-open-motion),
+    min-width var(--nav-open-motion),
+    transform var(--nav-open-motion),
+    border-color var(--nav-open-motion),
+    box-shadow var(--nav-open-motion),
+    opacity var(--nav-open-motion);
+}
+
+.navIsland .heartIcon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  object-fit: contain;
+  object-position: center center;
+  transform: translateY(2px);
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.slideInToggleBtn .heartIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  object-fit: contain;
+  object-position: center center;
+  transform: translateY(2px);
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.navIsland:hover .heartIcon,
+.slideInToggleBtn:hover .heartIcon {
+  transform: translateY(2px) scale(1.05);
+}
+
+@keyframes likeButtonReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  65% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes likeButtonExit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes heartPulse {
+  0%,
+  100% {
+    transform: translateY(2px) scale(1);
+  }
+
+  40% {
+    transform: translateY(2px) scale(1.28);
+  }
+}
+
+.likeButtonReveal {
+  transform-origin: center center;
+  animation: likeButtonReveal 0.45s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+}
+
+.likeButtonExit {
+  transform-origin: center center;
+  pointer-events: none;
+  animation: likeButtonExit 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.heartPulse {
+  animation: heartPulse 0.36s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.closeToggle {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--nav-control);
+  height: var(--nav-control);
+  padding: 0;
+  background: none;
+  border: none;
+  color: white;
+  line-height: 0;
+}
+
+.navIsland.menuIsland {
+  border: var(--nav-glass-border);
+  background: var(--nav-glass-bg);
+  box-shadow: var(--nav-glass-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+}
+
+.navIsland.likeIsland {
+  background: var(--white);
+  border: none;
+  box-shadow: var(--nav-glass-shadow);
+}
+
+.menuIcon {
+  display: block;
+  font-size: 30px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ——— Mobile sheet body ——— */
+.mobileMenu {
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: stretch;
+  gap: 16px;
+  overflow: hidden;
+  padding: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-18px);
+  transition:
+    max-height var(--nav-close-motion),
+    opacity var(--nav-close-motion),
+    transform var(--nav-close-motion);
+}
+
+.mobileMenu.open {
+  pointer-events: auto;
+  flex: 0 0 auto;
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    max-height var(--nav-open-motion),
+    opacity var(--nav-open-motion),
+    transform var(--nav-open-motion);
+}
+
+.mobileMenu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.mobileMenu li {
+  list-style: none;
+}
+
+.mobileMenu a {
+  color: var(--white);
+  text-align: left;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
+  text-decoration: none;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+}
+
+.mobileCtaButton {
+  display: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.mobileMenu .mobileCtaButton {
+  display: inline-flex;
+  height: 45px;
+  margin-top: 3px;
+}
+
+.scrolled .navShell,
+.scrolled .navIsland {
+  background: rgba(19, 19, 19, 0.92);
+}
+
+.scrolled .navIsland.likeIsland {
+  background: var(--white);
+}
+
+@container nav (max-width: 760px) {
+  .navShell,
+  .navIsland {
+    --nav-pad: 10px;
+    --nav-control: 28px;
+    --nav-island-size: 48px;
+  }
+
+  .navShell {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    max-height: var(--nav-island-size);
+    overflow: hidden;
+    transition:
+      background 0.3s ease,
+      box-shadow 0.3s ease,
+      max-height var(--nav-close-motion),
+      padding var(--nav-close-motion),
+      gap var(--nav-close-motion);
+  }
+
+  .navCluster.expanded .navShell {
+    /* Never width:100% / flex:0 on mobile — grows as islands squish */
+    flex: 1 1 auto;
+    width: auto;
+    padding: 18px;
+    max-height: 520px;
+    transition:
+      background 0.3s ease,
+      box-shadow 0.3s ease,
+      max-height var(--nav-open-motion),
+      padding var(--nav-open-motion),
+      gap var(--nav-open-motion);
+  }
+
+  .navRight {
+    display: none;
+  }
+
+  .navIslands {
+    display: flex;
+  }
+
+  .navIsland {
+    display: grid;
+  }
+
+  .navMobileTrailing {
+    display: flex;
+    height: var(--nav-control);
+    min-height: var(--nav-control);
+    align-items: center;
+  }
+
+  .logo {
+    height: var(--nav-control);
+    align-items: center;
+    padding-left: 3px;
+    transition: padding-left var(--nav-close-motion);
+  }
+
+  .navCluster.expanded .logo {
+    padding-left: 0;
+    transition: padding-left var(--nav-open-motion);
+  }
+
+  .logoImage {
+    height: 20px;
+    transform: none;
+  }
+
+  .menuIcon {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .navIsland .heartIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mobileMenu a:hover {
+    color: var(--brand-lime);
+  }
+}
+
+@media (max-width: 448px) {
+  .navCluster {
+    --nav-gap: 8px;
+    width: calc(100% - 32px);
+  }
+
+  .navCluster.expanded .navShell {
+    padding: 20px;
+  }
+
+  .logo {
+    padding-left: 5px;
+  }
+}
+
+.navCluster.expanded .navRight {
+  display: none;
+}
+
+.navCluster.expanded .navMobileTrailing {
+  display: flex;
+}
+
+.navCluster.expanded .navMobileTrailing .closeToggle {
+  display: inline-flex;
+}
+
+@media (min-width: 809px) {
+  .menuOverlay.open,
+  .mobileMenu.open {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .mobileMenu.open {
+    max-height: 0;
+  }
+
+  .navCluster.expanded {
+    gap: var(--nav-gap);
+  }
+
+  .navCluster.expanded .navShell {
+    flex: 1 1 auto;
+    width: auto;
+    height: var(--nav-island-size);
+    min-height: var(--nav-island-size);
+    padding: var(--nav-pad);
+    gap: 0;
+  }
+
+  .navCluster.expanded .navRow {
+    justify-content: flex-start;
+  }
+
+  .navCluster.expanded .navRight {
+    display: flex;
+  }
+
+  .navCluster.expanded .navMobileTrailing {
+    display: none;
+  }
+}
+
+/* ——— Reduced motion ——— */
+@media (prefers-reduced-motion: reduce) {
+  .likeButtonReveal,
+  .likeButtonExit,
+  .heartPulse {
+    animation: none;
+  }
+
+  .navCluster,
+  .navShell,
+  .navIsland,
+  .mobileMenu {
+    transition-duration: 0.01ms;
+  }
+
+  .navCluster.expanded .navIsland {
+    transform: none;
+  }
+
+  .mobileMenu {
+    transform: none;
+  }
+}

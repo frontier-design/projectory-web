@@ -2,13 +2,13 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './ProductCard.module.css';
-import { useLikedProducts } from '../../context/LikedProductsContext';
-import { optimizeCloudinaryUrl } from '../../utils/cloudinaryHelpers';
-import CloudinaryImage from '../CloudinaryImage/CloudinaryImage';
-import HeartIconSVG from '../../assets/images/heartIcon.svg';
-import HeartIconSVG_Outline from '../../assets/images/heartIcon_outline.svg';
+import { useLikedProducts } from '@/context/LikedProductsContext';
+import { optimizeCloudinaryUrl } from '@/utils/cloudinaryHelpers';
+import CloudinaryImage from '@/components/CloudinaryImage/CloudinaryImage';
+import HeartIconSVG from '@/assets/images/heartIcon.svg';
+import HeartIconSVG_Outline from '@/assets/images/heartIcon_outline.svg';
 
-interface Product {
+export type ProductCardProduct = {
   id: string;
   name: string;
   category: string;
@@ -16,17 +16,18 @@ interface Product {
   categoryColor?: string;
   thumbnail: string;
   bgVideo?: string;
-  bgVideoPublicId?: string;
   shortDescription?: string;
-}
+};
 
-const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+const ProductCard: React.FC<{ product: ProductCardProduct }> = ({ product }) => {
   const navigate = useNavigate();
   const { likedProducts, toggleLike } = useLikedProducts();
   const isLiked = likedProducts.includes(product.id);
 
   const optimizedThumbnail = optimizeCloudinaryUrl(product.thumbnail, 'f_auto,q_auto,w_900');
-  const optimizedBgVideo = product.bgVideo ? optimizeCloudinaryUrl(product.bgVideo, 'q_auto,w_900') : undefined;
+  const optimizedBgVideo = product.bgVideo
+    ? optimizeCloudinaryUrl(product.bgVideo, 'q_auto,w_900')
+    : undefined;
 
   const [isHovered, setIsHovered] = useState(false);
   const [descHeight, setDescHeight] = useState(0);
@@ -124,12 +125,18 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
           <Link
             to={`/products/${product.id}`}
             className={styles.learnMoreButton}
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             Learn More
           </Link>
 
-          <button className={styles.likeButton} onClick={e => { e.stopPropagation(); toggleLike(product.id); }}>
+          <button
+            className={styles.likeButton}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleLike(product.id);
+            }}
+          >
             <img
               className={styles.heartIcon}
               src={isLiked ? HeartIconSVG : HeartIconSVG_Outline}
@@ -143,9 +150,14 @@ const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 };
 
 // Memoize component to prevent unnecessary re-renders
-export default React.memo(ProductCard, (prevProps: { product: Product }, nextProps: { product: Product }) => {
-  // Only re-render if product data actually changes
-  return prevProps.product.id === nextProps.product.id &&
-         prevProps.product.thumbnail === nextProps.product.thumbnail &&
-         prevProps.product.bgVideo === nextProps.product.bgVideo;
-});
+export default React.memo(
+  ProductCard,
+  (prevProps: { product: ProductCardProduct }, nextProps: { product: ProductCardProduct }) => {
+    // Only re-render if product data actually changes
+    return (
+      prevProps.product.id === nextProps.product.id &&
+      prevProps.product.thumbnail === nextProps.product.thumbnail &&
+      prevProps.product.bgVideo === nextProps.product.bgVideo
+    );
+  }
+);

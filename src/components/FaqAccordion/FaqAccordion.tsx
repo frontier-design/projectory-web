@@ -86,10 +86,7 @@ const FaqAccordion = ({ title, items, id, className }: FaqAccordionProps) => {
   };
 
   return (
-    <section
-      id={id}
-      className={`${styles.faq}${className ? ` ${className} ${styles.fill}` : ''}`}
-    >
+    <section id={id} className={`${styles.faq}${className ? ` ${className} ${styles.fill}` : ''}`}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.list}>
         {items.map((item, index) => (

@@ -2,29 +2,33 @@ import { useCallback, useRef, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import useEmblaCarousel from 'embla-carousel-react';
-import { products } from './productsData';
+import { findProductById } from '@/lib/findProduct';
 
-import ProductHero from './components/ProductHero/ProductHero';
-import ProductDetails from './components/ProductDetails/ProductDetails';
+import ProductHero from '@/components/sections/ProductHero/ProductHero';
+import ProductDetails from '@/components/sections/ProductDetails/ProductDetails';
 import QuickFacts from './components/QuickFacts/QuickFacts';
 import Objectives from './components/Objectives/Objectives';
-import VideoFeature from './components/VideoFeature/VideoFeature';
-import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
-import CaseStudyHighlight from './components/CaseStudyHighlight/CaseStudyHighlight';
-import FinalCTA from './components/FinalCTA/FinalCTA';
+import FinalCTA from '@/components/sections/FinalCTA/FinalCTA';
 import HowItWorks from './components/HowItWorks/HowItWorks';
-import DataFeature from './components/DataFeature/DataFeature';
+import DataFeature from '@/components/sections/DataFeature/DataFeature';
 
-import { useLikedProducts } from '../../context/LikedProductsContext';
-import HeartIconSVG from '../../assets/images/heartIcon.svg';
-import HeartIconSVG_Outline from '../../assets/images/heartIcon_outline.svg';
-import CloudinaryImage from '../../components/CloudinaryImage/CloudinaryImage';
+import { useLikedProducts } from '@/context/LikedProductsContext';
+import HeartIconSVG from '@/assets/images/heartIcon.svg';
+import HeartIconSVG_Outline from '@/assets/images/heartIcon_outline.svg';
+import CloudinaryImage from '@/components/CloudinaryImage/CloudinaryImage';
 
 import styles from './ProductPage.module.css';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { DEFAULT_DESCRIPTION } from '@/config/seo';
 
 const ProductPage = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
+  const product = findProductById(id);
+
+  useDocumentMeta({
+    title: product?.name,
+    description: product?.shortDescription || product?.tagline || DEFAULT_DESCRIPTION,
+  });
 
   const { likedProducts, toggleLike } = useLikedProducts();
 
@@ -47,7 +51,7 @@ const ProductPage = () => {
         goNext();
       }
     },
-    [goPrev, goNext],
+    [goPrev, goNext]
   );
 
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -103,9 +107,7 @@ const ProductPage = () => {
   }
 
   const isLiked = likedProducts.includes(product.id);
-  const firstImageSectionIndex = product.sections.findIndex(
-    (section) => section.type === 'image'
-  );
+  const firstImageSectionIndex = product.sections.findIndex((section) => section.type === 'image');
 
   return (
     <div className={styles.productPage}>
@@ -116,32 +118,30 @@ const ProductPage = () => {
           case 'details': {
             if (!section.content) return null;
             const detailsContent = {
-              heading: ('heading' in section.content) ? (section.content.heading as string) : '',
-              description: ('description' in section.content && section.content.description)
-                ? (section.content.description as string)
-                : '',
-              features: ('features' in section.content) ? (section.content.features as string[]) : undefined,
-              headingType: ('headingType' in section.content && 
-                (section.content.headingType === 'features' || section.content.headingType === 'overview'))
-                ? section.content.headingType as 'features' | 'overview'
-                : undefined,
+              heading: 'heading' in section.content ? (section.content.heading as string) : '',
+              description:
+                'description' in section.content && section.content.description
+                  ? (section.content.description as string)
+                  : '',
+              features:
+                'features' in section.content ? (section.content.features as string[]) : undefined,
+              headingType:
+                'headingType' in section.content &&
+                (section.content.headingType === 'features' ||
+                  section.content.headingType === 'overview')
+                  ? (section.content.headingType as 'features' | 'overview')
+                  : undefined,
             };
-            return (
-              <ProductDetails
-                key={index}
-                product={product}
-                details={detailsContent}
-              />
-            );
+            return <ProductDetails key={index} product={product} details={detailsContent} />;
           }
           case 'image': {
             if (!section.content || !section.content.imageUrl) return null;
             const isPrimaryImage = index === firstImageSectionIndex;
 
             if (isPrimaryImage) {
-              const baseImages: string[] =
-                (section.content.imageUrls as string[] | undefined) ||
-                [section.content.imageUrl as string];
+              const baseImages: string[] = (section.content.imageUrls as string[] | undefined) || [
+                section.content.imageUrl as string,
+              ];
               const minSlides = Math.ceil(4 / baseImages.length);
               const images: string[] = [];
               for (let r = 0; r < minSlides; r++) {
@@ -149,7 +149,12 @@ const ProductPage = () => {
               }
 
               return (
-                <div key={index} className={styles.carousel} onClick={handleCarouselClick} ref={carouselRef}>
+                <div
+                  key={index}
+                  className={styles.carousel}
+                  onClick={handleCarouselClick}
+                  ref={carouselRef}
+                >
                   <div className={styles.carouselViewport} ref={emblaRef}>
                     <div className={styles.carouselTrack}>
                       {images.map((imgUrl, i) => (
@@ -171,12 +176,7 @@ const ProductPage = () => {
             const url = section.content.imageUrl;
             return (
               <div key={index}>
-                <CloudinaryImage
-                  src={url}
-                  alt=""
-                  className={styles.fullPageImage}
-                  loading="lazy"
-                />
+                <CloudinaryImage src={url} alt="" className={styles.fullPageImage} loading="lazy" />
               </div>
             );
           }
@@ -194,63 +194,6 @@ const ProductPage = () => {
                 objectives={section.content.objectives || []}
               />
             );
-          case 'video': {
-            if (!section.content || !('videoUrl' in section.content)) return null;
-            const videoContent = section.content as {
-              videoUrl?: string;
-              title?: string;
-              description?: string;
-            };
-            return (
-              <VideoFeature
-                key={index}
-                videoUrl={videoContent.videoUrl || ''}
-                title={videoContent.title || ''}
-                description={videoContent.description || ''}
-              />
-            );
-          }
-          case 'testimonialSizzle': {
-            if (!section.content) return null;
-            const testimonialContent = section.content as {
-              videoSrc?: string | null;
-              quote?: string | null;
-              author?: string | null;
-              role?: string | null;
-            };
-            return <TestimonialSizzle key={index} {...testimonialContent} />;
-          }
-          // Deleted pricing section
-          case 'case-study': {
-            if (!section.content) return null;
-            // Ensure all required props exist for CaseStudyHighlight
-            const caseStudyContent = section.content as {
-              title?: string;
-              description?: string;
-              buttonText?: string;
-              buttonLink?: string;
-              caseStudyTitle?: string;
-              caseStudySubtitle?: string;
-              caseStudyImage?: string;
-            };
-            if (!caseStudyContent.title || !caseStudyContent.description || 
-                !caseStudyContent.buttonText || !caseStudyContent.buttonLink ||
-                !caseStudyContent.caseStudyTitle || !caseStudyContent.caseStudySubtitle ||
-                !caseStudyContent.caseStudyImage) {
-              return null;
-            }
-            // Create properly typed object with all required fields (non-null assertion is safe due to checks above)
-            const validCaseStudyContent = {
-              title: caseStudyContent.title!,
-              description: caseStudyContent.description!,
-              buttonText: caseStudyContent.buttonText!,
-              buttonLink: caseStudyContent.buttonLink!,
-              caseStudyTitle: caseStudyContent.caseStudyTitle!,
-              caseStudySubtitle: caseStudyContent.caseStudySubtitle!,
-              caseStudyImage: caseStudyContent.caseStudyImage!,
-            };
-            return <CaseStudyHighlight key={index} {...validCaseStudyContent} />;
-          }
           case 'dataFeature':
             if (!section.content) return null;
             return (
@@ -279,36 +222,34 @@ const ProductPage = () => {
       <FinalCTA experienceText="Products" experienceLink="/products" />
 
       <div className={styles.floatingLikeButton}>
-        <button
-          onClick={() => toggleLike(product.id)}
-          className={styles.likeButton}
-        >
-          <img
-            src={isLiked ? HeartIconSVG : HeartIconSVG_Outline}
-            alt="Like/Unlike Product"
-          />
+        <button onClick={() => toggleLike(product.id)} className={styles.likeButton}>
+          <img src={isLiked ? HeartIconSVG : HeartIconSVG_Outline} alt="Like/Unlike Product" />
         </button>
 
-      <div className={styles.floatingText}>
-        Like this product? <br />
-        Click the heart to save it for later!
-      </div>
+        <div className={styles.floatingText}>
+          Like this product? <br />
+          Click the heart to save it for later!
+        </div>
       </div>
 
-      {cursorActive && !isMobile && ReactDOM.createPortal(
-        <div
-          className={styles.carouselCursor}
-          style={{
-            left: `${cursorPos.x}px`,
-            top: `${cursorPos.y}px`,
-            opacity: cursorVisible ? 1 : 0,
-            transform: `translate(-50%, -50%) scale(${cursorVisible ? 1 : 0.8})`,
-          }}
-        >
-          <div className={`${styles.cursorArrow} ${cursorSide === 'left' ? styles.cursorArrowLeft : styles.cursorArrowRight}`} />
-        </div>,
-        document.body
-      )}
+      {cursorActive &&
+        !isMobile &&
+        ReactDOM.createPortal(
+          <div
+            className={styles.carouselCursor}
+            style={{
+              left: `${cursorPos.x}px`,
+              top: `${cursorPos.y}px`,
+              opacity: cursorVisible ? 1 : 0,
+              transform: `translate(-50%, -50%) scale(${cursorVisible ? 1 : 0.8})`,
+            }}
+          >
+            <div
+              className={`${styles.cursorArrow} ${cursorSide === 'left' ? styles.cursorArrowLeft : styles.cursorArrowRight}`}
+            />
+          </div>,
+          document.body
+        )}
     </div>
   );
 };

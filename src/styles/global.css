@@ -1,96 +1,92 @@
+@import './tokens.css';
+
 @font-face {
-    font-family: 'FounderGrotesk_Regular';
-    src: url('../assets/fonts/FoundersGrotesk-Regular.woff2') format('woff2'),
-         url('../assets/fonts/FoundersGrotesk-Regular.otf') format('opentype');
-    font-display: swap;
+  font-family: 'FounderGrotesk_Regular';
+  src:
+    url('../assets/fonts/FoundersGrotesk-Regular.woff2') format('woff2'),
+    url('../assets/fonts/FoundersGrotesk-Regular.otf') format('opentype');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'FounderGrotesk_Light';
-    src: url('../assets/fonts/FoundersGrotesk-Light.otf') format('opentype');
-    font-display: swap;
+  font-family: 'FounderGrotesk_Light';
+  src: url('../assets/fonts/FoundersGrotesk-Light.otf') format('opentype');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'FounderGrotesk_Medium';
-    src: url('../assets/fonts/FoundersGrotesk-Medium.woff2') format('woff2'),
-         url('../assets/fonts/FoundersGrotesk-Medium.otf') format('opentype');
-    font-display: swap;
+  font-family: 'FounderGrotesk_Medium';
+  src:
+    url('../assets/fonts/FoundersGrotesk-Medium.woff2') format('woff2'),
+    url('../assets/fonts/FoundersGrotesk-Medium.otf') format('opentype');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'FounderGrotesk_SemiBold';
-    src: url('../assets/fonts/FoundersGrotesk-Semibold.woff2') format('woff2'),
-         url('../assets/fonts/FoundersGrotesk-Semibold.otf') format('opentype');
-    font-display: swap;
+  font-family: 'FounderGrotesk_SemiBold';
+  src:
+    url('../assets/fonts/FoundersGrotesk-Semibold.woff2') format('woff2'),
+    url('../assets/fonts/FoundersGrotesk-Semibold.otf') format('opentype');
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'FoundersGrotesk_Bold';
-    src: url('../assets/fonts/FoundersGrotesk-Bold.woff2') format('woff2'),
-         url('../assets/fonts/FoundersGrotesk-Bold.otf') format('opentype');
-    font-display: swap;
+  font-family: 'FoundersGrotesk_Bold';
+  src:
+    url('../assets/fonts/FoundersGrotesk-Bold.woff2') format('woff2'),
+    url('../assets/fonts/FoundersGrotesk-Bold.otf') format('opentype');
+  font-display: swap;
 }
 
-@font-face{
-    font-family: 'GT-Alpina-Regular';
-    src: url('../assets/fonts/GT-Alpina-Standard-Light-Trial.woff2') format('woff2'),
-         url('../assets/fonts/GT-Alpina-Standard-Light-Trial.otf') format('opentype');
-    font-display: swap;
+@font-face {
+  font-family: 'GT-Alpina-Regular';
+  src:
+    url('../assets/fonts/GT-Alpina-Standard-Light-Trial.woff2') format('woff2'),
+    url('../assets/fonts/GT-Alpina-Standard-Light-Trial.otf') format('opentype');
+  font-display: swap;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'FounderGrotesk_Regular', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'FounderGrotesk_Regular', sans-serif;
 }
 
-body{
-    background-color: var(--black);
-    color: white;
-    cursor: auto;
+body {
+  background-color: var(--black);
+  color: white;
+  cursor: auto;
 }
 
 html {
-    cursor: auto;
+  cursor: auto;
 }
 
-
-:root{
-    --black: #131313;
-    --gray: #ADADAD;
-    --dark-gray: #35343F;
-    --background-dark-gray: #1c1c1c;
-    --linear-gradient: linear-gradient(90deg, #A72C4B 0%, #F37655 100%);
-    --second-gradient:  linear-gradient(90deg, #B34747, #D87A5A);
-    --lime: #BCCE2D;
-    --yellow: #F3DA00;
-    --white: #FFFFFF;
-    --border-subtle: 0.5px solid rgba(123, 123, 123, 0.50);
+main {
+  min-height: 100vh;
 }
 
-a{
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 nav a,
 nav button,
 nav a *,
 nav button * {
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 
-h1{
-    font-family: 'FounderGrotesk_SemiBold';
-    font-size: 80px;
+h1 {
+  font-family: 'FounderGrotesk_SemiBold';
+  font-size: 80px;
 }
 
-h2{
-    font-family: 'FounderGrotesk_Regular';
-    font-size: 64px;
-    font-weight: normal;
+h2 {
+  font-family: 'FounderGrotesk_Regular';
+  font-size: 64px;
+  font-weight: normal;
 }
-

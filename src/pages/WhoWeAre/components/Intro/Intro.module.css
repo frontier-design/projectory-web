@@ -1,7 +1,7 @@
 .intro {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-1);
   width: fit-content;
   max-width: 100%;
   text-align: left;
@@ -10,8 +10,8 @@
 .eyebrow {
   margin: 0;
   width: 100%;
-  color: var(--yellow);
-  font-size: clamp(16px, 12cqh, 30px);
+  color: var(--brand-yellow);
+  font-size: clamp(var(--font-size-sm), 12cqh, 30px);
   font-weight: normal;
 }
 
@@ -19,14 +19,14 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: clamp(12px, 2.8vw, 30px);
+  gap: clamp(var(--space-3), 2.8vw, 30px);
 }
 
 .title {
   margin: 0;
   max-width: clamp(160px, 34vw, 520px);
-  color: #fff;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-medium);
   font-size: clamp(28px, 6vw, 58px);
   font-weight: 500;
   line-height: 1.06;
@@ -38,12 +38,14 @@
 
 .paragraph {
   margin: 0;
-  color: #fff;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 24px;
+  color: var(--color-text);
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: var(--font-body);
+  font-size: var(--font-size-xl);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: var(--leading-loose);
 }
 
 .paragraph + .paragraph {
@@ -53,16 +55,16 @@
 @media (max-width: 768px) {
   .intro {
     width: 100%;
-    gap: 8px;
+    gap: var(--space-2);
   }
 
   .copyGroup {
     flex-direction: column;
-    gap: clamp(16px, 4vw, 20px);
+    gap: clamp(var(--space-4), 4vw, var(--space-5));
   }
 
   .eyebrow {
-    font-size: clamp(16px, 4.5vw, 22px);
+    font-size: clamp(var(--font-size-sm), 4.5vw, 22px);
   }
 
   .title {
@@ -70,7 +72,7 @@
   }
 
   .paragraph {
-    font-size: clamp(15px, 5.2vw, 20px);
+    font-size: clamp(15px, 5.2vw, var(--font-size-lg));
   }
 
   .title,

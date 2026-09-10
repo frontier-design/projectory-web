@@ -1,90 +1,90 @@
 .objectivesWrapper {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 50px;
-    align-items: center;
-    color: white;
-    width: 80%;
-    margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+  color: white;
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .imageContainer {
-    width: 100%;
+  width: 100%;
 }
 
 .objectivesImage {
-    width: 100%;
-    height: auto;
-    border-radius: 24px;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
 }
 
 /* 🔹 Right: Text */
 .textContent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .textContent h2 {
-    font-size: 50px;
-    height: 60px;
-    background-size: 120% 120%; /* Ensures full coverage */
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent; 
-    margin-bottom: 20px;
-    display: inline-block; /* Helps ensure the background fits the text */;
+  font-size: 50px;
+  height: 60px;
+  background-size: 120% 120%; /* Ensures full coverage */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  display: inline-block; /* Helps ensure the background fits the text */
 }
 
 .textContent ul {
-    display: block; 
-    padding-left: 20px; 
-    list-style-type: disc; 
+  display: block;
+  padding-left: 20px;
+  list-style-type: disc;
 }
 
 .textContent li {
-    font-size: 25px;
-    margin-bottom: 20px;
+  font-size: 25px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
-    .objectivesWrapper {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        width: 91%;
-        margin: auto;
-        padding: 0;
-    }
+  .objectivesWrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 91%;
+    margin: auto;
+    padding: 0;
+  }
 
-    .textContent {
-        align-items: left;
-        margin: auto;
-        width: 90%;
-    }
+  .textContent {
+    align-items: left;
+    margin: auto;
+    width: 90%;
+  }
 
-    .textContent h2 {
-        font-size: 40px;
-        height: 50px;
-    }
+  .textContent h2 {
+    font-size: 40px;
+    height: 50px;
+  }
 
-    .textContent li {
-        font-size: 20px;
-    }
+  .textContent li {
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 2000px) {
-    .objectivesWrapper {
-        margin-top: 200px;
-        margin-bottom: 200px;
-    }
+  .objectivesWrapper {
+    margin-top: 200px;
+    margin-bottom: 200px;
+  }
 
-    .textContent h2 {
-        font-size: 60px;
-        height: 70px;
-    }
+  .textContent h2 {
+    font-size: 60px;
+    height: 70px;
+  }
 
-    .textContent li {
-        font-size: 30px;
-    }
+  .textContent li {
+    font-size: 30px;
+  }
 }

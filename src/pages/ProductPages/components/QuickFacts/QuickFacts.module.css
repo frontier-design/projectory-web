@@ -1,63 +1,62 @@
 .gridWrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding: 50px;
-    text-align: center;
-    color: white;
-    width: 85%;
-    margin: auto;
-    font-size: 25px;
-    margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 50px;
+  text-align: center;
+  color: white;
+  width: 85%;
+  margin: auto;
+  font-size: 25px;
+  margin-bottom: 50px;
 }
 
 .gridItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 90%;
-    /* justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  /* justify-content: center; */
 }
 
 .icon {
-    width: 80px;
-    margin-bottom: 20px;
+  width: 80px;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
-    .gridWrapper {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px;
-        margin-top: 50px;
-    }
+  .gridWrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+    margin-top: 50px;
+  }
 
-    .gridWrapper p{
-        font-size: 20px;
-    }
+  .gridWrapper p {
+    font-size: 20px;
+  }
 
-    .icon {
-        width: 60px;
-    }
-
+  .icon {
+    width: 60px;
+  }
 }
 
 @media screen and (min-width: 2000px) {
-    .gridWrapper {
-        padding: 100px;
-    }
+  .gridWrapper {
+    padding: 100px;
+  }
 
-    .gridWrapper p{
-        font-size: 30px;
-    }
+  .gridWrapper p {
+    font-size: 30px;
+  }
 
-    .icon {
-        width: 100px;
-    }
-    .gridItem {
-        max-width: 80%;
-    }
-    .gridItem p {
-        font-size: 30px;
-    }
+  .icon {
+    width: 100px;
+  }
+  .gridItem {
+    max-width: 80%;
+  }
+  .gridItem p {
+    font-size: 30px;
+  }
 }

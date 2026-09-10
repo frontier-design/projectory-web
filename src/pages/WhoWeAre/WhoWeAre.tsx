@@ -4,8 +4,12 @@ import ImageCarousel from './components/ImageCarousel/ImageCarousel';
 import Team from './components/Team/Team';
 import WhyWeStarted from './components/WhyWeStarted/WhyWeStarted';
 import CtaBanner from './components/CtaBanner/CtaBanner';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { pageMeta } from '@/config/seo';
 
 const WhoWeAre = () => {
+  useDocumentMeta(pageMeta.whoWeAre);
+
   return (
     <div className={styles.whoWeArePage}>
       <WhoWeAreHero />

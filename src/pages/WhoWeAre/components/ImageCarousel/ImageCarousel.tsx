@@ -6,12 +6,7 @@ const ImageCarousel = () => {
   return (
     <div className={styles.carouselSection}>
       <section className={styles.carousel} aria-label="Who we are photo gallery">
-        <Marquee
-          speed={45}
-          autoFill
-          gradient={false}
-          className={styles.marquee}
-        >
+        <Marquee speed={45} autoFill gradient={false} className={styles.marquee}>
           {carouselImages.map((image, index) => (
             <div key={index} className={styles.marqueeSlide}>
               <img

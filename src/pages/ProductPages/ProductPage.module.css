@@ -1,183 +1,185 @@
 .productSelect {
-    position: fixed;
-    bottom: 0;
-    right: 20px;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    z-index: 999999;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 999999;
 }
 
 /* ── Carousel (featured first image section) ── */
 
 .carousel {
-    --slide-width: 60vw;
-    --slide-gap: 20px;
-    --side-peek: calc((100% - var(--slide-width)) / 2);
-    width: 100%;
-    position: relative;
-    margin-bottom: 130px;
-    cursor: none;
+  --slide-width: 60vw;
+  --slide-gap: 20px;
+  --side-peek: calc((100% - var(--slide-width)) / 2);
+  width: 100%;
+  position: relative;
+  margin-bottom: 130px;
+  cursor: none;
 }
 
 .carousel::before,
 .carousel::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: var(--side-peek);
-    z-index: 1;
-    pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--side-peek);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .carousel::before {
-    left: 0;
-    background: linear-gradient(to right, var(--black), transparent);
+  left: 0;
+  background: linear-gradient(to right, var(--black), transparent);
 }
 
 .carousel::after {
-    right: 0;
-    background: linear-gradient(to left, var(--black), transparent);
+  right: 0;
+  background: linear-gradient(to left, var(--black), transparent);
 }
 
 .carouselViewport {
-    overflow: hidden;
-    width: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 
 .carouselTrack {
-    display: flex;
+  display: flex;
 }
 
 .carouselSlide {
-    flex: 0 0 var(--slide-width);
-    min-width: 0;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-left: calc(var(--slide-gap) / 2);
-    margin-right: calc(var(--slide-gap) / 2);
+  flex: 0 0 var(--slide-width);
+  min-width: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-left: calc(var(--slide-gap) / 2);
+  margin-right: calc(var(--slide-gap) / 2);
 }
 
 .carouselImage {
-    width: 100%;
-    height: 75vh;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 75vh;
+  object-fit: cover;
+  display: block;
 }
 
 .carouselCursor {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    will-change: transform, opacity;
-    transition: opacity 0.2s ease-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  will-change: transform, opacity;
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .cursorArrow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 12px;
-    height: 12px;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid var(--white);
+  border-right: 2px solid var(--white);
 }
 
 .cursorArrowRight {
-    transform: translate(-60%, -50%) rotate(45deg);
+  transform: translate(-60%, -50%) rotate(45deg);
 }
 
 .cursorArrowLeft {
-    transform: translate(-40%, -50%) rotate(-135deg);
+  transform: translate(-40%, -50%) rotate(-135deg);
 }
 
 /* ── Non-carousel images ── */
 
 .fullPageImage {
-    width: 80%;
-    height: auto;
-    margin: 0 auto;
-    object-fit: cover;
-    display: block;
-    border-radius: 20px;
-    margin-bottom: 130px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  margin-bottom: 130px;
 }
 
 .floatingLikeButton {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 9999;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
 }
 
 /* The button styling itself */
 .likeButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .likeButton img {
-    width: 48px;
-    height: 48px;
-    transition: transform 0.2s ease;
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
 }
 
 .likeButton img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-.floatingText{
-    position: fixed;
-    font-size: 17px;
-    bottom: 20px;
-    left: 80px;
-    padding: 12px 15px;
-    border-radius: 8px;
-    z-index: 9999;
-    background-color: #3F3E48;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.floatingText {
+  position: fixed;
+  font-size: 17px;
+  bottom: 20px;
+  left: 80px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  z-index: 9999;
+  background-color: #3f3e48;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .likeButton:hover ~ .floatingText {
-    opacity: 1;
+  opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-    .carousel {
-        --slide-width: 84%;
-        --slide-gap: 14px;
-        margin-bottom: 60px;
-        cursor: auto;
-    }
+  .carousel {
+    --slide-width: 84%;
+    --slide-gap: 14px;
+    margin-bottom: 60px;
+    cursor: auto;
+  }
 
-    .carouselSlide {
-        aspect-ratio: 4 / 5;
-    }
+  .carouselSlide {
+    aspect-ratio: 4 / 5;
+  }
 
-    .carouselImage {
-        height: 100%;
-        object-fit: cover;
-    }
+  .carouselImage {
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .fullPageImage {
-        width: 91%;
-        height: auto;
-        max-height: none;
-        margin-top: 50px;
-    }
+  .fullPageImage {
+    width: 91%;
+    height: auto;
+    max-height: none;
+    margin-top: 50px;
+  }
 }

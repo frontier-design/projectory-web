@@ -1,10 +1,12 @@
 .whoWeArePage {
+  /* Page tokens: the gutter every section on this page aligns to. Consumed
+     by WhoWeAreHero's intro band as well, via the cascade. */
   --page-pad-y: 50px;
-  --page-pad-x: clamp(24px, 8vw, 150px);
+  --page-pad-x: clamp(var(--space-6), 8vw, 150px);
   width: 100%;
   min-height: 100vh;
-  background: var(--black);
-  color: white;
+  background: var(--color-bg);
+  color: var(--color-text);
   overflow-x: clip;
 }
 
@@ -17,18 +19,18 @@
 }
 
 .sectionBlock {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: var(--block-4);
+  padding-bottom: var(--block-4);
 }
 
 .teamBlock {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: var(--block-3);
+  padding-bottom: var(--block-3);
 }
 
 @media (max-width: 768px) {
   .teamBlock {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
   }
 }

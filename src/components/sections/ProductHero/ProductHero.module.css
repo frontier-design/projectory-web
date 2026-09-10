@@ -1,0 +1,168 @@
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 50px;
+  text-align: left;
+  color: white;
+  overflow: hidden;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  z-index: -1;
+}
+
+.productHeroContent {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  z-index: 2;
+  display: flex;
+}
+
+.productHeroContentLeft {
+  max-width: 1000px;
+}
+
+.productHeroContentRight {
+  width: 50%;
+  position: relative;
+}
+
+.productHeroContentRight img {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 35px;
+}
+
+.category {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+.category strong {
+  font-family: 'FoundersGrotesk_Bold';
+}
+
+.productHeroContent h1 {
+  margin: auto;
+  font-size: 60px;
+  margin-bottom: 20px;
+  font-family: 'FounderGrotesk_Regular';
+  width: 100%;
+  margin-left: 0;
+  line-height: 1;
+}
+
+.tagContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.clientLogo {
+  filter: grayscale(1);
+}
+
+.tag {
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 700px) {
+  .heroWrapper {
+    padding: 17px;
+    height: 90vh;
+  }
+
+  .productHeroContent h1 {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .category {
+    font-size: 24px;
+  }
+
+  .tagContainer {
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .productHeroContent {
+    flex-direction: column;
+  }
+
+  .productHeroContentLeft {
+    order: 2;
+  }
+
+  .productHeroContentRight img {
+    width: 100px;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .heroWrapper {
+    padding: 100px;
+    height: 100vh;
+  }
+
+  .productHeroContent h1 {
+    font-size: 80px;
+    margin-bottom: 40px;
+  }
+
+  .tag {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
+  .category {
+    font-size: 40px;
+  }
+
+  .productHeroContentLeft {
+    max-width: 1250px;
+  }
+
+  .category {
+    margin-bottom: 20px;
+  }
+}

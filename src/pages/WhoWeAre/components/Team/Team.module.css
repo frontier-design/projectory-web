@@ -1,4 +1,6 @@
 .peopleSection {
+  /* Component token: one heading size drives both the section title and each
+     person's name, so they stay locked together across breakpoints. */
   --team-heading-size: 38px;
   width: 100%;
   margin: 0 auto;
@@ -9,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: var(--space-5);
   max-width: 520px;
   margin: 0 auto clamp(48px, 6vw, 72px);
   text-align: center;
@@ -17,8 +19,8 @@
 
 .teamTitle {
   margin: 0;
-  color: #fff;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
+  color: var(--color-text);
+  font-family: var(--font-medium);
   font-size: var(--team-heading-size);
   font-style: normal;
   font-weight: 500;
@@ -28,11 +30,13 @@
 
 .teamIntro {
   margin: 0;
-  color: #fff;
+  color: var(--color-text);
   text-align: center;
-  font-feature-settings: 'liga' off, 'clig' off;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 20px;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
   font-style: normal;
   font-weight: 400;
   line-height: 27px;
@@ -42,7 +46,7 @@
   display: grid;
   grid-template-columns: repeat(3, 340px);
   justify-content: center;
-  gap: 24px;
+  gap: var(--space-6);
   align-items: start;
 }
 
@@ -52,6 +56,9 @@
 }
 
 .personCard {
+  background-color: var(--color-surface);
+  border: var(--border-hairline);
+  box-sizing: border-box;
   display: flex;
   width: 340px;
   max-width: 100%;
@@ -59,10 +66,7 @@
   flex-direction: column;
   align-items: stretch;
   gap: 0;
-  box-sizing: border-box;
-  border: 0.5px solid rgba(123, 123, 123, 0.5);
-  border-radius: 20px;
-  background: #1c1c1c;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
@@ -72,7 +76,7 @@
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 0;
-  background: #1c1c1c;
+  background: var(--color-surface);
 }
 
 .personImage {
@@ -88,7 +92,7 @@
   align-items: center;
   gap: 25px;
   width: 100%;
-  padding: 20px 24px 44px;
+  padding: var(--space-5) var(--space-6) 44px;
   box-sizing: border-box;
 }
 
@@ -101,9 +105,9 @@
 
 .personName {
   margin: 0;
-  color: #fff;
+  color: var(--color-text);
   text-align: center;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-family: var(--font-medium);
   font-size: var(--team-heading-size);
   font-style: normal;
   font-weight: 500;
@@ -112,19 +116,21 @@
 
 .personBio {
   margin: 0;
-  color: #fff;
+  color: var(--color-text);
   text-align: center;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
-  font-size: 18px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
   font-style: normal;
   font-weight: 400;
+  /* 25px against 18px is 1.389 — not a clean ratio, so it stays in px rather
+     than being rounded to --leading-loose and shifting the block. */
   line-height: 25px;
   letter-spacing: 0.15px;
 }
 
 @media (max-width: 1024px) {
   .teamHeader {
-    margin-bottom: 16px;
+    margin-bottom: var(--space-4);
   }
 
   .teamGrid {
@@ -138,11 +144,11 @@
 
 @media (max-width: 480px) {
   .peopleSection {
-    --team-heading-size: 32px;
+    --team-heading-size: var(--font-size-2xl);
   }
 
   .teamIntro {
-    font-size: 18px;
+    font-size: var(--font-size-md);
     line-height: 26px;
   }
 }

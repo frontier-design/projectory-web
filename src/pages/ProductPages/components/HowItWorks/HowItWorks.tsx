@@ -1,6 +1,5 @@
-
 import styles from './HowItWorks.module.css';
-import CloudinaryImage from '../../../../components/CloudinaryImage/CloudinaryImage';
+import CloudinaryImage from '@/components/CloudinaryImage/CloudinaryImage';
 
 interface HowItWorksProps {
   title: string;
@@ -14,10 +13,7 @@ const HowItWorks = ({ title, description, imageUrl }: HowItWorksProps) => {
       {/* 🔹 Text Section */}
       <div className={styles.textContent}>
         <h2>{title}</h2>
-        <p
-          className={styles.description}
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <p className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       </div>
 
       {/* 🔹 Image Section */}

@@ -1,0 +1,101 @@
+/* Button
+ * ══════
+ * Button variants and customization for each variant.
+ */
+
+.base {
+  display: inline-flex;
+  padding: 13px 18px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: var(--btn-border-width, 0) solid var(--btn-border, transparent);
+  border-radius: var(--radius-sm);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.base:hover {
+  background: var(--btn-bg-hover, var(--btn-bg));
+  color: var(--btn-fg-hover, var(--btn-fg));
+  border-color: var(--btn-border-hover, var(--btn-border, transparent));
+}
+
+.base:active {
+  transform: scale(0.97);
+  transition:
+    background 0.08s ease-out,
+    color 0.08s ease-out,
+    border-color 0.08s ease-out,
+    transform 0.08s ease-out;
+}
+
+/* ── Variants ─── */
+
+.lime {
+  --btn-bg: var(--brand-lime);
+  --btn-fg: var(--color-text-inverse);
+  --btn-bg-hover: color-mix(in srgb, var(--brand-lime) 90%, black);
+}
+
+.coral {
+  --btn-bg: var(--brand-coral);
+  --btn-fg: var(--color-text);
+  --btn-border-width: 0.5px;
+  --btn-border: var(--brand-coral);
+  --btn-bg-hover: #e06545;
+  --btn-border-hover: #e06545;
+}
+
+.teal {
+  --btn-bg: var(--color-surface-inverse);
+  --btn-fg: var(--brand-teal);
+  --btn-border-width: 0.5px;
+  --btn-border: var(--color-surface-inverse);
+  --btn-fg-hover: #1fb895;
+}
+
+.plum {
+  --btn-bg: var(--color-surface-inverse);
+  --btn-fg: var(--brand-plum);
+  --btn-fg-hover: var(--color-text-inverse);
+}
+
+.light {
+  --btn-bg: var(--color-surface-inverse);
+  --btn-fg: var(--color-text-inverse);
+  --btn-bg-hover: var(--color-surface-inverse-hover);
+}
+
+.dark {
+  --btn-bg: var(--color-surface);
+  --btn-fg: var(--color-text);
+  --btn-bg-hover: var(--color-surface-hover);
+}
+
+.outline {
+  --btn-bg: transparent;
+  --btn-fg: var(--color-text);
+  --btn-border-width: 0.5px;
+  --btn-border: var(--color-text);
+  --btn-bg-hover: var(--alpha-white-12);
+}
+
+/* ── Sizes ─── */
+
+.small {
+  height: auto;
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-snug);
+  padding: 10px 15px;
+  border-radius: var(--radius-sm);
+}

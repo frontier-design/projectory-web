@@ -3,16 +3,18 @@ import { motion } from 'framer-motion';
 import styles from './ClientLogos.module.css';
 
 // Import logo images
-import logo1 from '../../assets/images/logos/cibc.png';
-import logo2 from '../../assets/images/logos/thomsonReuters.png';
-import logo3 from '../../assets/images/logos/canadianMedicalAssociation.png';
-import logo4 from '../../assets/images/logos/deloitte.webp';
-import logo5 from '../../assets/images/logos/enmax.png';
-import logo6 from '../../assets/images/logos/oracle.png';
-import logo7 from '../../assets/images/logos/pcma.png'
-import logo8 from '../../assets/images/logos/royalCanadianMint.svg'
+import logo1 from '@/assets/images/logos/cibc.webp';
+import logo2 from '@/assets/images/logos/thomsonReuters.webp';
+import logo3 from '@/assets/images/logos/canadianMedicalAssociation.webp';
+import logo4 from '@/assets/images/logos/deloitte.webp';
+import logo5 from '@/assets/images/logos/enmax.webp';
+import logo6 from '@/assets/images/logos/oracle.webp';
+import logo7 from '@/assets/images/logos/pcma.webp';
+import logo8 from '@/assets/images/logos/royalCanadianMint.svg';
 
-interface ClientLogosProps { background?: string; }
+interface ClientLogosProps {
+  background?: string;
+}
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8];
 
@@ -68,12 +70,7 @@ const ClientLogos: React.FC<ClientLogosProps> = ({ background = 'transparent' })
           }}
         >
           {[...logos, ...logos].map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Client Logo ${index + 1}`}
-              className={styles.logo}
-            />
+            <img key={index} src={logo} alt={`Client Logo ${index + 1}`} className={styles.logo} />
           ))}
         </motion.div>
       </div>

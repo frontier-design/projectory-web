@@ -1,247 +1,229 @@
 /* 📂 src/pages/GetEstimatePage/GetEstimatePage.module.css */
-*{
-    scrollbar-width: none; 
-    -ms-overflow-style: none; 
-    overflow: -moz-scrollbars-none;
-    -webkit-overflow-scrolling: touch; 
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .getEstimateWrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 80vw;
-    height: auto;
-    margin: 0 auto;
-    padding: 40px 20px;
-    padding-top: 10vh;
-    color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 80vw;
+  height: auto;
+  margin: 0 auto;
+  padding: 40px 20px;
+  padding-top: 10vh;
+  color: white;
 }
 
 /* Left Column (Liked Products) */
 .leftColumn {
-    padding: 20px;
-    border-radius: 12px;
+  padding: 20px;
+  border-radius: 12px;
 }
 
-.likedItemsWrapper{
-    height: 100%;
+.likedItemsWrapper {
+  height: 100%;
 }
 
 .leftColumn h2 {
-    font-size: 24px;
-    margin-bottom: 30px;
-
+  font-size: 24px;
+  margin-bottom: 30px;
 }
 
 .productItem {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .rightColumn {
-    position: sticky;
-    top: 10vh;
-    padding: 20px;
-    border-radius: 12px;
-    max-height: 90vh;
+  position: sticky;
+  top: 10vh;
+  padding: 20px;
+  border-radius: 12px;
+  max-height: 90vh;
 }
 
-.formWrapper{
-    overflow-y: scroll;
-    height: 100%;
+.formWrapper {
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .rightColumn h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #F37655;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--brand-coral);
 }
 
 .rightColumn p {
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .estimateForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .estimateForm label {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .estimateForm input,
 .estimateForm textarea {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    margin-top: 5px;
-    padding: 8px 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    border: none;
-    background-color: #2C2A35;
-    color: white;
-    resize: none;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  margin-top: 5px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  background-color: var(--slate);
+  color: white;
+  resize: none;
 }
 
-.estimateForm textarea{
-    min-height: 100px;
+.estimateForm textarea {
+  min-height: 100px;
 }
 
 .estimateForm input::placeholder,
 .estimateForm textarea::placeholder {
-    color: #999;
+  color: #999;
 }
 
 /* remove all default focus styling in the form */
 .estimateForm input:focus,
 .estimateForm textarea:focus {
-    outline: none;
-    background-color: #3c3948;
-
+  outline: none;
+  background-color: #3c3948;
 }
 
 .submitButton {
-    padding: 14px 24px;
-    background: linear-gradient(90deg, #A72C4B 0%, #F37655 100%);
-    color: white;
-    font-size: 16px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    align-self: flex-start;
-    margin-top: 10px;
+  padding: 14px 24px;
+  background: linear-gradient(90deg, var(--brand-plum) 0%, var(--brand-coral) 100%);
+  color: white;
+  font-size: 16px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 10px;
 }
 
 .submitButton:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
 .statusMessage {
-    margin-top: 10px;
-    font-size: 14px;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .itemWrapper {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 10px;
 }
 
 .itemTextWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .itemImageWrapper {
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 8px;
-
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .itemImageWrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
 .title {
-    font-family: 'FounderGrotesk_Regular';
-    font-weight: normal;
-    margin-bottom: 8px;
+  font-family: 'FounderGrotesk_Regular';
+  font-weight: normal;
+  margin-bottom: 8px;
 }
 
 .title strong {
-    font-family: 'FoundersGrotesk_Bold';
+  font-family: 'FoundersGrotesk_Bold';
 }
 
 /* Individual liked items container */
 .likedItem {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .likedItem h4 {
-    font-size: 24px;
-    margin: 0 0 5px;
+  font-size: 24px;
+  margin: 0 0 5px;
 }
 
 .likedItem p {
-    font-size: 16px;
-    margin: 0 0 10px;
-    line-height: 1.4;
+  font-size: 16px;
+  margin: 0 0 10px;
+  line-height: 1.4;
 }
 
 /* Remove button styling */
 .removeButton {
-    background: #fff;
-    color: #000;
-    border: none;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.2s ease;
-    width: fit-content;
-    border-radius: 100px;
+  background: var(--white);
+  color: var(--true-black);
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+  width: fit-content;
+  border-radius: 100px;
 }
 
 .removeButton:hover {
-    background: #ddd;
+  background: var(--light-gray);
 }
 
 /* No items text */
 .noItemsText {
-    font-size: 16px;
-    margin-top: 20px;
-    text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .estimateButton {
-    width: fit-content;
-    text-align: center;
-    display: inline-block;
-    background: var(--linear-gradient);
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 100px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    /* space under the button */
-    cursor: pointer;
-    transition: background 0.2s ease;
+  width: fit-content;
+  text-align: center;
+  display: inline-block;
+  background: var(--linear-gradient);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 100px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  /* space under the button */
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .estimateButton:hover {
-    background: #ddd;
+  background: var(--light-gray);
 }
 
 .overlay {
@@ -265,7 +247,7 @@
   max-width: 600px;
   width: 90%;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
@@ -283,8 +265,8 @@
 
 .overlayButton {
   display: inline-block;
-  background: linear-gradient(90deg, #2bdcb7 0%, #178771 100%);
-  color: #fff;
+  background: linear-gradient(90deg, var(--brand-teal) 0%, #178771 100%);
+  color: var(--white);
   padding: 0.75rem 2rem;
   border-radius: 50px;
   text-decoration: none;
@@ -300,103 +282,88 @@
 .overlayLink {
   display: inline-block;
   margin-top: 1rem;
-  color: #ddd;
+  color: var(--light-gray);
   text-decoration: underline;
   font-size: 0.9375rem;
 }
 
 .overlayLink:hover {
-  color: #fff;
+  color: var(--white);
 }
 
-.overlayShapes{
-    position: absolute;
-    width: 700px;
-    height: 420px;
-    background-color: transparent;
-    pointer-events: none;
+.overlayShapes {
+  position: absolute;
+  width: 700px;
+  height: 420px;
+  background-color: transparent;
+  pointer-events: none;
 }
 
-.shape{
-    position: absolute;
-    width: 100px;
+.shape {
+  position: absolute;
+  width: 100px;
 }
 
-.shapeOne{
-    right: 0%;
-    bottom: 0%;
-    transform: rotate(15deg) scale(1.2);
+.shapeOne {
+  right: 0%;
+  bottom: 0%;
+  transform: rotate(15deg) scale(1.2);
 }
 
-.shapeTwo{
-    left: 0%;
-    top: 0%;
-    transform: rotate(-25deg) scale(1.2);
+.shapeTwo {
+  left: 0%;
+  top: 0%;
+  transform: rotate(-25deg) scale(1.2);
 }
 
 @media screen and (min-width: 1500px) {
-    .likedItem h4 {
-        font-size: 28px;
-    }
-    .likedItem p {
-        font-size: 20px;
-    }
+  .likedItem h4 {
+    font-size: 28px;
+  }
+  .likedItem p {
+    font-size: 20px;
+  }
 
-    .likedItem button{
-        font-size: 18px;
-        padding: 8px 16px;
-    }
+  .likedItem button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
 }
 
 @media (max-width: 768px) {
-    .getEstimateWrapper {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 100px;
-        max-width: calc(100% - 30px);
-    }
+  .getEstimateWrapper {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 100px;
+    max-width: calc(100% - 30px);
+  }
 
-    .leftColumn,
-    .rightColumn {
-        margin-bottom: 100px;
-        width: 100%;
-        padding: 0;
-        position: relative;
-        border-radius: 0;
-    }
+  .leftColumn,
+  .rightColumn {
+    margin-bottom: 100px;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    border-radius: 0;
+  }
 
-    .leftColumn {
-        order: 2;
+  .leftColumn {
+    order: 2;
+  }
+  .rightColumn {
+    order: 1;
+  }
 
-    }
-    .rightColumn {
-        order: 1;
-    }
+  .submitButton {
+    margin: auto;
+  }
 
-    .submitButton{
-        margin: auto;
-    }
+  .overlayShapes {
+    width: 100%;
+    height: 100%;
+  }
 
-    .overlayShapes{
-        width: 100%;
-        height: 100%;
-    }
-
-    .shape{
-        display: none;
-    }   
+  .shape {
+    display: none;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

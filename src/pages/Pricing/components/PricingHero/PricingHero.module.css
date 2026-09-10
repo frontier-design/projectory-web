@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-6);
   margin: 0 0 -80px;
   padding: 0;
   text-align: center;
@@ -11,12 +11,12 @@
 .price {
   margin: 0;
   max-width: 900px;
-  font-family: 'FounderGrotesk_Medium', sans-serif;
+  font-family: var(--font-medium);
   font-size: 70px;
   font-style: normal;
   font-weight: 500;
   line-height: 65px;
-  color: var(--white);
+  color: var(--color-text);
   text-align: center;
   white-space: pre-line;
 }
@@ -24,13 +24,15 @@
 .subtitle {
   max-width: 250px;
   width: 100%;
-  font-family: 'FounderGrotesk_Regular', sans-serif;
+  font-family: var(--font-body);
   font-size: 23px;
   font-weight: 400;
   line-height: 28px;
-  color: var(--white);
+  color: var(--color-text);
   text-align: center;
-  font-feature-settings: 'liga' off, 'clig' off;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
   margin: 0;
   white-space: pre-line;
 }
@@ -42,7 +44,7 @@
 
   .price {
     font-size: 48px;
-    line-height: 1.15;
+    line-height: var(--leading-tight);
     max-width: 100%;
   }
 

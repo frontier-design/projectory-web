@@ -1,0 +1,15 @@
+# Build output
+docs/
+dist/
+node_modules/
+package-lock.json
+
+# FROZEN — zero-diff boundary for the cleanup (see the phased cleanup plan).
+# Formatting these would violate the "do not touch backend or activities" constraint.
+src/pages/activities/
+api/
+apps-script-laser-focus/
+apps-script-venting-machine/
+scripts/
+vercel.json
+.clasp.json

@@ -1,14 +1,18 @@
-import salesKickoffImg from './assets/sales-kickoff.webp';
-import leadershipSummitImg from './assets/leadership-summit.webp';
-import tradeShowImg from './assets/trade-show.webp';
-import whitelabelImg from './assets/projectory-CIBC-img.webp';
+const salesKickoffImg =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649008/sales-kickoff_xhgs6u.webp';
+const leadershipSummitImg =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649012/leadership-summit_t7av9e.webp';
+const tradeShowImg =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649009/trade-show_ue7l1t.webp';
+const whitelabelImg =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649011/projectory-CIBC-img_decsv8.webp';
 
 const tradeShowFormerImg =
   'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1749520804/PingPoll_1_d8rjc7_nsiwgv.webp';
 
 export const pricingHero = {
   title: 'Every Product.\nOne Price.',
-  subtitle: "Rent and run it with your team or bring us in.",
+  subtitle: 'Rent and run it with your team or bring us in.',
 };
 
 export const deliveryOptions = [
@@ -37,7 +41,7 @@ export const deliveryOptions = [
     eyebrow: 'Ask Us About',
     title: 'Optional\nAdd-Ons',
     subtitle:
-      "Select the services you need, and we’ll handle everything from initial design to post-event loadout.",
+      'Select the services you need, and we’ll handle everything from initial design to post-event loadout.',
     featureGroups: [
       {
         title: 'Bring us in',
@@ -52,7 +56,7 @@ export const deliveryOptions = [
         items: [
           'Custom new product design for your\nspecific challenge',
           'Custom branding and design\nservices',
-          "Interactive post-event report with\nparticipant-generated outputs",
+          'Interactive post-event report with\nparticipant-generated outputs',
         ],
       },
     ],
@@ -67,7 +71,7 @@ export const deliveryOptionsNote =
 
 export const whitelabelCta = {
   eyebrow: 'Custom Branding?',
-  title: "We\u2019ll Make it Look\nand Feel Like Your Brand",
+  title: 'We\u2019ll Make it Look\nand Feel Like Your Brand',
   body: 'Ask us about white-labeling \u2014 custom colours, brand identity, and fully branded facilitation materials across everything we deliver.',
   button: { label: 'Contact Us', to: '/get-started#contact-form' },
   image: whitelabelImg,
@@ -85,12 +89,7 @@ export const caseStudies = [
     heading: 'Internal team, fully\nsupported on-site',
     description:
       'A Fortune 500 financial company rented two products for their annual SKO. Their internal leaders ran both sessions using our facilitation guides and remote support.',
-    tags: [
-      'One-day event',
-      '300 participants',
-      'Rent-and-run delivery',
-      'Two products',
-    ],
+    tags: ['One-day event', '300 participants', 'Rent-and-run delivery', 'Two products'],
     price: '$22,000',
     currency: 'USD',
   },
@@ -136,12 +135,7 @@ export const caseStudies = [
     heading: 'Installations on the floor,\nsessions in the breakouts',
     description:
       "A national association's annual gathering featured two interactive installations on the show floor and two facilitated breakout sessions \u2014 with an onsite crew handling setup, operation, and teardown throughout.",
-    tags: [
-      'Multi-day event',
-      '1200 participants',
-      'Onsite crew and facilitators',
-      'Four products',
-    ],
+    tags: ['Multi-day event', '1200 participants', 'Onsite crew and facilitators', 'Four products'],
     price: '$45,000',
     currency: 'USD',
   },
@@ -151,11 +145,7 @@ export const caseStudies = [
     heading: 'Branded installation for booth traffic that actually converts',
     description:
       'A healthcare company exhibiting at a major industry trade show wanted something more memorable than typical booth giveaways. We provided a single branded installation that was fully customized to match the booth\u2019s visual identity.',
-    tags: [
-      'Rent-and-run delivery',
-      'One product',
-      'Full white-label branding',
-    ],
+    tags: ['Rent-and-run delivery', 'One product', 'Full white-label branding'],
     price: '$12,000',
     currency: 'USD',
   },

@@ -25,7 +25,6 @@ dist-ssr
 *.sln
 *.sw?
 docs/
-docs/
 
 .claude
 CLAUDE.md

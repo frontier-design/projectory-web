@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
 import { catalogueCta } from '../../pricingData';
-import amberBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-amber.png';
+import Button from '@/components/Button/Button';
 import styles from './CatalogueCTA.module.css';
+
+const amberBadge =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649240/projectory-p-amber_q8opqw.png';
 
 const CatalogueCTA = () => {
   return (
@@ -9,16 +11,11 @@ const CatalogueCTA = () => {
       <div className={styles.content}>
         <h2 className={styles.title}>{catalogueCta.title}</h2>
         <p className={styles.body}>{catalogueCta.body}</p>
-        <Link to={catalogueCta.button.to} className={styles.button}>
+        <Button variant="plum" to={catalogueCta.button.to}>
           {catalogueCta.button.label}
-        </Link>
+        </Button>
       </div>
-      <img
-        src={amberBadge}
-        alt=""
-        className={styles.badgeAmber}
-        aria-hidden
-      />
+      <img src={amberBadge} alt="" className={styles.badgeAmber} aria-hidden />
     </section>
   );
 };

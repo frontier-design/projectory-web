@@ -1,0 +1,293 @@
+/* Footer */
+
+.footer {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 48px var(--block-4) 0;
+  z-index: 10;
+  font-family: inherit;
+}
+
+/* ── Top row: logo + tagline ── */
+
+.footerTop {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--block-2);
+}
+
+.logoLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  color: var(--color-text-dim);
+  margin-top: var(--space-2);
+}
+
+/* ── Five columns ── */
+
+.footerColumns {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1.4fr;
+  gap: var(--block-2);
+  padding-bottom: var(--block-2);
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column headings */
+
+.columnHeading,
+.addressBlock h4 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-medium);
+  font-weight: normal;
+}
+
+.subHeading {
+  margin-top: var(--space-6);
+}
+
+/* Links inside columns */
+
+.footerColumn a {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  text-decoration: none;
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-snug);
+  transition: color var(--transition-fast);
+}
+
+.footerColumn a:hover {
+  color: var(--brand-lime);
+}
+
+/* ── Column 1: Addresses ── */
+
+.addressBlock {
+  margin-bottom: var(--space-5);
+}
+
+.addressBlock h4 {
+  margin-bottom: var(--space-1);
+}
+
+.addressBlock p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: var(--leading-gap);
+}
+
+/* ── Column 5: Intro deck ── */
+
+.introDeck {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.introDeck .columnHeading {
+  margin: 0;
+}
+
+.emailInput {
+  width: 100%;
+  padding: 10px var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  border: var(--border-hairline);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast);
+}
+
+.emailInput::placeholder {
+  color: var(--color-text-dim);
+}
+
+.emailInput:focus {
+  border-color: var(--brand-lime);
+}
+
+.inputHelper {
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+.submitBtn {
+  align-self: flex-start;
+  /* 1px offset for optical alignment hack*/
+  margin-top: calc(var(--space-1) + 1px);
+}
+
+.introDeckStatus {
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  color: var(--color-text-dim);
+  margin: 0;
+  line-height: var(--leading-loose);
+}
+
+.introDeckStatus:empty {
+  display: none;
+}
+
+/* Contact links */
+.contactLink {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  text-decoration: none;
+  margin-bottom: var(--space-1);
+  line-height: var(--leading-loose);
+  transition: color var(--transition-fast);
+}
+
+.contactLink:hover {
+  color: var(--brand-lime);
+}
+
+/* Social icons */
+
+.socialIcons {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: 14px;
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.socialIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.socialIcon:hover {
+  color: var(--brand-lime);
+}
+
+/* ── Bottom bar ── */
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--alpha-white-20);
+  padding: var(--block-2) 0;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.footerBottomLeft {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+  color: var(--color-text-dim);
+  margin: 0;
+}
+
+.copyright strong {
+  color: var(--color-text);
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--font-size-s);
+}
+
+.legalLinks a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.legalLinks a:hover {
+  color: var(--brand-lime);
+}
+
+.legalDivider {
+  color: var(--color-text-dim);
+  user-select: none;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 1200px) {
+  .footer {
+    padding: var(--block-2) var(--block-2) 0;
+  }
+
+  .footerColumns {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--block-1);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px var(--space-6) 0;
+  }
+
+  .footerColumns {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--block-1);
+  }
+
+  /* Intro deck / input area spans full width on mobile */
+  .footerColumns .footerColumn:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .footerColumns {
+    gap: var(--space-6);
+  }
+}

@@ -1,6 +1,6 @@
 // HowWeBuilt.tsx
 import { useState } from 'react';
-import { products as allProducts } from '../../../ProductPages/productsData';
+import { findProductById } from '@/lib/findProduct';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styles from './HowWeBuilt.module.css';
@@ -17,7 +17,7 @@ interface HowWeBuiltProps {
   installations: Installation[];
 }
 
-function formatName(name: string): JSX.Element {
+function formatName(name: string): React.JSX.Element {
   // Remove all spaces, then highlight the last word
   const words = name.trim().split(' ');
   const noSpace = name.replace(/\s+/g, '');
@@ -42,20 +42,24 @@ const HowWeBuilt = ({ installations }: HowWeBuiltProps) => {
 
   // Derive thumbnail from productsData based on the link URL
   const productId = selectedInstallation.link.split('/').pop() || '';
-  const matchedProduct = allProducts.find(p => p.id === productId);
+  const matchedProduct = findProductById(productId);
   const thumbnailSrc = matchedProduct?.thumbnail || selectedInstallation.image;
   // Determine the assigned color from productsData or fallback
   const assignedColor = matchedProduct?.categoryColor || selectedInstallation.color;
 
   // Pull the product's details heading from productsData
-  const detailsSection = matchedProduct?.sections.find(sec => sec.type === 'details');
-  const detailsHeading = detailsSection?.content.heading || selectedInstallation.description;
+  const detailsSection = matchedProduct?.sections.find((sec) => sec.type === 'details');
+  const detailsHeading = detailsSection?.content?.heading || selectedInstallation.description;
 
   return (
     <section className={styles.howWeBuiltWrapper}>
       <div className={styles.headingBlock}>
         <h2> Featured Products </h2>
-        <p> A quick look at the interactions Projectory used to drive engagement at this event. Click to explore each in more detail. </p>
+        <p>
+          {' '}
+          A quick look at the interactions Projectory used to drive engagement at this event. Click
+          to explore each in more detail.{' '}
+        </p>
       </div>
 
       <div className={styles.buttonsRow}>
@@ -63,7 +67,7 @@ const HowWeBuilt = ({ installations }: HowWeBuiltProps) => {
           const isActive = index === selectedIndex;
           // Determine button color from productsData or fallback
           const btnId = inst.link.split('/').pop() || '';
-          const btnProduct = allProducts.find(p => p.id === btnId);
+          const btnProduct = findProductById(btnId);
           const btnColor = btnProduct?.categoryColor || inst.color;
           return (
             <button
@@ -87,16 +91,20 @@ const HowWeBuilt = ({ installations }: HowWeBuiltProps) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <img src={thumbnailSrc} alt={selectedInstallation.name} className={styles.installationImage} />
+            <img
+              src={thumbnailSrc}
+              alt={selectedInstallation.name}
+              className={styles.installationImage}
+            />
             <div className={styles.installationTextWrapper}>
-                <h3 style={{ color: assignedColor }}>{formatName(selectedInstallation.name)}</h3>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: detailsHeading.replace(/\n/g, '<br />')
-                  }}
-                />
+              <h3 style={{ color: assignedColor }}>{formatName(selectedInstallation.name)}</h3>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: detailsHeading.replace(/\n/g, '<br />'),
+                }}
+              />
               <Link to={selectedInstallation.link} className={styles.linkButton}>
-                Learn More 
+                Learn More
               </Link>
             </div>
           </motion.div>

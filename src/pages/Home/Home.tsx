@@ -5,42 +5,44 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 import styles from './Home.module.css';
-import '../../styles/global.css';
+import '@/styles/global.css';
 
-import ContactButton from '../../components/Buttons/ContactButton/ContactButton';
-import ClientLogos from '../../components/ClientLogos/ClientLogos';
-import TestimonialSizzle from '../../components/TestimonalSizzle/TestimonialSizzle';
-import BottomCTA from '../../components/BottomCTA/BottomCTA';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import CustomCursor from '../../components/CustomCursor/CustomCursor';
+import ContactButton from './components/ContactButton/ContactButton';
+import ClientLogos from '@/components/ClientLogos/ClientLogos';
+import TestimonialSizzle from '@/components/TestimonialSizzle/TestimonialSizzle';
+import BottomCTA from './components/BottomCTA/BottomCTA';
+import ProductCard from '@/components/ProductCard/ProductCard';
+import CustomCursor from './components/CustomCursor/CustomCursor';
 
-import { products as allProducts } from '../../pages/ProductPages/productsData';
-import icon1 from '../../assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.svg';
-import icon2 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_3.svg';
-import icon3 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_5.svg';
-import icon4 from '../../assets/images/shapes/abstract/Projectory_AbstractSymbol_6.svg';
-
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  categoryHighlight?: string | null;
-  categoryColor?: string;
-  thumbnail: string;
-  bgVideo?: string;
-}
+import { products as allProducts } from '@/data/products';
+import type { Product } from '@/types/product';
+import { useEscapeKey } from '@/hooks/useEscapeKey';
+import { useScrollLock } from '@/hooks/useScrollLock';
+import icon1 from '@/assets/images/shapes/pMonograms/Projectory_GradientSymbol_Apricot_15.svg';
+import icon2 from '@/assets/images/shapes/abstract/Projectory_AbstractSymbol_3.svg';
+import icon3 from '@/assets/images/shapes/abstract/Projectory_AbstractSymbol_5.svg';
+import icon4 from '@/assets/images/shapes/abstract/Projectory_AbstractSymbol_6.svg';
+import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { pageMeta } from '@/config/seo';
 
 const Home = () => {
+  useDocumentMeta(pageMeta.home);
+
   const secondSectionRef = useRef<HTMLDivElement>(null);
   const middleVideoRef = useRef<HTMLVideoElement>(null);
   const middleVideoSlideRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' ? window.innerWidth <= 764 : false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 764 : false
+  );
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [middleVideoNeedsTapToPlay, setMiddleVideoNeedsTapToPlay] = useState(false);
   const setMiddleVideoNeedsTapToPlayRef = useRef(setMiddleVideoNeedsTapToPlay);
   setMiddleVideoNeedsTapToPlayRef.current = setMiddleVideoNeedsTapToPlay;
 
-  const { ref: sizzleRef, inView: sizzleInView } = useInView({ triggerOnce: true, rootMargin: '300px' });
+  const { ref: sizzleRef, inView: sizzleInView } = useInView({
+    triggerOnce: true,
+    rootMargin: '300px',
+  });
 
   // Check screen size to disable animations on mobile - run first
   useEffect(() => {
@@ -50,29 +52,11 @@ const Home = () => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Handle ESC key to close lightbox
-  useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsLightboxOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, []);
+  // Handle ESC key to close lightbox. Always active, matching the previous
+  // effect's empty dependency array.
+  useEscapeKey(() => setIsLightboxOpen(false));
 
-  // Handle body scroll lock
-  useEffect(() => {
-    if (isLightboxOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isLightboxOpen]);
-
+  useScrollLock(isLightboxOpen);
 
   // Handle middle video: play when in view (fixes mobile autoplay) and when ready
   useEffect(() => {
@@ -117,21 +101,9 @@ const Home = () => {
 
   // Scroll animations (disabled on mobile)
   const { scrollYProgress } = useScroll();
-  const contentOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.25],
-    isMobile ? [1, 1] : [1, 0]
-  );
-  const slidesScale = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isMobile ? [1, 1] : [1.2, 0.4]
-  );
-  const iconScale = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    isMobile ? [1, 1] : [5, 1]
-  );
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.25], isMobile ? [1, 1] : [1, 0]);
+  const slidesScale = useTransform(scrollYProgress, [0, 0.2], isMobile ? [1, 1] : [1.2, 0.4]);
+  const iconScale = useTransform(scrollYProgress, [0, 0.2], isMobile ? [1, 1] : [5, 1]);
 
   // Second section scroll animations
   const { scrollYProgress: secondScrollProgress } = useScroll({
@@ -179,15 +151,13 @@ const Home = () => {
     [0.7, 0.8],
     [
       '0.1px 0.1px 0 var(--background-dark-gray), -0.1px 0.1px 0 var(--background-dark-gray), -0.1px -0.1px 0 var(--background-dark-gray), 0.1px -0.1px 0 var(--background-dark-gray)',
-      'none'
+      'none',
     ]
   );
 
   // Memoize random product selection to prevent recalculation on every render
   const randomProducts = useMemo(() => {
-    return [...allProducts]
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 5);
+    return [...allProducts].sort(() => 0.5 - Math.random()).slice(0, 5);
   }, []); // Only calculate once on mount
 
   // Memoize product grouping
@@ -236,7 +206,11 @@ const Home = () => {
             <ContactButton />
           </motion.div>
 
-          <motion.div id="home-video-slides" className={styles.videoSlides} style={{ scale: slidesScale }}>
+          <motion.div
+            id="home-video-slides"
+            className={styles.videoSlides}
+            style={{ scale: slidesScale }}
+          >
             {!isMobile && (
               <div className={styles.videoSlide}>
                 <video
@@ -246,7 +220,7 @@ const Home = () => {
                 />
               </div>
             )}
-            <div 
+            <div
               ref={middleVideoSlideRef}
               className={`${styles.videoSlide} ${styles.middleVideoSlide}`}
               onClick={() => setIsLightboxOpen(true)}
@@ -263,11 +237,13 @@ const Home = () => {
                   className={styles.tapToPlayOverlay}
                   onClick={(e) => {
                     e.stopPropagation();
-                    middleVideoRef.current?.play().then(() => setMiddleVideoNeedsTapToPlay(false)).catch(() => {});
+                    middleVideoRef.current
+                      ?.play()
+                      .then(() => setMiddleVideoNeedsTapToPlay(false))
+                      .catch(() => {});
                   }}
                   aria-label="Play video"
-                >
-                </button>
+                ></button>
               )}
               <CustomCursor targetRef={middleVideoSlideRef} isMobile={isMobile} />
             </div>
@@ -312,7 +288,10 @@ const Home = () => {
           <motion.p className={styles.text} style={{ color: textColor6 }}>
             The future of events is clearly experiential.
           </motion.p>
-          <motion.p className={`${styles.text} ${styles.gradientText}`} style={{ color: textColor7, textShadow: textShadow7 }}>
+          <motion.p
+            className={`${styles.text} ${styles.gradientText}`}
+            style={{ color: textColor7, textShadow: textShadow7 }}
+          >
             We’re here to create it with you. Now.
           </motion.p>
         </motion.div>
@@ -343,8 +322,9 @@ const Home = () => {
             </h2>
             <h4>
               Projectory creates tangible, data-rich experiences that enhance in-person events,
-              helping organizers extend the value of their programs and make info-dense events, well,
-              less boring. Find some of our featured products below, or explore all of them in depth.
+              helping organizers extend the value of their programs and make info-dense events,
+              well, less boring. Find some of our featured products below, or explore all of them in
+              depth.
             </h4>
           </div>
 
@@ -385,29 +365,30 @@ const Home = () => {
         buttonLink="/get-started"
       />
 
-      {isLightboxOpen && ReactDOM.createPortal(
-        <div className={styles.lightboxBackdrop} onClick={() => setIsLightboxOpen(false)}>
-          <button 
-            className={styles.lightboxCloseButton} 
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsLightboxOpen(false);
-            }}
-          >
-            <FiX />
-          </button>
-          <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
-            <video
-              className={styles.lightboxVideo}
-              src="https://res.cloudinary.com/dazzkestf/video/upload/q_auto/v1769443947/Projectory_LandingVideo_t4wkon.mp4"
-              autoPlay
-              controls
-              playsInline
-            />
-          </div>
-        </div>,
-        document.body
-      )}
+      {isLightboxOpen &&
+        ReactDOM.createPortal(
+          <div className={styles.lightboxBackdrop} onClick={() => setIsLightboxOpen(false)}>
+            <button
+              className={styles.lightboxCloseButton}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsLightboxOpen(false);
+              }}
+            >
+              <FiX />
+            </button>
+            <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+              <video
+                className={styles.lightboxVideo}
+                src="https://res.cloudinary.com/dazzkestf/video/upload/q_auto/v1769443947/Projectory_LandingVideo_t4wkon.mp4"
+                autoPlay
+                controls
+                playsInline
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 };

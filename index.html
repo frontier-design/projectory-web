@@ -1,58 +1,107 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/Projectory_Symbol_White.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/Projectory_Symbol_Black.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="apple-touch-icon" href="/images/Projectory_Symbol_White.svg" />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="images/Projectory_Symbol_White.svg"
-    media="(prefers-color-scheme: dark)" />
-  <link rel="icon" type="image/svg+xml" href="images/Projectory_Symbol_Black.svg"
-    media="(prefers-color-scheme: light)" />
-  <link rel="apple-touch-icon" href="images/Projectory_Symbol_White.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projectory</title>
+    <!-- Defaults for crawlers that do not execute JS. useDocumentMeta replaces
+         these per route once React mounts. -->
+    <title>Projectory</title>
+    <meta
+      name="description"
+      content="Projectory transforms half-listening event attendees into an engaged cohort of active, connected participants."
+    />
+    <meta property="og:site_name" content="Projectory" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
 
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="dns-prefetch" href="https://res.cloudinary.com">
-</head>
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+    <!-- /get-started LCP cards: start the exact w_ candidates React will request,
+         before the lazy chunk mounts. Pathname-gated so other routes stay clean. -->
+    <script>
+      (function () {
+        var path = location.pathname.replace(/\/$/, '') || '/';
+        if (path !== '/get-started') return;
+        var sizes = '(max-width: 768px) 44vw, 23vw';
+        var widths = [320, 480, 800];
+        var cards = [
+          'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746630383/1732132444884_tgvvql.webp',
+          'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1746649932/d0fd6bbe-969a-4e6c-a1ae-84fa460b2950_ybgiyf.webp',
+        ];
+        cards.forEach(function (src) {
+          var srcset = widths
+            .map(function (w) {
+              return src.replace('/upload/f_auto,q_auto/', '/upload/f_auto,q_auto,w_' + w + '/') + ' ' + w + 'w';
+            })
+            .join(', ');
+          var link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.setAttribute('imagesrcset', srcset);
+          link.setAttribute('imagesizes', sizes);
+          link.fetchPriority = 'high';
+          document.head.appendChild(link);
+        });
+      })();
+    </script>
+  </head>
 
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        var s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6BYLJME7C6';
-        s.async = true;
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-6BYLJME7C6');
-      }, 0);
-    });
-  </script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 
-  <script>
-    (function (ss, ex) {
-      window.ldfdr = window.ldfdr || function () {
-        (ldfdr._q = ldfdr._q || []).push([].slice.call(arguments));
-      };
-      (function (d, s) {
-        var fs = d.getElementsByTagName(s)[0];
-        function ce(src) {
-          var cs = d.createElement(s);
-          cs.src = src;
-          cs.async = 1;
-          fs.parentNode.insertBefore(cs, fs);
-        }
-        ce('https://sc.lfeeder.com/lftracker_v1_' + ss + (ex ? '_' + ex : '') + '.js');
-      })(document, 'script');
-    })('3P1w24d5lOGamY5n');
-  </script>
-</body>
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-6BYLJME7C6';
+          s.async = true;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-6BYLJME7C6');
+        }, 0);
+      });
+    </script>
 
+    <script>
+      (function (ss, ex) {
+        window.ldfdr =
+          window.ldfdr ||
+          function () {
+            (ldfdr._q = ldfdr._q || []).push([].slice.call(arguments));
+          };
+        (function (d, s) {
+          var fs = d.getElementsByTagName(s)[0];
+          function ce(src) {
+            var cs = d.createElement(s);
+            cs.src = src;
+            cs.async = 1;
+            fs.parentNode.insertBefore(cs, fs);
+          }
+          ce('https://sc.lfeeder.com/lftracker_v1_' + ss + (ex ? '_' + ex : '') + '.js');
+        })(document, 'script');
+      })('3P1w24d5lOGamY5n');
+    </script>
+  </body>
 </html>

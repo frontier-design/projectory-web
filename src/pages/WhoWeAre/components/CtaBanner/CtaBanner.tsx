@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
 import { ctaBanner } from '../../whoWeAreData';
-import tealBadge from '../../../../assets/images/shapes/pMonograms/projectory-p-teal.png';
+import Button from '@/components/Button/Button';
 import styles from './CtaBanner.module.css';
+
+const tealBadge =
+  'https://res.cloudinary.com/dazzkestf/image/upload/f_auto,q_auto/v1786649241/projectory-p-teal_twddmb.png';
 
 const CtaBanner = () => {
   return (
@@ -10,20 +12,15 @@ const CtaBanner = () => {
         <h2 className={styles.title}>{ctaBanner.title}</h2>
         <p className={styles.body}>{ctaBanner.body}</p>
         <div className={styles.actions}>
-          <Link to={ctaBanner.primary.to} className={styles.buttonPrimary}>
+          <Button variant="teal" to={ctaBanner.primary.to}>
             {ctaBanner.primary.label}
-          </Link>
-          <Link to={ctaBanner.secondary.to} className={styles.buttonSecondary}>
+          </Button>
+          <Button variant="outline" to={ctaBanner.secondary.to}>
             {ctaBanner.secondary.label}
-          </Link>
+          </Button>
         </div>
       </div>
-      <img
-        src={tealBadge}
-        alt=""
-        className={styles.badgeTeal}
-        aria-hidden
-      />
+      <img src={tealBadge} alt="" className={styles.badgeTeal} aria-hidden />
     </section>
   );
 };
