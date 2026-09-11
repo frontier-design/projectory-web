@@ -13,8 +13,7 @@
     { "source": "/laserfocus/scatterplot", "has": [{ "type": "header", "key": "host", "value": "projectory.live" }], "destination": "https://activity.projectory.live/laserfocus/scatterplot", "permanent": true },
     { "source": "/laserfocus/scatterplot", "has": [{ "type": "header", "key": "host", "value": "www.projectory.live" }], "destination": "https://activity.projectory.live/laserfocus/scatterplot", "permanent": true },
     { "source": "/ventingmachine", "has": [{ "type": "header", "key": "host", "value": "projectory.live" }], "destination": "https://activity.projectory.live/ventingmachine", "permanent": true },
-    { "source": "/ventingmachine", "has": [{ "type": "header", "key": "host", "value": "www.projectory.live" }], "destination": "https://activity.projectory.live/ventingmachine", "permanent": true },
-    { "source": "/:path*", "has": [{ "type": "header", "key": "host", "value": "www.projectory.live" }], "destination": "https://projectory.live/:path*", "permanent": true }
+    { "source": "/ventingmachine", "has": [{ "type": "header", "key": "host", "value": "www.projectory.live" }], "destination": "https://activity.projectory.live/ventingmachine", "permanent": true }
   ],
   "headers": [
     {
