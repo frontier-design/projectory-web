@@ -165,7 +165,7 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
                 Request sent for <span className={styles.programTag}>{program}</span>
               </h2>
               <p className={styles.successBody}>
-                Thanks, {formData.name.split(' ')[0]}. We’ll be in touch shortly.
+                Got it! We’ll be in touch soon with next steps!
               </p>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
