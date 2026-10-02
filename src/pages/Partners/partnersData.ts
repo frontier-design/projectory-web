@@ -47,6 +47,11 @@ export const heroLogos = [
 /* The program cards; each card's "Learn more" opens the enquiry overlay on that program. */
 export type PartnerProgram = 'Refer' | 'Resell' | 'Trade';
 
+/* The program the overlay records in Pipedrive: a card's title, or "CTA" when it was
+   opened from the banner's "Hold the Dates" (which takes the banner's lime). */
+export type ApplyProgram = PartnerProgram | 'CTA';
+export const bannerProgram = { program: 'CTA', accent: 'lime' } as const;
+
 export const partnerPrograms = {
   eyebrow: 'Find your fit, and let’s get to work',
   title: 'Great Events,\nBuilt Together',
@@ -145,5 +150,6 @@ export const testimonial = {
 export const ctaBanner = {
   title: 'Which dates should we\nhold for your client?',
   body: 'Even if it’s months away. We’ll protect\nthe dates and wait for your sign.',
-  primary: { label: 'Hold the Dates', scrollTo: sectionIds.programs },
+  // Opens the enquiry overlay (Partners.tsx).
+  primaryLabel: 'Hold the Dates',
 };

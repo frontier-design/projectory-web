@@ -12,11 +12,19 @@ const VARIANTS = {
   lime: { badge: limeOlive, button: 'limeLight' },
 } as const satisfies Record<string, { badge: string; button: ButtonVariant }>;
 
-/** Either a route (`to`) or an in-page section id to smooth-scroll to (`scrollTo`). */
-type CtaLink = { label: string } & ({ to: string } | { scrollTo: string });
+/** A route (`to`), an in-page section id to smooth-scroll to (`scrollTo`), or a click handler. */
+type CtaLink = { label: string } & (
+  | { to: string }
+  | { scrollTo: string }
+  | { onClick: () => void }
+);
 
 const CtaButton = ({ link, variant }: { link: CtaLink; variant: ButtonVariant }) =>
-  'scrollTo' in link ? (
+  'onClick' in link ? (
+    <Button variant={variant} onClick={link.onClick}>
+      {link.label}
+    </Button>
+  ) : 'scrollTo' in link ? (
     <Button variant={variant} onClick={() => scrollToId(link.scrollTo)}>
       {link.label}
     </Button>

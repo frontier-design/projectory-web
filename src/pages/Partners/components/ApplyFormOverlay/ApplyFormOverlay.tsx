@@ -1,6 +1,6 @@
-// Partner enquiry as a dark-glass overlay, opened from a program card's "Learn more".
-// Asks who they are and which event dates to hold. The submit button (the cards' "Learn more"
-// button) takes the card's accent.
+// Partner enquiry as a dark-glass overlay, opened from a program card's "Learn more" or the
+// banner's "Hold the Dates". Asks who they are and which event dates to hold. The submit
+// button (the cards' "Learn more" button) takes the card's accent, or the banner's lime.
 import { useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -11,12 +11,12 @@ import { useScrollLock } from '@/hooks/useScrollLock';
 import HoneypotField from '@/components/HoneypotField/HoneypotField';
 import { useLeadForm } from '@/hooks/useLeadForm';
 import { fieldErrorMessage } from '@/lib/leads';
-import { partnerPrograms, type PartnerProgram } from '../../partnersData';
+import { bannerProgram, partnerPrograms, type ApplyProgram } from '../../partnersData';
 import styles from './ApplyFormOverlay.module.css';
 
 interface ApplyFormOverlayProps {
-  /** The card whose "Learn more" was clicked; `null` keeps the overlay closed. */
-  program: PartnerProgram | null;
+  /** The card whose "Learn more" was clicked, or "CTA" for the banner; `null` keeps it closed. */
+  program: ApplyProgram | null;
   onClose: () => void;
 }
 
@@ -45,8 +45,8 @@ const emptyForm = {
   eventLocation: '',
 };
 
-const cardFor = (program: PartnerProgram) =>
-  partnerPrograms.cards.find((c) => c.title === program)!;
+const accentFor = (program: ApplyProgram) =>
+  partnerPrograms.cards.find((c) => c.title === program)?.accent ?? bannerProgram.accent;
 
 const ApplyFormOverlay = ({ program, onClose }: ApplyFormOverlayProps) => {
   const open = program !== null;
@@ -85,7 +85,7 @@ const ApplyFormOverlay = ({ program, onClose }: ApplyFormOverlayProps) => {
 };
 
 interface OverlayPanelProps {
-  program: PartnerProgram;
+  program: ApplyProgram;
   onClose: () => void;
 }
 
@@ -112,7 +112,7 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
     return () => ro.disconnect();
   }, []);
 
-  const card = cardFor(program);
+  const accent = accentFor(program);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -139,7 +139,7 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
 
   return (
     <motion.div
-      className={`${styles.panel} ${styles[card.accent]}`}
+      className={`${styles.panel} ${styles[accent]}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}

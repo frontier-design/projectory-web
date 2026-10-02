@@ -41,7 +41,8 @@ const FORM_LABELS = {
   "partner-application": "Partner application",
 };
 
-const PARTNER_PROGRAMS = ["Refer", "Resell", "Trade"];
+// "CTA": the Partners page banner's "Hold the Dates" opens the same form.
+const PARTNER_PROGRAMS = ["Refer", "Resell", "Trade", "CTA"];
 const REGISTER_A_DEAL = "Register a Deal";
 
 // Leads share Pipedrive's deal fields. Found by name at runtime, so any account

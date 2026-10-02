@@ -1,13 +1,15 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { partnerPrograms, sectionIds, type PartnerProgram } from '../../partnersData';
 import FeatureCard from '@/components/FeatureCard/FeatureCard';
 import MutedNote from '@/components/MutedNote/MutedNote';
-import ApplyFormOverlay from '../ApplyFormOverlay/ApplyFormOverlay';
 import styles from './PartnerPrograms.module.css';
 
-const PartnerPrograms = () => {
-  const [program, setProgram] = useState<PartnerProgram | null>(null);
+interface PartnerProgramsProps {
+  /** A card's "Learn more": opens the enquiry overlay (Partners.tsx) on that program. */
+  onSelect: (program: PartnerProgram) => void;
+}
+
+const PartnerPrograms = ({ onSelect }: PartnerProgramsProps) => {
   const { note } = partnerPrograms;
 
   return (
@@ -22,7 +24,7 @@ const PartnerPrograms = () => {
             <FeatureCard
               key={card.title}
               {...card}
-              cta={{ label: 'Learn more', onClick: () => setProgram(card.title) }}
+              cta={{ label: 'Learn more', onClick: () => onSelect(card.title) }}
             />
           ))}
         </div>
@@ -32,8 +34,6 @@ const PartnerPrograms = () => {
           {note.lines[1]} <Link to={note.link.to}>{note.link.label}</Link>.
         </MutedNote>
       </div>
-
-      <ApplyFormOverlay program={program} onClose={() => setProgram(null)} />
     </section>
   );
 };
