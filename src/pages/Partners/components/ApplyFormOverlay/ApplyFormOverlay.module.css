@@ -162,8 +162,7 @@
   line-height: 25px;
 }
 
-.field input,
-.field textarea {
+.field input {
   box-sizing: border-box;
   width: 100%;
   padding: 14px var(--space-4);
@@ -181,14 +180,12 @@
   transition: border-color var(--transition-fast);
 }
 
-.field input::placeholder,
-.field textarea::placeholder {
+.field input::placeholder {
   color: var(--color-text-dim);
   opacity: 1;
 }
 
-.field input:focus,
-.field textarea:focus {
+.field input:focus {
   border-color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 
@@ -202,9 +199,36 @@
   height: 48px;
 }
 
-.field textarea {
-  height: 140px;
-  resize: none;
+/* ── Date pickers ───
+ * Native pickers, with a dark calendar popup and icon to suit the glass. */
+
+.field input[type='date'] {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+/* WebKit: keep the date text on the input's 25px line. */
+.field input[type='date']::-webkit-datetime-edit,
+.field input[type='date']::-webkit-date-and-time-value {
+  padding: 0;
+  text-align: left;
+}
+
+/* The calendar icon at the hint's strength. */
+.field input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.field input[type='date']:hover::-webkit-calendar-picker-indicator,
+.field input[type='date']:focus::-webkit-calendar-picker-indicator {
+  opacity: 0.8;
+}
+
+/* No date picked yet: its "mm/dd/yyyy" mask reads as a placeholder. */
+.field input.empty {
+  color: var(--color-text-dim);
 }
 
 .submit {

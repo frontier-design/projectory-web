@@ -60,6 +60,8 @@ const FIELDS = [
     options: [...PARTNER_PROGRAMS, REGISTER_A_DEAL],
   },
   { id: "eventDate", name: "Event date", type: "date" },
+  // Partners page Hold the Dates form; "Event date" holds its start date.
+  { id: "eventEndDate", name: "Event end date", type: "date" },
   // Address type to match the "Event location" field the team already uses.
   { id: "eventLocation", name: "Event location", type: "address" },
   { id: "products", name: "Products of interest", type: "text" },
@@ -310,7 +312,7 @@ function readSubmission(body) {
   if (!name) errors.name = "Please enter your name.";
 
   const message = str(fields.message, 5000);
-  if (!message && (form === "contact" || form === "partner-application")) {
+  if (!message && form === "contact") {
     errors.message = "Please enter a message.";
   }
 
@@ -323,12 +325,17 @@ function readSubmission(body) {
     program = REGISTER_A_DEAL;
   }
 
+  const isDate = (v) => DATE_RE.test(v) && !Number.isNaN(Date.parse(v));
   const eventDate = str(fields.eventDate, 10);
-  if (
-    eventDate &&
-    (!DATE_RE.test(eventDate) || Number.isNaN(Date.parse(eventDate)))
-  ) {
+  if (eventDate && !isDate(eventDate)) {
     errors.eventDate = "Please enter a valid date.";
+  }
+  const eventEndDate = str(fields.eventEndDate, 10);
+  if (eventEndDate && !isDate(eventEndDate)) {
+    errors.eventEndDate = "Please enter a valid end date.";
+  } else if (eventEndDate && eventDate && eventEndDate < eventDate) {
+    // YYYY-MM-DD strings sort in date order.
+    errors.eventEndDate = "The end date can't be before the start date.";
   }
 
   if (Object.keys(errors).length) return { fieldErrors: errors };
@@ -350,6 +357,7 @@ function readSubmission(body) {
       program,
       message,
       eventDate,
+      eventEndDate,
       eventLocation: str(fields.eventLocation, 200),
       products: strList(fields.products, 30),
       experience: strList(finder.type, 10),
@@ -410,7 +418,8 @@ function noteHtml(s) {
     {
       heading: "Event",
       items: [
-        ["Date", s.eventDate],
+        [s.eventEndDate ? "Start date" : "Date", s.eventDate],
+        ["End date", s.eventEndDate],
         ["Location", s.eventLocation],
       ],
     },
@@ -457,6 +466,7 @@ function fieldValues(s) {
     websiteForm: FORM_LABELS[s.form],
     partnerProgram: s.program,
     eventDate: s.eventDate,
+    eventEndDate: s.eventEndDate,
     eventLocation: s.eventLocation,
     products: s.products,
     experienceType: s.experience,

@@ -1,5 +1,5 @@
 // Partner enquiry as a dark-glass overlay, opened from a program card's "Learn more".
-// Fields mirror the Get Started contact form. The submit button (the cards' "Learn more"
+// Asks who they are and which event dates to hold. The submit button (the cards' "Learn more"
 // button, filled with the accent) and the confirmation's program tag take the card's accent.
 import { useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
@@ -35,7 +35,15 @@ const BACKDROP_SHOWN = {
   WebkitBackdropFilter: 'blur(10px)',
 };
 
-const emptyForm = { name: '', email: '', phone: '', company: '', message: '' };
+// eventDate is the start date; the names match what api/lead-form.cjs reads.
+const emptyForm = {
+  name: '',
+  email: '',
+  company: '',
+  eventDate: '',
+  eventEndDate: '',
+  eventLocation: '',
+};
 
 const cardFor = (program: PartnerProgram) =>
   partnerPrograms.cards.find((c) => c.title === program)!;
@@ -106,7 +114,7 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
 
   const card = cardFor(program);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -199,11 +207,11 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
                   />
                 </label>
                 <label className={styles.field}>
-                  <span className={styles.label}>E-Mail</span>
+                  <span className={styles.label}>Email</span>
                   <input
                     type="email"
                     name="email"
-                    placeholder="Enter your e-mail"
+                    placeholder="Enter your email"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -211,42 +219,55 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
                 </label>
               </div>
 
+              <label className={styles.field}>
+                <span className={styles.label}>Company</span>
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Your company"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </label>
+
               <div className={styles.fieldRow}>
                 <label className={styles.field}>
-                  <span className={styles.label}>Phone</span>
+                  <span className={styles.label}>Event start date</span>
                   <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Enter your phone"
-                    value={formData.phone}
+                    type="date"
+                    name="eventDate"
+                    className={formData.eventDate ? undefined : styles.empty}
+                    value={formData.eventDate}
                     onChange={handleChange}
                   />
                 </label>
                 <label className={styles.field}>
-                  <span className={styles.label}>Company</span>
+                  <span className={styles.label}>Event end date</span>
                   <input
-                    type="text"
-                    name="company"
-                    placeholder="Enter your company"
-                    value={formData.company}
+                    type="date"
+                    name="eventEndDate"
+                    className={formData.eventEndDate ? undefined : styles.empty}
+                    // The browser blocks submitting an end date before the start date.
+                    min={formData.eventDate || undefined}
+                    value={formData.eventEndDate}
                     onChange={handleChange}
                   />
                 </label>
               </div>
 
               <label className={styles.field}>
-                <span className={styles.label}>Message</span>
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your question or inquiry..."
-                  value={formData.message}
+                <span className={styles.label}>Event location</span>
+                <input
+                  type="text"
+                  name="eventLocation"
+                  placeholder="City, and venue if you know it"
+                  value={formData.eventLocation}
                   onChange={handleChange}
-                  required
                 />
               </label>
 
               <Button type="submit" variant="light" className={styles.submit} disabled={sending}>
-                Learn more
+                Hold the Dates
               </Button>
               {status && (
                 <p className={styles.statusMessage} role="alert">
