@@ -251,6 +251,14 @@
   text-align: center;
 }
 
+.successBody {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  line-height: 25px;
+}
+
 .backLink {
   margin-top: var(--space-4);
   padding: 0;

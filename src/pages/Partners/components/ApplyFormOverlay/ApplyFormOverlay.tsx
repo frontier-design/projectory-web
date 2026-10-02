@@ -162,8 +162,9 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
               transition={{ duration: 0.35, ease: EASE, delay: 0.15 }}
             >
               <h2 id={titleId} className={styles.title}>
-                Got it! We’ll be in touch soon with next steps!
+                Got it!
               </h2>
+              <p className={styles.successBody}>We’ll be in touch soon with next steps!</p>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
               </button>
