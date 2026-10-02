@@ -164,7 +164,8 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
               <h2 id={titleId} className={styles.title}>
                 Got it!
                 <br />
-                We’ll be in touch soon with next steps!
+                {/* Non-breaking space: "next steps!" wraps as a pair, never leaving "steps!" alone. */}
+                We’ll be in touch soon with next&nbsp;steps!
               </h2>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
