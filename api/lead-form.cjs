@@ -411,6 +411,10 @@ function noteHtml(s) {
     {
       heading: "Details",
       items: [
+        // Also on the linked person; repeated so the note reads on its own.
+        // The intro-deck form uses the email as the name, so it isn't listed twice.
+        ["Name", s.person.name !== s.person.email && s.person.name],
+        ["Email", s.person.email],
         ["Partner program", s.program],
         ["Phone", s.person.phone],
         ["Company", s.company],
