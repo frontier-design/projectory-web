@@ -1,6 +1,6 @@
 // Partner enquiry as a dark-glass overlay, opened from a program card's "Learn more".
 // Asks who they are and which event dates to hold. The submit button (the cards' "Learn more"
-// button, filled with the accent) and the confirmation's program tag take the card's accent.
+// button) takes the card's accent.
 import { useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
@@ -162,9 +162,8 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
               transition={{ duration: 0.35, ease: EASE, delay: 0.15 }}
             >
               <h2 id={titleId} className={styles.title}>
-                Request sent for <span className={styles.programTag}>{program}</span>
+                Got it! We’ll be in touch soon with next steps!
               </h2>
-              <p className={styles.successBody}>Got it! We’ll be in touch soon with next steps!</p>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
               </button>
