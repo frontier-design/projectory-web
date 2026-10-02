@@ -163,8 +163,9 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
             >
               <h2 id={titleId} className={styles.title}>
                 Got it!
+                <br />
+                We’ll be in touch soon with next steps!
               </h2>
-              <p className={styles.successBody}>We’ll be in touch soon with next steps!</p>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
               </button>
