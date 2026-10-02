@@ -164,9 +164,7 @@ const OverlayPanel = ({ program, onClose }: OverlayPanelProps) => {
               <h2 id={titleId} className={styles.title}>
                 Request sent for <span className={styles.programTag}>{program}</span>
               </h2>
-              <p className={styles.successBody}>
-                Got it! We’ll be in touch soon with next steps!
-              </p>
+              <p className={styles.successBody}>Got it! We’ll be in touch soon with next steps!</p>
               <button type="button" className={styles.backLink} onClick={onClose}>
                 Back to the website
               </button>
